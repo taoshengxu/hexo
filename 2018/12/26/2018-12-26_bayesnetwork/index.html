@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/26/2018-12-26_bayesnetwork/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        贝叶斯网络(Bayesian Network)｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>贝叶斯网络(Bayesian Network)</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Dec 26, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#因果" title="因果">因果</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#因果" title="因果">因果</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">7,782 words in total, 31 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>引用1： <a href="https://blog.csdn.net/gdp12315_gu/article/details/50002195" target="_blank" rel="noopener">https://blog.csdn.net/gdp12315_gu/article/details/50002195</a><br>引用2： <a href="https://longaspire.github.io/blog/动态贝叶斯网络/" target="_blank" rel="noopener">https://longaspire.github.io/blog/动态贝叶斯网络/</a></p>
+<h4 id="贝叶斯网络（Bayesian-Networks）"><a href="#贝叶斯网络（Bayesian-Networks）" class="headerlink" title="贝叶斯网络（Bayesian Networks）"></a>贝叶斯网络（Bayesian Networks）</h4><p>贝叶斯网络（Bayesian Networks）也被称为信念网络（Belif Networks）或者因果网络（Causal Networks），是描述数据变量之间依赖关系的一种图形模式，是一种用来进行推理的模型。</p>
+<h3 id="贝叶斯网络结构"><a href="#贝叶斯网络结构" class="headerlink" title="贝叶斯网络结构"></a>贝叶斯网络结构</h3><p>贝叶斯网的网络结构是一个有向无环图（Directed Acyclic Graph），其中每个结点代表一个属性或者数据变量，结点间的弧代表属性（数据变量） 间的概率依赖关系。一条弧由一个属性（数据变量）A指向另外一个属性（数据变量）B说明属性A的取值可以对属性B的取值产生影响，由于是有向无环图，A、B间不会出现有向回路。在贝叶斯网当中，直接的原因结点（弧尾）A叫做其结果结点（弧头）B的双亲结点（parents），B叫做A的孩子结点（children）。如果从一个结点X有一条有向通路指向Y，则称结点X为结点Y的祖先（ancestor），同时称结点Y为结点X的后代（descendent）。 在贝叶斯网中没有输入的结点被称作根结点（root），其他结点被统称为非根结点。</p>
+<p>贝叶斯网络当中的弧表达了结点间的依赖关系，如果<strong>两个结点间有弧连接说明两者之间有因果联系</strong>，反之如果两者之间没有直接的弧连接或者是间接的有向联通路径，则说明两者之间没有依赖关系，即是相互独立的。结点间的相互独立关系是贝叶斯网络当中很重要的一个属性，可以大大减少建网过程当中的计算量。使用贝叶斯网络结构可以使人清晰的得出属性结点间的关系，进而也使得使用贝叶斯网进行推理和预测变得相对容易实现。</p>
+<h3 id="条件概率表"><a href="#条件概率表" class="headerlink" title="条件概率表"></a>条件概率表</h3><p>一个原因结点的出现会导致某个结果的产生时，都是一个概率的表述，而不是必然的，这样就需要为每个结点添加一个<strong>条件概率</strong>。一个节点在其双亲节点（直接的原因接点）的不同取值组合条件下取不同属性值的概率，就构成了该结点的条件概率表。</p>
+<p><strong>贝叶斯网络中的条件概率表是结点的条件概率的集合。当使用贝叶斯网络进行推理时，实际上是使用条件概率表当中的先验概率和已知的证据结点来计算所查询的目标结点的后验概率的过程。</strong></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/bayes_network1.jpg" alt=""></p>
+<p>根据条件概率和贝叶斯网络结构，我们不仅可以由祖先接点推出后代的结果，还可以通过后代当中的证据结点来向前推出祖先取各种状态的概率。 </p>
+<p>贝叶斯网可以处理不完整和带有噪声的数据集，因此被日益广泛的应用于各种推理程序当中。同时由于可以方便的结合已有的先验知识，将已有的经验与数据集的潜在知识相结合，可以弥补相互的片面性与缺点，因此越来越受到研究者的喜欢。</p>
+<h3 id="贝叶斯网络分类"><a href="#贝叶斯网络分类" class="headerlink" title="贝叶斯网络分类"></a>贝叶斯网络分类</h3><ol>
+<li>静态贝叶斯网络： 反映了一系列变量间的概率依存关系，没有考虑时间因素对变量的影响。</li>
+<li>动态贝叶斯网络： 沿时间轴变化的贝叶斯网络。</li>
+</ol>
+<hr>
+<p>以下部分全文引用（<a href="https://longaspire.github.io/blog/动态贝叶斯网络/）" target="_blank" rel="noopener">https://longaspire.github.io/blog/动态贝叶斯网络/）</a></p>
+<hr>
+<h3 id="动态贝叶斯网络（Dynamic-Bayesian-Network-DBN）"><a href="#动态贝叶斯网络（Dynamic-Bayesian-Network-DBN）" class="headerlink" title="动态贝叶斯网络（Dynamic Bayesian Network, DBN）"></a>动态贝叶斯网络（Dynamic Bayesian Network, DBN）</h3><p>动态贝叶斯网络是一种暂态模型（transient state model），能够学习变量间的概率依存关系及其随时间变化的规律，其主要用于时序数据建模。<strong>动态</strong>并不是说网络结构随着时间的变化而发生变化，而是样本数据，或者说观测数据，随着时间的变化而变化。隐马尔可夫模型（hidden markov model, HMM）是一种结构最简单的动态贝叶斯网络。线性状态空间模型（linear state-space models）如<a href="https://longaspire.github.io/blog/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2" target="_blank" rel="noopener">卡尔曼滤波</a>也可以等价看做是动态贝叶斯网络的一种形式。</p>
+<p>一般 的 DBN有两个特点。网络 的 拓扑结构在每个时间片(time slice,快照) 内是相同的，而片与片之间通过类似的弧进行连接。</p>
+<p>为方便处理，假设动态贝叶斯网络满足2个条件：</p>
+<ul>
+<li>网络拓扑结构不随时间发生改变，即除去初始时刻，其余时刻的变量及其概率依存关系相同；</li>
+<li>满足<strong>一阶马尔可夫条件</strong>，即给定当前时刻的状态后，未来时刻的状态和先前时刻的状态无关。</li>
+</ul>
+<p>满足上述条件后，动态贝叶斯网络可以看作是贝叶斯网络在时间序列上的展开，如下图所示。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/bayes_network2.jpg" alt=""></p>
+<p>上图中，贝叶斯网络的过程可以看成：新的数据集$M$在初始数据集$C$的基础上获得，使用贝叶斯公式结合初始数据集$C$得到估计值$O$。<br>而动态贝叶斯网络的过程中，每个时刻的变量$X_{t} = \{ C_{t}, M_{t}, O_{t} \}$的概率依存关系随时间$t$变化。在任意时刻，变量$M_{t}$的状态由变量$C_{t}$决定，而$O_{t}$的状态由$C_{t}$和$M_{t}$共同决定，即变量集$X_{t}$的联合概率分布为：</p>
+<blockquote>
+<p>$P(X_{t}) = P(C_{t}, M_{t}, O_{t}) = P(C_{t})P(M_{t} \mid C_{t})P(O_{t} \mid C_{t}, M_{t})$</p>
+</blockquote>
+<p>考虑$O_{t}$和$C_{t}$间的条件概率分布：</p>
+<blockquote>
+<p>$P(O_{t} \mid C_{t}) = \frac{P(C_{t}, M_{t}, O_{t})}{P(C_{t})}$<br>$= \frac{\sum_{m} P(C_{t}, O_{t}, M_{t} = m)}{P(C_{t})}$<br>$= \frac{\sum_{m} P(C_{t})P(M_{t} = m \mid C_{t}) P(O_{t} \mid C_{t}, M_{t} = m)}{P(C_{t})}$<br>$= \sum_{m} P(M_{t} = m \mid C_{t}) P(O_{t} \mid C_{t}, M_{t} = m)$</p>
+</blockquote>
+<p>在时刻$t-1$和$t$之间，变量集$C_{t}$的状态发生了转移，因此，变量集$X_{t}$的转移概率为$P(X_{t} \mid X_{t-1}) = P(C_{t} \mid C_{t-1})$。注意，$M_{t}$和$O_{t}$都是由$C_{t}$决定的。</p>
+<p>可以看出，动态贝叶斯网络通过网络拓扑结构反映变量间的概率依存关系及随时间变化的情况，其不但能够对变量所对应的不同特征之间的依存关系进行概率建模，而且对特征之间的时序关系也能很好的加以反映。因此，适合对既具有特征相关性又具有时序相关性的复杂特征进行建模。</p>
+<h2 id="2-DBN模型结构"><a href="#2-DBN模型结构" class="headerlink" title="2. DBN模型结构"></a>2. DBN模型结构</h2><p><img src="https://taoshengxu.github.io/DocumentGit/img/bayes_network3.jpg" alt="每个时间片对应一个静态网络，时间片间通过时间关系进行互联"><span class="image-caption-center">每个时间片对应一个静态网络，时间片间通过时间关系进行互联</span></p>
+<p>正如上图所示的典型结构，DBN的结构上具有一些显著的特点<sup id="fnref:4"><a href="#fn:4" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Dynamic Bayesian Networks: A State of the Art](https://ris.utwente.nl/ws/portalfiles/portal/27679465).">[4]</span></a></sup>：</p>
+<ul>
+<li>每个时间片对应的静态模型是一定的，可以看做多个随机变量（状态）交互影响的结构</li>
+<li>每个时刻的某一个状态可能依赖于上一个时刻的某几个状态和/或当前时刻的某几个状态</li>
+</ul>
+<p>我们可以通过T个时刻的隐状态变量$X = \{ x_1, \ldots, x_T \}$和观测变量$Y = \{ y_1, \ldots, y_T \}$的概率分布函数来描述其对应的DBN，如下：</p>
+<blockquote>
+<p>$P(X, Y) = P(x_1)\prod\limits_{t=2}^{T}P(x_t \mid x_{t-1})\prod\limits_{t=1}^{T}P(y_t \mid x_t)$</p>
+</blockquote>
+<p>为了完整地对一个特定的DBN进行描述，我们需要确定以下参数：</p>
+<ul>
+<li>状态转移的概率密度函数$P(X_t \mid X_{t-1})$，用于表述状态在时间上的依赖性</li>
+<li>观测的概率密度函数$P(Y_t \mid X_t)$，用来描述某一个时间片<strong>内部</strong>，观测数据对于其他（未观测）结点的依赖性</li>
+<li>初始状态的概率密度函数$P(X_1)$，用来描述过程开始之初的状态分布情况</li>
+</ul>
+<p>以上的三个要素，在隐马尔科夫模型中可以一一完成对应，而动态贝叶斯网络则是采用了一种更为泛化，具有更通用数据和过程表达能力的模型。</p>
+<p>对于上述前两个参数，需要在某个时间片上进行确定，我们通常简单地假定这些概率密度函数是不随时间改变（time-invariant）的。</p>
+<p>根据随机变量的状态空间设定，DBN既可以是连续的、离散的或者二者皆有的。</p>
+<h2 id="3-DBN的任务及其问题解决"><a href="#3-DBN的任务及其问题解决" class="headerlink" title="3. DBN的任务及其问题解决"></a>3. DBN的任务及其问题解决</h2><p>DBN主要解决的问题可以列举如下：</p>
+<ul>
+<li>推断（inference）：在给定初始分布和一些已知观测的情况下，对未知变量的分布进行求解计算；</li>
+<li>解码（decoding）：在模型确定的情况下，根据已知观测结果对最佳（best-fitting probability value）的隐状态进行查找；</li>
+<li>学习（learning）：给定一组观测序列，给结构已知模型的参数进行调整，以最好地支持观测到的数据；</li>
+<li>剪枝（pruning）：找出当前DSN结构中哪些结点在语义层面上是重要的（semantically important），并将不重要的去除。</li>
+</ul>
+<h3 id="3-1-推断"><a href="#3-1-推断" class="headerlink" title="3.1 推断"></a>3.1 推断</h3><p>推断过程可以看做给定一组有限的$T$个连续的观测变量$Y_{0}^{T-1} = \{ y_0, \ldots, y_{T-1} \}$的情况下，对于连续隐变量序列$X_{0}^{T-1} = \{ x_0, \ldots, x_{T-1} \}$的条件概率分布$P(X_{0}^{T-1} \mid Y_{0}^{T-1})$进行计算。一个具体的例子如下图所示。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/bayes_network4.jpg" alt="已知每个时刻的观测$y_i$，对对应的隐变量$x_i$的取值进行推断"><span class="image-caption-center">已知每个时刻的观测$y_i$，对对应的隐变量$x_i$的取值进行推断</span></p>
+<p>有时候，由于计算$P(X_{0}^{T-1} \mid Y_{0}^{T-1})$过于复杂，可以考虑不对$X_{0}^{T-1}$的每一个排列（constellation）进行条件概率的求解，而转而对概率密度函数的充分统计量（sufficient statistics）进行估计。因此，可以静静选择某一个或几个状态，并在不同时刻对其取值进行估计，即$P(x_{t} \mid Y_{0}^{T-1})$。</p>
+<p>推断过程可以通过前向传播（forward propagation）和后向传播（backward propagation）完成。</p>
+<h4 id="3-1-1-前向传播"><a href="#3-1-1-前向传播" class="headerlink" title="3.1.1 前向传播"></a>3.1.1 前向传播</h4><p>$t$时刻的前向概率分布（forward probability distribution）为：</p>
+<blockquote>
+<p>$\alpha_t(x_t) = P(Y_{0}^{t}, x_t)$</p>
+</blockquote>
+<p>根据网络结构的依赖关系，有：</p>
+<blockquote>
+<p>$\alpha_{t+1}(x_{t+1}) = P(y_{t+1} \mid x_{t+1}) \sum\limits_{x_{t}}P(x_{t+1} \mid x_t)\alpha_t(x_t)$<br>同时，有：<br>$\alpha_{0}(x_{0}) = P(x_{0})$</p>
+</blockquote>
+<h4 id="3-1-2-后向传播"><a href="#3-1-2-后向传播" class="headerlink" title="3.1.2 后向传播"></a>3.1.2 后向传播</h4><p>$t$时刻的后向概率分布（backward probability distribution）为：</p>
+<blockquote>
+<p>$\beta_t(x_t) = P(Y_{t}^{T-1} \mid x_t)$</p>
+</blockquote>
+<p>根据网络结构的依赖关系，有：</p>
+<blockquote>
+<p>$\beta_{t-1}(x_{t-1}) = \sum\limits_{x_{t}}P(x_{t} \mid x_{t-1})\beta_t(x_t)$P(y_t \mid x_t)<br>而且，有：<br>$\beta_{T-1}(x_{T-1}) = 1$</p>
+</blockquote>
+<h4 id="3-1-3-平滑"><a href="#3-1-3-平滑" class="headerlink" title="3.1.3 平滑"></a>3.1.3 平滑</h4><p>根据当前的观测值，还可以对某一个时刻变量的取值进行推断计算，称之为平滑。平滑操作符（smoothing operator）可以定义如下：</p>
+<blockquote>
+<p>$\gamma_{t}(x_t) = P(x_t \mid Y_{0}^{T-1}) = \frac{\alpha_t(x_t)\beta_t(x_t)}{\sum_{x_t}\alpha_t(x_t)\beta_t(x_t)}$</p>
+</blockquote>
+<p>更高阶的平滑方程也可以在前向和后向概率分布的基础上定义。例如，定义一个一阶的平滑：</p>
+<blockquote>
+<p>$\xi_{t, t-1}(x_t, x_{t-1}) = P(x_t, x_{t-1} \mid Y_{0}^{T-1}) = \frac{\alpha_{t-1}(x_{t-1}) P(x_t \mid x_{t-1}) P(y_t \mid x_t) \beta_t(x_t)}{\sum_{x_t}\alpha_t(x_t)\beta_t(x_t)}$</p>
+</blockquote>
+<h4 id="3-1-4-预测"><a href="#3-1-4-预测" class="headerlink" title="3.1.4 预测"></a>3.1.4 预测</h4><p>可形式化地描述为求解$P(y_{t+1} \mid Y_{0}^{t})$或者$P(x_{t+1} \mid Y_{0}^{t})$。</p>
+<blockquote>
+<p>$P(x_{t+1} \mid Y_{0}^{t}) = P(x_{t+1}, Y_{0}^{t}) / P(Y_{0}^{t})$<br>$= \sum_{x_t} P(x_{t+1} \mid x_t) \alpha_t(x_t) / \sum_{x_t} \alpha_t(x_t)$</p>
+</blockquote>
+<p>同时，也可以得到：</p>
+<blockquote>
+<p>$P(y_{t+1} \mid Y_{0}^{t}) = P(y_{t+1}, Y_{0}^{t}) / P(Y_{0}^{t})$<br>$= \sum_{x_{t+1}} P(y_{t+1} \mid x_{t+1}) \sum\limits_{x_{t}}P(x_{t+1} \mid x_t)\alpha_t(x_t) / \sum_{x_t} \alpha_t(x_t)$<br>$= \sum_{x_{t+1}} \alpha_{t+1}(x_{t+1}) / \sum_{x_t} \alpha_t(x_t)$</p>
+</blockquote>
+<p>预测问题可以表示为一个求最大似然（maximum likelihood）的问题：</p>
+<blockquote>
+<p>$x^{\star}_{t+1, t} = \arg\max_{x_{t+1}} P(x_{t+1} \mid Y_{0}^{t})$</p>
+<p>$y^{\star}_{t+1, t} = \arg\max_{y_{t+1}} P(y_{t+1} \mid Y_{0}^{t})$</p>
+</blockquote>
+<h3 id="3-2-解码"><a href="#3-2-解码" class="headerlink" title="3.2 解码"></a>3.2 解码</h3><p>解码问题可以表述如下：</p>
+<blockquote>
+<p>$\hat{X}_{0}^{T-1} = \arg\max\limits_{X_{0}^{T-1}} P(X_{0}^{T-1} \mid Y_{0}^{T-1})$</p>
+</blockquote>
+<p>该问题的求解可以使用经典的动态规划算法——维特比（Viterbi）算法进行求解。</p>
+<p>首先考虑以下简单的形式：</p>
+<blockquote>
+<p>$\delta_{t+1}(x_{t+1}) = \max\limits_{X_{0}^{t}} P(X_{0}^{t+1} \mid Y_{0}^{t+1})$</p>
+</blockquote>
+<p>可以对其进行时序上的递推：</p>
+<blockquote>
+<p>$\delta_{t+1}(x_{t+1}) = P(y_{t+1} \mid x_{t+1}) \max\limits_{x_t}[P(x_{t+1}, x_t) \max\limits_{X_0^{T-1}} P(X_{0}^{t-1} \mid Y_{0}^{t})]$<br>$= P(y_{t+1} \mid x_{t+1}) \max\limits_{x_t}[P(x_{t+1}, x_t) \delta_{t}(x_{t})]$</p>
+</blockquote>
+<p>则我们可以把以上简单形式嵌入到下式表达中：</p>
+<blockquote>
+<p>$\max\limits_{X_{0}^{T-1}} P(X_{0}^{T-1} \mid Y_{0}^{T-1}) = \max\limits_{x_{T-1}}\delta_{T-1}(x_{T-1})$</p>
+</blockquote>
+<p>其现实意义在于，为了找到$\hat{X}_{0}^{T-1}$，每一步都求解最大可能概率的隐变量$x_t$，其能够最大化$\delta_{t+1}(x_{t+1})$。</p>
+<p>假定给定一个式子：</p>
+<blockquote>
+<p>$\psi_{t+1}(x_{t+1}) = \arg\max\limits_{x_t}[P(x_{t+1} \mid x_t) + \delta_{t}(x_t)]$</p>
+</blockquote>
+<p>则优化的目标为：</p>
+<blockquote>
+<p>$\hat{x}_t = \psi_{t+1}(\hat{x}_{t+1})$</p>
+</blockquote>
+<h3 id="3-3-学习"><a href="#3-3-学习" class="headerlink" title="3.3 学习"></a>3.3 学习</h3><p>当DBN网络结构确定时，某些结点间的条件概率依赖无法确切计算，这个时候，就需要考虑对模型参数进行学习调整。EM算法或者GEM（general EM）算法可用来对DBN参数进行学习。</p>
+<blockquote>
+<p>$\log P(X_{0}^{T-1}, Y_{0}^{T-1} \mid \theta) = \log [P(x_0) \prod_{1}^{T-1}P(x_i \mid x_{i-1}) \prod_{0}^{T-1}P(y_i \mid x_i)]$<br>$= \log P(x_0) + \sum_{1}^{T-1}\log P(x_i \mid x_{i-1}) + \sum_{0}^{T-1} \log P(y_i \mid x_i)]$</p>
+</blockquote>
+<p>对上式进行梯度下降，优化的目标为参数向量$\theta$：</p>
+<blockquote>
+<p>$\frac{\partial \log P(x_0)}{\partial \theta} + \sum_{1}^{T-1} \frac{\partial \log P(x_i \mid x_{i-1})}{\partial \theta} + \sum_{0}^{T-1} \frac{\partial \log P(y_i \mid x_i)}{\partial \theta} = 0$</p>
+</blockquote>
+<h3 id="3-4-剪枝"><a href="#3-4-剪枝" class="headerlink" title="3.4 剪枝"></a>3.4 剪枝</h3><p>对DBN进行剪枝的过程是非常复杂的。剪枝通常包括以下步骤：</p>
+<ul>
+<li>删除某个特定结点的某一个状态</li>
+<li>去除两个结点间的关联</li>
+<li>去除一个结点</li>
+</ul>
+<p>例如，对于$t$时刻的某个结点$V_{i}^{(t)}$，如果已经知道其概率$P(V_{i}^{(t)} = s_i) = 1$，即一定等于某个状态$s_i$，则其他的状态可以去除。同时，如果一个结点不存在前继结点同时其对某个状态的概率为0的情况下，该状态也可以被删除。</p>
+<p>剪枝的决定是在推断执行的时间节省和做出错误的可能性间寻找平衡。</p>
+<h2 id="4-构建DBN"><a href="#4-构建DBN" class="headerlink" title="4. 构建DBN"></a>4. 构建DBN</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>结构 / 数据观测</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已知 / 完整（complete）</td>
+<td>simple statistics</td>
+</tr>
+<tr>
+<td>已知 / 部分（incomplete）- 存在隐变量</td>
+<td>EM or gradient ascent</td>
+</tr>
+<tr>
+<td>未知 / 完整</td>
+<td>search through model space</td>
+</tr>
+<tr>
+<td>未知 / 部分</td>
+<td>structural EM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="4-1-已知结构和完整观测"><a href="#4-1-已知结构和完整观测" class="headerlink" title="4.1 已知结构和完整观测"></a>4.1 已知结构和完整观测</h3><p>已知结构$G$的情况下，对于参数的确定可以认为是模型参数在观测数据下的最大似然估计。</p>
+<p>给定$S$个独立的数据序列，数据$\boldsymbol{D}$表示为$\{ D_1, \ldots, D_S \}$。</p>
+<p>我们首先根据链式法则，将所有结点的联合概率分布写为：</p>
+<blockquote>
+<p>$P(X_1, \ldots, X_{m}) = \prod_i P(X_i \mid X_1, \ldots, X_{i-1}) = \prod_i P(X_i \mid Parent(X_i))$</p>
+</blockquote>
+<p>正规化对数似然（normalized log likelihood），也即平均对数似然，可以写为：</p>
+<blockquote>
+<p>$LL = 1/N \cdot \log P(\boldsymbol{D} \mid G)$</p>
+</blockquote>
+<p>$G$也即整个模型参数，$N$是采样的数量。</p>
+<p>可以进一步写为：</p>
+<blockquote>
+<p>$LL = 1/N \cdot \sum_{i=1}^{m} \sum_{l=1}^{S} \log P(X_i \mid Parent(X_i), D_l)$</p>
+</blockquote>
+<p>按照上述公式，我们可以对每个DBN中每个结点对对数似然的贡献进行单独的计算。</p>
+<h3 id="4-2-已知结构和部分观测"><a href="#4-2-已知结构和部分观测" class="headerlink" title="4.2 已知结构和部分观测"></a>4.2 已知结构和部分观测</h3><p>当结构已知，但是数据是部分观测的情况下，我们需要对模型中的部分未知变量进行估计，这个时候需要借助于一些迭代方法，例如EM或者梯度下降，来找到MLE或者MAP的局部最优解。其要点可参照3.1推断中的内容。</p>
+<h3 id="4-3-未知结构和完整观测"><a href="#4-3-未知结构和完整观测" class="headerlink" title="4.3 未知结构和完整观测"></a>4.3 未知结构和完整观测</h3><p>当结构未知但是观测数据完整的情况下，可以考虑利用观测数据对模型结构进行学习。对于结构的学习，一般是通过初始化一个结构，并通过以下方式的修改，得到一个新的结构，并对其进行评估：</p>
+<ol>
+<li>新增一条边；</li>
+<li>改变图中的某一条边；</li>
+<li>删除图的一条边</li>
+</ol>
+<p>以上操作可以保障修改的静态图结构始终为一个DAG。</p>
+<p>为了完成对模型结构的学习，我们按照如下方式对任务进行定义：</p>
+<ol>
+<li>找到一个能够比较不同结构的度量；</li>
+<li>找到查找不同结构的搜索算法；</li>
+</ol>
+<p>搜索算法可以分为启发式算法和基于条件依赖（CI, conditional independence）的算法—即考量不同结点间的依赖关系强弱。启发式算法虽然在执行上较为快速，但其很难收敛到最优解。相比之下，通过CI测试的方法一般可以获得最优或者近似最优解。</p>
+<h4 id="4-3-1-基于条件依赖测试的方法"><a href="#4-3-1-基于条件依赖测试的方法" class="headerlink" title="4.3.1 基于条件依赖测试的方法"></a>4.3.1 基于条件依赖测试的方法</h4><p>在信息论汇总，两个结点$X_i$和$X_j$的互信息（mutual information）可以定义为：</p>
+<blockquote>
+<p>$I(X_i, X_j) = \sum_{x_i, x_j} P(x_i, x_j) \log \frac{P(x_i, x_j)}{P(x_i)P(x_j)}$</p>
+</blockquote>
+<p>条件互信息（conditional mutual information）则可以定义为：</p>
+<blockquote>
+<p>$I(X_i, X_j \mid Y) = \sum_{x_i, x_j, y} P(x_i, x_j, y) \log \frac{P(x_i, x_j \mid y)}{P(x_i \mid y)P(x_j \mid y)}$</p>
+</blockquote>
+<p>在基于CI测试的方法中，$Y$可以看做一组有依赖关系的结点集合，而当两个结点$X_i$和$X_j$的条件互信息$I(X_i, X_j \mid Y)$小于某个阈值的时候，我们可以用条件集（conditional set）$Y$来对上述两个结点进行d-分割，即两个结点在给定$Y$的情况下条件独立。</p>
+<h4 id="4-3-2-启发式搜索方法"><a href="#4-3-2-启发式搜索方法" class="headerlink" title="4.3.2 启发式搜索方法"></a>4.3.2 启发式搜索方法</h4><p>给定训练集$D$，启发式搜索需要找到一个模型结构$B = (G, \Theta)$来最好地拟合数据$D$。其中，$G$对应于网络中所有的随机变量$X (X_1, \ldots, X_N)$的DAG；而$\Theta$表示的是模型的参数。此时需要引入得分函数，并通过最大化评分函数来找到最优的网络结构和模型参数。参照<a href="/blog/静态贝叶斯网络">静态贝叶斯网络</a>。</p>
+<p>总体而言，我们可将问题形式化为：</p>
+<blockquote>
+<p>$\arg\max\limits_{G}P(G \mid D) = \arg\max\limits_{G}\frac{P(D \mid G)P(G)}{P(D)}$</p>
+</blockquote>
+<p>两边取对数，可以写为：</p>
+<blockquote>
+<p>$\arg\min\limits_{G} \log P(G \mid D) = \arg\min\limits_{G} \log P(D \mid G) + \log P(G) + c$</p>
+</blockquote>
+<p>其中，在给定数据的情况下，可以将$\log P(D)$视为上式中的常数$c$。直接使用精确的贝叶斯推断方法通常很难解，这是由于求边缘分布$P(D) = \sum_{G} P(D,G)$通常会引入指数级的计算量。这种情况下，一般可以对后验概率$P(D \mid B)$进行近似，同时加上一定的惩罚。这个惩罚是针对模型的复杂程度进行的，特别是考虑到通常最大似然的网络结构往往是全连接的。</p>
+<p>典型的Bayesian Information Criterion（BIC）如下：</p>
+<blockquote>
+<p>$\log P(G \mid D) \approx \log P(D \mid G, \hat{\Theta}_{G}) - \frac{\log N}{2} len(G)$</p>
+</blockquote>
+<p>上式中，$len(G)$表示模型的维度，$N$是所有采样值的个数，而$\hat{\Theta}_{G}$是模型$G$的最大似然的参数。</p>
+<blockquote>
+<p>总而言之，也是最为重要的，对于DBN的结构学习方法基本与静态贝叶斯网络的结构学习方法相同。</p>
+</blockquote>
+<h3 id="4-4-未知结构和部分观测"><a href="#4-4-未知结构和部分观测" class="headerlink" title="4.4 未知结构和部分观测"></a>4.4 未知结构和部分观测</h3><p>很多情况下，未知结构和部分观测都是真实世界系统中出现的情况。在此情况下，如果还考虑到DBN中时间维度上的变化，则情况变得更加复杂。考虑到部分观测的情况下时，一般很难保证随机过程的马尔科夫性。</p>
+<p>一般情况下，可以考虑使用EM算法进行求解：</p>
+<ol>
+<li>E步：使用当前评估的参数补充完整观测数据；</li>
+<li>M步：在认为补充值为真实观测值的情况下，重新对最大似然的参数进行计算；</li>
+</ol>
+<p>每一步EM都确保数据的似然提升，直到到达一个局部最优解。</p>
+<p>EM算法在部分观测的情况下，也需要进行一定的调整，如结构化的EM（structural EM, SEM）算法。</p>
+<ol>
+<li>E步：同EM算法，根据当前的结构和参数，计算变量的期望值来补充完整数据；</li>
+<li>M步：分为以下两个部分</li>
+</ol>
+<ul>
+<li>同EM算法，重新对最大似然的参数进行估计；</li>
+<li>根据当前的结构，利用期望值来评估其他的候选结构。候选结构的获取是通过完全搜索与当前结构类似的结构来获得的。</li>
+</ul>
+<h2 id="5-DBN和HMM的对比"><a href="#5-DBN和HMM的对比" class="headerlink" title="5. DBN和HMM的对比"></a>5. DBN和HMM的对比</h2><p>假定目前有$D$个对象，需要在一组图像序列（$t$个时刻）中进行位置状态追踪。</p>
+<p>HMM的问题处理：</p>
+<ul>
+<li>假定每个对象每个时刻有$K$个可能状态</li>
+<li>那么每个时刻的状态$X_{t} = (X_{t}^{(1)}, \ldots, X_{t}^{(D)})$具有$K^{D}$个可能取值</li>
+<li>因此，完成推断需要的时间复杂度约为$O(T(K^D)^2)$，而空间复杂度约为$O(TK^D)$</li>
+<li>$P(X_t \mid X_{t-1})$需要对$(K^D)^2$个参数进行判定</li>
+</ul>
+<p>DBN的问题处理：</p>
+<ul>
+<li>HMM对于状态空间的描述使用一个单一的随机变量 $X_{t} = \{ 1, \ldots, K \}$</li>
+<li>DBN对于状态空间的描述使用一组随机变量 $X_{t}^{(1)}, \ldots, X_{t}^{(D)}$ (分解、离散的形式表达)</li>
+<li>DBN对于$P(X_t \mid X_{t-1})$的表达采用更为紧凑的参数化图模型（parameterized graph）</li>
+<li>DBN相比于HMM，在参数个数上指数级别减少，同时其参数估计速度也是指数级地加快了</li>
+<li>时间复杂度约为$O(TDK^{D+1})$</li>
+<li>$P(X_t \mid X_{t-1})$需要对$DK^2$个参数进行判定</li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p>本文主要内容学习整理自引用<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="[Dynamic Bayesian Networks: A State of the Art](https://ris.utwente.nl/ws/portalfiles/portal/27679465).
+">[1]</span></a></sup>。</p>
+</blockquote>
+<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>在<a href="/blog/动态贝叶斯网络">上一篇</a>中，我们对动态贝叶斯网络的基本形式、概念和模型问题进行了一定的解释。其中，大部分内容都还停留在对单独的子模型（sub-model）的问题求解（例如，两大主要问题：推断和学习）。在这篇文章中，我们将从时序模型的角度出发，考虑在时间上结点具有关联的动态贝叶斯网络的主要求解问题，也就是推断（inference）和参数学习（parameter learning）。</p>
+<p>由于在大部分的时态系统中，对于模型结构是大体可知的，那么本文主要考虑的是在结构已知的情况下，进行概率推断和学习参数的问题。</p>
+<p>相比于<a href="/blog/静态贝叶斯网络">静态贝叶斯网络</a>，动态贝叶斯网络的挑战在于，每个time slice的子模型间存在结点的相互关系，那么在上述两个问题中必须要考虑到这些时间连接关系带来的影响。</p>
+<p>在概率推断中，我们必须要对网络模型进行展开（unrolling or rolling up），同时要保证各结点的依赖关系，以及隐结点对观测结点的影响。</p>
+<p>在参数学习中，主要难点在于——部分隐结点的概率分布情况的正确程度（correctness）是很难获知的。</p>
+<p>以下分别对这两个问题的具体求解进行介绍。</p>
+<h2 id="2-概率推断—网络展开问题"><a href="#2-概率推断—网络展开问题" class="headerlink" title="2. 概率推断—网络展开问题"></a>2. 概率推断—网络展开问题</h2><p>引用<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="R. Schafer and T. Weyrath. Assessing Temporally Variable User Properties with Dynamic Bayesian Networks.
+">[2]</span></a></sup>将DBN中的结点分为三个类别：</p>
+<ul>
+<li>dynamic nodes（DN）：随时间进行演变的对象</li>
+<li>static nodes（SN）：不随时间进行演变的对象</li>
+<li>temporary nodes（TN）：不同时刻接收不同的取值的对象，也称为<strong>evidence nodes</strong></li>
+</ul>
+<p>在DBN的网络展开问题中，我们希望每个时刻的子模型结构是一定的，那么在分析时刻$t$的模型时，我们希望利用推断来计算$t-1$时刻的结点带来的影响（influence），并将其删除。这个过程可以理解为网络展开。通过网络展开操作，时刻$t$的dynamic nodes可以转变为root nodes。</p>
+<p>实际上，网络展开的结果，其实是将上一个时刻的知识引入到当前时刻的模型中。其主要依赖的是马尔科夫特性，也即将之前观测到的结果累积到当前时刻，不断迭代下去。</p>
+<p>网络展开的问题在于，其结点消除（node elimination）的方法，可能会引入额外的结点链接关系，并进一步复杂化网络的结构，因此，一些方法被用于更为高效的网络展开：</p>
+<ul>
+<li>连接先验和转移网络（connecting prior and transition networks）</li>
+<li>时态不变网络（temporally invariant networks）</li>
+<li>随机模拟（stochastic simulation）</li>
+<li>结点关系的准确表达（extrac representation of node dependencies）</li>
+</ul>
+<h3 id="2-1-连接先验和转移网络"><a href="#2-1-连接先验和转移网络" class="headerlink" title="2.1 连接先验和转移网络"></a>2.1 连接先验和转移网络</h3><p>在这种类型的DBN表达中，可以将网络分为两个部分：</p>
+<ul>
+<li>初始时刻的贝叶斯网络模型，即先验网络（prior network）；</li>
+<li>连续两个时刻间结点的依赖关系，即转移网络（transition network），它是两个贝叶斯网络的结合。</li>
+</ul>
+<p>那么，网络展开的问题可以通过融合上述两个网络部分来进行求解。</p>
+<p><img src="prior_and_transition_networks.png" alt="利用先验网络和转移网络表示网络"><span class="image-caption-center">利用先验网络和转移网络表示网络</span></p>
+<p>在上图中，$t=0$时刻的随机变量的先验概率和条件概率在左图中进行描述；$t=1, \ldots, T-1$各个时刻的条件依赖关系则由右图给出。</p>
+<p>在先验和转移网络中，若要进行概率推断，可以分别对两部分进行求解。注意，其前提假设在于一阶马尔科夫特性，即当前时刻的情况仅仅与上一时刻的情况相关。</p>
+<h3 id="2-2-时态不变网络"><a href="#2-2-时态不变网络" class="headerlink" title="2.2 时态不变网络"></a>2.2 时态不变网络</h3><p>在展开操作后网络结构保持不变的网络可以被认为是时态不变网络。其前提在于，网络中只有一个temporal node接收来自于上个时刻的必要信息，也就是说网络中只有这个结点受到上个时刻的影响，而在展开中不涉及到其他结点间的关系。</p>
+<p><img src="temporally_invariant_networks.png" alt="时态不变网络，只有结点$X$受到上个时刻结点的影响"><span class="image-caption-center">时态不变网络，只有结点$X$受到上个时刻结点的影响</span></p>
+<p>相比于时态不变网络，下图中给出了一个时态变化网络（temporally variant network）。</p>
+<p><img src="temporally_variant_networks.png" alt="时态变化网络"><span class="image-caption-center">时态变化网络</span></p>
+<p>在上图中，我们发现，变量$X$和$Z$都受到上一个时刻结点的影响。例如，$X_2$和$Z_2$都依赖于$X_1$，也即在它们二者之间，是非独立的。因此，在转换后，我们需要给$X$和$Z$之间加入一条边。</p>
+<blockquote>
+<p>一个子模型中各结点完全连接的网络一定是一个时态不变网络，当然其计算非常复杂。通常这种情况下，需要将其转化为一个时态变化模型，并通过更为有效的结点消除算法来进行推断和学习。</p>
+</blockquote>
+<h3 id="2-3-随机模拟"><a href="#2-3-随机模拟" class="headerlink" title="2.3 随机模拟"></a>2.3 随机模拟</h3><p>随机模拟过程是通过一系列采样值来逼近网络中状态结点的置信（brief）。</p>
+<p>典型的方法是似然权重（likelihood weighting）法。它通过有限次数的试验，每次试验的权重根据观测到的证据下的似然进行权重计算。通过对特别结点上加权平均值的计算，可以获得这些结点上的概率分布信息。</p>
+<h3 id="2-4-结点关系的准确表达"><a href="#2-4-结点关系的准确表达" class="headerlink" title="2.4 结点关系的准确表达"></a>2.4 结点关系的准确表达</h3><p>在DBN中，有三种结点类型间的关系是允许的：</p>
+<ul>
+<li>between dynamic nodes (DN) and temporary nodes (TN)</li>
+<li>between dynamic and dynamic nodes</li>
+<li>between static nodes (SN) and dynamic nodes (DN)</li>
+</ul>
+<p>以下分别进行描述。</p>
+<h4 id="2-4-1-DN和TN间依赖"><a href="#2-4-1-DN和TN间依赖" class="headerlink" title="2.4.1 DN和TN间依赖"></a>2.4.1 DN和TN间依赖</h4><p>TN也称为evidence nodes。</p>
+<p><img src="dn-tn.png" alt="DN和TN间依赖，TN只受到DN的独立影响"><span class="image-caption-center">DN和TN间依赖，TN只受到DN的独立影响</span></p>
+<h4 id="2-4-2-DN间依赖"><a href="#2-4-2-DN间依赖" class="headerlink" title="2.4.2 DN间依赖"></a>2.4.2 DN间依赖</h4><p>假如上图中的TN也会随着时间进行动态变化，则可以表达为下图的形式。</p>
+<p><img src="dn-dn.png" alt="DN间依赖，DN2受到DN1在不同时刻的影响"><span class="image-caption-center">DN间依赖，DN2受到DN1在不同时刻的影响</span></p>
+<h4 id="2-4-3-SN和DN间依赖"><a href="#2-4-3-SN和DN间依赖" class="headerlink" title="2.4.3 SN和DN间依赖"></a>2.4.3 SN和DN间依赖</h4><p>一个DN可以有父SN，如下图(a)所示。</p>
+<p>在图(b)中，DN被认为是在每个时刻创建的TN。同时，DWN被认为是不受SN影响的DN。底下的TN受到SN和DWN的影响。</p>
+<p>图(c)中，SN也可以被看做DN，以此来简化该模型，但是可能会导致更为不准确的推断结果。</p>
+<p><img src="sn-dn.png" alt="SN和TN间依赖"><span class="image-caption-center">SN和TN间依赖</span></p>
+<h2 id="3-参数学习问题"><a href="#3-参数学习问题" class="headerlink" title="3. 参数学习问题"></a>3. 参数学习问题</h2><p>在DBN的结构已知时，模型的参数也并不能完全确定，即便通过对专家知识进行获取的情况下。此时，需要根据数据的观测来对模型参数进行调节，学习到合理的参数。通常情况下，可以认为这是一个最大似然估计的问题——找到最能拟合观测数据的模型参数。</p>
+<p>特别需要注意的是，我们并不是总能在所有的time slice观测到数据。如果模型还存在隐状态，则需要借助EM算法。</p>
+<p>我们将$t$时刻的未观测变量写为$u_t$、观测变量写为$o_t$，那么整个DBN的所有变量的联合概率分布可以写为：</p>
+<blockquote>
+<p>$P(o_1, \ldots, o_T, u_1, \ldots, u_T) = P(u_1) P(o_1 \mid u_1) \prod_{t=2}^{T} P(u_{t} \mid u_{t-1}) P(o_t \mid u_t)$</p>
+</blockquote>
+<p>其对应的EM算法可以表示如下：</p>
+<p><img src="em_dbn.png" alt=""></p>
+<p>这个算法可以表示为 推断隐状态和最大化模型参数的迭代过程。</p>
+<p>在引用<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Audio-Visual Speaker Detection using Dynamic Bayesian Networks.">[3]</span></a></sup>中，作者为了简化学习过程，提出了在第一阶段忽略时间依赖的影响，单独对每个固定观测网络的转移概率进行计算。虽然得到的结果是suboptimal的，但是在计算效率上得到了很大提升。</p>
+<h2 id="引用-1"><a href="#引用-1" class="headerlink" title="引用"></a>引用</h2><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://blog.sina.com.cn/s/blog_13dd6d82a0102vclu.html" target="_blank" rel="noopener">动态贝叶斯网络简述</a>.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://ris.utwente.nl/ws/portalfiles/portal/27679465" target="_blank" rel="noopener">Dynamic Bayesian Networks: A State of the Art</a>.<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://en.wikipedia.org/wiki/Dynamic_Bayesian_network" target="_blank" rel="noopener">Dynamic Bayesian Network, Wikipedia</a>.<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">R. Schafer and T. Weyrath. Assessing Temporally Variable User Properties with Dynamic Bayesian Networks.<a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="http://www.cs.ubc.ca/~murphyk/papers/dbntalk.pdf" target="_blank" rel="noopener">A Tutorial on Dynamic Bayesian Networks</a>.<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Audio-Visual Speaker Detection using Dynamic Bayesian Networks.<a href="#fnref:3" rev="footnote"> ↩</a></span></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">4.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://ris.utwente.nl/ws/portalfiles/portal/27679465" target="_blank" rel="noopener">Dynamic Bayesian Networks: A State of the Art</a>.<a href="#fnref:4" rev="footnote"> ↩</a></span></li></ol></div></div>
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/12/27/2018-12-27_Hexoblog/" data-toggle="tooltip" data-placement="left" title="Hexo">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/12/24/2018-12-24_UpsetR/" data-toggle="tooltip" data-placement="top" title="UpSetR包">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#贝叶斯网络（Bayesian-Networks）"><span class="toc-text">贝叶斯网络（Bayesian Networks）</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#贝叶斯网络结构"><span class="toc-text">贝叶斯网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件概率表"><span class="toc-text">条件概率表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贝叶斯网络分类"><span class="toc-text">贝叶斯网络分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态贝叶斯网络（Dynamic-Bayesian-Network-DBN）"><span class="toc-text">动态贝叶斯网络（Dynamic Bayesian Network, DBN）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-DBN模型结构"><span class="toc-text">2. DBN模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-DBN的任务及其问题解决"><span class="toc-text">3. DBN的任务及其问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-推断"><span class="toc-text">3.1 推断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-前向传播"><span class="toc-text">3.1.1 前向传播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-后向传播"><span class="toc-text">3.1.2 后向传播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-平滑"><span class="toc-text">3.1.3 平滑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-预测"><span class="toc-text">3.1.4 预测</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-解码"><span class="toc-text">3.2 解码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-学习"><span class="toc-text">3.3 学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-剪枝"><span class="toc-text">3.4 剪枝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-构建DBN"><span class="toc-text">4. 构建DBN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-已知结构和完整观测"><span class="toc-text">4.1 已知结构和完整观测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-已知结构和部分观测"><span class="toc-text">4.2 已知结构和部分观测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-未知结构和完整观测"><span class="toc-text">4.3 未知结构和完整观测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-基于条件依赖测试的方法"><span class="toc-text">4.3.1 基于条件依赖测试的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-启发式搜索方法"><span class="toc-text">4.3.2 启发式搜索方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-未知结构和部分观测"><span class="toc-text">4.4 未知结构和部分观测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-DBN和HMM的对比"><span class="toc-text">5. DBN和HMM的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-引言"><span class="toc-text">1. 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-概率推断—网络展开问题"><span class="toc-text">2. 概率推断—网络展开问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-连接先验和转移网络"><span class="toc-text">2.1 连接先验和转移网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-时态不变网络"><span class="toc-text">2.2 时态不变网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-随机模拟"><span class="toc-text">2.3 随机模拟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-结点关系的准确表达"><span class="toc-text">2.4 结点关系的准确表达</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-DN和TN间依赖"><span class="toc-text">2.4.1 DN和TN间依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-DN间依赖"><span class="toc-text">2.4.2 DN间依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-3-SN和DN间依赖"><span class="toc-text">2.4.3 SN和DN间依赖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-参数学习问题"><span class="toc-text">3. 参数学习问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用-1"><span class="toc-text">引用</span></a>
+        
+    </li></div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

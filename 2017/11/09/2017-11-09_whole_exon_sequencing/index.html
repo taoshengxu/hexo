@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/09/2017-11-09_whole_exon_sequencing/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        外显子测序数据分析学习笔记｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>外显子测序数据分析学习笔记</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Nov 9, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">453 words in total, 2 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>学习提纲</strong>：</p>
+<p>（1）<a href="http://www.bio-info-trainee.com/2735.html" target="_blank" rel="noopener">肿瘤全外显子测序数据分析流程</a> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247485033&amp;idx=1&amp;sn=eb9865b92879e20c4afe285aeb8dc73c&amp;chksm=9b4846d2ac3fcfc4e3f90c6ec8ff533494f3a43c502e3c8e842dafb7496db137c11434fccea4&amp;mpshare=1&amp;scene=1&amp;srcid=0922Ls8z5WWLuNh7ml25V20r#rd" target="_blank" rel="noopener">微信连接</a></p>
+<p>(2) <a href="https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247484873&amp;idx=1&amp;sn=e455578dfac51afece7adb21cb315a17&amp;chksm=9b484572ac3fcc6460b6b9bbb88306f73c399d8e7a96ad8bb472a179a8de518bc70e21a72b0b&amp;mpshare=1&amp;scene=1&amp;srcid=0819fvKioudGMT1TYHXwnXoG#rd" target="_blank" rel="noopener">WES分析七步走</a></p>
+<p>(3) <a href="http://www.bio-info-trainee.com/1108.html" target="_blank" rel="noopener">WES 测序质量控制</a></p>
+<p>(4) <a href="http://www.bio-info-trainee.com/1114.html" target="_blank" rel="noopener">WES（二）snp-calling</a></p>
+<p>(5) <a href="http://www.bio-info-trainee.com/1137.html" target="_blank" rel="noopener">WES（三）snp-filter</a></p>
+<p>(6) <a href="http://www.bio-info-trainee.com/1138.html" target="_blank" rel="noopener">WES（四）不同个体的比较</a></p>
+<p>(7) <a href="http://www.bio-info-trainee.com/1150.html" target="_blank" rel="noopener">WES（五）不同软件比较</a></p>
+<p>(8) <a href="http://www.bio-info-trainee.com/1158.html" target="_blank" rel="noopener">WES（六）用annovar注释</a></p>
+<p>(9) <a href="http://www.bio-info-trainee.com/1159.html" target="_blank" rel="noopener">WES（七）看de novo变异情况</a></p>
+<p>(10) <a href="http://blog.csdn.net/zhu_si_tao/article/details/53321374" target="_blank" rel="noopener">GATK流程</a></p>
+<p>(11) <a href="http://www.bio-info-trainee.com/838.html" target="_blank" rel="noopener">GATK使用注意事项</a></p>
+<p>WES数据分析步骤：A Survey of Computational Tools to Analyze and Interpret Whole Exome Sequencing Data(2016)</p>
+<h1 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h1><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4812767/" target="_blank" rel="noopener">Whole-exome sequencing identifies MST1R as a genetic susceptibility gene in nasopharyngeal carcinoma</a></p>
+<p>We sequenced the blood samples from 161 NPC cases, including 39 EAO cases, 63 FH+ cases from 52 independent families, and 59 sporadic cases by WES and achieved an average coverage of 49-fold on target (range of 32- to 76-fold). An additional 2,160 NPC cases and 2,433 healthy controls from Hong Kong were further examined for the selected candidate variants. <strong>GEO Accession ID SRA291701</strong></p>
+<p>挑选5个样本进行分析 npc.sra.txt<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">SRX445405</span>    <span class="string">MALE</span>    <span class="string">NPC15</span>   <span class="string">SRR1139956</span>  <span class="string">NPC15F</span>  <span class="literal">NO</span>  <span class="string">SRS540548</span>   <span class="string">NPC15F-T</span></span><br><span class="line"><span class="string">SRX445406</span>    <span class="string">MALE</span>    <span class="string">NPC15</span>   <span class="string">SRR1139958</span>  <span class="string">NPC15F</span>  <span class="literal">NO</span>  <span class="string">SRS540549</span>   <span class="string">NPC15F-N</span></span><br><span class="line"><span class="string">SRX445407</span>    <span class="string">MALE</span>    <span class="string">NPC29</span>   <span class="string">SRR1139966</span>  <span class="string">NPC29F</span>  <span class="literal">YES</span> <span class="string">SRS540550</span>   <span class="string">NPC29F-T</span></span><br><span class="line"><span class="string">SRX445408</span>    <span class="string">MALE</span>    <span class="string">NPC29</span>   <span class="string">SRR1139973</span>  <span class="string">NPC29F</span>  <span class="literal">YES</span> <span class="string">SRS540551</span>   <span class="string">NPC29F-N</span></span><br><span class="line"><span class="string">SRX445409</span>    <span class="string">FEMALE</span>  <span class="string">NPC10</span>   <span class="string">SRR1139999</span>  <span class="string">NPC10F</span>  <span class="literal">NO</span>  <span class="string">SRS540552</span>   <span class="string">NPC10F-T</span></span><br><span class="line"><span class="string">SRX445410</span>    <span class="string">FEMALE</span>  <span class="string">NPC10</span>   <span class="string">SRR1140007</span>  <span class="string">NPC10F</span>  <span class="literal">NO</span>  <span class="string">SRS540553</span>   <span class="string">NPC10F-N</span></span><br><span class="line"><span class="string">SRX445411</span>    <span class="string">FEMALE</span>  <span class="string">NPC34</span>   <span class="string">SRR1140015</span>  <span class="string">NPC34F</span>  <span class="literal">NO</span>  <span class="string">SRS540554</span>   <span class="string">NPC34F-T</span></span><br><span class="line"><span class="string">SRX445412</span>    <span class="string">FEMALE</span>  <span class="string">NPC34</span>   <span class="string">SRR1140023</span>  <span class="string">NPC34F</span>  <span class="literal">NO</span>  <span class="string">SRS540555</span>   <span class="string">NPC34F-N</span></span><br><span class="line"><span class="string">SRX445413</span>    <span class="string">MALE</span>    <span class="string">NPC37</span>   <span class="string">SRR1140044</span>  <span class="string">NPC37F</span>  <span class="literal">YES</span> <span class="string">SRS540556</span>   <span class="string">NPC37F-T</span></span><br><span class="line"><span class="string">SRX445414</span>    <span class="string">MALE</span>    <span class="string">NPC37</span>   <span class="string">SRR1140045</span>  <span class="string">NPC37F</span>  <span class="literal">YES</span> <span class="string">SRS540557</span>   <span class="string">NPC37F-N</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat npc.sra.txt | cut -f 4| <span class="keyword">while</span> <span class="built_in">read</span> id</span><br><span class="line"><span class="comment"># or cut -f 4 npc.sra.txt | while read id</span></span><br><span class="line"><span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$id</span></span><br><span class="line">axel ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP035/SRP035573/<span class="variable">$id</span>/<span class="variable">$id</span>.sra &amp;</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat npc.sra.txt | <span class="keyword">while</span> <span class="built_in">read</span> id</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">array=(<span class="variable">$id</span>)</span><br><span class="line"><span class="built_in">echo</span>  <span class="variable">$&#123;array[3]&#125;</span>.sra  <span class="variable">$&#123;array[7]&#125;</span> fastq-dump --gzip --split-3 -A \  </span><br><span class="line">   <span class="variable">$&#123;array[7]&#125;</span>  <span class="variable">$&#123;array[3]&#125;</span>.sra </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>刚刚开始没搞清楚，这个太难了，学了好像暂时也没啥好用的，数据、资料收集到这里，以后有空再学习吧，数据太大了，浪费空间和电费了。</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/11/10/2017-11-10_gtf_gene_position/" data-toggle="tooltip" data-placement="left" title="根据gtf格式的基因注释文件得到人所有基因的染色体坐标">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/11/07/2017-11-07_HumanMethylation450/" data-toggle="tooltip" data-placement="top" title="DNA Methylation甲基化450k,850k芯片">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据下载"><span class="toc-number">1.</span> <span class="toc-text">数据下载</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

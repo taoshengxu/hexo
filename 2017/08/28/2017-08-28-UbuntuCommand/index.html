@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuCommand/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        DOS-Ubuntu命令集合｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>DOS-Ubuntu命令集合</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Aug 28, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">3,461 words in total, 14 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><ul>
+<li>cd /   [root]</li>
+<li>cd ~  [home or root/user]</li>
+<li>cd . [Current]</li>
+<li>cd .. [Father]</li>
+<li>cd - [previous]</li>
+<li>pwd [current]</li>
+<li>d: +Enter [D:/]</li>
+</ul>
+<h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h1><h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<li>sudo su 进入root</li>
+<li>exit <strong>or</strong> logout  <strong>or</strong> ctrl D 退出root</li>
+<li>修改root密码 $ sudo passwd </li>
+<li>修改用户密码 $ sudo passwd username</li>
+<li>修改主机名： $ sudo gedit /etc/hostname 和 $ sudo gedit /etc/hosts</li>
+</ul>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ul>
+<li>ls 列出所有文件</li>
+<li>ls -lh 列出目录的文件的详细信息</li>
+</ul>
+<h3 id="ubuntu创建、删除文件及文件夹，强制清空回收站方法"><a href="#ubuntu创建、删除文件及文件夹，强制清空回收站方法" class="headerlink" title="ubuntu创建、删除文件及文件夹，强制清空回收站方法"></a>ubuntu创建、删除文件及文件夹，强制清空回收站方法</h3><ul>
+<li>mkdir 目录名       创建一个目录</li>
+<li>rmdir 空目录名     删除一个空目录</li>
+<li>rm 文件名 文件名   删除一个文件或多个文件</li>
+<li>rm –rf 非空目录名  删除一个非空目录下的一切</li>
+<li><p>touch 文件名       创建一个空文件</p>
+</li>
+<li><p>mv file1 file2     将文件 file1，更改文件名为 file2。</p>
+</li>
+<li>mv file1 dir1      将文件 file1，移到目录 dir1下，文件名仍为 file1。</li>
+<li>mv dir1 dir2       若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和子目录，更改为目录 dir2。</li>
+</ul>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul>
+<li>&amp; 加在一个命令之后可以把这个命令放到后台运行</li>
+<li>Ctrl+Z 可以把一个前台执行的命令放到后台</li>
+<li>jobs -l 查看后台运行的命令</li>
+<li>fg jobnumber(PID) 将后台命令调到前台</li>
+<li>bg jobnumber(PID) 重启后台暂停的命令</li>
+<li>kill %num 杀死</li>
+<li>ps 查看进程号PID</li>
+<li>nohup 始终执行</li>
+<li>ps - aux | grep xxx 显示终端关闭后的后台进程</li>
+</ul>
+<ul>
+<li>wget -P 目录 网址</li>
+<li><p>wget ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra</p>
+</li>
+<li><p>nohup axel ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra &amp; (后台执行)</p>
+</li>
+</ul>
+<h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><p>重启</p>
+<ul>
+<li>reboot</li>
+<li>shutdown -r now 立刻重启(root用户使用)</li>
+<li>shutdown -r 10 过10分钟自动重启(root用户使用)</li>
+<li>shutdown -r 20:35 在时间为20:35时候重启(root用户使用)</li>
+<li>如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启</li>
+</ul>
+<p>关机</p>
+<ul>
+<li>halt   立刻关机</li>
+<li>poweroff 立刻关机</li>
+<li>shutdown -h now 立刻关机(root用户使用)</li>
+<li>shutdown -h 10 10分钟后自动关机</li>
+</ul>
+<h3 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h3><ul>
+<li>[dpkg —list]查找软件<br>[sudo apt-get remove <programname>] 卸载</programname></li>
+</ul>
+<h3 id="查看CPU"><a href="#查看CPU" class="headerlink" title="查看CPU"></a>查看CPU</h3><ul>
+<li>top命令 可以再按1</li>
+</ul>
+<h3 id="创建用户组"><a href="#创建用户组" class="headerlink" title="创建用户组"></a>创建用户组</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">groupadd  usergroup_name</span><br><span class="line"></span><br><span class="line">useradd -g new_user usergroup_name <span class="comment">#新建用户同时增加工作组</span></span><br><span class="line">usermod -aG usergroup_name user_name <span class="comment"># 将已经存在的用户user_name 添加到用户组</span></span><br><span class="line">groups user_name <span class="comment">## 查看所属的用户组</span></span><br><span class="line">ls -ld  文件目录  <span class="comment">#查看文件</span></span><br><span class="line">sudo <span class="keyword">chmod</span> <span class="number">775</span> /srv/shiny-server/xxxx/</span><br><span class="line">sudo <span class="keyword">chown</span> :shiny /srv/shiny-server/xxxx/ 修改该目录为 shiny用户组</span><br><span class="line"></span><br><span class="line">使用<span class="keyword">chown</span>命令可以修改文件或目录所属的用户：</span><br><span class="line">       命令：<span class="keyword">chown</span> 用户 目录或文件名</span><br><span class="line">       例如：<span class="keyword">chown</span> qq /home/<span class="string">qq  (把home目录下的qq目录的拥有者改为qq用户)</span> </span><br><span class="line">使用chgrp命令可以修改文件或目录所属的组：</span><br><span class="line">       命令：chgrp 组 目录或文件名</span><br><span class="line">       例如：chgrp qq /home/<span class="string">qq  (把home目录下的qq目录的所属组改为qq组)</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改权限和所有者"><a href="#修改权限和所有者" class="headerlink" title="修改权限和所有者"></a>修改权限和所有者</h3><ul>
+<li>[chmod -R 700 Document/]变更权限(-R参数是递归)</li>
+<li>[chown -R username:root Document/]修改所有者为root用户组的username用户</li>
+</ul>
+<h6 id="常用几种"><a href="#常用几种" class="headerlink" title="常用几种"></a>常用几种</h6><ul>
+<li>sudo chmod -[读,写,执行]×××（所有者）×××（组用户）×××（其他用户）</li>
+<li>sudo chmod 600 ××× （只有所有者有读和写的权限）</li>
+<li>sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）</li>
+<li>sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）</li>
+<li>sudo chmod 666 ××× （每个人都有读和写的权限）</li>
+<li><p>sudo chmod 777 ××× （每个人都有读和写以及执行的权限）</p>
+</li>
+<li><p>chmod +x test.py     # 脚本文件添加可执行权限</p>
+</li>
+<li>chmod -x test.py     # 脚本文件去除可执行权限</li>
+</ul>
+<h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><ul>
+<li><p><strong>sudo mount -t ext4 /dev/sdb /data 挂载到data</strong></p>
+</li>
+<li><p>sudo umount /dev/sdb 卸载</p>
+</li>
+<li>mkdir -p 递归创建目录</li>
+<li>cp 复制</li>
+<li><p>rmdir 删除空目录  </p>
+</li>
+<li><p>df -lh 查看磁盘空间 </p>
+<ul>
+<li><p>df -kh 查看磁盘挂载</p>
+</li>
+<li><p>df -m 以M为单位显示磁盘使用量和占用率</p>
+</li>
+<li><p>df -k 以KB为单位显示磁盘使用量和占用率</p>
+</li>
+<li><p>du-ck /dir 列出目录下所有文件或目录占用的大小，以KB作为计量单位</p>
+</li>
+</ul>
+</li>
+<li><p>sudo fdisk -lu 显示硬盘及所属分区情况</p>
+</li>
+<li>sudo fdisk /dev/sdb 对sbd盘分区<br>m(help)-n(增加一个新分区)-e(扩展分区)-1-4(分几个区)-…-p(显示分区表)-w(保存分区表)</li>
+<li>sudo blkid 查看分区的UUID</li>
+<li>sudo blkid /dev/sda5 查看指定盘的UUID</li>
+<li><p>sudo chown -R username:root Document/  修改文件夹所有者</p>
+</li>
+<li><p>(谨慎复制)sudo mkfs -t ext4 /dev/sdb 对sdb盘格式化为ext4格式</p>
+</li>
+<li><p>ubuntu 加载新硬盘教程<a href="http://note.youdao.com/noteshare?id=19c72003e1f78ed8dafbe12c53c6e150&amp;sub=8E9A1BEDF6AE4F73AB50892F428B249C" target="_blank" rel="noopener">Here</a></p>
+</li>
+<li><p>ubuntu<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu命令手册.pdf">命令手册</a></p>
+</li>
+</ul>
+<h3 id="vi-操作"><a href="#vi-操作" class="headerlink" title="vi 操作"></a>vi 操作</h3><ul>
+<li>基本上vi可以分为三种状态<ul>
+<li>分别是命令模式（command mode）：移动光标,删除</li>
+<li>插入模式（Insert mode）：用于输入字符</li>
+<li>底行模式（last line mode）：设置编辑环境和保存</li>
+</ul>
+</li>
+<li>进入vi  初始为命令模式<br>$vi file</li>
+<li>进入插入模式： 在命令模式下输入[i]</li>
+<li>ESC 返回命令模式</li>
+<li>[:]进入底行模式<ul>
+<li>[w fileName]以指定名字保存</li>
+<li>[wq]存盘并退出</li>
+<li>[q!]不存盘退出</li>
+</ul>
+</li>
+<li><a href="http://www.cnblogs.com/itech/archive/2009/04/17/1438439.html" target="_blank" rel="noopener">更复杂用法</a></li>
+</ul>
+<h3 id="Ubuntu进入单用户模式—系统修复"><a href="#Ubuntu进入单用户模式—系统修复" class="headerlink" title="Ubuntu进入单用户模式—系统修复"></a>Ubuntu进入单用户模式—系统修复</h3><p>偶尔会遇到Ubuntu无法正常启动的情况，这时候需修改某些文件让系统正常启动，如果直接进入 recovery 模式，默认是文件权限只读，无法修改文件。这是我们需要进入recovery 的单用户模式，获得修改文件的权限。</p>
+<ol>
+<li><p>重启ubuntu，随即长按shirft进入grub菜单，或等待grub菜单的出现.</p>
+</li>
+<li><p>选择recovery mode，接着用方向键将光标移至recovery mode，按”e”键进入编辑页面.</p>
+</li>
+<li><p>将 ro recovery nomodeset 改为 rw single init=/bin/bash</p>
+</li>
+<li><p>按 ctrl+x或者F10 进入单用户模式，当前用户即为root。可以进行操作，如：用vi命令修改/etc/fatab文件，按：wq保存退出。</p>
+</li>
+<li><p>修改完成安装ctrl+dele+alt 重启</p>
+</li>
+</ol>
+<h2 id="ubuntu的一些命令及查看已安装软件包的命令"><a href="#ubuntu的一些命令及查看已安装软件包的命令" class="headerlink" title="ubuntu的一些命令及查看已安装软件包的命令"></a>ubuntu的一些命令及查看已安装软件包的命令</h2>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">// 系统</span><br><span class="line"><span class="comment"># uname -a               # 查看内核/操作系统/CPU信息</span></span><br><span class="line"><span class="comment"># head -n 1 /etc/issue   # 查看操作系统版本</span></span><br><span class="line"><span class="comment"># cat /proc/cpuinfo      # 查看CPU信息</span></span><br><span class="line"><span class="comment"># hostname               # 查看计算机名</span></span><br><span class="line"><span class="comment"># lspci -tv              # 列出所有PCI设备</span></span><br><span class="line"><span class="comment"># lsusb -tv              # 列出所有USB设备</span></span><br><span class="line"><span class="comment"># lsmod                  # 列出加载的内核模块</span></span><br><span class="line"><span class="comment"># env                    # 查看环境变量</span></span><br><span class="line"></span><br><span class="line">// 资源</span><br><span class="line"><span class="comment"># free -m                # 查看内存使用量和交换区使用量</span></span><br><span class="line"><span class="comment"># df -h                  # 查看各分区使用情况</span></span><br><span class="line"><span class="comment"># du -sh &lt;目录名&gt;         # 查看指定目录的大小</span></span><br><span class="line"><span class="comment"># grep MemTotal /proc/meminfo   # 查看内存总量</span></span><br><span class="line"><span class="comment"># grep MemFree /proc/meminfo    # 查看空闲内存量</span></span><br><span class="line"><span class="comment"># uptime                 # 查看系统运行时间、用户数、负载</span></span><br><span class="line"><span class="comment"># cat /proc/loadavg      # 查看系统负载</span></span><br><span class="line"></span><br><span class="line">// 磁盘和分区</span><br><span class="line"><span class="comment"># mount | column -t      # 查看挂接的分区状态</span></span><br><span class="line"><span class="comment"># fdisk -l               # 查看所有分区</span></span><br><span class="line"><span class="comment"># swapon -s              # 查看所有交换分区</span></span><br><span class="line"><span class="comment"># hdparm -i /dev/hda     # 查看磁盘参数(仅适用于IDE设备)</span></span><br><span class="line"><span class="comment"># dmesg | grep IDE       # 查看启动时IDE设备检测状况</span></span><br><span class="line"></span><br><span class="line">// 网络</span><br><span class="line"><span class="comment"># ifconfig               # 查看所有网络接口的属性</span></span><br><span class="line"><span class="comment"># iptables -L            # 查看防火墙设置</span></span><br><span class="line"><span class="comment"># route -n               # 查看路由表</span></span><br><span class="line"><span class="comment"># netstat -lntp          # 查看所有监听端口</span></span><br><span class="line"><span class="comment"># netstat -antp          # 查看所有已经建立的连接</span></span><br><span class="line"><span class="comment"># netstat -s             # 查看网络统计信息</span></span><br><span class="line"></span><br><span class="line">// 进程</span><br><span class="line"><span class="comment"># ps -ef                 # 查看所有进程</span></span><br><span class="line"><span class="comment"># top                    # 实时显示进程状态</span></span><br><span class="line"></span><br><span class="line">// 用户</span><br><span class="line"><span class="comment"># w                      # 查看活动用户</span></span><br><span class="line"><span class="comment"># id &lt;用户名&gt;             # 查看指定用户信息</span></span><br><span class="line"><span class="comment"># last                    # 查看用户登录日志</span></span><br><span class="line"><span class="comment"># cut -d: -f1 /etc/passwd   # 查看系统所有用户</span></span><br><span class="line"><span class="comment"># cut -d: -f1 /etc/group    # 查看系统所有组</span></span><br><span class="line"><span class="comment"># crontab -l             # 查看当前用户的计划任务</span></span><br><span class="line"></span><br><span class="line">// 服务</span><br><span class="line"><span class="comment"># chkconfig --list       # 列出所有系统服务</span></span><br><span class="line"><span class="comment"># chkconfig --list | grep on    # 列出所有启动的系统服务</span></span><br><span class="line"></span><br><span class="line">// 程序</span><br><span class="line">apt-get update——在修改/etc/apt/sources.list或者/etc/apt/preferences之后运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的。 </span><br><span class="line">apt-get install packagename——安装一个新软件包（参见下文的aptitude） </span><br><span class="line">apt-get remove packagename——卸载一个已安装的软件包（保留配置文件） </span><br><span class="line">apt-get --purge remove packagename——卸载一个已安装的软件包（删除配置文件） </span><br><span class="line">dpkg --force-all --purge packagename 有些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。 </span><br><span class="line">apt-get autoclean apt会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件 </span><br><span class="line">apt-get clean 这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的。 </span><br><span class="line">apt-get upgrade——更新所有已安装的软件包 </span><br><span class="line">apt-get dist-upgrade——将系统升级到新版本 </span><br><span class="line">apt-cache search string——在软件包列表中搜索字符串 </span><br><span class="line">dpkg -l package-name-pattern——列出所有与模式相匹配的软件包。如果您不知道软件包的全名，您可以使用“*package-name-pattern*”。 </span><br><span class="line">aptitude——详细查看已安装或可用的软件包。与apt-get类似，aptitude可以通过命令行方式调用，但仅限于某些命令——最常见的有安装和卸载命令。由于aptitude比apt-get了解更多信息，可以说它更适合用来进行安装和卸载。 </span><br><span class="line">apt-cache showpkg pkgs——显示软件包信息。 </span><br><span class="line">apt-cache dumpavail——打印可用软件包列表。 </span><br><span class="line">apt-cache show pkgs——显示软件包记录，类似于dpkg –<span class="built_in">print</span>-avail。 </span><br><span class="line">apt-cache pkgnames——打印软件包列表中所有软件包的名称。 </span><br><span class="line">dpkg -S file——这个文件属于哪个已安装软件包。 </span><br><span class="line">dpkg -L package——列出软件包中的所有文件。 </span><br><span class="line">apt-file search filename——查找包含特定文件的软件包（不一定是已安装的），这些文件的文件名中含有指定的字符串。apt-file是一个独立的软件包。您必须 先使用apt-get install来安装它，然后运行apt-file update。如果apt-file search filename输出的内容太多，您可以尝试使用apt-file search filename | grep -w filename（只显示指定字符串作为完整的单词出现在其中的那些文件名）或者类似方法，例如：apt-file search filename | grep /bin/（只显示位于诸如/bin或/usr/bin这些文件夹中的文件，如果您要查找的是某个特定的执行文件的话，这样做是有帮助的）。</span><br><span class="line">--------------------- </span><br><span class="line">作者：Frey_Liu </span><br><span class="line">来源：CSDN </span><br><span class="line">原文：https://blog.csdn.net/helaisun/article/details/80712287 </span><br><span class="line">版权声明：本文为博主原创文章，转载请附上博文链接！</span><br></pre></td></tr></table></figure>
+<h1 id="Bash-命令"><a href="#Bash-命令" class="headerlink" title="Bash 命令"></a>Bash 命令</h1><ul>
+<li><p>| 表示管道命令，命令从前往后执行，前一个命令的输出可以作为后一个命令的输入<br> ls  <em>.fastq.gz|while read id;do echo ${id%_</em>}_1.fastq.gz;done</p>
+</li>
+<li><p>${id%_*}表示把id中_后面的内容都去掉</p>
+</li>
+</ul>
+<hr>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><ul>
+<li>.tar <ul>
+<li>解包：tar xvf FileName.tar</li>
+<li>打包：tar cvf FileName.tar DirName</li>
+<li>（注：tar是打包，不是压缩！）</li>
+</ul>
+</li>
+<li>.gz<ul>
+<li>解压1：gunzip FileName.gz</li>
+<li>解压2：gzip -d FileName.gz</li>
+<li>压缩：gzip FileName</li>
+</ul>
+</li>
+<li>.tar.gz 和 .tgz<ul>
+<li>解压：tar zxvf FileName.tar.gz</li>
+<li>压缩：tar zcvf FileName.tar.gz DirName</li>
+</ul>
+</li>
+<li>.bz2<ul>
+<li>解压1：bzip2 -d FileName.bz2</li>
+<li>解压2：bunzip2 FileName.bz2</li>
+<li>压缩： bzip2 -z FileName</li>
+</ul>
+</li>
+<li>.tar.bz2<ul>
+<li>解压：tar jxvf FileName.tar.bz2</li>
+<li>压缩：tar jcvf FileName.tar.bz2 DirName</li>
+</ul>
+</li>
+<li>.bz<ul>
+<li>解压1：bzip2 -d FileName.bz</li>
+<li>解压2：bunzip2 FileName.bz</li>
+</ul>
+</li>
+<li>.tar.bz<ul>
+<li>解压：tar jxvf FileName.tar.bz</li>
+<li>压缩：未知</li>
+</ul>
+</li>
+<li>.Z<ul>
+<li>解压：uncompress FileName.Z</li>
+<li>压缩：compress FileName</li>
+</ul>
+</li>
+<li>.tar.Z<ul>
+<li>解压：tar Zxvf FileName.tar.Z</li>
+<li>压缩：tar Zcvf FileName.tar.Z DirName</li>
+</ul>
+</li>
+<li>.zip<ul>
+<li>解压：unzip FileName.zip</li>
+<li>压缩：zip FileName.zip DirName</li>
+</ul>
+</li>
+<li>.rar<ul>
+<li>解压：rar x FileName.rar</li>
+<li>压缩：rar a FileName.rar DirName</li>
+</ul>
+</li>
+<li>.lha<ul>
+<li>解压：lha -e FileName.lha</li>
+<li>压缩：lha -a FileName.lha FileName</li>
+</ul>
+</li>
+<li><p>.rpm</p>
+<ul>
+<li>解包：rpm2cpio FileName.rpm | cpio -div</li>
+</ul>
+</li>
+<li><p>.deb</p>
+<ul>
+<li>解包：ar p FileName.deb data.tar.gz | tar zxf -</li>
+</ul>
+</li>
+<li><p>.tar .tgz .tar.gz .tar.Z .tar.bz .tar.bz2 .zip .cpio .rpm .deb .slp .arj .rar .ace .lha .lzh .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea</p>
+<ul>
+<li>解压：sEx x FileName.*</li>
+<li>压缩：sEx a FileName.* FileName</li>
+</ul>
+<p>sEx只是调用相关程序，本身并无压缩、解压功能，请注意！</p>
+</li>
+<li><p>gzip 命令<br>减少文件大小有两个明显的好处，一是可以减少存储空间，二是通过网络传输文件时，可以减少传输的时间。gzip 是在 Linux系统中经常使用的一个对文件进行压缩和解压缩的命令，既方便又好用。</p>
+</li>
+</ul>
+<p>语法：gzip [选项] 压缩（解压缩）的文件名该命令的各选项含义如下：</p>
+<ul>
+<li>c 将输出写到标准输出上，并保留原有文件。</li>
+<li>d 将压缩文件解压。</li>
+<li>l 对每个压缩文件，显示下列字段：     压缩文件的大小；未压缩文件的大小；压缩比；未压缩文件的名字-r 递归式地查找指定目录并压缩其中的所有文件或者是解压缩。-t 测试，检查压缩文件是否完整。-v 对每一个压缩和解压的文件，显示文件名和压缩比。-num 用指定的数字 num 调整压缩的速度，-1 或 —fast 表示最快压缩方法（低压缩比），-9 或—best表示最慢压缩方法（高压缩比）。系统缺省值为 6。指令实例：</li>
+</ul>
+<p>gzip <em>% 把当前目录下的每个文件压缩成 .gz 文件。gzip -dv </em>% 把当前目录下每个压缩的文件解压，并列出详细的信息。gzip -l *% 详细显示例1中每个压缩的文件的信息，并不解压。gzip usr.tar% 压缩 tar 备份文件 usr.tar，此时压缩文件的扩展名为.tar.gz。</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/05/2017-09-05-StudyShiny/" data-toggle="tooltip" data-placement="left" title="Shiny and Shiny server学习">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/08/27/2017-08-27_tricks/" data-toggle="tooltip" data-placement="top" title="杂项">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOS"><span class="toc-number">1.</span> <span class="toc-text">DOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu"><span class="toc-number">2.</span> <span class="toc-text">Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.0.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-number">2.0.2.</span> <span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu创建、删除文件及文件夹，强制清空回收站方法"><span class="toc-number">2.0.3.</span> <span class="toc-text">ubuntu创建、删除文件及文件夹，强制清空回收站方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">2.0.4.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开关机"><span class="toc-number">2.0.5.</span> <span class="toc-text">开关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载软件"><span class="toc-number">2.0.6.</span> <span class="toc-text">卸载软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看CPU"><span class="toc-number">2.0.7.</span> <span class="toc-text">查看CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建用户组"><span class="toc-number">2.0.8.</span> <span class="toc-text">创建用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改权限和所有者"><span class="toc-number">2.0.9.</span> <span class="toc-text">修改权限和所有者</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#常用几种"><span class="toc-number">2.0.9.0.0.1.</span> <span class="toc-text">常用几种</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#磁盘管理"><span class="toc-number">2.0.10.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi-操作"><span class="toc-number">2.0.11.</span> <span class="toc-text">vi 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu进入单用户模式—系统修复"><span class="toc-number">2.0.12.</span> <span class="toc-text">Ubuntu进入单用户模式—系统修复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu的一些命令及查看已安装软件包的命令"><span class="toc-number">2.1.</span> <span class="toc-text">ubuntu的一些命令及查看已安装软件包的命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bash-命令"><span class="toc-number">3.</span> <span class="toc-text">Bash 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">3.0.1.</span> <span class="toc-text">解压</span></a></li></ol></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

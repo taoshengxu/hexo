@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/28/2018-12-28_geneIDtransform/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Gene ID 转换汇总｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Gene ID 转换汇总</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xxxxx</span>
+                               <span class="meta-item">Date: Dec 28, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#gene" title="gene">gene</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">860 words in total, 5 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-clusterProfiler包"><a href="#1-clusterProfiler包" class="headerlink" title="1.  clusterProfiler包"></a>1.  <a href="https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html" target="_blank" rel="noopener">clusterProfiler</a>包</h2><h4 id="bitr-基因集ID转换"><a href="#bitr-基因集ID转换" class="headerlink" title="bitr: 基因集ID转换"></a><code>bitr</code>: 基因集ID转换</h4><p>认为是最便捷基因 名转换方式，封装的非常好。依赖于<code>org.Hs.eg.db</code>注释包。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(<span class="string">"GPX3"</span>,  <span class="string">"GLRX"</span>,   <span class="string">"LBP"</span>,   <span class="string">"CRYAB"</span>, <span class="string">"DEFB1"</span>, <span class="string">"HCLS1"</span>,   <span class="string">"SOD2"</span>,   <span class="string">"HSPA2"</span>,</span><br><span class="line">       <span class="string">"ORM1"</span>,  <span class="string">"IGFBP1"</span>, <span class="string">"PTHLH"</span>, <span class="string">"GPC3"</span>,  <span class="string">"IGFBP3"</span>,<span class="string">"TOB1"</span>,    <span class="string">"MITF"</span>,   <span class="string">"NDRG1"</span>,</span><br><span class="line">       <span class="string">"NR1H4"</span>, <span class="string">"FGFR3"</span>,  <span class="string">"PVR"</span>,   <span class="string">"IL6"</span>,   <span class="string">"PTPRM"</span>, <span class="string">"ERBB2"</span>,   <span class="string">"NID2"</span>,   <span class="string">"LAMB1"</span>,</span><br><span class="line">       <span class="string">"COMP"</span>,  <span class="string">"PLS3"</span>,   <span class="string">"MCAM"</span>,  <span class="string">"SPP1"</span>,  <span class="string">"LAMC1"</span>, <span class="string">"COL4A2"</span>,  <span class="string">"COL4A1"</span>, <span class="string">"MYOC"</span>,</span><br><span class="line">       <span class="string">"ANXA4"</span>, <span class="string">"TFPI2"</span>,  <span class="string">"CST6"</span>,  <span class="string">"SLPI"</span>,  <span class="string">"TIMP2"</span>, <span class="string">"CPM"</span>,     <span class="string">"GGT1"</span>,   <span class="string">"NNMT"</span>,</span><br><span class="line">       <span class="string">"MAL"</span>,   <span class="string">"EEF1A2"</span>, <span class="string">"HGD"</span>,   <span class="string">"TCN2"</span>,  <span class="string">"CDA"</span>,   <span class="string">"PCCA"</span>,    <span class="string">"CRYM"</span>,   <span class="string">"PDXK"</span>,</span><br><span class="line">       <span class="string">"STC1"</span>,  <span class="string">"WARS"</span>,  <span class="string">"HMOX1"</span>, <span class="string">"FXYD2"</span>, <span class="string">"RBP4"</span>,   <span class="string">"SLC6A12"</span>, <span class="string">"KDELR3"</span>, <span class="string">"ITM2B"</span>)</span><br><span class="line">eg = bitr(x, fromType=<span class="string">"SYMBOL"</span>, toType=<span class="string">"ENTREZID"</span>, OrgDb=<span class="string">"org.Hs.eg.db"</span>)</span><br><span class="line">head(eg)</span><br><span class="line"><span class="keyword">library</span>(org.Hs.eg.db)</span><br><span class="line">keytypes(org.Hs.eg.db)</span><br><span class="line"><span class="comment">##  [1] "ACCNUM"       "ALIAS"        "ENSEMBL"      "ENSEMBLPROT" </span></span><br><span class="line"><span class="comment">##  [5] "ENSEMBLTRANS" "ENTREZID"     "ENZYME"       "EVIDENCE"    </span></span><br><span class="line"><span class="comment">##  [9] "EVIDENCEALL"  "GENENAME"     "GO"           "GOALL"       </span></span><br><span class="line"><span class="comment">## [13] "IPI"          "MAP"          "OMIM"         "ONTOLOGY"    </span></span><br><span class="line"><span class="comment">## [17] "ONTOLOGYALL"  "PATH"         "PFAM"         "PMID"        </span></span><br><span class="line"><span class="comment">## [21] "PROSITE"      "REFSEQ"       "SYMBOL"       "UCSCKG"      </span></span><br><span class="line"><span class="comment">## [25] "UNIGENE"      "UNIPROT"</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-biomaRt软件包获得在线注释信息"><a href="#2-biomaRt软件包获得在线注释信息" class="headerlink" title="2. biomaRt软件包获得在线注释信息"></a>2. biomaRt软件包获得在线注释信息</h2><p><a href="http://blog.qiuworld.com:8080/archives/3281" target="_blank" rel="noopener">http://blog.qiuworld.com:8080/archives/3281</a> </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(<span class="string">"biomaRt"</span>)<span class="comment">#载入biomaRt包</span></span><br><span class="line">mart &lt;- useMart(<span class="string">"ensembl"</span>,<span class="string">"hsapiens_gene_ensembl"</span>)</span><br><span class="line">entrez &lt;- c(<span class="string">"673"</span>,<span class="string">"7157"</span>,<span class="string">"837"</span>)</span><br><span class="line">getBM(attributes=c(<span class="string">"entrezgene"</span>,<span class="string">"hgnc_symbol"</span>,<span class="string">"ensembl_gene_id"</span>,<span class="string">"affy_hg_u133_plus_2"</span>),filters =<span class="string">"entrezgene"</span>,values = entrez,mart = mart)</span><br><span class="line"><span class="comment">#如何知道有哪些服务器，以及这些服务器上哪些数据库呢？用listMarts(),listDatasets()两个函数</span></span><br><span class="line">marts &lt;- listMarts() </span><br><span class="line">head(marts)<span class="comment">#查看当前可用的数据源</span></span><br><span class="line">ensembl &lt;- useMart(<span class="string">"ensembl"</span>)<span class="comment">#使用ensembl数据源</span></span><br><span class="line">datasets &lt;- listDatasets(ensembl);</span><br><span class="line">datasets[<span class="number">1</span>:<span class="number">10</span>,]<span class="comment">#查看ensembl中可用数据库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#如何获取getBM中attributes，filters？用listFilters()以及listAttributes()</span></span><br><span class="line">mart &lt;- useMart(<span class="string">"ensembl"</span>,<span class="string">"hsapiens_gene_ensembl"</span>)</span><br><span class="line">filters &lt;- listFilters(mart)</span><br><span class="line">filters[grepl(<span class="string">"entrez"</span>, filters[,<span class="number">1</span>]),]</span><br><span class="line">listAttributes(mart)</span><br><span class="line">attributes[grepl(<span class="string">"^ensembl|hgnc"</span>, attributes[,<span class="number">1</span>]),]</span><br></pre></td></tr></table></figure>
+<p>biomaRt还会有很多SNP, alternative splicing, exon, intron, 5’utr, 3’utr等等信息。</p>
+<h3 id="3-原生org-Hs-eg-db"><a href="#3-原生org-Hs-eg-db" class="headerlink" title="3. 原生org.Hs.eg.db"></a>3. 原生org.Hs.eg.db</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#AnnotationDb objects</span></span><br><span class="line"> columns(x)</span><br><span class="line"> keytypes(x)</span><br><span class="line"> keys(x, keytype, <span class="keyword">...</span>)</span><br><span class="line"> select(x, keys, columns, keytype, <span class="keyword">...</span>)</span><br><span class="line"> mapIds(x, keys, column, keytype, <span class="keyword">...</span>, multiVals)</span><br><span class="line"> saveDb(x, file)</span><br><span class="line"> loadDb(file, packageName=<span class="literal">NA</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="http://davetang.org/muse/2013/05/23/using-the-bioconductor-annotation-packages/" target="_blank" rel="noopener">http://davetang.org/muse/2013/05/23/using-the-bioconductor-annotation-packages/</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(org.Hs.eg.db)</span><br><span class="line">cols(org.Hs.eg.db)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"ENTREZID"</span><span class="string">"PFAM"</span><span class="string">"IPI"</span><span class="string">"PROSITE"</span><span class="string">"ACCNUM"</span><span class="string">"ALIAS"</span><span class="string">"CHR"</span></span><br><span class="line">[<span class="number">8</span>] <span class="string">"CHRLOC"</span><span class="string">"CHRLOCEND"</span><span class="string">"ENZYME"</span><span class="string">"MAP"</span><span class="string">"PATH"</span><span class="string">"PMID"</span><span class="string">"REFSEQ"</span></span><br><span class="line">[<span class="number">15</span>] <span class="string">"SYMBOL"</span><span class="string">"UNIGENE"</span><span class="string">"ENSEMBL"</span><span class="string">"ENSEMBLPROT"</span><span class="string">"ENSEMBLTRANS"</span><span class="string">"GENENAME"</span><span class="string">"UNIPROT"</span></span><br><span class="line">[<span class="number">22</span>] <span class="string">"GO"</span><span class="string">"EVIDENCE"</span><span class="string">"ONTOLOGY"</span><span class="string">"GOALL"</span><span class="string">"EVIDENCEALL"</span><span class="string">"ONTOLOGYALL"</span><span class="string">"OMIM"</span></span><br><span class="line">[<span class="number">29</span>] <span class="string">"UCSCKG"</span></span><br><span class="line">keytypes(org.Hs.eg.db)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"ENTREZID"</span><span class="string">"PFAM"</span><span class="string">"IPI"</span><span class="string">"PROSITE"</span><span class="string">"ACCNUM"</span><span class="string">"ALIAS"</span><span class="string">"CHR"</span></span><br><span class="line">[<span class="number">8</span>] <span class="string">"CHRLOC"</span><span class="string">"CHRLOCEND"</span><span class="string">"ENZYME"</span><span class="string">"MAP"</span><span class="string">"PATH"</span><span class="string">"PMID"</span><span class="string">"REFSEQ"</span></span><br><span class="line">[<span class="number">15</span>] <span class="string">"SYMBOL"</span><span class="string">"UNIGENE"</span><span class="string">"ENSEMBL"</span><span class="string">"ENSEMBLPROT"</span><span class="string">"ENSEMBLTRANS"</span><span class="string">"GENENAME"</span><span class="string">"UNIPROT"</span></span><br><span class="line">[<span class="number">22</span>] <span class="string">"GO"</span><span class="string">"EVIDENCE"</span><span class="string">"ONTOLOGY"</span><span class="string">"GOALL"</span><span class="string">"EVIDENCEALL"</span><span class="string">"ONTOLOGYALL"</span><span class="string">"OMIM"</span></span><br><span class="line">[<span class="number">29</span>] <span class="string">"UCSCKG"</span></span><br><span class="line"><span class="comment">#which chromosome does the gene TP53 reside?</span></span><br><span class="line">select(org.Hs.eg.db, keys=<span class="string">"TP53"</span>, cols=c(<span class="string">"SYMBOL"</span>, <span class="string">"CHR"</span>), keytype=<span class="string">"SYMBOL"</span>)</span><br><span class="line">SYMBOL CHR</span><br><span class="line"><span class="number">1</span>   TP53  <span class="number">17</span></span><br><span class="line"><span class="comment">#find out the keys for the keytype CHR</span></span><br><span class="line">keys(org.Hs.eg.db, <span class="string">"CHR"</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"19"</span><span class="string">"12"</span><span class="string">"8"</span><span class="string">"14"</span><span class="string">"3"</span><span class="string">"2"</span><span class="string">"17"</span><span class="string">"16"</span><span class="string">"9"</span><span class="string">"X"</span><span class="string">"6"</span><span class="string">"1"</span><span class="string">"7"</span><span class="string">"10"</span><span class="string">"11"</span><span class="string">"22"</span><span class="string">"5"</span><span class="string">"18"</span><span class="string">"15"</span><span class="string">"Y"</span><span class="string">"20"</span></span><br><span class="line">[<span class="number">22</span>] <span class="string">"21"</span><span class="string">"4"</span><span class="string">"13"</span><span class="string">"MT"</span><span class="string">"Un"</span></span><br><span class="line"><span class="comment">#this question was asked in the lecture</span></span><br><span class="line"><span class="comment">#How many genes are there on chromosome 22 are in this annotation database?</span></span><br><span class="line"><span class="comment">#store all symbols</span></span><br><span class="line">symbol &lt;- keys(org.Hs.eg.db, <span class="string">"SYMBOL"</span>)</span><br><span class="line"><span class="comment">#how many gene symbols</span></span><br><span class="line">length(symbol)</span><br><span class="line">[<span class="number">1</span>] <span class="number">43819</span></span><br><span class="line"><span class="comment">#distribution of gene symbols along the chromosomes</span></span><br><span class="line">symbol_chr &lt;- select(org.Hs.eg.db, keys=symbol, cols=c(<span class="string">"CHR"</span>,<span class="string">"SYMBOL"</span>), keytype=<span class="string">"SYMBOL"</span>)</span><br><span class="line">Warning message:</span><br><span class="line">In .generateExtraRows(tab, keys, jointype) :</span><br><span class="line">  <span class="string">'select'</span> resulted <span class="keyword">in</span> <span class="number">1</span>:many mapping between keys and <span class="keyword">return</span> rows</span><br><span class="line"><span class="comment">#the above warning is for duplicated rows</span></span><br><span class="line"><span class="comment">#double check how many gene symbols are in symbol_chr</span></span><br><span class="line">length(symbol_chr$SYMBOL)</span><br><span class="line">[<span class="number">1</span>] <span class="number">43868</span></span><br><span class="line"><span class="comment">#unique ones</span></span><br><span class="line">length(unique(symbol_chr$SYMBOL))</span><br><span class="line">[<span class="number">1</span>] <span class="number">43819</span></span><br><span class="line"><span class="comment">#distribution of symbols on chromosomes</span></span><br><span class="line">table(symbol_chr$CHR)</span><br><span class="line">   <span class="number">1</span>   <span class="number">10</span>   <span class="number">11</span>   <span class="number">12</span>   <span class="number">13</span>   <span class="number">14</span>   <span class="number">15</span>   <span class="number">16</span>   <span class="number">17</span>   <span class="number">18</span>   <span class="number">19</span>    <span class="number">2</span>   <span class="number">20</span>   <span class="number">21</span>   <span class="number">22</span>    <span class="number">3</span>    <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span>    <span class="number">7</span>    <span class="number">8</span> </span><br><span class="line"><span class="number">4173</span> <span class="number">1604</span> <span class="number">2524</span> <span class="number">1945</span> <span class="number">1124</span> <span class="number">1679</span> <span class="number">1475</span> <span class="number">1597</span> <span class="number">2079</span>  <span class="number">674</span> <span class="number">2245</span> <span class="number">2812</span> <span class="number">1017</span>  <span class="number">546</span> <span class="number">1029</span> <span class="number">2306</span> <span class="number">1702</span> <span class="number">1887</span> <span class="number">2432</span> <span class="number">2307</span> <span class="number">1586</span> </span><br><span class="line">   <span class="number">9</span>   MT   Un    X    Y </span><br><span class="line"><span class="number">1790</span>   <span class="number">37</span>  <span class="number">219</span> <span class="number">2087</span>  <span class="number">535</span></span><br><span class="line">plot(table(symbol_chr$CHR), xlab=<span class="string">"Chromosomes"</span>, ylab=<span class="string">"Number of genes"</span>)</span><br><span class="line"><span class="comment">#Find the GO IDs for the TP53 gene</span></span><br><span class="line">tp53_go &lt;- select(org.Hs.eg.db, keys=<span class="string">"TP53"</span>, cols=c(<span class="string">"SYMBOL"</span>,<span class="string">"GO"</span>), keytype=<span class="string">"SYMBOL"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">##转换</span></span><br><span class="line">ensids &lt;- c(<span class="string">"ENSG00000130720"</span>, <span class="string">"ENSG00000103257"</span>, <span class="string">"ENSG00000156414"</span>,</span><br><span class="line"><span class="string">"ENSG00000144644"</span>,<span class="string">"ENSG00000159307"</span>, <span class="string">"ENSG00000144485"</span>)</span><br><span class="line">cols &lt;- c(<span class="string">"SYMBOL"</span>, <span class="string">"GENENAME"</span>，<span class="string">"ENTREZID"</span>)</span><br><span class="line">select(org.Hs.eg.db, keys=ensids, columns=cols, keytype=<span class="string">"ENSEMBL"</span>)</span><br><span class="line">或者：</span><br><span class="line">select(org.Hs.eg.db, keys=<span class="string">"BRCA1"</span>, columns= c(<span class="string">"ENSEMBL"</span>，<span class="string">"UNIGENE"</span>,<span class="string">"ENTREZID"</span>,<span class="string">"CHR"</span>,<span class="string">"GO"</span>,<span class="string">"GENENAME"</span>), keytype=<span class="string">"SYMBOL"</span>)</span><br></pre></td></tr></table></figure>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/12/27/2018-12-27_tengwanggexu/" data-toggle="tooltip" data-placement="top" title="滕王阁序">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-clusterProfiler包"><span class="toc-number">1.</span> <span class="toc-text">1.  clusterProfiler包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bitr-基因集ID转换"><span class="toc-number">1.0.1.</span> <span class="toc-text">bitr: 基因集ID转换</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#2-biomaRt软件包获得在线注释信息"><span class="toc-number">2.</span> <span class="toc-text">2. biomaRt软件包获得在线注释信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-原生org-Hs-eg-db"><span class="toc-number">2.1.</span> <span class="toc-text">3. 原生org.Hs.eg.db</span></a></li></ol></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

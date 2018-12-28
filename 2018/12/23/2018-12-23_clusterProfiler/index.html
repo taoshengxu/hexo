@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_clusterProfiler/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        clusterProfiler包｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>clusterProfiler包</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Dec 23, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">814 words in total, 5 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p> <a href="https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html" target="_blank" rel="noopener">clusterProfiler</a>包</p>
+<h2 id="GO-classification-（GO分类，似乎不重要的功能）"><a href="#GO-classification-（GO分类，似乎不重要的功能）" class="headerlink" title="GO classification （GO分类，似乎不重要的功能）"></a>GO classification （GO分类，似乎不重要的功能）</h2><p><code>groupGO</code> is designed for gene classification based on GO distribution at a specific level. </p>
+<p><strong>问题：</strong> GO的level，在什么研究中会涉及到？ 一般来说，level越大，GO功能越具体。level就像一棵树树主干一样，发了不同的枝叶，level越大枝叶越详细。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">data(geneList, package=<span class="string">"DOSE"</span>)</span><br><span class="line">gene &lt;- names(geneList)[abs(geneList) &gt; <span class="number">2</span>]</span><br><span class="line">gene.df &lt;- bitr(gene, fromType = <span class="string">"ENTREZID"</span>,</span><br><span class="line">        toType = c(<span class="string">"ENSEMBL"</span>, <span class="string">"SYMBOL"</span>),</span><br><span class="line">        OrgDb = org.Hs.eg.db)</span><br><span class="line">head(gene.df)</span><br><span class="line"><span class="comment">##   ENTREZID         ENSEMBL SYMBOL</span></span><br><span class="line"><span class="comment">## 1     4312 ENSG00000196611   MMP1</span></span><br><span class="line"><span class="comment">## 2     8318 ENSG00000093009  CDC45</span></span><br><span class="line"><span class="comment">## 3    10874 ENSG00000109255    NMU</span></span><br><span class="line"><span class="comment">## 4    55143 ENSG00000134690  CDCA8</span></span><br><span class="line"><span class="comment">## 5    55388 ENSG00000065328  MCM10</span></span><br><span class="line"><span class="comment">## 6      991 ENSG00000117399  CDC20</span></span><br><span class="line">ggo &lt;- groupGO(gene     = gene,</span><br><span class="line">               OrgDb    = org.Hs.eg.db,</span><br><span class="line">               ont      = <span class="string">"CC"</span>,</span><br><span class="line">               level    = <span class="number">3</span>,</span><br><span class="line">               readable = <span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="GO-over-representation-test（GO分析，常用）"><a href="#GO-over-representation-test（GO分析，常用）" class="headerlink" title="GO over-representation test（GO分析，常用）"></a>GO over-representation test（GO分析，常用）</h2><p>Over-representation test(Boyle et al. 2004) were implemented in <a href="https://www.bioconductor.org/packages/clusterProfiler" target="_blank" rel="noopener">clusterProfiler</a>. For calculation details and explanation of paramters, please refer to the vignette of <a href="https://www.bioconductor.org/packages/DOSE" target="_blank" rel="noopener">DOSE</a>.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ego &lt;- enrichGO(gene          = gene,</span><br><span class="line">                universe      = names(geneList),</span><br><span class="line">                OrgDb         = org.Hs.eg.db,</span><br><span class="line">                ont           = <span class="string">"CC"</span>,</span><br><span class="line">                pAdjustMethod = <span class="string">"BH"</span>,</span><br><span class="line">                pvalueCutoff  = <span class="number">0.01</span>,</span><br><span class="line">                qvalueCutoff  = <span class="number">0.05</span>,</span><br><span class="line">        readable      = <span class="literal">TRUE</span>)</span><br><span class="line">head(ego)</span><br><span class="line"><span class="comment">##                    ID                              Description GeneRatio</span></span><br><span class="line"><span class="comment">## GO:0005819 GO:0005819                                  spindle    25/202</span></span><br><span class="line"><span class="comment">## GO:0005876 GO:0005876                      spindle microtubule    12/202</span></span><br><span class="line"><span class="comment">## GO:0000779 GO:0000779 condensed chromosome, centromeric region    15/202</span></span><br><span class="line"><span class="comment">## GO:0072686 GO:0072686                          mitotic spindle    14/202</span></span><br><span class="line"><span class="comment">## GO:0000775 GO:0000775           chromosome, centromeric region    18/202</span></span><br><span class="line"><span class="comment">## GO:0000776 GO:0000776                              kinetochore    15/202</span></span><br><span class="line"><span class="comment">##              BgRatio       pvalue     p.adjust       qvalue</span></span><br><span class="line"><span class="comment">## GO:0005819 262/11812 2.569986e-12 8.146855e-10 7.520590e-10</span></span><br><span class="line"><span class="comment">## GO:0005876  45/11812 7.912518e-12 1.254134e-09 1.157726e-09</span></span><br><span class="line"><span class="comment">## GO:0000779  91/11812 3.254384e-11 3.438799e-09 3.174452e-09</span></span><br><span class="line"><span class="comment">## GO:0072686  84/11812 1.292642e-10 9.903693e-09 9.142376e-09</span></span><br><span class="line"><span class="comment">## GO:0000775 156/11812 1.562097e-10 9.903693e-09 9.142376e-09</span></span><br><span class="line"><span class="comment">## GO:0000776 106/11812 3.073022e-10 1.623580e-08 1.498772e-08</span></span><br></pre></td></tr></table></figure>
+<p>Any gene ID type that supported in <code>OrgDb</code> can be directly used in GO analyses. User need to specify the <code>keyType</code> parameter to specify the input gene ID type.</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ego2 &lt;- enrichGO(<span class="attr">gene</span>         = gene.df$ENSEMBL,</span><br><span class="line">                <span class="attr">OrgDb</span>         = org.Hs.eg.db,</span><br><span class="line">                <span class="attr">keyType</span>       = 'ENSEMBL',</span><br><span class="line">                <span class="attr">ont</span>           = <span class="string">"CC"</span>,</span><br><span class="line">                <span class="attr">pAdjustMethod</span> = <span class="string">"BH"</span>,</span><br><span class="line">                <span class="attr">pvalueCutoff</span>  = <span class="number">0.01</span>,</span><br><span class="line">                <span class="attr">qvalueCutoff</span>  = <span class="number">0.05</span>)</span><br></pre></td></tr></table></figure>
+<p>Gene ID can be mapped to gene Symbol by using paramter <code>readable=TRUE</code> or <code>setReadable</code> function.</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ego2 &lt;- setReadable(ego2, OrgDb = org<span class="selector-class">.Hs</span><span class="selector-class">.eg</span><span class="selector-class">.db</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="KEGG-over-representation-test"><a href="#KEGG-over-representation-test" class="headerlink" title="KEGG over-representation test"></a>KEGG over-representation test</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kk &lt;- enrichKEGG(gene         = gene,</span><br><span class="line">                 organism     = <span class="string">'hsa'</span>,</span><br><span class="line">                 pvalueCutoff = <span class="number">0.05</span>)</span><br><span class="line">head(kk)</span><br></pre></td></tr></table></figure>
+<h2 id="KEGG-Module-over-representation-test"><a href="#KEGG-Module-over-representation-test" class="headerlink" title="KEGG Module over-representation test"></a>KEGG Module over-representation test</h2><p><a href="http://www.genome.jp/kegg/module.html" target="_blank" rel="noopener">KEGG Module</a> is a collection of manually defined function units. In some situation, KEGG Modules have a more straightforward interpretation.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkk &lt;- enrichMKEGG(gene = gene,</span><br><span class="line">                   organism = <span class="string">'hsa'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="GO-Gene-Set-Enrichment-Analysis"><a href="#GO-Gene-Set-Enrichment-Analysis" class="headerlink" title="GO Gene Set Enrichment Analysis"></a>GO Gene Set Enrichment Analysis</h2><p>GO GSEA 与GSEA有什么区别?</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ego3 &lt;- gseGO(geneList     = geneList,</span><br><span class="line">              OrgDb        = org.Hs.eg.db,</span><br><span class="line">              ont          = <span class="string">"CC"</span>,</span><br><span class="line">              nPerm        = <span class="number">1000</span>,</span><br><span class="line">              minGSSize    = <span class="number">100</span>,</span><br><span class="line">              maxGSSize    = <span class="number">500</span>,</span><br><span class="line">              pvalueCutoff = <span class="number">0.05</span>,</span><br><span class="line">              verbose      = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="KEGG-Gene-Set-Enrichment-Analysis"><a href="#KEGG-Gene-Set-Enrichment-Analysis" class="headerlink" title="KEGG Gene Set Enrichment Analysis"></a>KEGG Gene Set Enrichment Analysis</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">kk2 &lt;- gseKEGG(geneList     = geneList,</span><br><span class="line">               organism     = <span class="string">'hsa'</span>,</span><br><span class="line">               nPerm        = <span class="number">1000</span>,</span><br><span class="line">               minGSSize    = <span class="number">120</span>,</span><br><span class="line">               pvalueCutoff = <span class="number">0.05</span>,</span><br><span class="line">               verbose      = <span class="literal">FALSE</span>)</span><br><span class="line">head(kk2)</span><br><span class="line"><span class="comment">##                ID                              Description setSize</span></span><br><span class="line"><span class="comment">## hsa04151 hsa04151               PI3K-Akt signaling pathway     322</span></span><br><span class="line"><span class="comment">## hsa04510 hsa04510                           Focal adhesion     188</span></span><br><span class="line"><span class="comment">## hsa04218 hsa04218                      Cellular senescence     143</span></span><br><span class="line"><span class="comment">## hsa05166 hsa05166  Human T-cell leukemia virus 1 infection     200</span></span><br><span class="line"><span class="comment">## hsa05169 hsa05169             Epstein-Barr virus infection     192</span></span><br><span class="line"><span class="comment">## hsa05170 hsa05170 Human immunodeficiency virus 1 infection     189</span></span><br><span class="line"><span class="comment">##          enrichmentScore       NES      pvalue  p.adjust    qvalues rank</span></span><br><span class="line"><span class="comment">## hsa04151      -0.3482755 -1.503715 0.001328021 0.0276644 0.01814059 1997</span></span><br><span class="line"><span class="comment">## hsa04510      -0.4188582 -1.725829 0.001390821 0.0276644 0.01814059 2183</span></span><br><span class="line"><span class="comment">## hsa04218       0.4153718  1.792654 0.002967359 0.0276644 0.01814059 1155</span></span><br><span class="line"><span class="comment">## hsa05166       0.3926594  1.744570 0.003484321 0.0276644 0.01814059 1955</span></span><br><span class="line"><span class="comment">## hsa05169       0.4343189  1.916668 0.003533569 0.0276644 0.01814059 2820</span></span><br><span class="line"><span class="comment">## hsa05170       0.3711150  1.635182 0.003533569 0.0276644 0.01814059 3178</span></span><br><span class="line"><span class="comment">##                            leading_edge</span></span><br><span class="line"><span class="comment">## hsa04151 tags=23%, list=16%, signal=20%</span></span><br><span class="line"><span class="comment">## hsa04510 tags=27%, list=17%, signal=23%</span></span><br><span class="line"><span class="comment">## hsa04218  tags=17%, list=9%, signal=16%</span></span><br><span class="line"><span class="comment">## hsa05166 tags=26%, list=16%, signal=23%</span></span><br><span class="line"><span class="comment">## hsa05169 tags=40%, list=23%, signal=31%</span></span><br><span class="line"><span class="comment">## hsa05170 tags=38%, list=25%, signal=29%</span></span><br></pre></td></tr></table></figure>
+<h2 id="KEGG-Module-Gene-Set-Enrichment-Analysis"><a href="#KEGG-Module-Gene-Set-Enrichment-Analysis" class="headerlink" title="KEGG Module Gene Set Enrichment Analysis"></a>KEGG Module Gene Set Enrichment Analysis</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkk2 &lt;- gseMKEGG(geneList = geneList,</span><br><span class="line">                 species = <span class="string">'hsa'</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="剩下富集分析点图-直接看网页即可。"><a href="#剩下富集分析点图-直接看网页即可。" class="headerlink" title="剩下富集分析点图 直接看网页即可。"></a>剩下富集分析点图 直接看网页即可。</h5>
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/12/23/2018-12-23_WGCNA/" data-toggle="tooltip" data-placement="left" title="WGCNA加权基因共表达网络分析">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/12/22/2018-12-2_R_applyfunction/" data-toggle="tooltip" data-placement="top" title="R Apply函数">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GO-classification-（GO分类，似乎不重要的功能）"><span class="toc-number">1.</span> <span class="toc-text">GO classification （GO分类，似乎不重要的功能）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GO-over-representation-test（GO分析，常用）"><span class="toc-number">2.</span> <span class="toc-text">GO over-representation test（GO分析，常用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KEGG-over-representation-test"><span class="toc-number">3.</span> <span class="toc-text">KEGG over-representation test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KEGG-Module-over-representation-test"><span class="toc-number">4.</span> <span class="toc-text">KEGG Module over-representation test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GO-Gene-Set-Enrichment-Analysis"><span class="toc-number">5.</span> <span class="toc-text">GO Gene Set Enrichment Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KEGG-Gene-Set-Enrichment-Analysis"><span class="toc-number">6.</span> <span class="toc-text">KEGG Gene Set Enrichment Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KEGG-Module-Gene-Set-Enrichment-Analysis"><span class="toc-number">7.</span> <span class="toc-text">KEGG Module Gene Set Enrichment Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#剩下富集分析点图-直接看网页即可。"><span class="toc-number">7.0.0.1.</span> <span class="toc-text">剩下富集分析点图 直接看网页即可。</span></a></li></ol></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

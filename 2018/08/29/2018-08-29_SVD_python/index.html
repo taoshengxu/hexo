@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/08/29/2018-08-29_SVD_python/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        奇异值分解SVD——python｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>奇异值分解SVD——python</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Aug 29, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">892 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://blog.csdn.net/u012421852/article/details/80439403" target="_blank" rel="noopener">原文</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@author: 蔚蓝的天空Tom</span></span><br><span class="line"><span class="string">Talk is cheap, show me the code</span></span><br><span class="line"><span class="string">Aim:svd分解降维应用示例的代码实现</span></span><br><span class="line"><span class="string">CSDN URL:https://mp.csdn.net/postedit/80450590</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> LA</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CSVD</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    实现SVD分解降维应用示例的数学求解过程的Python代码</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.data = data       <span class="comment">#用户数据</span></span><br><span class="line">        self.S = []  <span class="comment">#用户数据矩阵的奇异值序列 singular values</span></span><br><span class="line">        self.U = []  <span class="comment">#svd后的单位正交向量</span></span><br><span class="line">        self.VT = []  <span class="comment">#svd后的单位正交向量</span></span><br><span class="line">        self.k = <span class="number">0</span>   <span class="comment">#满足self.p的最小k值(k表示奇异值的个数)</span></span><br><span class="line">        self.SD = [] <span class="comment">#对角矩阵，对角线上元素是奇异值 singular values diagonal matrix</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#svd奇异值分解</span></span><br><span class="line">        self._svd()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_svd</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        用户数据矩阵的svd奇异值分解</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        u,s,v = np.linalg.svd(self.data)</span><br><span class="line">        (self.U, self.S, self.VT) = (u, s, v)</span><br><span class="line">        <span class="keyword">return</span> self.U, self.S, self.VT</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_calc_k</span><span class="params">(self, percentge)</span>:</span></span><br><span class="line">        <span class="string">'''确定k值：前k个奇异值的平方和占比 &gt;=percentage, 求满足此条件的最小k值</span></span><br><span class="line"><span class="string">        :param percentage, 奇异值平方和的占比的阈值</span></span><br><span class="line"><span class="string">        :return 满足阈值percentage的最小k值</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        self.k = <span class="number">0</span></span><br><span class="line">        <span class="comment">#用户数据矩阵的奇异值序列的平方和</span></span><br><span class="line">        total = sum(np.square(self.S))</span><br><span class="line">        svss = <span class="number">0</span> <span class="comment">#奇异值平方和 singular values square sum</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(np.shape(self.S)[<span class="number">0</span>]):</span><br><span class="line">            svss += np.square(self.S[i])</span><br><span class="line">            <span class="keyword">if</span> (svss/total) &gt;= percentge:</span><br><span class="line">                self.k = i+<span class="number">1</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> self.k</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_buildSD</span><span class="params">(self, k)</span>:</span></span><br><span class="line">        <span class="string">'''构建由奇异值组成的对角矩阵</span></span><br><span class="line"><span class="string">        :param k,根据奇异值开放和的占比阈值计算出来的k值</span></span><br><span class="line"><span class="string">        :return 由k个前奇异值组成的对角矩阵</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="comment">#方法1：用数组乘方法</span></span><br><span class="line">        self.SD = np.eye(self.k) * self.S[:self.k]</span><br><span class="line"> </span><br><span class="line">        <span class="comment">#方法2：用自定义方法</span></span><br><span class="line">        e = np.eye(self.k)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.k):</span><br><span class="line">            e[i,i] = self.S[i]</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> self.SD</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DimReduce</span><span class="params">(self, percentage)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        SVD降维</span></span><br><span class="line"><span class="string">        :param percentage, 奇异值开方和的占比阈值</span></span><br><span class="line"><span class="string">        :return 降维后的用户数据矩阵</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="comment">#计算k值</span></span><br><span class="line">        self._calc_k(percentage)</span><br><span class="line">        print(<span class="string">'\n按照奇异值开方和占比阈值percentage=%d, 求得降维的k=%d'</span>%(percentage, self.k))</span><br><span class="line">        <span class="comment">#构建由奇异值组成的对角矩阵singular values diagonal</span></span><br><span class="line">        self._buildSD(self.k)</span><br><span class="line">        k,U,SD,VT = self.k,self.U, self.SD, self.VT</span><br><span class="line">        <span class="comment">#按照svd分解公式对用户数据矩阵进行降维，得到降维压缩后的数据矩阵</span></span><br><span class="line">        print(<span class="string">'\n降维前的U,S,VT依次为:'</span>)</span><br><span class="line">        print(np.shape(U),      <span class="string">'U:\n'</span>, U)</span><br><span class="line">        print(np.shape(self.S), <span class="string">'S:\n'</span>, self.S)</span><br><span class="line">        print(np.shape(VT),     <span class="string">'VT:\n'</span>, VT)</span><br><span class="line">        print(<span class="string">'\n降维后的U,SD,VT依次为:'</span>)</span><br><span class="line">        print(np.shape(U[:len(U),k]), <span class="string">'U=U[:%d,:%d]:\n'</span>%(len(U),k), U[:len(U), :k])</span><br><span class="line">        print(np.shape(SD), <span class="string">'SD=SD[:%d, :%d]:\n'</span>%(k,k), SD[:k, :k])</span><br><span class="line">        print(np.shape(VT[:k, :len(VT)]), <span class="string">'VT=VT[:%d, :%d]:\n'</span>%(k, len(VT)), VT[:k, :len(VT)])</span><br><span class="line"> </span><br><span class="line">        a = U[:len(U), :k]</span><br><span class="line">        b = np.dot(SD, VT[:k, :len(VT)])</span><br><span class="line">        newData = np.dot(a,b)</span><br><span class="line">        <span class="keyword">return</span> newData</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CSVD_manual</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">##训练数据集，用户对商品的评分矩阵，行为多个用户对单个商品的评分，列为用户对每个商品的评分</span></span><br><span class="line">    data = np.array([[<span class="number">5</span>, <span class="number">5</span>, <span class="number">0</span>, <span class="number">5</span>],</span><br><span class="line">                     [<span class="number">5</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">                     [<span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">3</span>],</span><br><span class="line">                     [<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">3</span>],</span><br><span class="line">                     [<span class="number">5</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">                     [<span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>]])</span><br><span class="line">    percentage = <span class="number">0.9</span></span><br><span class="line">    svdor = CSVD(data)</span><br><span class="line">    ret = svdor.DimReduce(percentage)</span><br><span class="line">    print(<span class="string">'===================================================='</span>)</span><br><span class="line">    print(<span class="string">'原始用户数据矩阵:\n'</span>, data)</span><br><span class="line">    print(<span class="string">'降维后的数据矩阵:\n'</span>, ret)</span><br><span class="line">    print(<span class="string">'===================================================='</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    CSVD_manual()</span><br></pre></td></tr></table></figure>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/08/31/2018-08-30_chenwei_gene/" data-toggle="tooltip" data-placement="left" title="陈巍学基因">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/08/28/2018-08-28_unsupervised_featureselection/" data-toggle="tooltip" data-placement="top" title="无监督特征选择方法">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

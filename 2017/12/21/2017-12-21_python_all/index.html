@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/12/21/2017-12-21_python_all/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Python资料汇总｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Python资料汇总</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Dec 21, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">2,371 words in total, 12 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://juejin.im/post/5a3100d76fb9a04500030d06" target="_blank" rel="noopener">原文</a></p>
+<h1 id="Python资料推荐-经典练手项目"><a href="#Python资料推荐-经典练手项目" class="headerlink" title="Python资料推荐 +经典练手项目"></a>Python资料推荐 +经典练手项目</h1><p>今天给大家带来一批宝贝，大家可以在深夜里独自把玩，也可以在广场上一边遛狗一边和盆友们品鉴。</p>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><h4 id="1、入门阶段-The-Python-TutorialPython官方文档，永远是最佳选择"><a href="#1、入门阶段-The-Python-TutorialPython官方文档，永远是最佳选择" class="headerlink" title="1、入门阶段 The Python TutorialPython官方文档，永远是最佳选择"></a>1、入门阶段 <a href="https://link.juejin.im/?target=https%3A%2F%2Fdocs.python.org%2F3.6%2Ftutorial%2Findex.html" target="_blank" rel="noopener">The Python Tutorial</a>Python官方文档，永远是最佳选择</h4><p><a href="https://link.juejin.im/?target=https%3A%2F%2Fdevelopers.google.com%2Fedu%2Fpython%2Fintroduction%3Fhl%3Dzh-CN%26csw%3D1" target="_blank" rel="noopener">Google’s Python Class</a> Google的文档，质量相当高</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.runoob.com%2Fpython3%2Fpython3-tutorial.html" target="_blank" rel="noopener">Python3 教程 | 菜鸟教程</a> 如果英文不好，可以参考国内教程</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Flearnpythonthehardway.org%2Fbook%2F" target="_blank" rel="noopener">Learn Python the Hard Way</a> 最简单的学习 Python 的方法， HTML 在线版是完全免费的</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Fstudy.163.com%2Fcourse%2Fintroduction%2F378003.htm" target="_blank" rel="noopener">零基础入门学习Python </a>网易云课堂，老师诙谐幽默，上手快</p>
+<h4 id="2、拔高阶段-最好自己动手写一些项目，一定要使用GitHub-Python-精选项目课程-实验楼提供在线编程及在线实训学习平台"><a href="#2、拔高阶段-最好自己动手写一些项目，一定要使用GitHub-Python-精选项目课程-实验楼提供在线编程及在线实训学习平台" class="headerlink" title="2、拔高阶段 最好自己动手写一些项目，一定要使用GitHub Python_精选项目课程 实验楼提供在线编程及在线实训学习平台"></a>2、拔高阶段 最好自己动手写一些项目，一定要使用GitHub <a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.shiyanlou.com%2Fcourses%2F%3Fcategory%3D%25E5%2590%258E%25E7%25AB%25AF%25E5%25BC%2580%25E5%258F%2591%26course_type%3Dall%26tag%3DPython%26fee%3Dall" target="_blank" rel="noopener">Python_精选项目课程</a> 实验楼提供在线编程及在线实训学习平台</h4><p><a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.ziqiangxuetang.com%2Fdjango%2Fdjango-cms-develop.html" target="_blank" rel="noopener">Django 开发内容管理系统</a> 全面的中文教程</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.dataquest.io%2F" target="_blank" rel="noopener">Dataquest</a> 提供了一系列和数据分析相关的Python教程</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Fcuiqingcai.com%2F1052.html" target="_blank" rel="noopener">Python爬虫学习系列教程 | 静觅</a> 静觅的爬虫课程，名气非常大</p>
+<h4 id="3、方向进阶-来到这个时候，最好确立学习的方向。"><a href="#3、方向进阶-来到这个时候，最好确立学习的方向。" class="headerlink" title="3、方向进阶 来到这个时候，最好确立学习的方向。"></a>3、方向进阶 <strong>来到这个时候，最好确立学习的方向。</strong></h4><ul>
+<li>web开发（Django、Flask、Tornado） <a href="https://link.juejin.im/?target=http%3A%2F%2Fpython-web-guide.readthedocs.io%2Fzh%2Flatest%2Findex.html" target="_blank" rel="noopener">python web 入坑指南</a></li>
+<li><strong>数据科学（<a href="https://docs.scipy.org/doc/numpy-1.13.0/genindex.html" target="_blank" rel="noopener">Numpy</a>、Pandas、Matplotlib）</strong> <a href="https://link.juejin.im/?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F23229114" target="_blank" rel="noopener">数据科学家的完整学习路径（Python版)</a></li>
+<li><strong>机器学习（scikit-learn）</strong><a href="https://link.juejin.im/?target=http%3A%2F%2Fscikit-learn.org%2Fstable%2F" target="_blank" rel="noopener">英文文档</a>     <a href="http://sklearn.apachecn.org/cn/0.19.0/" target="_blank" rel="noopener">中文文档</a></li>
+<li>深度学习（TensorFlow）<a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.tensorflow.org%2F" target="_blank" rel="noopener">www.tensorflow.org/</a></li>
+<li>网络爬虫（Scrapy）<a href="https://link.juejin.im/?target=https%3A%2F%2Fdocs.scrapy.org%2Fen%2Flatest%2F" target="_blank" rel="noopener">Scrapy 1.4 documentation</a></li>
+</ul>
+<h4 id="4、实战演练-有哪些适合新手练手的Python项目-非常全面的项目，强烈推荐"><a href="#4、实战演练-有哪些适合新手练手的Python项目-非常全面的项目，强烈推荐" class="headerlink" title="4、实战演练 有哪些适合新手练手的Python项目 非常全面的项目，强烈推荐"></a>4、实战演练 <a href="https://link.juejin.im/?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F22164270" target="_blank" rel="noopener">有哪些适合新手练手的Python项目</a> 非常全面的项目，强烈推荐</h4><p><a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.liaoxuefeng.com%2Fwiki%2F0014316089557264a6b348958f449949df42a6d3a2e542c000%2F001432170876125c96f6cc10717484baea0c6da9bee2be4000" target="_blank" rel="noopener">实战</a> 廖雪峰老师的教程，非常经典，可以当做Python的百科全书来参考</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.oschina.net%2Fproject%2Flang%2F25%2Fpython%3Fcompany%3D0%26sort%3Dtime%26lang%3D25%26recommend%3Dfalse" target="_blank" rel="noopener">Python开源软件 </a>开源中国社区的项目合集</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkaran%2FProjects" target="_blank" rel="noopener">karan/Projects</a> Python项目合集</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2F123.w3cschool.cn%2Fpython_projects" target="_blank" rel="noopener">Python项目_W3Cschool极客导航</a>  不仅有web开发，还有爬虫相关</p>
+<h4 id="5、-博客列表"><a href="#5、-博客列表" class="headerlink" title="5、 博客列表"></a>5、 博客列表</h4><p><a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.liaoxuefeng.com%2F" target="_blank" rel="noopener">廖雪峰的官方网站</a> 研究互联网产品和技术，提供原创中文精品教程</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.cnblogs.com%2Ffnng%2F" target="_blank" rel="noopener">虫师 </a> 关于Python自动化方面的一位大牛</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Fwww.lining0806.com%2Fhomepage%2F" target="_blank" rel="noopener">宁哥的小站</a> Python网络爬虫和机器学习</p>
+<p><a href="https://link.juejin.im/?target=http%3A%2F%2Fcuiqingcai.com%2F" target="_blank" rel="noopener">静觅</a> 崔庆才的个人网站，在爬虫方面造诣很深</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fdoughellmann.com%2Fblog%2F" target="_blank" rel="noopener">Python, OpenStack</a> 博客里面包含了很多python library的知识</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.zhihu.com%2F" target="_blank" rel="noopener">知乎 - 与世界分享你的知识、经验和见解</a>  隐藏着各种Python大神</p>
+<h2 id="经典入门及第三方库"><a href="#经典入门及第三方库" class="headerlink" title="经典入门及第三方库"></a>经典入门及第三方库</h2><ul>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fvinta%2Fawesome-python" target="_blank" rel="noopener">vinta/awesome-python</a> 精心设计的Python学习框架，书籍和软件</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fnvbn%2Fthefuck" target="_blank" rel="noopener">nvbn/thefuck</a> 华丽的应用程序更正您以前的控制台命令</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fpallets%2Fflask" target="_blank" rel="noopener">pallets/flask</a>、<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdjango%2Fdjango" target="_blank" rel="noopener">django/django</a> Python的web框架</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frequests%2Frequests" target="_blank" rel="noopener">requests/requests</a> 强大的库，相信你一定学过</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fipython%2Fipython" target="_blank" rel="noopener">ipython/ipython</a> 生产性交互式计算系统</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fpython%2Fcpython" target="_blank" rel="noopener">python/cpython</a> Python编程语言官方文档</li>
+</ul>
+<h2 id="好玩的项目"><a href="#好玩的项目" class="headerlink" title="好玩的项目"></a><strong>好玩的项目</strong></h2><ul>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fwarner%2Fmagic-wormhole" target="_blank" rel="noopener">warner/magic-wormhole</a> 把文件从一台电脑安全地复制到另一台</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fpyvideo%2Fpyvideo" target="_blank" rel="noopener">pyvideo/pyvideo</a> 和Python相关的视频</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2F7sDream%2Fzhihu-oauth" target="_blank" rel="noopener">7sDream/zhihu-oauth</a> 知乎官方未开放的 OAuth2 接口</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ferrbotio%2Ferrbot" target="_blank" rel="noopener">errbotio/errbot</a> 最简单和最流行的聊天机器人</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ffogleman%2FMinecraft" target="_blank" rel="noopener">fogleman/Minecraft</a> 用Python写的我的世界</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmopidy%2Fmopidy" target="_blank" rel="noopener">mopidy/mopidy</a> 一个可扩展的音乐服务器</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FEloston%2Fungoogled-chromium" target="_blank" rel="noopener">Eloston/ungoogled-chromium</a> 可以修改Google Chromium组件</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flivid%2Fv2ex" target="_blank" rel="noopener">livid/v2ex</a> 在Google App Engine上运行的社区</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Foverviewer%2FMinecraft-Overviewer" target="_blank" rel="noopener">overviewer/Minecraft-Overviewer</a> 展示高分辨率地图</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcharlierguo%2Fgmail" target="_blank" rel="noopener">charlierguo/gmail</a> Google Mail的Pythonic界面</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fegirault%2Fgoogleplay-api" target="_blank" rel="noopener">egirault/googleplay-api</a> Google Play非官方的Python API</li>
+</ul>
+<h2 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a><strong>网络爬虫</strong></h2><ul>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FLiuXingMing%2FSinaSpider" target="_blank" rel="noopener">LiuXingMing/SinaSpider</a> 新浪微博爬虫（Scrapy、Redis）</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbinux%2Fpyspider" target="_blank" rel="noopener">binux/pyspider</a> Python中强大的网络爬虫系统</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbowenpay%2Fwechat-spider" target="_blank" rel="noopener">bowenpay/wechat-spider</a> 微信公众号爬虫</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjhao104%2Fproxy_pool" target="_blank" rel="noopener">jhao104/proxy_pool</a> Python爬虫代理IP池(proxy pool)</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsmicallef%2Fspiderfoot" target="_blank" rel="noopener">smicallef/spiderfoot</a> SpiderFoot，开源脚印和情报收集工具。</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flining0806%2FPythonSpiderNotes" target="_blank" rel="noopener">lining0806/PythonSpiderNotes</a> Python入门网络爬虫之精华版</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FGermey%2FZhihu" target="_blank" rel="noopener">Germey/Zhihu</a> 崔庆才博主写的知乎爬虫</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgnemoug%2Fdistribute_crawler" target="_blank" rel="noopener">gnemoug/distribute_crawler</a> 分布式网络爬虫</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FChyroc%2FWechatSogou" target="_blank" rel="noopener">Chyroc/</a>基于搜狗微信搜索的微信公众号爬虫接口</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FResolveWang%2Fweibospider" target="_blank" rel="noopener">ResolveWang/weibospider</a> 分布式微博爬虫(PC端抓取)</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fairingursb%2Fbilibili-user" target="_blank" rel="noopener">airingursb/bilibili-user</a>  Bilibili用户爬虫</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyanzhou%2FCnkiSpider" target="_blank" rel="noopener">yanzhou/CnkiSpider</a> 中国知网爬虫</li>
+</ul>
+<h2 id="数据相关"><a href="#数据相关" class="headerlink" title="数据相关"></a><strong>数据相关</strong></h2><ul>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdonnemartin%2Fdata-science-ipython-notebooks" target="_blank" rel="noopener">donnemartin/data-science-ipython-notebooks</a> 综合型的数据科学教程</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsqlmapproject%2Fsqlmap" target="_blank" rel="noopener">sqlmapproject/sqlmap</a> 自动SQL注入和数据库接管工具</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmitmproxy%2Fmitmproxy" target="_blank" rel="noopener">mitmproxy/mitmproxy</a> 针对渗透测试员和软件开发人员的交互式TLS功能拦截HTTP代理</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frushter%2Fdata-science-blogs" target="_blank" rel="noopener">rushter/data-science-blogs</a> 很多数据科学的博客</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fujjwalkarn%2FDataSciencePython" target="_blank" rel="noopener">ujjwalkarn/DataSciencePython</a> 通用数据分析和机器学习任务</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjustmarkham%2FDAT3" target="_blank" rel="noopener">justmarkham/DAT3</a> 华盛顿的大数据课程</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbillryan%2Falgorithm-exercise" target="_blank" rel="noopener">billryan/algorithm-exercise</a> leetcode/lintcode题解</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbitly%2Fdata_hacks" target="_blank" rel="noopener">bitly/data_hacks</a> 使用命令行进行数据分析</li>
+</ul>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a><strong>机器学习</strong></h2><ul>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FMorvanZhou%2Ftutorials" target="_blank" rel="noopener">MorvanZhou/tutorials</a> 机器学习相关教程</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fahangchen%2FGDLnotes" target="_blank" rel="noopener">ahangchen/GDLnotes</a> 谷歌深度学习笔记</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ftensorflow%2Fmodels" target="_blank" rel="noopener">tensorflow/models</a> 使用TensorFlow构建模型</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fastorfi%2FTensorFlow-World" target="_blank" rel="noopener">astorfi/TensorFlow-World</a> TensorFlow的简单和现成的教程</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ffchollet%2Fkeras" target="_blank" rel="noopener">fchollet/keras</a> Python深度学习库，运行在TensorFlow，Theano或CNTK</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjosephmisiti%2Fawesome-machine-learning" target="_blank" rel="noopener">josephmisiti/awesome-machine-learning</a> 精心设计的机器学习框架，书籍和软件</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsongrotek%2FDeep-Learning-Papers-Reading-Roadmap" target="_blank" rel="noopener">songrotek/Deep-Learning-Papers-Reading-Roadmap</a> 深度学习论文阅读路线图</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FMLWave%2FKaggle-Ensemble-Guide" target="_blank" rel="noopener">MLWave/Kaggle-Ensemble-Guide</a>  Kaggle组合指南的代码</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Feriklindernoren%2FML-From-Scratch" target="_blank" rel="noopener">eriklindernoren/ML-From-Scratch</a> 机器学习模型和算法</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhumphd%2Fhave-fun-with-machine-learning" target="_blank" rel="noopener">humphd/have-fun-with-machine-learning</a> 机器学习与神经网络图像分类的初学者指南</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Farielf%2Fweight-loss" target="_blank" rel="noopener">arielf/weight-loss</a> 机器学习符合酮症：如何有效减肥</li>
+<li><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fluispedro%2FBuildingMachineLearningSystemsWithPython" target="_blank" rel="noopener">luispedro/BuildingMachineLearning</a> 本书用Python构建机器学习系统的源代码</li>
+</ul>
+<hr>
+<h1 id="Comprehensive-learning-path-–-Data-Science-in-Python"><a href="#Comprehensive-learning-path-–-Data-Science-in-Python" class="headerlink" title="Comprehensive learning path – Data Science in Python"></a><a href="https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-data-science-python/" target="_blank" rel="noopener">Comprehensive learning path – Data Science in Python</a></h1><h3 id="Journey-from-a-Python-noob-to-a-Kaggler-on-Python"><a href="#Journey-from-a-Python-noob-to-a-Kaggler-on-Python" class="headerlink" title="Journey from a Python noob to a Kaggler on Python"></a><strong>Journey from a Python noob to a Kaggler on Python</strong></h3><p>So, you want to become a data scientist or may be you are already one and want to expand your tool repository. You have landed at the right place. The aim of this page is to provide a comprehensive learning path to people new to python for data analysis. This path provides a comprehensive overview of steps you need to learn to use Python for data analysis. If you already have some background, or don’t need all the components, feel free to adapt your own paths and let us know how you made changes in the path.</p>
+<p>You can also check the mini version of this learning path –&gt; <a href="https://www.analyticsvidhya.com/blog/2015/05/infographic-quick-guide-learn-python-data-science/" target="_blank" rel="noopener">Infographic: Quick Guide to learn Data Science in Python</a></p>
+<h3 id="Step-0-Warming-up"><a href="#Step-0-Warming-up" class="headerlink" title="Step 0: Warming up"></a><strong>Step 0: Warming up</strong></h3><p>Before starting your journey, the first question to answer is:</p>
+<p>Why use Python?</p>
+<p>or</p>
+<p>How would Python be useful?</p>
+<p>Watch the first 30 minutes of this <a href="https://www.youtube.com/watch?v=CoxjADZHUQA" target="_blank" rel="noopener">talk from Jeremy</a>, Founder of DataRobot at PyCon 2014, Ukraine to get an idea of how useful Python could be.</p>
+<h3 id="Step-1-Setting-up-your-machine"><a href="#Step-1-Setting-up-your-machine" class="headerlink" title="Step 1: Setting up your machine"></a><strong>Step 1: Setting up your machine</strong></h3><p>Now that you have made up your mind, it is time to set up your machine. The easiest way to proceed is to just <a href="https://store.continuum.io/cshop/anaconda/" target="_blank" rel="noopener">download Anaconda</a> from Continuum.io . It comes packaged with most of the things you will need ever. The major downside of taking this route is that you will need to wait for Continuum to update their packages, even when there might be an update available to the underlying libraries. If you are a starter, that should hardly matter.</p>
+<p>If you face any challenges in installing, you can find more <a href="http://www.datarobot.com/blog/getting-up-and-running-with-python/" target="_blank" rel="noopener">detailed instructions for various OS</a> here</p>
+<h3 id="Step-2-Learn-the-basics-of-Python-language"><a href="#Step-2-Learn-the-basics-of-Python-language" class="headerlink" title="Step 2: Learn the basics of Python language"></a><strong>Step 2: Learn the basics of Python language</strong></h3><p>You should start by understanding the basics of the language, libraries and data structure. The free <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science" target="_blank" rel="noopener">interactive Python tutorial by DataCamp</a> is one of the best places to start your journey. This 4 hour coding course focuses on how to get started with Python for data science and by the end you should be comfortable with the basic concepts of the language.</p>
+<p><strong>Specifically learn:</strong> Lists, Tuples, Dictionaries, List comprehensions, Dictionary comprehensions </p>
+<p><strong>Assignment:</strong> Take the <a href="https://www.datacamp.com/courses/intro-to-python-for-data-science" target="_blank" rel="noopener">interactive Python tutorial by DataCamp</a></p>
+<p><strong>Alternate resources:</strong> If interactive coding is not your style of learning, you can also look at The <a href="https://developers.google.com/edu/python/" target="_blank" rel="noopener">Google Class for Python</a>. It is a 2 day class series and also covers some of the parts discussed later.</p>
+<h3 id="Step-3-Learn-Regular-Expressions-in-Python"><a href="#Step-3-Learn-Regular-Expressions-in-Python" class="headerlink" title="Step 3: Learn Regular Expressions in Python"></a><strong>Step 3: Learn Regular Expressions in Python</strong></h3><p>You will need to use them a lot for data cleansing, especially if you are working on text data. The best way to<a href="https://developers.google.com/edu/python/regular-expressions" target="_blank" rel="noopener"> learn Regular expressions</a> is to go through the Google class and keep this <a href="https://www.debuggex.com/cheatsheet/regex/python" target="_blank" rel="noopener">cheat sheet</a> handy.</p>
+<p><strong>Assignment:</strong> Do the <a href="https://developers.google.com/edu/python/exercises/baby-names" target="_blank" rel="noopener">baby names exercise</a></p>
+<p>If you still need more practice, follow this <a href="https://www.analyticsvidhya.com/blog/2014/11/text-data-cleaning-steps-python/" target="_blank" rel="noopener">tutorial for text cleaning</a>. It will challenge you on various steps involved in data wrangling.</p>
+<h3 id="Step-4-Learn-Scientific-libraries-in-Python-–-NumPy-SciPy-Matplotlib-and-Pandas"><a href="#Step-4-Learn-Scientific-libraries-in-Python-–-NumPy-SciPy-Matplotlib-and-Pandas" class="headerlink" title="Step 4: Learn Scientific libraries in Python – NumPy, SciPy, Matplotlib and Pandas"></a><strong>Step 4: Learn Scientific libraries in Python – NumPy, SciPy, Matplotlib and Pandas</strong></h3><p>This is where fun begins! Here is a brief introduction to various libraries. Let’s start practicing some common operations.</p>
+<ul>
+<li>Practice the <a href="http://wiki.scipy.org/Tentative_NumPy_Tutorial" target="_blank" rel="noopener">NumPy tutorial</a> thoroughly, especially NumPy arrays. This will form a good foundation for things to come.</li>
+<li>Next, look at the <a href="http://docs.scipy.org/doc/scipy/reference/tutorial/" target="_blank" rel="noopener">SciPy tutorials</a>. Go through the introduction and the basics and do the remaining ones basis your needs.</li>
+<li>If you guessed Matplotlib tutorials next, you are wrong! They are too comprehensive for our need here. Instead look at this <a href="http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb" target="_blank" rel="noopener">ipython notebook</a> till Line 68 (i.e. till animations)</li>
+<li>Finally, let us look at Pandas. Pandas provide DataFrame functionality (like R) for Python. This is also where you should spend good time practicing. Pandas would become the most effective tool for all mid-size data analysis. Start with a short introduction, <a href="http://pandas.pydata.org/pandas-docs/stable/10min.html" target="_blank" rel="noopener">10 minutes to pandas</a>. Then move on to a more detailed <a href="http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures/" target="_blank" rel="noopener">tutorial on pandas</a>.</li>
+<li>Check out DataCamp’s course on <a href="https://www.datacamp.com/courses/pandas-foundations" target="_blank" rel="noopener">Pandas Foundations</a></li>
+</ul>
+<p>You can also look at <a href="https://www.analyticsvidhya.com/blog/2014/08/baby-steps-python-performing-exploratory-analysis-python/" target="_blank" rel="noopener">Exploratory Data Analysis with Pandas</a> and <a href="https://www.analyticsvidhya.com/blog/2014/09/data-munging-python-using-pandas-baby-steps-python/" target="_blank" rel="noopener">Data munging with Pandas</a></p>
+<p><strong>Additional Resources:</strong></p>
+<ul>
+<li>If you need a book on Pandas and NumPy, “<a href="http://www.amazon.com/Python-Data-Analysis-Wrangling-IPython/dp/1449319793" target="_blank" rel="noopener">Python for Data Analysis</a> by Wes McKinney”</li>
+<li>There are a lot of tutorials as part of Pandas documentation. You can have a look at them <a href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html" target="_blank" rel="noopener">here</a></li>
+</ul>
+<p><strong>Assignment:</strong> Solve this <a href="http://nbviewer.ipython.org/github/cs109/2014/blob/master/homework/HW1.ipynb" target="_blank" rel="noopener">assignment from CS109 course</a> from Harvard.</p>
+<h3 id="Step-5-Effective-Data-Visualization"><a href="#Step-5-Effective-Data-Visualization" class="headerlink" title="Step 5: Effective Data Visualization"></a><strong>Step 5: Effective Data Visualization</strong></h3><p>Go through this <a href="http://cm.dce.harvard.edu/2015/01/14328/L03/screen_H264LargeTalkingHead-16x9.shtml" target="_blank" rel="noopener">lecture form CS109</a>. You can ignore the initial 2 minutes, but what follows after that is awesome! Follow this lecture up with <a href="http://nbviewer.ipython.org/github/cs109/2014/blob/master/homework/HW2.ipynb" target="_blank" rel="noopener">this assignment</a></p>
+<p>Check out <a href="https://www.datacamp.com/courses/interactive-data-visualization-with-bokeh" target="_blank" rel="noopener">Bokeh Data Visualization</a> Tutorial from DataCamp</p>
+<h3 id="Step-6-Learn-Scikit-learn-and-Machine-Learning"><a href="#Step-6-Learn-Scikit-learn-and-Machine-Learning" class="headerlink" title="Step 6: Learn Scikit-learn and Machine Learning"></a><strong>Step 6: Learn Scikit-learn and Machine Learning</strong></h3><p>Now, we come to the meat of this entire process. Scikit-learn is the most useful library on python for machine learning. Here is a <a href="https://www.analyticsvidhya.com/blog/2015/01/scikit-learn-python-machine-learning-tool/" target="_blank" rel="noopener">brief overview of the library</a>. Go through lecture 10 to lecture 18 from <a href="http://cs109.github.io/2014/pages/schedule.html" target="_blank" rel="noopener">CS109 course from Harvard</a>. You will go through an overview of machine learning, Supervised learning algorithms like regressions, decision trees, ensemble modeling and non-supervised learning algorithms like clustering. Follow individual lectures with the <a href="http://cs109.github.io/2014/pages/homework.html" target="_blank" rel="noopener">assignments</a> from those lectures.</p>
+<p><strong>Additional Resources:</strong></p>
+<ul>
+<li>If there is one book, you must read, it is <a href="http://www.amazon.com/Programming-Collective-Intelligence-Building-Applications/dp/0596529325" target="_blank" rel="noopener">Programming Collective Intelligence</a> – a classic, but still one of the best books on the subject.</li>
+<li>Additionally, you can also follow one of the best courses on <a href="https://www.edx.org/course/learning-data-caltechx-cs1156x" target="_blank" rel="noopener">Machine Learning course from Yaser Abu-Mostafa</a>. If you need more lucid explanation for the techniques, you can opt for the <a href="https://www.coursera.org/course/ml" target="_blank" rel="noopener">Machine learning course from Andrew Ng</a>and follow the exercises on Python.</li>
+<li>Tutorials on Scikit learn</li>
+</ul>
+<p><strong>Assignment:</strong> Try out this <a href="http://www.kaggle.com/c/data-science-london-scikit-learn" target="_blank" rel="noopener">challenge</a> on Kaggle</p>
+<h3 id="Step-7-Practice-practice-and-Practice"><a href="#Step-7-Practice-practice-and-Practice" class="headerlink" title="Step 7: Practice, practice and Practice"></a><strong>Step 7: Practice, practice and Practice</strong></h3><p>Congratulations, you made it!</p>
+<p>You now have all what you need in technical skills. It is a matter of practice and what better place to practice than compete with fellow Data Scientists on Kaggle. Go, dive into one of the live competitions currently running on <a href="http://www.kaggle.com/" target="_blank" rel="noopener">Kaggle</a> and give all what you have learnt a try!</p>
+<h3 id="Step-8-Deep-Learning"><a href="#Step-8-Deep-Learning" class="headerlink" title="Step 8: Deep Learning"></a><strong>Step 8: Deep Learning</strong></h3><p>Now that you have learnt most of machine learning techniques, it is time to give Deep Learning a shot. There is a good chance that you already know what is Deep Learning, but if you still need a brief intro, <a href="https://www.analyticsvidhya.com/blog/2014/06/deep-learning-attention/" target="_blank" rel="noopener">here</a> it is.</p>
+<p>I am myself new to deep learning, so please take these suggestions with a pinch of salt. The most comprehensive resource is <a href="http://deeplearning.net/" target="_blank" rel="noopener">deeplearning.net</a>. You will find everything here – lectures, datasets, challenges, tutorials. You can also try the <a href="https://www.coursera.org/course/neuralnets" target="_blank" rel="noopener">course from Geoff Hinton</a> a try in a bid to understand the basics of Neural Networks.</p>
+<p><strong>Get Started with Python:</strong> <a href="https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/" target="_blank" rel="noopener">A Complete Tutorial To Learn Data Science with Python From Scratch</a></p>
+<p><strong>P.S. In case you need to use Big Data libraries, give Pydoop and PyMongo a try. They are not included here as Big Data learning path is an entire topic in itself.</strong></p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/04/11/2018-04-11_Rdatabase/" data-toggle="tooltip" data-placement="left" title="R语言数据库操作">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/12/21/2017-12-21_python_sklearn/" data-toggle="tooltip" data-placement="top" title="python—sklearn学习">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python资料推荐-经典练手项目"><span class="toc-number">1.</span> <span class="toc-text">Python资料推荐 +经典练手项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#学习资料"><span class="toc-number">1.1.</span> <span class="toc-text">学习资料</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、入门阶段-The-Python-TutorialPython官方文档，永远是最佳选择"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1、入门阶段 The Python TutorialPython官方文档，永远是最佳选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、拔高阶段-最好自己动手写一些项目，一定要使用GitHub-Python-精选项目课程-实验楼提供在线编程及在线实训学习平台"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">2、拔高阶段 最好自己动手写一些项目，一定要使用GitHub Python_精选项目课程 实验楼提供在线编程及在线实训学习平台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、方向进阶-来到这个时候，最好确立学习的方向。"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">3、方向进阶 来到这个时候，最好确立学习的方向。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、实战演练-有哪些适合新手练手的Python项目-非常全面的项目，强烈推荐"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">4、实战演练 有哪些适合新手练手的Python项目 非常全面的项目，强烈推荐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、-博客列表"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">5、 博客列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#经典入门及第三方库"><span class="toc-number">1.2.</span> <span class="toc-text">经典入门及第三方库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#好玩的项目"><span class="toc-number">1.3.</span> <span class="toc-text">好玩的项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络爬虫"><span class="toc-number">1.4.</span> <span class="toc-text">网络爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据相关"><span class="toc-number">1.5.</span> <span class="toc-text">数据相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习"><span class="toc-number">1.6.</span> <span class="toc-text">机器学习</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Comprehensive-learning-path-–-Data-Science-in-Python"><span class="toc-number">2.</span> <span class="toc-text">Comprehensive learning path – Data Science in Python</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Journey-from-a-Python-noob-to-a-Kaggler-on-Python"><span class="toc-number">2.0.1.</span> <span class="toc-text">Journey from a Python noob to a Kaggler on Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-0-Warming-up"><span class="toc-number">2.0.2.</span> <span class="toc-text">Step 0: Warming up</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-Setting-up-your-machine"><span class="toc-number">2.0.3.</span> <span class="toc-text">Step 1: Setting up your machine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Learn-the-basics-of-Python-language"><span class="toc-number">2.0.4.</span> <span class="toc-text">Step 2: Learn the basics of Python language</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Learn-Regular-Expressions-in-Python"><span class="toc-number">2.0.5.</span> <span class="toc-text">Step 3: Learn Regular Expressions in Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Learn-Scientific-libraries-in-Python-–-NumPy-SciPy-Matplotlib-and-Pandas"><span class="toc-number">2.0.6.</span> <span class="toc-text">Step 4: Learn Scientific libraries in Python – NumPy, SciPy, Matplotlib and Pandas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-Effective-Data-Visualization"><span class="toc-number">2.0.7.</span> <span class="toc-text">Step 5: Effective Data Visualization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-6-Learn-Scikit-learn-and-Machine-Learning"><span class="toc-number">2.0.8.</span> <span class="toc-text">Step 6: Learn Scikit-learn and Machine Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-7-Practice-practice-and-Practice"><span class="toc-number">2.0.9.</span> <span class="toc-text">Step 7: Practice, practice and Practice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-8-Deep-Learning"><span class="toc-number">2.0.10.</span> <span class="toc-text">Step 8: Deep Learning</span></a></li></ol></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

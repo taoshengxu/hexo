@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/05/2017-11-05_transcriptome_analysis-1/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        转录组分析笔记（2）｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+      <meta name="google-site-verification" content="xxx">
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-xxxxxx-xx', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+<script>
+    var _baId = 'xxx';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>转录组分析笔记（2）</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Nov 5, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">942 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>这是一个生信技能树的优秀作业，一字未改。</p>
+<p><a href="http://www.biotrainee.com/thread-1931-1-1.html" target="_blank" rel="noopener">原文</a></p>
+<h2 id="转录组差异表达分析小实战（一）"><a href="#转录组差异表达分析小实战（一）" class="headerlink" title="转录组差异表达分析小实战（一）"></a>转录组差异表达分析小实战（一）</h2><h5 id="读文献获取数据"><a href="#读文献获取数据" class="headerlink" title="读文献获取数据"></a>读文献获取数据</h5><p>文献名称：AKAP95 regulates splicing through scaffolding<br>RNAs and RNA processing factors</p>
+<ol>
+<li><p>查找数据：Data availability<br>The RIP-seq an RNA-seq data have been deposited in the Gene<br>Expression Omnibus database, with accession code GSE81916. All other data is<br>available from the author upon reasonable request.</p>
+</li>
+<li><p>获得GSE号：GSE81916</p>
+</li>
+</ol>
+<h5 id="下载测序数据"><a href="#下载测序数据" class="headerlink" title="下载测序数据"></a>下载测序数据</h5><ol>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81916" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81916</a>获取数据信息，并点击网址下方的ftp，下载测序数据</p>
+</li>
+<li><p>从<a href="https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA323422" target="_blank" rel="noopener">https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA323422</a>可知我们需要的mRNA测序编号为SRR3589956到SRR3589962</p>
+</li>
+<li><p>通过Apera下载SRR数据，这里以SRR3589956为例：</p>
+<pre><code> ascp -T -i /home/anlan/.aspera/connect/etc/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:sra/sra-instant/reads/ByRun/sra/SRR/SRR358/SRR3589956/SRR3589956.sra ./
+</code></pre></li>
+</ol>
+<h5 id="转化fastq测序数据"><a href="#转化fastq测序数据" class="headerlink" title="转化fastq测序数据"></a>转化fastq测序数据</h5><ol>
+<li><p>通过sratoolkit工具将SRR文件转化为fastq格式的测序数据（写了个shell循环）</p>
+<pre><code> for i in $(seq 56 62);do nohup fastq-dump --split-3  SRR35899${i} &amp;;done
+</code></pre></li>
+<li><p>通过fastqc对每个fastq文件进行质检，用multiqc查看整体质检报告（对当前目录下的fastq测序结果进行质检，生成每个fq文件的质检报告总multiqc整合后统计查看）</p>
+<pre><code> fastqc *.fastq
+ multiqc ./
+</code></pre><p> 点击这个url可以查看我这个multiqc报告：<a href="http://www.bioinfo-scrounger.com/data/multiqc_report.html" target="_blank" rel="noopener">http://www.bioinfo-scrounger.com/data/multiqc_report.html</a></p>
+</li>
+<li>如果有接头或者质量值不达标的需要进行过滤，这次的数据质量都不错，因此直接进行比对即可</li>
+</ol>
+<h5 id="序列比对"><a href="#序列比对" class="headerlink" title="序列比对"></a>序列比对</h5><ol>
+<li><p>安装hisat2软件，下载人类的hiast2索引文件</p>
+<ul>
+<li><p>hisat2下载并安装：</p>
+<pre><code>  ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.1.0-Linux_x86_64.zip
+  unzip hisat2-2.1.0-Linux_x86_64.zip
+</code></pre></li>
+<li><p>下载hisat2的human索引</p>
+<pre><code>  ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/data/hg19.tar.gz
+  tar zxvf hg19.tar.gz
+</code></pre></li>
+</ul>
+</li>
+<li><p>用hisat2进行比对，测序数据放在data目录下，索引文件放在reference/index/hisat2/hg19目录下，SRR3589956-SRR3589958为人的测序数据</p>
+<pre><code>for i in $(seq 56 58);do hisat2 -p 4 \
+-x ~/reference/index/hisat2/hg19/genome \
+-1 ./data/SRR35899${i}_1.fastq -2 ./data/SRR35899${i}_2.fastq \
+-S SRR35899$i.sam &gt;SRR35899${i}.log;done
+</code></pre></li>
+<li><p>用samtools将sam文件转化为bam文件，并使用默认排序</p>
+<pre><code>for i in $(seq 56 58);do samtools sort -@ 5 -o SRR35899${i}.bam SRR35899${i}.sam;done
+</code></pre></li>
+</ol>
+<h5 id="reads计数"><a href="#reads计数" class="headerlink" title="reads计数"></a>reads计数</h5><ol>
+<li><p>用htseq对比对产生的bam进行count计数</p>
+<ul>
+<li><p>htseq安装，使用miniconda，省事！唯一的问题是htseq版本不是最新的，是0.7.2。想要最新版还是要正常安装，可参考<a href="http://www.biotrainee.com/thread-1847-1-2.html" target="_blank" rel="noopener">http://www.biotrainee.com/thread-1847-1-2.html</a></p>
+<pre><code>  conda install -c bioconda htseq
+</code></pre></li>
+<li><p>用htseq将对比后的结果进行计数</p>
+<pre><code>  for i in $(seq 56 58);do htseq-count -f bam -r pos -s no \
+  SRR35899${i}.bam ~/reference/genome/hg19/gencode.v26lift37.annotation.gtf \
+  1&gt;SRR35899${i}.count 2&gt;SRR35899${i}_htseq.log;done
+</code></pre></li>
+</ul>
+</li>
+<li><p>将3个count文件（SRR3589956.count，SRR3589957.count，SRR3589958.count）合并成一个count矩阵，这是就需要脚本来解决这个问题，不然其他方法会稍微麻烦点</p>
+<pre><code>#!/usr/bin/perl -w
+use strict;
+
+my $path = shift @ARGV;
+opendir DIR, $path or die;
+my @dir = readdir DIR;
+
+my $header;
+my @sample;
+my %hash;
+foreach my $file (@dir) {
+    if ($file =~ /^\w+.*\.count/) {
+        push @sample, $file;
+        $header .= &quot;\t$file&quot;;
+        open my $fh, $file or die;
+        while (&lt;$fh&gt;) {
+            chomp;
+            next if ($_ =~ /^\W+/);
+            my @array = split /\t/, $_;
+            $hash{$array[0]} -&gt; {$file} = $array[1];
+        }
+        close $fh;
+    }
+}
+print &quot;$header\n&quot;;
+map{
+    my $gene = $_;
+    print &quot;$gene&quot;;
+    foreach my $file (@sample) {
+        print &quot;\t&quot;.$hash{$gene} -&gt; {$file};
+    }
+    print &quot;\n&quot;;
+}keys %hash;
+</code></pre></li>
+<li><p>按照接下来的剧本，应该讲count_matrix文件导入DESeq进行差异表达分析。但是从这篇文章的Bioinformatic analyses部分可以发现，作者的control组的2组数据是来自2个不同的批次（一个是SRR3589956，另外一个来源GSM1095127 in GSE44976），treat组倒是同一个批次（SRR3589957和SRR3589958）。但是对于Mouse cells来说，倒是满足2个control和2个treat都正常来自同个批次，因此打算重新用SRR3589959-SRR3589962重新做个一个count_matrix进行后续差异分析</p>
+</li>
+</ol>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/11/05/2017-11-05_nat123/" data-toggle="tooltip" data-placement="left" title="nat123">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/11/05/2017-11-05_transcriptome_analysis/" data-toggle="tooltip" data-placement="top" title="转录组分析笔记">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#转录组差异表达分析小实战（一）"><span class="toc-number">1.</span> <span class="toc-text">转录组差异表达分析小实战（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#读文献获取数据"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">读文献获取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#下载测序数据"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">下载测序数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#转化fastq测序数据"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">转化fastq测序数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#序列比对"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">序列比对</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reads计数"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">reads计数</span></a></li></ol></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2018
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                105.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
