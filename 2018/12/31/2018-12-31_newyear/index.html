@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/10/12/2017-10-12-Logistic/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/31/2018-12-31_newyear/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        Logistic回归｜undefined
+        2019｜undefined
         
     </title>
 
@@ -137,103 +137,142 @@
 
 
   
-    <style>
-       .intro-header {
-          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
-      }
-    </style>
-
-    <div class="intro-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                    <div class="site-heading">
-                        <h1>Logistic回归</h1>
-                        
-                        
-
-                        
-                          <span class="meta">
-                               <span class="meta-item">Author: xt</span>
-                               <span class="meta-item">Date: Oct 12, 2017</span>
-                               
-                          </span>
-                          <div class="tags text-center">
-                              Categories: 
-                          </div>
-                          <div class="tags text-center">
-                              Tags: 
-                          </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  
 </header>
 
 
 <!-- Main Content -->
-<!-- post.ejs -->
-<article>
-    <div class="container">
-      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
-          
-          <span class="post-count">485 words in total, 2 minutes required.</span>
-          <hr>
-          
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<style>
+    .poetry-container {
+        /*background-color: rgba(136, 255, 21, 0.5);*/
+        /*padding-top: 43px;*/
+        /*margin-top: -43px;*/
+        text-align: center;
+    }
 
-<p>原文 <a href="http://blog.csdn.net/ariessurfer/article/details/41310525" target="_blank" rel="noopener">http://blog.csdn.net/ariessurfer/article/details/41310525</a></p>
-<p>Logistic回归为概率型非线性回归模型，是研究二分类观察结果 Y 与一些影响因素(x1,x2,..,xn)之间关系的一种多变量分析方法。通常的问题是，研究某些因素条件下某个结果是否发生，比如医学中根据病人的一些症状来判断它是否患有某种病。</p>
-<h1 id="LR分类器-Logistic-Regression-Classifier"><a href="#LR分类器-Logistic-Regression-Classifier" class="headerlink" title="LR分类器: Logistic Regression Classifier"></a>LR分类器: Logistic Regression Classifier</h1><p>在分类情形下，经过学习后的LR分类器是一组权值\(W=(w_0,w_1,…,w_n)\)，当测试样本的数据输入时，这组权值与测试数据按照线性加和得到:</p>
-<script type="math/tex; mode=display">x=w\_0+ w\_1x\_1+...+w\_nx\_n</script><p>之后按照<strong>Logistic(sigmoid函数)</strong>的形式求出</p>
-<script type="math/tex; mode=display">f(x)=\frac{1}{1+e^x}</script><p>由于Logistic函数的定义域为(-inf,inf)，值域为(0,1)，因此最基本的LR分类器适合对两类目标进行分类。所以Logistic回归最关键的问题就是研究如何求得权值\(W=(w_0,w_1,…,w_n)\)。用极大似然估计。</p>
-<h1 id="Logistic回归模型"><a href="#Logistic回归模型" class="headerlink" title="Logistic回归模型"></a>Logistic回归模型</h1><p>Logistic回归模型可以表示为</p>
-<p>考虑具有个独立变量的向量\(X=(x_0,x_1,…,x_n)\)，</p>
-<p>(1)在变量X条件下某事件发生的概率p为：</p>
-<script type="math/tex; mode=display">P(y=1|x)=\pi(x)=\frac{1}{1+e^{-g(x)}}</script><p>其中\(g(x)=w_0+ w_1x_1+…+w_nx_n\)</p>
-<p>(2)在变量X条件下不发生的概率1-p为:</p>
-<script type="math/tex; mode=display">P(y=0|x)=1-P(y=1|x)= 1-\frac{1}{1+e^{-g(x)}} =\frac{1}{1+e^{g(x)}}</script><p>(3)事件的发生比（the odds of experiencing an event）:事件发生与不发生的概率之比odds</p>
-<script type="math/tex; mode=display">\frac{P(y=1|x)}{P(y=0|x)}=\frac{p}{1-p} =e^{g(x)}</script><script type="math/tex; mode=display">ln(\frac{p}{1-p})=g(x)=w\_0+ w\_1x\_1+...+w\_nx\_n</script><h1 id="Logistic回归极大似然估计"><a href="#Logistic回归极大似然估计" class="headerlink" title="Logistic回归极大似然估计"></a>Logistic回归极大似然估计</h1><p>假设有m个观测样本\(X=(x_0,x_1,…,x_m)\)，观测值分别为\(Y=(y_0,y_1,…,y_m)\)，设给定条件下时间发生的概率\(p_i=P(y_i=1|x_i)\)，时间不发生的概率为\(P(y_i=0|x_i)=1-p_i\)。所以得到一个观测值的概率为</p>
-<script type="math/tex; mode=display">P(y_i)=p\_i^{y\_i}(1-p\_i)^{1-y\_i}</script><p>因为各个观测样本之间相互独立，整体事件发生的概率为各边缘分布的乘积，得到似然函数为</p>
-<script type="math/tex; mode=display">L(w)=\prod_{i=1}^{m}=\\{\pi(x\_i)\\}^{y\_i}\\{1-\pi(x\_i)\\}^{1-y\_i}</script><p>然后用极大似然估计求得权值\(W=(w_0,w_1,…,w_n)\)的估计。</p>
+    .poetry-container .poetry-content {
+        writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+        margin: 100px auto 0px;
+        overflow: auto;
+        max-width: 90%;
+        max-height: 700px;
+        display: inline-block;
+        text-align: left;
+        padding: 20px 15px 25px;
+    }
 
-          
-          <hr>
-          <ul class="pager no-print">
-              
-              <li class="previous">
-                  <a href="/hexo/2017/10/13/2017-10-13-statistics/" data-toggle="tooltip" data-placement="left" title="R统计分析 ">&larr; Previous Post</a>
-              </li>
-              
-              
-              <li class="next">
-                  <a href="/hexo/2017/09/22/2017-09-22-R_function_regression/" data-toggle="tooltip" data-placement="top" title="R语言-线性回归-lm()">Next Post&rarr;</a>
-              </li>
-              
-          </ul>
-          
-  <br>
+    .poetry-head {
+        width: 100%;
+        height: 56px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*background-color: black;*/
+    }
 
-  
+    .poetry-container .poetry-content h2 {
+        color: #fff;
+        font-family: STkaiti;
+        font-size: 24px;
+        text-indent: 65px;
+        float: left;
+        margin-top: 0;
+    }
+
+    .poetry-container .poetry-content h2 span {
+        background-color: black;
+        padding: 20px 8px;
+        border-radius: 3px;
+    }
+
+    .poem-subtitle{
+      padding: 80px 5px 0px 40px;
+      background: black;
+      color: white;
+      margin: 80px 5px 0 10px;
+      padding: 10px 3px;
+    }
+
+    .poetry-container .poetry-content p {
+        clear: both;
+        font-size: 20px;
+        font-family: FangSong;
+        letter-spacing: 8px;
+        text-shadow: 0 0 1px rgba(15, 15, 15, .3);
+        text-indent: 63px;
+        line-height: 40px;
+        margin: 0;
+    }
+
+    /* ipad */
+    @media screen and (max-width: 768px) {
+        .poetry-container .poetry-content {
+            max-height: 480px;
+            max-width: 100%;
+            margin: 80px auto 0;
+            padding-bottom: 10px;
+        }
+
+        .poetry-container .poetry-content p {
+            font-size: 16px;
+            text-indent: 46px;
+            line-height: 33px;
+            letter-spacing: 6px;
+            font-family: unset;
+        }
+
+        .poetry-container .poetry-content h2 {
+            margin-right: 6px;
+            font-size: 22px;
+            text-indent: 24px;
+            font-family: unset;
+        }
+
+        .poetry-container .poetry-content h2 span {
+            padding: 8px 5px;
+        }
+
+        .poem-subtitle {
+
+        }
+    }
+
+    /*mobile*/
+    @media screen and (max-width: 400px) {
+        .poetry-container .poetry-content {
+            max-height: 410px;
+            padding-bottom: 20px;
+        }
+
+        .poetry-container .poetry-content p {
+            line-height: 30px;
+            letter-spacing: 3px;
+        }
+
+    }
 
 
-      </div>
-      
-  <div class="hidden-xs col-sm-3 toc-col">
-    <div class="toc-wrap">
-        Table of Contents
+</style>
+<div class="poetry-container">
+    <div class="poetry-content" style="background-repeat:no-repeat; background-image:url(); max-width: ">
+        <div class="poetry-head"></div>
+        <h2>
+          <span>
+            2019
+          </span>
+        </h2>
         
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LR分类器-Logistic-Regression-Classifier"><span class="toc-number">1.</span> <span class="toc-text">LR分类器: Logistic Regression Classifier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logistic回归模型"><span class="toc-number">2.</span> <span class="toc-text">Logistic回归模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Logistic回归极大似然估计"><span class="toc-number">3.</span> <span class="toc-text">Logistic回归极大似然估计</span></a></li></ol>
-        
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>岁月不居，时节如流。2018！</p>
+<p>祝福中国，祝福世界。2019！</p>
+<p>少年听雨歌楼上。红烛昏罗帐。壮年听雨客舟中。江阔云低、断雁叫西风。而今听雨僧庐下。鬓已星星也。悲欢离合总无情。一任阶前、点滴到天明。</p>
+<p>昨夜寒蛩不住鸣。惊回千里梦，已三更。起来独自绕阶行。人悄悄，帘外月胧明。白首为功名。旧山松竹老，阻归程。欲将心事付瑶琴。知音少，弦断有谁听。</p>
+<p>当年万里觅封侯，匹马戍梁州。关河梦断何处？尘暗旧貂裘。胡未灭，鬓先秋，泪空流。此生谁料，心在天山，身老沧洲。</p>
+
     </div>
-  </div>
+</div>
 
 
-    </div>
-</article>
+
 
 <!-- Footer -->
 <!-- footer.ejs -->

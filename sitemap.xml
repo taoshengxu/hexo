@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/31/2018-12-31_newyear/</loc>
+    
+    <lastmod>2018-12-31T15:05:24.549Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/08/27/2017-08-27_markdown_tricks/</loc>
     
     <lastmod>2018-12-29T16:15:57.894Z</lastmod>
@@ -352,13 +359,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -367,6 +367,13 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
