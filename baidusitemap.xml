@@ -4,8 +4,59 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/13/2019-03-13_breastcancer/</loc>
+    <lastmod>2019-03-13T16:14:31.939Z</lastmod>
+    <data>
+        <display>
+        <title>乳腺癌专题</title>
+        <pubTime>2019-03-13T14:07:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/05/15/2018-05-15_R_environment/</loc>
+    <lastmod>2019-03-13T15:52:55.052Z</lastmod>
+    <data>
+        <display>
+        <title>R包安装路径设置及从Bioconductor安装包,BiocCheck</title>
+        <pubTime>2018-05-15T07:36:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/01/27/2019-01-27_huashan/</loc>
+    <lastmod>2019-01-27T04:41:59.244Z</lastmod>
+    <data>
+        <display>
+        <title>华山</title>
+        <pubTime>2019-01-27T04:30:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="行者无疆" url="https://taoshengxu.github.io/hexo/hexo/categories/%E8%A1%8C%E8%80%85%E6%97%A0%E7%96%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/31/2018-12-31_newyear/</loc>
-    <lastmod>2018-12-31T15:05:24.549Z</lastmod>
+    <lastmod>2019-01-27T04:28:37.395Z</lastmod>
     <data>
         <display>
         <title>2019</title>
@@ -18,6 +69,21 @@
              
               <breadCrumb title="闲情" url="https://taoshengxu.github.io/hexo/hexo/categories/%E9%97%B2%E6%83%85/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/27/2017-08-27_tricks/</loc>
+    <lastmod>2019-01-16T00:45:46.660Z</lastmod>
+    <data>
+        <display>
+        <title>杂项</title>
+        <pubTime>2017-08-27T14:50:14.000Z</pubTime>
+        
+         
+           
         </display>
     </data>
     </url>
@@ -436,21 +502,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/05/15/2018-05-15_R_environment/</loc>
-    <lastmod>2018-12-22T14:26:54.511Z</lastmod>
-    <data>
-        <display>
-        <title>R包安装路径设置及从Bioconductor安装包,BiocCheck</title>
-        <pubTime>2018-05-15T07:36:41.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GSEAstudy/</loc>
     <lastmod>2018-12-22T13:39:04.393Z</lastmod>
     <data>
@@ -742,21 +793,6 @@
         <display>
         <title>R统计分析 </title>
         <pubTime>2017-10-13T03:12:29.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/27/2017-08-27_tricks/</loc>
-    <lastmod>2018-08-24T08:05:31.731Z</lastmod>
-    <data>
-        <display>
-        <title>杂项</title>
-        <pubTime>2017-08-27T14:50:14.000Z</pubTime>
         
          
            
