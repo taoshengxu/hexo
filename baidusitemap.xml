@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
-    <lastmod>2019-03-14T08:34:38.631Z</lastmod>
+    <lastmod>2019-03-15T07:42:05.263Z</lastmod>
     <data>
         <display>
         <title>英语写作相关</title>
@@ -18,6 +18,57 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-15_laser_captuer/</loc>
+    <lastmod>2019-03-15T07:38:58.755Z</lastmod>
+    <data>
+        <display>
+        <title>激光捕获显微切割</title>
+        <pubTime>2019-03-15T02:47:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-15_cell_line/</loc>
+    <lastmod>2019-03-15T07:34:46.962Z</lastmod>
+    <data>
+        <display>
+        <title>Cell line 细胞系理解</title>
+        <pubTime>2019-03-15T02:47:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/10/13/2017-10-13-statistics/</loc>
+    <lastmod>2019-03-15T06:52:23.186Z</lastmod>
+    <data>
+        <display>
+        <title>R统计分析-假设检验 </title>
+        <pubTime>2017-10-13T03:12:29.000Z</pubTime>
+        
+         
+           
         </display>
     </data>
     </url>
@@ -798,21 +849,6 @@
         <display>
         <title>python—sklearn学习</title>
         <pubTime>2017-12-21T03:17:40.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/10/13/2017-10-13-statistics/</loc>
-    <lastmod>2018-08-27T07:24:09.087Z</lastmod>
-    <data>
-        <display>
-        <title>R统计分析 </title>
-        <pubTime>2017-10-13T03:12:29.000Z</pubTime>
         
          
            
