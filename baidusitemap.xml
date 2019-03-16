@@ -4,8 +4,64 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
+    <lastmod>2019-03-16T03:03:59.386Z</lastmod>
+    <data>
+        <display>
+        <title>英语-表达-写作</title>
+        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-15_laser_captuer/</loc>
+    <lastmod>2019-03-16T02:49:27.255Z</lastmod>
+    <data>
+        <display>
+        <title>激光捕获显微切割</title>
+        <pubTime>2019-03-15T02:47:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/13/2019-03-13_TP53_BRCA/</loc>
+    <lastmod>2019-03-16T02:46:50.144Z</lastmod>
+    <data>
+        <display>
+        <title>TP53突变型和TP53野生型BRCA病人的差异分析结果（jimmy）</title>
+        <pubTime>2019-03-13T14:07:08.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/13/2019-03-13_breastcancer/</loc>
-    <lastmod>2019-03-16T02:35:19.982Z</lastmod>
+    <lastmod>2019-03-16T02:45:47.723Z</lastmod>
     <data>
         <display>
         <title>乳腺癌专题</title>
@@ -69,44 +125,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
-    <lastmod>2019-03-15T07:42:05.263Z</lastmod>
-    <data>
-        <display>
-        <title>英语写作相关</title>
-        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
-        
-        <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-15_laser_captuer/</loc>
-    <lastmod>2019-03-15T07:38:58.755Z</lastmod>
-    <data>
-        <display>
-        <title>激光捕获显微切割</title>
-        <pubTime>2019-03-15T02:47:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
         </display>
     </data>
     </url>
