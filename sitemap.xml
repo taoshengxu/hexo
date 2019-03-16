@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/13/2019-03-13_breastcancer/</loc>
+    
+    <lastmod>2019-03-16T02:35:19.982Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/15/2019-03-16_Circos_plot/</loc>
+    
+    <lastmod>2019-03-16T01:39:39.776Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-29_EMT/</loc>
+    
+    <lastmod>2019-03-16T01:07:41.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/09/07/2017-09-07-GSEAstudy/</loc>
+    
+    <lastmod>2019-03-15T09:38:46.565Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_expression/</loc>
     
     <lastmod>2019-03-15T07:42:05.263Z</lastmod>
@@ -26,20 +54,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/10/13/2017-10-13-statistics/</loc>
     
     <lastmod>2019-03-15T06:52:23.186Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-29_EMT/</loc>
-    
-    <lastmod>2019-03-14T02:42:25.513Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/13/2019-03-13_breastcancer/</loc>
-    
-    <lastmod>2019-03-13T16:14:31.939Z</lastmod>
     
   </url>
   
@@ -247,13 +261,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/09/07/2017-09-07-GSEAstudy/</loc>
-    
-    <lastmod>2018-12-22T13:39:04.393Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/22/2018-12-2_R_applyfunction/</loc>
     
     <lastmod>2018-12-21T16:59:10.537Z</lastmod>
@@ -394,6 +401,13 @@
   </url>
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -409,13 +423,6 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     

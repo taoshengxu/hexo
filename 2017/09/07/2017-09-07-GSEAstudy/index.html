@@ -180,7 +180,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">3,005 words in total, 11 minutes required.</span>
+          <span class="post-count">3,715 words in total, 13 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>富集是将基因根据一些先验的知识（也就是常见的注释）进行分类的过程。我们一般会想到最常见的是GO/KEGG富集，其思路是先筛选差异基因，然后确定这些差异基因的GO/KEGG注释，然后通过超几何分布计算出哪些通路富集到了，通常会选择一个阈值来卡一下，比如p值和FDR等。因此这会涉及到人为的阈值选择，具有一定的主观性，而且只能用于差异较大的基因，所以结果可能有一定的局限性。</p>
@@ -248,6 +248,26 @@
 <li>GSEA的统计学原理试讲 <a href="http://www.bio-info-trainee.com/2102.html" target="_blank" rel="noopener">http://www.bio-info-trainee.com/2102.html</a></li>
 <li>制作自己的gene set文件给gsea软件 <a href="http://www.bio-info-trainee.com/2144.html" target="_blank" rel="noopener">http://www.bio-info-trainee.com/2144.html</a></li>
 </ul>
+<h1 id="ssGSEA-单样本GSEA"><a href="#ssGSEA-单样本GSEA" class="headerlink" title="ssGSEA 单样本GSEA"></a>ssGSEA 单样本GSEA</h1><p>ssGSEA顾名思义是一种特殊的GSEA，它主要针对单样本无法做GSEA而提出的一种实现方法，原理上与GSEA是类似的，不同的是GSEA需要准备表达谱文件即gct，根据表达谱文件计算每个基因的rank值，再进行后续的统计分析。而单个样本则无法计算rank，当然GSEA也支持你直接提供rank来进行富集分析的，这个不在此讨论，我们这里主要介绍ssGSEA用来对单个样本做GSEA富集分析的原理。</p>
+<p>关于R的实现可以参考：<a href="https://support.bioconductor.org/p/98463/" target="_blank" rel="noopener">https://support.bioconductor.org/p/98463/</a></p>
+<p>关于genepattern工具在这里：<a href="http://software.broadinstitute.org/cancer/software/genepattern/modules/docs/ssGSEAProjection/4" target="_blank" rel="noopener">http://software.broadinstitute.org/cancer/software/genepattern/modules/docs/ssGSEAProjection/4</a></p>
+<p>首先假设我们有一个样本的表达数据，那么他应该是这样的</p>
+<p>第一列为基因，第二列为表达值，这样的两列的数据矩阵</p>
+<p>首先我们对我们的样本的所有基因的表达水平进行排序获得其在所有基因中的秩次rank，这些基因的集合为BG</p>
+<p>假设我们要对其进行KEGG的分析，首先我们需要在GSEA官网找到KEGG对应的gmt文件</p>
+<p>gmt文件主要格式是：每行表示一个通路，第一列为通路ID,第二列为通路对应的描述，第三列开始到最后一列为该通路中的基因</p>
+<p>那么对于任意的一个通路A,我们可以拿到这个通路的基因列表GL</p>
+<p>我们从GL中寻找BG里存在的基因并计数为NC,并将这些基因的表达水平加和为SG</p>
+<p>开始计算ES：</p>
+<p>对于任意一个表达谱中的基因 G:</p>
+<p>如果G是集合GL中的基因则他的ES等于 该基因的表达水平除以SG</p>
+<p>否则 记该基因的ES等于 1除以（基因集合BG总个数减去NC）</p>
+<p>依次计算每个BG中的基因的ES值，找到其中绝对值最大的ES作为通路A的A.ES</p>
+<p>到此 通路A的ES计算完毕，我们需要一个统计学方法来评估该ES是否是显著的，即非随机的</p>
+<p>我们按照上述计算ES的方法，先随机打乱表达谱中基因的表达顺序，然后再依次计算ES值，如此重复一千次，得到一千个ES值，我们根据这一千个ES值的分布，来计算A.ES在这个分布中所处的位置及出现在该位置时的概率即得到了p值</p>
+<p>依次我们分别计算每个通路的ES及p值，然后使用多重检验矫正得到每个通路的FDR</p>
+<p>以上即是整个ssGSEA算法的整体思路。</p>
+<p>[作者：ingene 链接：<a href="https://www.jianshu.com/p/3467077ff60f" target="_blank" rel="noopener">https://www.jianshu.com/p/3467077ff60f</a>]</p>
 
           
           <hr>
@@ -275,7 +295,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA"><span class="toc-number">1.</span> <span class="toc-text">GSEA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA原理"><span class="toc-number">2.</span> <span class="toc-text">GSEA原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA分析-软件界面操作"><span class="toc-number">3.</span> <span class="toc-text">GSEA分析- 软件界面操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ES图"><span class="toc-number">4.</span> <span class="toc-text">ES图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显著性检验"><span class="toc-number">4.0.1.</span> <span class="toc-text">显著性检验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#另一个生信技能树的例子"><span class="toc-number">4.1.</span> <span class="toc-text">另一个生信技能树的例子</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA"><span class="toc-number">1.</span> <span class="toc-text">GSEA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA原理"><span class="toc-number">2.</span> <span class="toc-text">GSEA原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GSEA分析-软件界面操作"><span class="toc-number">3.</span> <span class="toc-text">GSEA分析- 软件界面操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ES图"><span class="toc-number">4.</span> <span class="toc-text">ES图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#显著性检验"><span class="toc-number">4.0.1.</span> <span class="toc-text">显著性检验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#另一个生信技能树的例子"><span class="toc-number">4.1.</span> <span class="toc-text">另一个生信技能树的例子</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#ssGSEA-单样本GSEA"><span class="toc-number">5.</span> <span class="toc-text">ssGSEA 单样本GSEA</span></a></li>
         
     </div>
   </div>
@@ -321,7 +341,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                114.0k <b>Words</b>
+                112.2k <b>Words</b>
         </p></div>
 
         <div class="search-container">

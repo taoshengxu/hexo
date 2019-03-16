@@ -4,6 +4,77 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/13/2019-03-13_breastcancer/</loc>
+    <lastmod>2019-03-16T02:35:19.982Z</lastmod>
+    <data>
+        <display>
+        <title>乳腺癌专题</title>
+        <pubTime>2019-03-13T14:07:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-16_Circos_plot/</loc>
+    <lastmod>2019-03-16T01:39:39.776Z</lastmod>
+    <data>
+        <display>
+        <title>Circos plot</title>
+        <pubTime>2019-03-15T02:47:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2018-12-29_EMT/</loc>
+    <lastmod>2019-03-16T01:07:41.048Z</lastmod>
+    <data>
+        <display>
+        <title>EMT</title>
+        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
+        
+        <tag>EMT</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GSEAstudy/</loc>
+    <lastmod>2019-03-15T09:38:46.565Z</lastmod>
+    <data>
+        <display>
+        <title>GSEA富集分析</title>
+        <pubTime>2017-09-07T06:56:07.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
     <lastmod>2019-03-15T07:42:05.263Z</lastmod>
     <data>
@@ -69,44 +140,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2018-12-29_EMT/</loc>
-    <lastmod>2019-03-14T02:42:25.513Z</lastmod>
-    <data>
-        <display>
-        <title>EMT</title>
-        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
-        
-        <tag>EMT</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/13/2019-03-13_breastcancer/</loc>
-    <lastmod>2019-03-13T16:14:31.939Z</lastmod>
-    <data>
-        <display>
-        <title>乳腺癌专题</title>
-        <pubTime>2019-03-13T14:07:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
         </display>
     </data>
     </url>
@@ -564,21 +597,6 @@
         <display>
         <title>R语言字符串处理汇总</title>
         <pubTime>2018-12-21T14:49:16.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GSEAstudy/</loc>
-    <lastmod>2018-12-22T13:39:04.393Z</lastmod>
-    <data>
-        <display>
-        <title>GSEA富集分析</title>
-        <pubTime>2017-09-07T06:56:07.000Z</pubTime>
         
          
            

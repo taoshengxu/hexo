@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/10/2017-11-10_gtf_gene_position/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-16_Circos_plot/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        根据gtf格式的基因注释文件得到人所有基因的染色体坐标｜undefined
+        Circos plot｜undefined
         
     </title>
 
@@ -139,7 +139,7 @@
   
     <style>
        .intro-header {
-          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+          background-image: url('/hexo/post_cover_images/moon.jpg');
       }
     </style>
 
@@ -148,18 +148,20 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>根据gtf格式的基因注释文件得到人所有基因的染色体坐标</h1>
+                        <h1>Circos plot</h1>
                         
                         
 
                         
                           <span class="meta">
-                               <span class="meta-item">Author: xt</span>
-                               <span class="meta-item">Date: Nov 10, 2017</span>
+                               <span class="meta-item">Author: xxxx</span>
+                               <span class="meta-item">Date: Mar 15, 2019</span>
                                
                           </span>
                           <div class="tags text-center">
                               Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
                           </div>
                           <div class="tags text-center">
                               Tags: 
@@ -180,30 +182,22 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">356 words in total, 2 minutes required.</span>
+          <span class="post-count">109 words in total, 1 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>原文</strong> ：<a href="http://www.biotrainee.com/thread-472-1-1.html" target="_blank" rel="noopener">http://www.biotrainee.com/thread-472-1-1.html</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/reference/gtf/gencode</span><br><span class="line"><span class="built_in">cd</span>  ~/reference/gtf/gencode</span><br><span class="line"><span class="comment">## https://www.gencodegenes.org/releases/current.html</span></span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/gencode.v25.2wayconspseudos.gtf.gz</span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/gencode.v25.long_noncoding_RNAs.gtf.gz </span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/gencode.v25.polyAs.gtf.gz </span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/gencode.v25.annotation.gtf.gz </span><br><span class="line"><span class="comment">## https://www.gencodegenes.org/releases/25lift37.html </span></span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/GRCh37_mapping/gencode.v25lift37.annotation.gtf.gz </span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/GRCh37_mapping/gencode.v25lift37.metadata.HGNC.gz </span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/GRCh37_mapping/gencode.v25lift37.metadata.EntrezGene.gz </span><br><span class="line">wget ftp://ftp.sanger.ac.uk/pub/gencode/Gencode_human/release_25/GRCh37_mapping/gencode.v25lift37.metadata.RefSeq.gz </span><br><span class="line"></span><br><span class="line">zcat  gencode.v25.long_noncoding_RNAs.gtf.gz |perl -alne <span class="string">'&#123;next unless $F[2] eq "gene" ;/gene_name \"(.*?)\";/; print "$F[0]\t$F[3]\t$F[4]\t$1" &#125;'</span> &gt;lncRNA.hg38.position</span><br><span class="line">zcat  gencode.v25.2wayconspseudos.gtf.gz     |perl -alne <span class="string">'&#123;next unless $F[2] eq "transcript" ;/gene_name \"(.*?)\";/; print "$F[0]\t$F[3]\t$F[4]\t$1" &#125;'</span> &gt;pseudos.hg38.position</span><br><span class="line">zcat  gencode.v25.annotation.gtf.gz| grep   protein_coding |perl -alne <span class="string">'&#123;next unless $F[2] eq "gene" ;/gene_name \"(.*?)\";/; print "$F[0]\t$F[3]\t$F[4]\t$1" &#125;'</span> &gt;protein_coding.hg38.position</span><br><span class="line">zcat  gencode.v25.annotation.gtf.gz|perl -alne <span class="string">'&#123;next unless $F[2] eq "gene" ;/gene_name \"(.*?)\";/; print "$F[0]\t$F[3]\t$F[4]\t$1" &#125;'</span> &gt;allGene.hg38.position</span><br><span class="line"></span><br><span class="line">zcat  gencode.v25lift37.annotation.gtf.gz | grep   protein_coding |perl -alne <span class="string">'&#123;next unless $F[2] eq "gene" ;/gene_name \"(.*?)\";/; print "$F[0]\t$F[3]\t$F[4]\t$1" &#125;'</span> &gt;protein_coding.hg19.position</span><br><span class="line">zcat  gencode.v25lift37.annotation.gtf.gz | perl -alne <span class="string">'&#123;next unless $F[2] eq "gene" ;/gene_name \"(.*?)\";/; print "$F[0]\t$F[3]\t$F[4]\t$1" &#125;'</span> &gt;allGene.hg19.position</span><br></pre></td></tr></table></figure>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>由<a href="http://mkweb.bcgsc.ca/" target="_blank" rel="noopener">Martin Krzywinski</a>等人开发的Circos，一出现便引起轰动，它打破了常规基因组学数据可视化的思路，通过对差异化交互数据的多维度展示，可以从不同层次全方位描述组学信息，让组学数据展示变成了艺术品。由于其实用性、美观性，Circos如今也广泛应用于社交网络、交通运输等领域。 <img src="https://wenlongshen.github.io/img/post/2017_03_19_circos.png" alt="circos"><span class="image-caption-center">circos</span></p>
+
           
           <hr>
           <ul class="pager no-print">
               
-              <li class="previous">
-                  <a href="/hexo/2017/11/10/2017-11-10_genomic_live_streaming/" data-toggle="tooltip" data-placement="left" title="Jimmy 直播基因组学习笔记">&larr; Previous Post</a>
-              </li>
-              
               
               <li class="next">
-                  <a href="/hexo/2017/11/09/2017-11-09_whole_exon_sequencing/" data-toggle="tooltip" data-placement="top" title="外显子测序数据分析学习笔记">Next Post&rarr;</a>
+                  <a href="/hexo/2019/03/15/2019-03-15_laser_captuer/" data-toggle="tooltip" data-placement="top" title="激光捕获显微切割">Next Post&rarr;</a>
               </li>
               
           </ul>
           
-  <br>
-
-  
-
 
       </div>
       
