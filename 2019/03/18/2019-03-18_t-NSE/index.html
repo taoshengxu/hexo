@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/08/28/2018-08-28_unsupervised_featureselection/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/03/18/2019-03-18_t-NSE/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        无监督特征选择方法｜undefined
+        t-SNE：最好的降维方法之一｜undefined
         
     </title>
 
@@ -139,7 +139,7 @@
   
     <style>
        .intro-header {
-          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+          background-image: url('/hexo/post_cover_images/moon.jpg');
       }
     </style>
 
@@ -148,21 +148,25 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>无监督特征选择方法</h1>
+                        <h1>t-SNE：最好的降维方法之一</h1>
                         
                         
 
                         
                           <span class="meta">
                                <span class="meta-item">Author: xt</span>
-                               <span class="meta-item">Date: Aug 28, 2018</span>
+                               <span class="meta-item">Date: Mar 18, 2019</span>
                                
                           </span>
                           <div class="tags text-center">
                               Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
                           </div>
                           <div class="tags text-center">
                               Tags: 
+                              <a class="tag" href="/hexo/tags/#Data mining" title="Data mining">Data mining</a>
+                              
                           </div>
                         
                     </div>
@@ -180,38 +184,26 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">138 words in total, 1 minutes required.</span>
+          <span class="post-count">2 words in total, 1 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="1-Laplacian-Score"><a href="#1-Laplacian-Score" class="headerlink" title="1. Laplacian Score"></a>1. Laplacian Score</h3><p>Laplacian Score (LSCORE) is an unsupervised/supervised linear feature extraction method. For each feature/variable, it computes Laplacian score based on an observation that data from the same class are often close to each other. Its power of locality preserving property is used, and the <strong>algorithm selects variables with largest scores.</strong></p>
-<p> <a href="https://www.rdocumentation.org/packages/Rdimtools/versions/0.3.2" target="_blank" rel="noopener">Rdimtools </a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Rdimtools：do.lscore(X, ndim = <span class="number">2</span>, type = c(<span class="string">"proportion"</span>, <span class="number">0.1</span>), preprocess = c(<span class="string">"null"</span>,</span><br><span class="line"><span class="string">"center"</span>, <span class="string">"scale"</span>, <span class="string">"cscale"</span>, <span class="string">"whiten"</span>, <span class="string">"decorrelate"</span>), t = <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="2-Package-‘IDmining’"><a href="#2-Package-‘IDmining’" class="headerlink" title="2.Package ‘IDmining’"></a>2.Package ‘IDmining’</h3><p> Intrinsic Dimension for Data Mining</p>
-<p><a href="https://cran.r-project.org/web/packages/IDmining/IDmining.pdf" target="_blank" rel="noopener">https://cran.r-project.org/web/packages/IDmining/IDmining.pdf</a></p>
-<h3 id="3-Unsupervised-Learning-in-R"><a href="#3-Unsupervised-Learning-in-R" class="headerlink" title="3.Unsupervised Learning in R"></a>3.Unsupervised Learning in R</h3><p><a href="https://rpubs.com/williamsurles/310847" target="_blank" rel="noopener">https://rpubs.com/williamsurles/310847</a></p>
-<h3 id="4-python包scikit-feature"><a href="#4-python包scikit-feature" class="headerlink" title="4. python包scikit-feature"></a>4. python包scikit-feature</h3><p><a href="http://featureselection.asu.edu/index.php" target="_blank" rel="noopener">http://featureselection.asu.edu/index.php</a></p>
-<h3 id="5-Unsupervised-dimensionality-reduction-in-sklearn"><a href="#5-Unsupervised-dimensionality-reduction-in-sklearn" class="headerlink" title="5.Unsupervised dimensionality reduction in sklearn"></a>5.Unsupervised dimensionality reduction in sklearn</h3><p><a href="http://scikit-learn.org/stable/modules/unsupervised_reduction.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/unsupervised_reduction.html</a></p>
-<h3 id="6-7-Machine-Learning-techniques-for-Dimensionality-Reduction"><a href="#6-7-Machine-Learning-techniques-for-Dimensionality-Reduction" class="headerlink" title="6. 7 Machine Learning techniques for Dimensionality Reduction"></a>6. <a href="http://dataunion.org/20803.html" target="_blank" rel="noopener">7 Machine Learning techniques for Dimensionality Reduction</a></h3>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://taoshengxu.github.io/DocumentGit/html/t-SNE最好的降维方法之一.html">教程</a> </p>
+
           
           <hr>
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2018/08/29/2018-08-29_SVD_python/" data-toggle="tooltip" data-placement="left" title="奇异值分解SVD——python">&larr; Previous Post</a>
+                  <a href="/hexo/2019/03/18/2019-03-18_magic/" data-toggle="tooltip" data-placement="left" title="Markov Affinity-based Graph Imputation of Cells (MAGIC)">&larr; Previous Post</a>
               </li>
               
               
               <li class="next">
-                  <a href="/hexo/2018/08/28/2018-08-28_feature_selection/" data-toggle="tooltip" data-placement="top" title="特征选择方法">Next Post&rarr;</a>
+                  <a href="/hexo/2019/03/17/2019-03-17_Single_sample_scoring/" data-toggle="tooltip" data-placement="top" title="单样本得分 Single sample scoring-EMT score">Next Post&rarr;</a>
               </li>
               
           </ul>
           
-  <br>
-
-  
-
 
       </div>
       
@@ -219,7 +211,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Laplacian-Score"><span class="toc-number">1.</span> <span class="toc-text">1. Laplacian Score</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Package-‘IDmining’"><span class="toc-number">2.</span> <span class="toc-text">2.Package ‘IDmining’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Unsupervised-Learning-in-R"><span class="toc-number">3.</span> <span class="toc-text">3.Unsupervised Learning in R</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-python包scikit-feature"><span class="toc-number">4.</span> <span class="toc-text">4. python包scikit-feature</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Unsupervised-dimensionality-reduction-in-sklearn"><span class="toc-number">5.</span> <span class="toc-text">5.Unsupervised dimensionality reduction in sklearn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-Machine-Learning-techniques-for-Dimensionality-Reduction"><span class="toc-number">6.</span> <span class="toc-text">6. 7 Machine Learning techniques for Dimensionality Reduction</span></a></li></ol>
+          
         
     </div>
   </div>
