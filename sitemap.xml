@@ -2,23 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/13/2019-03-13_TP53_BRCA/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
     
-    <lastmod>2019-03-17T09:45:50.570Z</lastmod>
+    <lastmod>2019-03-18T09:46:04.356Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/17/2019-03-17_Single_sample_scoring/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2017/09/05/2017-09-04-UbuntuInstall_R/</loc>
     
-    <lastmod>2019-03-17T07:45:20.136Z</lastmod>
+    <lastmod>2019-03-18T09:17:27.991Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
+    
+    <lastmod>2019-03-18T06:23:02.790Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_expression/</loc>
     
-    <lastmod>2019-03-16T04:01:17.483Z</lastmod>
+    <lastmod>2019-03-18T05:12:31.719Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_word/</loc>
+    
+    <lastmod>2019-03-18T04:40:45.170Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/17/2019-03-17_Single_sample_scoring/</loc>
+    
+    <lastmod>2019-03-17T12:38:00.898Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-29_EMT/</loc>
+    
+    <lastmod>2019-03-17T09:50:47.428Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/13/2019-03-13_TP53_BRCA/</loc>
+    
+    <lastmod>2019-03-17T09:45:50.570Z</lastmod>
     
   </url>
   
@@ -40,13 +75,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/03/15/2019-03-16_Circos_plot/</loc>
     
     <lastmod>2019-03-16T01:39:39.776Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-29_EMT/</loc>
-    
-    <lastmod>2019-03-16T01:07:41.048Z</lastmod>
     
   </url>
   
@@ -191,23 +219,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    
-    <lastmod>2018-12-24T08:41:06.939Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/24/2018-12-24_Win10_Linuxsystem/</loc>
     
     <lastmod>2018-12-24T07:42:45.092Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
-    
-    <lastmod>2018-12-24T07:13:50.128Z</lastmod>
     
   </url>
   
@@ -415,14 +429,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -537,13 +551,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/06/2017-11-06_Data_format/</loc>
     
     <lastmod>2017-11-06T15:10:36.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/09/05/2017-09-04-UbuntuInstall_R/</loc>
-    
-    <lastmod>2017-11-06T07:52:12.520Z</lastmod>
     
   </url>
   

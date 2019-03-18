@@ -51,6 +51,26 @@
 
     
   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
     
@@ -139,7 +159,7 @@
   
     <style>
        .intro-header {
-          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+          background-image: url('/hexo/post_cover_images/moon.jpg');
       }
     </style>
 
@@ -160,9 +180,13 @@
                           </span>
                           <div class="tags text-center">
                               Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
                           </div>
                           <div class="tags text-center">
                               Tags: 
+                              <a class="tag" href="/hexo/tags/#English" title="English">English</a>
+                              
                           </div>
                         
                     </div>
@@ -180,13 +204,12 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">2,816 words in total, 13 minutes required.</span>
+          <span class="post-count">2,843 words in total, 13 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-
-
+<p><a href="https://taoshengxu.github.io/DocumentGit/html/给学徒ChIP-seq数据处理流程.html">给学徒ChIP-seq数据处理流程</a> [jimmy,B站有视频教程，学习这个就可以了]</p>
 <p><a href="http://www.biotrainee.com/thread-2013-1-1.html" target="_blank" rel="noopener">学习提纲</a> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247485198&amp;idx=1&amp;sn=bfb419c568723c5c121e017b2e265d2f&amp;chksm=9b4847b5ac3fcea303e986c17e19b3750dc145f23a8e18daa74c5de704d4a203f8ba08bed651&amp;mpshare=1&amp;scene=1&amp;srcid=1103lRh7ZlI9oD2bGJJhvqlh#rd" target="_blank" rel="noopener">笔记1</a> <a href="http://www.bio-info-trainee.com/2773.html" target="_blank" rel="noopener">笔记2</a></p>
 <p><a href="https://guangchuangyu.github.io/cn/2017/10/chipseeker-visualization/" target="_blank" rel="noopener">余光创ChIPseq从入门到放弃</a></p>
 <h1 id="ChIP-Seq介绍"><a href="#ChIP-Seq介绍" class="headerlink" title="ChIP-Seq介绍"></a>ChIP-Seq介绍</h1><h2 id="1-了解基础知识"><a href="#1-了解基础知识" class="headerlink" title="1.了解基础知识"></a>1.了解基础知识</h2><ul>
@@ -274,10 +297,6 @@
               
           </ul>
           
-  <br>
-
-  
-
 
       </div>
       
@@ -331,7 +350,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                112.4k <b>Words</b>
+                112.8k <b>Words</b>
         </p></div>
 
         <div class="search-container">
