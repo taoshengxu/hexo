@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    
+    <lastmod>2019-03-28T01:53:23.716Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
+    
+    <lastmod>2019-03-22T07:28:50.478Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
     
-    <lastmod>2019-03-20T08:06:57.164Z</lastmod>
+    <lastmod>2019-03-21T13:39:18.247Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/05/2017-11-05_nat123/</loc>
+    
+    <lastmod>2019-03-20T12:05:05.421Z</lastmod>
     
   </url>
   
@@ -26,13 +47,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/03/18/2019-03-18_t-NSE/</loc>
     
     <lastmod>2019-03-18T16:03:49.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    
-    <lastmod>2019-03-18T09:46:04.356Z</lastmod>
     
   </url>
   
@@ -443,13 +457,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -458,6 +465,13 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -572,13 +586,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/05/2017-11-05_transcriptome_analysis-1/</loc>
     
     <lastmod>2017-11-06T02:26:03.245Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/05/2017-11-05_nat123/</loc>
-    
-    <lastmod>2017-11-05T14:06:44.781Z</lastmod>
     
   </url>
   
