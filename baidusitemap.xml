@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
-    <lastmod>2019-03-28T01:53:23.716Z</lastmod>
-    <data>
-        <display>
-        <title>conda命令</title>
-        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    <lastmod>2019-03-22T07:28:50.478Z</lastmod>
+    <lastmod>2019-04-06T02:16:24.283Z</lastmod>
     <data>
         <display>
         <title>Chip-Seq 分析</title>
@@ -44,8 +24,43 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
+    <lastmod>2019-04-04T06:34:45.702Z</lastmod>
+    <data>
+        <display>
+        <title>下载参考基因组序列</title>
+        <pubTime>2019-04-03T03:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
+    <lastmod>2019-04-04T02:56:34.533Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu下载</title>
+        <pubTime>2017-08-28T04:00:59.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
-    <lastmod>2019-03-21T13:39:18.247Z</lastmod>
+    <lastmod>2019-04-04T02:34:00.940Z</lastmod>
     <data>
         <display>
         <title>DOS-Ubuntu命令集合</title>
@@ -53,6 +68,46 @@
         
          
            
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
+    <lastmod>2019-04-03T04:52:52.166Z</lastmod>
+    <data>
+        <display>
+        <title>conda命令</title>
+        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/</loc>
+    <lastmod>2019-04-02T12:47:17.678Z</lastmod>
+    <data>
+        <display>
+        <title>人类gene是coding RNA或者non coding RNA</title>
+        <pubTime>2019-04-02T09:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
         </display>
     </data>
     </url>

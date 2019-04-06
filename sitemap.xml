@@ -2,23 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
     
-    <lastmod>2019-03-28T01:53:23.716Z</lastmod>
+    <lastmod>2019-04-06T02:16:24.283Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
     
-    <lastmod>2019-03-22T07:28:50.478Z</lastmod>
+    <lastmod>2019-04-04T06:34:45.702Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
+    
+    <lastmod>2019-04-04T02:56:34.533Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
     
-    <lastmod>2019-03-21T13:39:18.247Z</lastmod>
+    <lastmod>2019-04-04T02:34:00.940Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    
+    <lastmod>2019-04-03T04:52:52.166Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/</loc>
+    
+    <lastmod>2019-04-02T12:47:17.678Z</lastmod>
     
   </url>
   
@@ -457,13 +478,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -479,6 +493,13 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
