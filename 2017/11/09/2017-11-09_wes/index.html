@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/09/2017-11-09_whole_exon_sequencing/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/09/2017-11-09_wes/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -180,10 +180,13 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">453 words in total, 2 minutes required.</span>
+          <span class="post-count">749 words in total, 4 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>学习提纲</strong>：</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://taoshengxu.github.io/DocumentGit/html/给学徒的WES数据分析流程.html">给学徒的WES数据分析流程</a>  这个教程没有介绍缺少分析数据下载<br><a href="https://www.bilibili.com/video/av28030610/?p=6" target="_blank" rel="noopener">B站视频</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda install sra-tools</span><br><span class="line">conda install samtools gatk4</span><br><span class="line">conda install -y bcftools vcftools  snpeff</span><br><span class="line">conda install -y multiqc qualimap</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#下载GATK Bundle 依赖文件</span></span><br><span class="line"><span class="comment">#https://software.broadinstitute.org/gatk/download/bundle</span></span><br><span class="line"><span class="comment">#https://github.com/snewhouse/ngs_nextflow/wiki/GATK-Bundle</span></span><br><span class="line">231M Jul 2 05:14 1000G_phase1.indels.hg19.sites.vcf</span><br><span class="line">1.2M Jul 2 10:45 1000G_phase1.indels.hg19.sites.vcf.idx</span><br><span class="line">11G Jul 2 08:05 dbsnp_138.hg19.vcf</span><br><span class="line">2.5K Jul 1 04:31 hg19.dict</span><br><span class="line">3.0G Jun 30 21:29 hg19.fasta</span><br><span class="line">6.6K Jun 30 22:54 hg19.fasta.amb</span><br><span class="line">944 Jun 30 22:54 hg19.fasta.ann</span><br><span class="line">2.9G Jun 30 22:54 hg19.fasta.bwt</span><br><span class="line">788 Jul 2 01:53 hg19.fasta.fai</span><br><span class="line">739M Jun 30 22:54 hg19.fasta.pac</span><br><span class="line">1.5G Jun 30 23:23 hg19.fasta.sa</span><br><span class="line">87M Jul 2 05:37 Mills_and_1000G_gold_standard.indels.hg19.sites.vcf</span><br><span class="line">2.3M Jul 2 10:45 Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.idx</span><br><span class="line"></span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line">wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg19/1000G_phase1.indels.hg19.sites.vcf.gz</span><br><span class="line">ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg19/1000G_phase1.indels.hg19.sites.vcf.idx.gz</span><br><span class="line">ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg19/dbsnp_138.hg19.vcf.gz</span><br><span class="line">ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg19/ucsc.hg19.dict.gz</span><br><span class="line">ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg19/ucsc.hg19.fasta.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/media/ubuntu/Data2/Reference/index/GATK</span><br></pre></td></tr></table></figure>
+<p><strong>学习提纲</strong>：</p>
 <p>（1）<a href="http://www.bio-info-trainee.com/2735.html" target="_blank" rel="noopener">肿瘤全外显子测序数据分析流程</a> <a href="https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247485033&amp;idx=1&amp;sn=eb9865b92879e20c4afe285aeb8dc73c&amp;chksm=9b4846d2ac3fcfc4e3f90c6ec8ff533494f3a43c502e3c8e842dafb7496db137c11434fccea4&amp;mpshare=1&amp;scene=1&amp;srcid=0922Ls8z5WWLuNh7ml25V20r#rd" target="_blank" rel="noopener">微信连接</a></p>
 <p>(2) <a href="https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247484873&amp;idx=1&amp;sn=e455578dfac51afece7adb21cb315a17&amp;chksm=9b484572ac3fcc6460b6b9bbb88306f73c399d8e7a96ad8bb472a179a8de518bc70e21a72b0b&amp;mpshare=1&amp;scene=1&amp;srcid=0819fvKioudGMT1TYHXwnXoG#rd" target="_blank" rel="noopener">WES分析七步走</a></p>
 <p>(3) <a href="http://www.bio-info-trainee.com/1108.html" target="_blank" rel="noopener">WES 测序质量控制</a></p>
@@ -275,7 +278,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                114.8k <b>Words</b>
+                116.3k <b>Words</b>
         </p></div>
 
         <div class="search-container">
