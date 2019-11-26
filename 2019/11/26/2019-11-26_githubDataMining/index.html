@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-Gene Ontology/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/11/26/2019-11-26_githubDataMining/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        基因本体论(Gene Ontology) 与通路分析(Pathway Analysis)｜undefined
+        Github机器学习100天｜undefined
         
     </title>
 
@@ -128,7 +128,7 @@
   
     <style>
        .intro-header {
-          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+          background-image: url('/hexo/post_cover_images/moon.jpg');
       }
     </style>
 
@@ -137,18 +137,20 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>基因本体论(Gene Ontology) 与通路分析(Pathway Analysis)</h1>
+                        <h1>Github机器学习100天</h1>
                         
                         
 
                         
                           <span class="meta">
-                               <span class="meta-item">Author: xt</span>
-                               <span class="meta-item">Date: Sep 7, 2017</span>
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: Nov 26, 2019</span>
                                
                           </span>
                           <div class="tags text-center">
                               Categories: 
+                              <a class="tag" href="/hexo/categories/#Data Mining" title="Data Mining">Data Mining</a>
+                              
                           </div>
                           <div class="tags text-center">
                               Tags: 
@@ -169,63 +171,23 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">1,102 words in total, 4 minutes required.</span>
+          <span class="post-count">38 words in total, 1 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="基因本体论"><a href="#基因本体论" class="headerlink" title="基因本体论"></a>基因本体论</h1><p>针对于单个基因特征</p>
-<p>本体论这个词一看就逼格很高的样子，源于哲学，本体论用于描述事物的本质，所以基因本体论就是为了描述基因的本质。GO从三个方面对基因的本质进行描述，</p>
-<ul>
-<li><p>1）细胞组分（Cellular Component, CC）：一般用来描述基因作用的位置，比如说高尔基体，内质网这样的；</p>
-</li>
-<li><p>2）分子功能（Molecular Function, MF）：可以描述为分子水平的活性，如催化或结合活性；</p>
-</li>
-<li><p>3）生物学过程(BP)：比如说蛋白质磷酸化，细胞粘附都是生物学过程。</p>
-</li>
-</ul>
-<p>简单地说，GO就像是给基因贴标签进行注释，比如说给X湿兄贴标签，出没地点——小张聊科研(CC)，文风诙谐幽默(MF)，能够让大家轻松愉悦地学到东西(BP)。</p>
-<p>GO的术语是分层的，呈现出树状结构，上文提到的CC、MF和BP即为GO术语的最顶层，比如说下图是BP的分析结果树状图，最顶端即为BP.<br><img src="http://img.mp.itc.cn/upload/20170419/a6c07195ca0f4b738699979d31fbbeb2_th.jpeg" alt=""></p>
-<h1 id="通路分析"><a href="#通路分析" class="headerlink" title="通路分析"></a>通路分析</h1><p>针对于群基因（protein）特征</p>
-<p>一个生物学过程的实现会涉及到许多蛋白质，这些蛋白质合在一起就是一个通路。通路分析能够帮助我们更好地了解某个或某一些蛋白质在一个生物学过程中所扮演的角色。通路分析和GO都是对基因进行注释，那么为什么要对基因进行注释呢？因为基因说穿了其实是一串RNA，那么它的功能和结构虽然都是客观存在的，但是要如何描述这些客观的东西是基因注释所要解决的问题。<br>最常用的通路分析数据库是京都基因与基因组百科全书 (Kyoto Encyclopedia of Genes and Genomes, KEGG)。1995年，KEGG数据库项目由京都大学化学研究所教授Minoru Kanehisa领头启动。KEGG数据库是手工绘制的KEGG途径图的集合，每个途径图包含分子相互作用和反应的网络，将基因组中的基因与通路中的基因产物（主要是蛋白质）连接。KEGG pathway analysis即为将目的基因定位到KEGG途径图中的过程。下图为small cell lung cancer的KEGG途径图。</p>
-<p><img src="http://img.mp.itc.cn/upload/20170419/7f13e82686194a129b65cfc5a0403d7b_th.png" alt=""></p>
-<h1 id="GO分析-与-Pathyway-分析-总结"><a href="#GO分析-与-Pathyway-分析-总结" class="headerlink" title="GO分析 与 Pathyway 分析 总结"></a>GO分析 与 Pathyway 分析 总结</h1><ul>
-<li><p>GO数据库分别从功能、参与的生物途径及细胞中的定位对基因产物进行了标准化描述，即对基因产物进行简单注释，通过GO富集分析可以粗略了解差异基因富集在哪些生物学功能、途径或者细胞定位。GO分析好比是将基因分门别类放入一个个功能类群的篮子，而pathway则是将基因一个个具体放到代谢网络中的指定位置。</p>
-</li>
-<li><p>Pathway指代谢通路，对差异基因进行pathway分析，可以了解实验条件下显著改变的代谢通路，在机制研究中显得尤为重要。 </p>
-</li>
-</ul>
-<h1 id="基因功能分析-Gene-Ontology-和代谢通路（pathway）分析方法（核心）"><a href="#基因功能分析-Gene-Ontology-和代谢通路（pathway）分析方法（核心）" class="headerlink" title="基因功能分析(Gene Ontology)和代谢通路（pathway）分析方法（核心）"></a>基因功能分析(Gene Ontology)和代谢通路（pathway）分析方法（核心）</h1><ol>
-<li>进行样本组和对照组基因表达差异分析</li>
-<li>对获取的差异表达基因进行功能（GO）和信号通路（Pathway）分析</li>
-<li>在得到功能（GO）和信号通路（Pathway）分析的结果中找出和疾病/研究目标相关的GO 和 Pathway</li>
-<li>对这些相关的基因功能和信号通路的基因取交集，缩小候选基因的范围。</li>
-<li>对取交集得到的基因，如果基因数目还比较多（目标基因：1-2个），就将这些基因和差异表达基因再取交集，根据Fold Change 选择差异表达倍数最大的基因作为我们研究的候选基因。</li>
-</ol>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway0.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway0-1.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway1.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway2.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway3.jpg" alt=""></p>
-<hr>
-<p>date: ‘2016-12-15 17:07:42’</p>
-<p>干Bioinformatics差不多2年半了，却一直到对GO和pathway的区别搞不清楚，现在明白又觉好笑，记几个字在这里。</p>
-<p>一般对一组Gene Set 做GO是想看哪些生物功能；比如一个功能，有很多基因都和这个功能相关，把这个功能相关的所有基因找出来。</p>
-<p>而对一组GeneSet 做Kegg主要是看通路，在通路上的联系。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="GitHub热门教程：100天搞定机器学习（中文版）"><a href="#GitHub热门教程：100天搞定机器学习（中文版）" class="headerlink" title="GitHub热门教程：100天搞定机器学习（中文版）"></a><strong>GitHub热门教程：100天搞定机器学习（中文版）</strong></h3><p><a href="https://github.com/Avik-Jain/100-Days-of-ML-Code-Chinese-Version" target="_blank" rel="noopener">https://github.com/Avik-Jain/100-Days-of-ML-Code-Chinese-Version</a></p>
+<p><a href="https://github.com/Avik-Jain/100-Days-Of-ML-Code" target="_blank" rel="noopener">https://github.com/Avik-Jain/100-Days-Of-ML-Code</a></p>
 
           
           <hr>
           <ul class="pager no-print">
               
-              <li class="previous">
-                  <a href="/hexo/2017/09/07/2017-09-07-GSEAstudy/" data-toggle="tooltip" data-placement="left" title="GSEA富集分析">&larr; Previous Post</a>
-              </li>
-              
               
               <li class="next">
-                  <a href="/hexo/2017/09/07/2017-09-07-GitCommand/" data-toggle="tooltip" data-placement="top" title="Git 参考手册">Next Post&rarr;</a>
+                  <a href="/hexo/2019/11/25/2019-11-25_UCSC_xena/" data-toggle="tooltip" data-placement="top" title=" 数据下载专题 | UCSC Xena">Next Post&rarr;</a>
               </li>
               
           </ul>
           
-  <br>
-
-  
-
 
       </div>
       
@@ -233,7 +195,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基因本体论"><span class="toc-number">1.</span> <span class="toc-text">基因本体论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通路分析"><span class="toc-number">2.</span> <span class="toc-text">通路分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GO分析-与-Pathyway-分析-总结"><span class="toc-number">3.</span> <span class="toc-text">GO分析 与 Pathyway 分析 总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基因功能分析-Gene-Ontology-和代谢通路（pathway）分析方法（核心）"><span class="toc-number">4.</span> <span class="toc-text">基因功能分析(Gene Ontology)和代谢通路（pathway）分析方法（核心）</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub热门教程：100天搞定机器学习（中文版）"><span class="toc-number">1.</span> <span class="toc-text">GitHub热门教程：100天搞定机器学习（中文版）</span></a></li></ol>
         
     </div>
   </div>

@@ -2,7 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/11/25/2019-04-26_UCSC_xena/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2017/08/27/2017-08-27_tricks/</loc>
+    
+    <lastmod>2019-11-26T06:11:31.243Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/11/26/2019-11-26_githubDataMining/</loc>
+    
+    <lastmod>2019-11-26T06:06:05.529Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_word/</loc>
+    
+    <lastmod>2019-11-26T05:45:24.353Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/11/25/2019-11-25_UCSC_xena/</loc>
     
     <lastmod>2019-11-25T00:47:17.877Z</lastmod>
     
@@ -37,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
@@ -135,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_word/</loc>
-    
-    <lastmod>2019-03-18T04:40:45.170Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2019/03/17/2019-03-17_Single_sample_scoring/</loc>
     
     <lastmod>2019-03-17T12:38:00.898Z</lastmod>
@@ -208,13 +222,6 @@
     <loc>https://taoshengxu.github.io/hexo/2018/12/31/2018-12-31_newyear/</loc>
     
     <lastmod>2019-01-27T04:28:37.395Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/08/27/2017-08-27_tricks/</loc>
-    
-    <lastmod>2019-01-16T00:45:46.660Z</lastmod>
     
   </url>
   
@@ -520,7 +527,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -534,7 +541,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
