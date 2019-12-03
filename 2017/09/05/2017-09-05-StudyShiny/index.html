@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/05/2017-09-05-StudyShiny/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Shiny and Shiny server学习｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Shiny and Shiny server学习</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 5, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,624 words in total, 8 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Rblogdonw+Hugo用来实现静态网页，Shiny用于实现动态网页，几乎把R这个工具发挥到了极致，使其无所不能，R可以解决一切<strong>简单</strong>的需要了。</p>
+<hr>
+<h1 id="1-Shiny"><a href="#1-Shiny" class="headerlink" title="1. Shiny"></a>1. Shiny</h1><ul>
+<li><a href="http://yanping.me/shiny-tutorial/" target="_blank" rel="noopener">中文教程</a>. Among them, the Articles are very useful.</li>
+<li><a href="https://shiny.rstudio.com/tutorial/" target="_blank" rel="noopener">英文教程</a></li>
+<li><a href="https://github.com/rstudio/shiny-examples" target="_blank" rel="noopener">Examples</a></li>
+<li><a href="https://taoshengxu.github.io/DocumentGit/pdf/shiny-cheatsheet.pdf">shiny-cheatsheet</a><br>然而shiny太素颜了，需要一些扩展使得其表现美妙起来。   </li>
+</ul>
+<h1 id="2-Shiny-with-HTML"><a href="#2-Shiny-with-HTML" class="headerlink" title="2. Shiny with HTML"></a>2. Shiny with HTML</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">names(shiny::tages)  ## 100多种HTML标签</span><br><span class="line"></span><br><span class="line">tags$div(class = &quot;header&quot;, checked = NA,</span><br><span class="line">  tags$p(&quot;Ready to take the Shiny tutorial? If so&quot;),</span><br><span class="line">  tags$a(href = &quot;shiny.rstudio.com/tutorial&quot;, &quot;Click Here!&quot;)</span><br><span class="line">)</span><br><span class="line">## &lt;div class=&quot;header&quot; checked&gt;</span><br><span class="line">##   &lt;p&gt;Ready to take the Shiny tutorial? If so&lt;/p&gt;</span><br><span class="line">##   &lt;a href=&quot;shiny.rstudio.com/tutorial&quot;&gt;Click Here!&lt;/a&gt;</span><br><span class="line">## &lt;/div&gt; </span><br><span class="line"></span><br><span class="line">withTags(&#123;</span><br><span class="line">  div(class=&quot;header&quot;, checked=NA,</span><br><span class="line">    p(&quot;Ready to take the Shiny tutorial? If so&quot;),</span><br><span class="line">    a(href=&quot;shiny.rstudio.com/tutorial&quot;, &quot;Click Here!&quot;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br><span class="line">## &lt;div class=&quot;header&quot; checked&gt;</span><br><span class="line">##   &lt;p&gt;Ready to take the Shiny tutorial? If so&lt;/p&gt;</span><br><span class="line">##   &lt;a href=&quot;shiny.rstudio.com/tutorial&quot;&gt;Click Here!&lt;/a&gt;</span><br><span class="line">## &lt;/div&gt; </span><br><span class="line"></span><br><span class="line">##lists</span><br><span class="line">tags$div(class=&quot;header&quot;, checked=NA,</span><br><span class="line">  list(</span><br><span class="line">    tags$p(&quot;Ready to take the Shiny tutorial? If so&quot;),</span><br><span class="line">    tags$a(href=&quot;shiny.rstudio.com/tutorial&quot;, &quot;Click Here!&quot;),</span><br><span class="line">    &quot;Thank you&quot;</span><br><span class="line">  )</span><br><span class="line">)</span><br><span class="line">## &lt;div class=&quot;header&quot; checked&gt;</span><br><span class="line">##   &lt;p&gt;Ready to take the Shiny tutorial? If so&lt;/p&gt;</span><br><span class="line">##   &lt;a href=&quot;shiny.rstudio.com/tutorial&quot;&gt;Click Here!&lt;/a&gt;</span><br><span class="line">##   Thank you</span><br><span class="line">## &lt;/div&gt; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Raw HTML 加 HTML()</span><br><span class="line">tags$div(</span><br><span class="line">  HTML(&quot;&lt;strong&gt;Raw HTML!&lt;/strong&gt;&quot;)</span><br><span class="line">)</span><br><span class="line">## &lt;div&gt;&lt;strong&gt;Raw HTML!&lt;/strong&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">tags$head(</span><br><span class="line">  tags$style(type=<span class="string">'text/css'</span>, </span><br><span class="line">             <span class="string">"select, textarea, input[type='text'] &#123;margin-bottom: 0px;&#125;"</span></span><br><span class="line">             , <span class="string">"#submit &#123;</span></span><br><span class="line"><span class="string">             color: rgb(255, 255, 255);</span></span><br><span class="line"><span class="string">             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);</span></span><br><span class="line"><span class="string">             background-color: rgb(189,54,47);</span></span><br><span class="line"><span class="string">             background-image: -moz-linear-gradient(center top , rgb(238,95,91), rgb(189,54,47));</span></span><br><span class="line"><span class="string">             background-repeat: repeat-x;</span></span><br><span class="line"><span class="string">             border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);</span></span><br><span class="line"><span class="string">             &#125;"</span></span><br><span class="line">  ),</span><br><span class="line">  tags$script(HTML(<span class="string">'</span></span><br><span class="line"><span class="string">                   Shiny.addCustomMessageHandler("jsCode",</span></span><br><span class="line"><span class="string">                   function(message) &#123;</span></span><br><span class="line"><span class="string">                   eval(message.value);</span></span><br><span class="line"><span class="string">                   &#125;</span></span><br><span class="line"><span class="string">                   );'</span></span><br><span class="line">  ))</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+<p>HTML 前端+ Shiny服务器端数据响应机制</p>
+<ul>
+<li><p>HTML form elements (in this case a select list and a number input) are bound to input slots using their <strong>name</strong> attribute.</p>
+</li>
+<li><p>Output is rendered into HTML elements based on matching their <strong>id</strong> attribute to an output slot and by specifying the requisite css class for the element (in this case either shiny-text-output, shiny-plot-output, or shiny-html-output)</p>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">library</span><span class="params">(shiny)</span></span></span><br><span class="line"><span class="function"><span class="title">runExample</span><span class="params">(<span class="string">"08_html"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="3-shiny-server"><a href="#3-shiny-server" class="headerlink" title="3. shiny server"></a>3. shiny server</h1><p><a href="https://github.com/rstudio/shiny-server" target="_blank" rel="noopener">学习入口</a><br><a href="https://www.rstudio.com/products/shiny/download-server/" target="_blank" rel="noopener">最新安装文件</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su - \</span><br><span class="line">-c &quot;R -e \&quot;install.packages(&apos;shiny&apos;, repos=&apos;https://cran.rstudio.com/&apos;)\&quot;&quot;</span><br><span class="line">$ sudo apt-get install gdebi-core</span><br><span class="line">$ wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.4.869-amd64.deb</span><br><span class="line">$ sudo gdebi shiny-server-1.5.4.869-amd64.deb</span><br><span class="line"></span><br><span class="line">start shiny-server 　　　　   # 启动</span><br><span class="line">stop shiny-server 　　　　　# 停止</span><br><span class="line">restart shiny-server 　　　　# 重启</span><br><span class="line">status shiny-server 　　　　#查看状态  </span><br><span class="line">reload shiny-server 　　　　#不中断服务的前提下 更新加载配置项</span><br></pre></td></tr></table></figure>
+<h3 id="web-查看"><a href="#web-查看" class="headerlink" title="web 查看"></a>web 查看</h3><p>默认端口时3838 </p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">localhost:</span><span class="number">3838</span></span><br></pre></td></tr></table></figure>
+<p><strong>可以在配置文件(/etc/shiny-server/shiny-server.conf)中修改</strong></p>
+<ul>
+<li><p>端口 </p>
+</li>
+<li><p>run_as默认为shiny,可改为username</p>
+</li>
+</ul>
+<p><strong>开发的apps拷贝到目录(/srv/shiny-server/)下</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp ~<span class="regexp">/app file /</span>srv<span class="regexp">/shiny-server/</span> 将文件拷入</span><br></pre></td></tr></table></figure>
+<h3 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h3><p>日志文件在(/var/log/shiny-server/)目录下查看</p>
+<h2 id="一个生信技能树的安装参考教程"><a href="#一个生信技能树的安装参考教程" class="headerlink" title="一个生信技能树的安装参考教程"></a>一个生信技能树的安装参考教程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">######</span><br><span class="line">前几天刚好在亚马逊云上注册了一个1年免费的Amazon Web Services (AWS) ，</span><br><span class="line">正好以此来尝试学习下shiny的相关东西。</span><br><span class="line"></span><br><span class="line">主要参考了：</span><br><span class="line">http://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/</span><br><span class="line">http://www.bio-info-trainee.com/1683.html</span><br><span class="line">操作系统：ubuntu</span><br><span class="line">1. 安装 R</span><br><span class="line">        sudo apt install r-base</span><br><span class="line">2. 安装Rstudio-server</span><br><span class="line">        sudo apt-get install gdebi-core</span><br><span class="line">        sudo apt-get install libapparmor1</span><br><span class="line">        wget https://download2.rstudio.org/rstudio-server-1.0.143-amd64.deb</span><br><span class="line">        sudo gdebi rstudio-server-1.0.143-amd64.deb</span><br><span class="line">因为Rstudio-server不能以root用户登录，所以我们需要创建一个用户</span><br><span class="line">        sudo adduser xxxxx</span><br><span class="line">        ......</span><br><span class="line">然后在网页上输入ip:8787进入Rstudio-server界面，输入用户和密码，即可登录</span><br><span class="line"></span><br><span class="line">3. 安装Shiny</span><br><span class="line">        sudo su - -c &quot;R -e \&quot;install.packages(&apos;shiny&apos;, repos=&apos;http://cran.rstudio.com/&apos;)\&quot;&quot;</span><br><span class="line"></span><br><span class="line">(我注：**如果将配置文件run_as 改为username就不用考虑这个问题，</span><br><span class="line">所以安装完shiny server之后就修改run_as为当前的用户，</span><br><span class="line">不然后面开发中许多包都找不到**)</span><br><span class="line"></span><br><span class="line">不能直接进入R，然后install.packages(&quot;shiny&quot;)，因为如果这样安装，</span><br><span class="line">是将shiny包安装下当前登录用户的个人library中，使得最终shiny-server无法运行。</span><br><span class="line"></span><br><span class="line">        apt-get install gdebi-core</span><br><span class="line">        wget https://download3.rstudio.org/ub ... 1.5.3.838-amd64.deb</span><br><span class="line">        sudo gdebi shiny-server-1.5.3.838-amd64.deb</span><br><span class="line"></span><br><span class="line">做完以上几步后，shiny-server算是初步安装好了，然后可以在网页上ip:3838</span><br><span class="line">进入shiny-server界面(ip是你服务器的ip地址)。</span><br><span class="line">一般我们能看到左边一列的文字和右边的两个框。</span><br><span class="line">当然还需要再安装个rmarkdown，不然还是会有error的</span><br><span class="line"></span><br><span class="line">        sudo su - -c &quot;R -e \&quot;install.packages(&apos;rmarkdown&apos;, repos=&apos;http://cran.rstudio.com/&apos;)\&quot;&quot;</span><br><span class="line"></span><br><span class="line">sudo su - -c &quot;R -e \&quot;devtools::install_github(&apos;name/package&apos;)\&quot;&quot;</span><br><span class="line"></span><br><span class="line">4. 配置shiny server</span><br><span class="line"></span><br><span class="line">    * Shiny Server log is at /var/log/shiny-server.log</span><br><span class="line">    * The default Shiny Server homepage you’re seeing is located at /srv/shiny-server/index.html</span><br><span class="line">- you can edit it or remove it.</span><br><span class="line">    * Any Shiny app directory that you place under /srv/shiny-server/ will be served as a Shiny app. For example, there is a default app at /srv/shiny-server/sample-apps/hello/, which means you can run the app by going to http://123.456.1.2:3838/sample-apps/hello/</span><br><span class="line"></span><br><span class="line">    * The config file for Shiny Server is at /etc/shiny-server/shiny-server.conf</span><br><span class="line">    * To reload the server after editing the config, use sudo reload shiny-server</span><br><span class="line">    * When hosting an Rmarkdown file, name the file index.rmd and add runtime: shiny to the document’s frontmatter</span><br><span class="line"></span><br><span class="line">5. 赋予shiny权限</span><br><span class="line">假设当你登录是以自己用户登录，你在shiny server创建的文件只有该用户（除了root）才有权限读写，但是shiny server是以shiny用户来运行shiny的app，所以要给予shiny用户在一些目录的权限。</span><br><span class="line">例如：</span><br><span class="line"></span><br><span class="line">        sudo groupadd shiny-apps</span><br><span class="line">        sudo usermod -aG shiny-apps dean</span><br><span class="line">        sudo usermod -aG shiny-apps shiny</span><br><span class="line">        sudo chown -R dean:shiny-apps /srv/shiny-server</span><br><span class="line">        sudo chmod g+w /srv/shiny-server</span><br><span class="line">        sudo chmod g+s /srv/shiny-server  ####在该目录下创建的文件都属于该目录所属的组</span><br><span class="line">        </span><br><span class="line">6. 下载shiny官网的例子</span><br><span class="line">git clone https://github.com/rstudio/shiny-examples.git</span><br><span class="line">文件是要下载到/srv/shiny-server中</span><br><span class="line">7. 运行例子程序</span><br><span class="line">http://ip:3838/shiny-examples/010-download/ （ip是你服务器的ip地址）</span><br><span class="line">想要运行哪个shiny app，只要在ip:3838/后面添加/srv/shiny-server中的文件的相对路径即可</span><br><span class="line">###</span><br></pre></td></tr></table></figure>
+<h1 id="4-Shinydashboard"><a href="#4-Shinydashboard" class="headerlink" title="4. Shinydashboard"></a>4. Shinydashboard</h1><p>这是一个扩展R包，使其有一些面板功能。入门讲解在<a href="https://rstudio.github.io/shinydashboard/index.html" target="_blank" rel="noopener">这里</a></p>
+<h1 id="5-Shinyjs"><a href="#5-Shinyjs" class="headerlink" title="5. Shinyjs"></a>5. Shinyjs</h1><p>从<a href="https://github.com/daattali/shinyjs" target="_blank" rel="noopener">这里学习</a>，这个放在以后再深入吧。</p>
+<h1 id="6-Shinythemes"><a href="#6-Shinythemes" class="headerlink" title="6. Shinythemes"></a>6. Shinythemes</h1><hr>
+<p>最近用shiny做了一个页面，也是一个艰难的开始。Mark in(“Mon Sep 04 19:03:13 2017”)</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/05/2017-09-04-UbuntuInstall_pinying/" data-toggle="tooltip" data-placement="left" title="Ubuntu 16.01 安装拼音输入法">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/08/28/2017-08-28-UbuntuDonwload/" data-toggle="tooltip" data-placement="top" title="Ubuntu下载">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Shiny"><span class="toc-number">1.</span> <span class="toc-text">1. Shiny</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Shiny-with-HTML"><span class="toc-number">2.</span> <span class="toc-text">2. Shiny with HTML</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-shiny-server"><span class="toc-number">3.</span> <span class="toc-text">3. shiny server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#web-查看"><span class="toc-number">3.0.1.</span> <span class="toc-text">web 查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志文件"><span class="toc-number">3.0.2.</span> <span class="toc-text">日志文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个生信技能树的安装参考教程"><span class="toc-number">3.1.</span> <span class="toc-text">一个生信技能树的安装参考教程</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Shinydashboard"><span class="toc-number">4.</span> <span class="toc-text">4. Shinydashboard</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Shinyjs"><span class="toc-number">5.</span> <span class="toc-text">5. Shinyjs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Shinythemes"><span class="toc-number">6.</span> <span class="toc-text">6. Shinythemes</span></a></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

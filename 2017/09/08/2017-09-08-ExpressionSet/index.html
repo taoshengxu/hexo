@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/08/2017-09-08-ExpressionSet/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        ExpressionSet简单讲解｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>ExpressionSet简单讲解</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 8, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,634 words in total, 7 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>From 生信菜鸟团 <a href="http://www.bio-info-trainee.com/1510.html" target="_blank" rel="noopener">http://www.bio-info-trainee.com/1510.html</a></p>
+<hr>
+<p><strong>ExpressionSet对象其实是对表达矩阵加上样本分组信息的一个封装，由Biobase这个包引入。它是eSet这个对象的继承。</strong>属性基本和eSet保持一致。</p>
+<h4 id="重点就是-exprs-函数提取表达矩阵，pData-函数看看该对象的样本分组信息。"><a href="#重点就是-exprs-函数提取表达矩阵，pData-函数看看该对象的样本分组信息。" class="headerlink" title="重点就是 exprs 函数提取表达矩阵，pData 函数看看该对象的样本分组信息。"></a>重点就是 <strong><code>exprs</code> 函数提取表达矩阵</strong>，<strong><code>pData</code> 函数看看该对象的样本分组信息</strong>。</h4><p>在Biobase基础包中，ExpressionSet是非常重要的类，因为Bioconductor设计之初是为了对基因芯片数据进行分析，而ExpressionSet正是Bioconductor为基因表达数据格式所定制的标准。它是所有涉及基因表达量相关数据在Bioconductor中进行操作的基础数据类型，比如affyPLM, affy, oligo, limma, arrayMagic等等。所以当我们学习Bioconductor时，第一个任务就是了解并掌握ExpressionSet的一切。</p>
+<h2 id="ExpressionSet的组成："><a href="#ExpressionSet的组成：" class="headerlink" title="ExpressionSet的组成："></a>ExpressionSet的组成：</h2><ul>
+<li><p><strong>assayData</strong>: 一个matrix类型或者environment类型数据。用于保存表达数据值。<br>当它是一个matrix时，它的行表示不同的探针组（probe sets）（也是features，总之是一个无重复的索引值）的值，它的列表示不同的样品。如果有行号或者列号的话，那么行号必须与featureData及phenoData中的行号一致，列号就是样品名。当我们使用<code>exprs()</code>方法时，就是调取的这个assayData的matrix。<br>当它是一个enviroment时，它必须有两个变量，一个就是与上一段描述一致的matrix，另一个就是epxrs，而这个exprs会响应exprs()方法，返回表达值。</p>
+</li>
+<li><p><strong>头文件</strong>：用于描述实验平台相关的数据，其中包括phenoData, featureData，protocolData以及annotation等等。其中<br><strong>phenoData</strong>是一个存放样品信息的data.frame或者AnnotatedDataFrame类型的数据。如果有行号的话，其行号必须与assayData的列号一致（也就是样品名）。如果没有行号，则其行数必须与assayData的列数一致。<br><strong>featureData</strong>是一个存放features的data.frame或者AnnotatedDataFrame类型的数据。它的行数必须与assayData的行数一致。如果有行号的话，那么它的行号必须和assayData的行号一致。<br><strong>annotation</strong>是用于存放芯片类型的字符串，比如hgu95av2之类。<br><strong>protocolData</strong>用于存放设备相当的数据。它是AnnotatedDataFrame类型。它的维度必须与assayData的维度一致。</p>
+</li>
+<li><p><strong>experimentData</strong>: 一个MIAME类型的数据，它用于保存和实验设计相关的资料，比如实验室名，发表的文章，等等。那么什么是MIAME类呢？MIAME是Minimum Information About a Microarray Experiment的首字母缩写，它包括以下一些属性（slots）：</p>
+<ol>
+<li>name: 字符串，实验名称</li>
+<li>lab: 字符串，实验室名称</li>
+<li>contact: 字符串，联系方式</li>
+<li>title: 字符串，一句话描述实验的内容</li>
+<li>abstract: 字符串，实验摘要</li>
+<li>url: 字符串，实验相关的网址</li>
+<li>samples: list类，样品的信息</li>
+<li>hybridizations: list类，杂交的信息</li>
+<li>normControls: list类，对照信息，比如一些持家基因（house keeping genes）</li>
+<li>preprocessing: list类，原始数据的预处理过程</li>
+<li>pubMedIds: 字符串，pubMed索引号</li>
+<li>others: list类，其它相关的信息</li>
+</ol>
+<p>有了这些，所有实验相关的信息基本全备。</p>
+</li>
+</ul>
+<p>那么，对于一个ExpressionSet，哪些属性是必须的？哪些有可能缺失呢？很显然，assayData是必须的，其它的可能会缺失，但是不能都缺失，因为那样的话就无法完成数据分析的工作。</p>
+<h2 id="一个现成例子"><a href="#一个现成例子" class="headerlink" title="一个现成例子"></a>一个现成例子</h2><blockquote>
+<p>下面是一个具体的例子，来源于CLL这个包，是用hgu95av2芯片测了22个样本</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(CLL)</span><br><span class="line">data(sCLLex)</span><br><span class="line">sCLLex</span><br><span class="line"></span><br><span class="line">ExpressionSet (storageMode: lockedEnvironment)</span><br><span class="line">assayData: <span class="number">12625</span> features, <span class="number">22</span> samples  <span class="comment">##表达矩阵</span></span><br><span class="line">  element names: exprs </span><br><span class="line">protocolData: none</span><br><span class="line">phenoData</span><br><span class="line">  sampleNames: CLL11.CEL CLL12.CEL <span class="keyword">...</span> CLL9.CEL (<span class="number">22</span> total)</span><br><span class="line">  varLabels: SampleID Disease   <span class="comment">## 样本分组信息</span></span><br><span class="line">  varMetadata: labelDescription</span><br><span class="line">featureData: none</span><br><span class="line">experimentData: use <span class="string">'experimentData(object)'</span></span><br><span class="line">Annotation: hgu95av2</span><br><span class="line"></span><br><span class="line">&gt; exprMatrix=exprs(sCLLex)</span><br><span class="line">&gt; dim(exprMatrix)</span><br><span class="line">[<span class="number">1</span>] <span class="number">12625</span>    <span class="number">22</span></span><br><span class="line">&gt; meta=pData(sCLLex)</span><br><span class="line">&gt; table(meta$Disease)</span><br><span class="line"></span><br><span class="line">progres.   stable </span><br><span class="line">      <span class="number">14</span>        <span class="number">8</span> </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>根据上面的信息可以看出该芯片共12625个探针，这22个样本根据疾病状态分成两组，14vs8
+这个数据对象就可以打包做很多包的分析输入数据。
+</code></pre><h2 id="limma等包使用该对象作为输入数据"><a href="#limma等包使用该对象作为输入数据" class="headerlink" title="limma等包使用该对象作为输入数据"></a>limma等包使用该对象作为输入数据</h2><blockquote>
+<p>下面这个例子充分说明了 <code>ExpressionSet</code> 对象的重要性</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(limma)</span><br><span class="line">&gt; design=model.matrix(~factor(sCLLex$Disease))</span><br><span class="line">&gt; fit=lmFit(sCLLex,design)</span><br><span class="line">&gt; fit=eBayes(fit)</span><br><span class="line">&gt; options(digits = <span class="number">4</span>)</span><br><span class="line">&gt; topTable(fit,coef=<span class="number">2</span>,adjust=<span class="string">'BH'</span>)</span><br><span class="line">           logFC AveExpr      t   P.Value adj.P.Val     B</span><br><span class="line">39400_at  <span class="number">1.0285</span>   <span class="number">5.621</span>  <span class="number">5.836</span> <span class="number">8.341e-06</span>   <span class="number">0.03344</span> <span class="number">3.234</span></span><br><span class="line">36131_at -<span class="number">0.9888</span>   <span class="number">9.954</span> -<span class="number">5.772</span> <span class="number">9.668e-06</span>   <span class="number">0.03344</span> <span class="number">3.117</span></span><br><span class="line">33791_at -<span class="number">1.8302</span>   <span class="number">6.951</span> -<span class="number">5.736</span> <span class="number">1.049e-05</span>   <span class="number">0.03344</span> <span class="number">3.052</span></span><br><span class="line">1303_at   <span class="number">1.3836</span>   <span class="number">4.463</span>  <span class="number">5.732</span> <span class="number">1.060e-05</span>   <span class="number">0.03344</span> <span class="number">3.044</span></span><br><span class="line">36122_at -<span class="number">0.7801</span>   <span class="number">7.260</span> -<span class="number">5.141</span> <span class="number">4.206e-05</span>   <span class="number">0.10619</span> <span class="number">1.935</span></span><br><span class="line">36939_at -<span class="number">2.5472</span>   <span class="number">6.915</span> -<span class="number">5.038</span> <span class="number">5.362e-05</span>   <span class="number">0.11283</span> <span class="number">1.737</span></span><br><span class="line">41398_at  <span class="number">0.5187</span>   <span class="number">7.602</span>  <span class="number">4.879</span> <span class="number">7.824e-05</span>   <span class="number">0.11520</span> <span class="number">1.428</span></span><br><span class="line">32599_at  <span class="number">0.8544</span>   <span class="number">5.746</span>  <span class="number">4.859</span> <span class="number">8.207e-05</span>   <span class="number">0.11520</span> <span class="number">1.389</span></span><br><span class="line">36129_at  <span class="number">0.9161</span>   <span class="number">8.209</span>  <span class="number">4.859</span> <span class="number">8.212e-05</span>   <span class="number">0.11520</span> <span class="number">1.389</span></span><br><span class="line">37636_at -<span class="number">1.6868</span>   <span class="number">5.697</span> -<span class="number">4.804</span> <span class="number">9.355e-05</span>   <span class="number">0.11811</span> <span class="number">1.282</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>还有非常多的其它包会使用 <code>ExpressionSet</code> 对象，我就不一一介绍了。</p>
+<h2 id="自己构造-ExpressionSet-对象"><a href="#自己构造-ExpressionSet-对象" class="headerlink" title="自己构造 ExpressionSet 对象"></a>自己构造 <code>ExpressionSet</code> 对象</h2><blockquote>
+<p>根据上面的讲解，我们知道了在这个对象其实很简单，就是对表达矩阵加上样本分组信息的一个封装。<br>所以我们就用上面得到的exprMatrix和meta来构建一个ExpressionSet对象，biobase包里面提供了详细的说明,建议大家仔细看官方手册</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">metadata &lt;- data.frame(labelDescription=c(<span class="string">'SampleID'</span>, <span class="string">'Disease'</span>),</span><br><span class="line">                   row.names=c(<span class="string">'SampleID'</span>, <span class="string">'Disease'</span>))</span><br><span class="line">phenoData &lt;- new(<span class="string">"AnnotatedDataFrame"</span>,data=meta,varMetadata=metadata)</span><br><span class="line">myExpressionSet &lt;- ExpressionSet(assayData=exprMatrix,</span><br><span class="line">                                 phenoData=phenoData,</span><br><span class="line">                                 annotation=<span class="string">"hgu95av2"</span>)</span><br><span class="line">&gt; myExpressionSet</span><br><span class="line">ExpressionSet (storageMode: lockedEnvironment)</span><br><span class="line">assayData: <span class="number">12625</span> features, <span class="number">22</span> samples </span><br><span class="line">  element names: exprs </span><br><span class="line">protocolData: none</span><br><span class="line">phenoData</span><br><span class="line">  sampleNames: CLL11.CEL CLL12.CEL <span class="keyword">...</span> CLL9.CEL (<span class="number">22</span> total)</span><br><span class="line">  varLabels: SampleID Disease</span><br><span class="line">  varMetadata: labelDescription</span><br><span class="line">featureData: none</span><br><span class="line">experimentData: use <span class="string">'experimentData(object)'</span></span><br><span class="line">Annotation: hgu95av2 </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从上面的构造过程可以看出，重点就是表达矩阵加上样本分组信息</p>
+</blockquote>
+<h2 id="其它例子"><a href="#其它例子" class="headerlink" title="其它例子"></a>其它例子</h2><h3 id="ALL包的数据自带-ExpressionSet-对象"><a href="#ALL包的数据自带-ExpressionSet-对象" class="headerlink" title="ALL包的数据自带 ExpressionSet 对象"></a>ALL包的数据自带 <code>ExpressionSet</code> 对象</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(ALL)</span><br><span class="line">data(ALL)</span><br><span class="line">ALL</span><br><span class="line"></span><br><span class="line">ExpressionSet (storageMode: lockedEnvironment)</span><br><span class="line">assayData: <span class="number">12625</span> features, <span class="number">128</span> samples</span><br><span class="line">    element names: exprs</span><br><span class="line">protocolData: none</span><br><span class="line">phenoData</span><br><span class="line">    sampleNames: <span class="number">01005</span> <span class="number">01010</span> … LAL4 (<span class="number">128</span> total)</span><br><span class="line">    varLabels: cod diagnosis … date last seen (<span class="number">21</span> total)</span><br><span class="line">    varMetadata: labelDescription</span><br><span class="line">featureData: none</span><br><span class="line">experimentData: use ‘experimentData(object)’</span><br><span class="line">pubMedIds: <span class="number">14684422</span> <span class="number">16243790</span> </span><br><span class="line">Annotation: hgu95av2</span><br></pre></td></tr></table></figure>
+<p>这个数据非常出名，很多其它算法包都会拿这个数据来举例子，只有真正理解了ExpressionSet对象才能学会bioconductor系列包 </p>
+<h2 id="用GEOquery包来下载得到-ExpressionSet-对象"><a href="#用GEOquery包来下载得到-ExpressionSet-对象" class="headerlink" title="用GEOquery包来下载得到 ExpressionSet 对象"></a>用GEOquery包来下载得到 <code>ExpressionSet</code> 对象</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gse1009=GEOquery::getGEO(<span class="string">"GSE1009"</span>)</span><br><span class="line">gse1009[[<span class="number">1</span>]] <span class="comment">## 这就是ExpressionSet对象</span></span><br></pre></td></tr></table></figure>
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/" data-toggle="tooltip" data-placement="left" title="ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/07/2017-09-07-BeautySurvCurves/" data-toggle="tooltip" data-placement="top" title="生存曲线美化">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#重点就是-exprs-函数提取表达矩阵，pData-函数看看该对象的样本分组信息。"><span class="toc-number">1.</span> <span class="toc-text">重点就是 exprs 函数提取表达矩阵，pData 函数看看该对象的样本分组信息。</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#ExpressionSet的组成："><span class="toc-number"></span> <span class="toc-text">ExpressionSet的组成：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个现成例子"><span class="toc-number"></span> <span class="toc-text">一个现成例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#limma等包使用该对象作为输入数据"><span class="toc-number"></span> <span class="toc-text">limma等包使用该对象作为输入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自己构造-ExpressionSet-对象"><span class="toc-number"></span> <span class="toc-text">自己构造 ExpressionSet 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其它例子"><span class="toc-number"></span> <span class="toc-text">其它例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ALL包的数据自带-ExpressionSet-对象"><span class="toc-number"></span> <span class="toc-text">ALL包的数据自带 ExpressionSet 对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用GEOquery包来下载得到-ExpressionSet-对象"><span class="toc-number"></span> <span class="toc-text">用GEOquery包来下载得到 ExpressionSet 对象</span></a>
+        
+    </li></div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 8, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">874 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="ExpressionSet"><a href="#ExpressionSet" class="headerlink" title="ExpressionSet"></a>ExpressionSet</h2><p>下面代码列举了ExpressionSet对象大部分常用函数的用法，ExpressionSet对象可以直接取pData()样本分组信息的列名的数据如 <code>ALL$sex</code></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/ExpressionSet.png" alt=""></p>
+<ul>
+<li>exprs() 表达谱数据</li>
+<li>pData() 对象分组信息</li>
+<li>sampleNames()</li>
+<li>featureNames()</li>
+<li>phenoData()</li>
+<li>featureData()</li>
+<li>experimentData()</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 非常全面的示例代码</span></span><br><span class="line"><span class="keyword">library</span>(ALL)</span><br><span class="line">data(ALL)</span><br><span class="line">experimentData(ALL)</span><br><span class="line">exprs(ALL)[<span class="number">1</span>:<span class="number">4</span>,<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">head(sampleNames(ALL))</span><br><span class="line">head(featureNames(ALL))</span><br><span class="line">head(pData(ALL))</span><br><span class="line">ALL$sex</span><br><span class="line">ALL[<span class="number">1</span>:<span class="number">10</span>,<span class="number">1</span>:<span class="number">5</span>]</span><br><span class="line">featureData(ALL)<span class="comment">#包含关于基因的信息，但是经常没有</span></span><br><span class="line">ids &lt;- featureNames(ALL)[<span class="number">1</span>:<span class="number">5</span>]</span><br><span class="line"><span class="keyword">library</span>(hgu95av2.db)<span class="comment">#之前数据集里面写了芯片平台hgu95av2.db</span></span><br><span class="line">as.list(hgu95av2ENTREZID[ids])</span><br><span class="line">phenoData(ALL)<span class="comment">#不如使用pData(ALL),phenoData(ALL)内容更多些</span></span><br><span class="line">names(pData(ALL))<span class="comment">#有时相当于varLabels(ALL),有时varLabels(ALL)更详细</span></span><br></pre></td></tr></table></figure>
+<h2 id="SummarizedExperiment"><a href="#SummarizedExperiment" class="headerlink" title="SummarizedExperiment"></a>SummarizedExperiment</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">library(airway)</span><br><span class="line">data(<span class="string">"airway"</span>)</span><br><span class="line">airway</span><br><span class="line">colData(airway)<span class="comment">#pData(ALL)</span></span><br><span class="line">airway$cell</span><br><span class="line">colnames(airway)</span><br><span class="line">head(rownames(airway))</span><br><span class="line">assayNames(airway)<span class="comment">#要想获得表达矩阵,使用assay accessor,用assayNames()获得全部表达矩阵名</span></span><br><span class="line">assay(airway,<span class="string">"counts"</span>)[<span class="number">1</span>:<span class="number">4</span>,<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line"><span class="built_in">length</span>(rowRanges(airway))</span><br><span class="line">rowRanges(airway)<span class="comment">#SummarizedExperiment特别之处在于每行每列都有关联的GRanges</span></span><br><span class="line"><span class="built_in">start</span>(airway)</span><br><span class="line">gr = GRanges(<span class="string">"1"</span>,ranges = IRanges(<span class="built_in">start</span> = <span class="number">1</span>,<span class="function"><span class="keyword">end</span> = <span class="title">10</span>^<span class="title">7</span>))</span></span><br><span class="line">subsetByOverlaps(airway,gr)</span><br><span class="line"><span class="comment">#'正是有着关联GRanges,可以取出染色体"某一区域内"基因的表达值</span></span><br></pre></td></tr></table></figure>
+<h2 id="GEOquery"><a href="#GEOquery" class="headerlink" title="GEOquery"></a>GEOquery</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">library</span><span class="params">(GEOquery)</span></span></span><br><span class="line">eList &lt;- getGEO(<span class="string">"GSE11675"</span>)</span><br><span class="line"><span class="function"><span class="title">length</span><span class="params">(eList)</span></span></span><br><span class="line">eData = eList[[<span class="number">1</span>]]</span><br><span class="line">eData</span><br><span class="line"><span class="function"><span class="title">names</span><span class="params">(pData(eData)</span></span>)</span><br><span class="line">eList2 = getGEOSuppFiles(<span class="string">"GSE11675"</span>)#下载原始tar包</span><br><span class="line">eList2</span><br></pre></td></tr></table></figure>
+<h2 id="biomaRt"><a href="#biomaRt" class="headerlink" title="biomaRt"></a>biomaRt</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">library</span><span class="params">(biomaRt)</span></span></span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(listMarts()</span></span>)</span><br><span class="line">mart &lt;- useMart(<span class="string">"ensembl"</span>)</span><br><span class="line">mart</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(listDatasets(mart)</span></span>)</span><br><span class="line">ensemble &lt;- useDataset(<span class="string">"hsapiens_gene_ensembl"</span>,mart)</span><br><span class="line">values &lt;- c(<span class="string">"202763_at"</span>,<span class="string">"209310_s_at"</span>,<span class="string">"207500_at"</span>)</span><br><span class="line"><span class="function"><span class="title">getBM</span><span class="params">(attributes = c(<span class="string">"ensembl_gene_id"</span>,<span class="string">"affy_hg_u133_plus_2"</span>)</span></span>,</span><br><span class="line">      filters = <span class="string">"affy_hg_u133_plus_2"</span>,values = values,mart = ensemble)</span><br><span class="line">attributes &lt;- listAttributes(ensemble)#可以查询到的条目</span><br><span class="line"><span class="function"><span class="title">nrow</span><span class="params">(attributes)</span></span>#可以把一个物种的基因转换到另一个物种的同源基因</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(attributes)</span></span></span><br><span class="line">filters &lt;- listFilters(ensemble)#可以查询到的条目</span><br><span class="line"><span class="function"><span class="title">nrow</span><span class="params">(filters)</span></span>#可以把一个物种的基因转换到另一个物种的同源基因</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(filters)</span></span></span><br><span class="line"><span class="function"><span class="title">attributePages</span><span class="params">(ensemble)</span></span>#attributes存储在一个一个page中,可以用这个减小搜索范围</span><br><span class="line">attributes &lt;- listAttributes(ensemble,page = <span class="string">"feature_page"</span>)</span><br><span class="line"><span class="function"><span class="title">nrow</span><span class="params">(attributes)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="R-S4-Classes"><a href="#R-S4-Classes" class="headerlink" title="R S4 Classes"></a>R S4 Classes</h2><figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">library(ALL)</span><br><span class="line">library(GenomicRanges)</span><br><span class="line">#<span class="string">'S3对象就是像一个list,list中每个对象都有各自的name</span></span><br><span class="line"><span class="string">#'</span>而S4对象定义了每个<span class="class"><span class="keyword">class</span>应该是有些什么东西</span></span><br><span class="line">data(<span class="string">"ALL"</span>)</span><br><span class="line">ALL</span><br><span class="line"><span class="class"><span class="keyword">class</span>(<span class="title">ALL</span>)</span></span><br><span class="line">isS4(ALL)</span><br><span class="line"><span class="class"><span class="keyword">class</span>?<span class="title">ExpressionSet</span>#查看一个<span class="title">class</span>的简介</span></span><br><span class="line">?<span class="string">"ExpressionSet-class"</span>#查看一个<span class="class"><span class="keyword">class</span>的简介</span></span><br><span class="line">#<span class="string">'list的规则:首字母大写</span></span><br><span class="line"><span class="string">#'</span>构造方法</span><br><span class="line">ExpressionSet()</span><br><span class="line">getClass(<span class="string">"ExpressionSet"</span>)#Slots插槽,就是这个<span class="class"><span class="keyword">class</span>由哪儿些小<span class="title">class</span>构成</span></span><br><span class="line">ALL@annotation</span><br><span class="line">annotation(ALL)</span><br><span class="line">#<span class="class"><span class="keyword">class</span>升级了,定义改变了,用<span class="title">updateObject</span></span></span><br><span class="line">OLD_OBJECT = updateObject(OLD_OBJECT)</span><br><span class="line">validObject(ALL)#检测对象是否正确,是否符合<span class="class"><span class="keyword">class</span>的定义</span></span><br></pre></td></tr></table></figure>
+<h2 id="R-S4-Methods"><a href="#R-S4-Methods" class="headerlink" title="R S4 Methods"></a>R S4 Methods</h2><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">library(<span class="type">GenomicRanges</span>)</span><br><span class="line"><span class="type">GenomicRanges</span>::<span class="keyword">as</span>.data.frame<span class="comment">#S4方法</span></span><br><span class="line">base::<span class="keyword">as</span>.data.frame<span class="comment">#S3方法</span></span><br><span class="line">showMethods(<span class="string">"as.data.frame"</span>)<span class="comment">#可以看见,X类型不同,后续选用的程序代码也不同</span></span><br><span class="line"><span class="comment">#查看传入某一特定类型，对应的相关程序代码</span></span><br><span class="line">getMethod(<span class="string">"as.data.frame"</span>,<span class="string">"GenomicRanges"</span>)</span><br><span class="line">getMethod(<span class="string">"as.data.frame"</span>,signature(x=<span class="string">"GenomicRanges"</span>))</span><br><span class="line"><span class="comment">#查看传入某一特定类型，对应的帮助文档</span></span><br><span class="line"><span class="keyword">method</span>?<span class="string">"as.data.frame,DataFrame"</span></span><br><span class="line"><span class="keyword">method</span>?<span class="string">"as.data.frame,GenomicRanges"</span></span><br><span class="line">?<span class="string">"as.data.frame,DataFrame-method"</span></span><br><span class="line">?<span class="string">"as.data.frame,GenomicRanges-method"</span></span><br><span class="line">showMethods(<span class="string">"findOverlaps"</span>)</span><br><span class="line">getMethod(<span class="string">"findOverlaps"</span>,signature(query = <span class="string">"Ranges"</span>,subject = <span class="string">"Ranges"</span>))</span><br><span class="line">?<span class="string">"findOverlaps,Ranges,Ranges-method"</span></span><br><span class="line"><span class="comment">#'S4缺点:难以找到help文档,难以直接看源代码,难以debug</span></span><br><span class="line"><span class="comment">#'但是最好S4写一个package,方便管理</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>作者：wangyunpeng_bio<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/qq_29300341/article/details/77009100" target="_blank" rel="noopener">https://blog.csdn.net/qq_29300341/article/details/77009100</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/09/2017-09-09-GCBI/" data-toggle="tooltip" data-placement="left" title="GCBI 学院">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/08/2017-09-08-ExpressionSet/" data-toggle="tooltip" data-placement="top" title="ExpressionSet简单讲解">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ExpressionSet"><span class="toc-number">1.</span> <span class="toc-text">ExpressionSet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SummarizedExperiment"><span class="toc-number">2.</span> <span class="toc-text">SummarizedExperiment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GEOquery"><span class="toc-number">3.</span> <span class="toc-text">GEOquery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#biomaRt"><span class="toc-number">4.</span> <span class="toc-text">biomaRt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-S4-Classes"><span class="toc-number">5.</span> <span class="toc-text">R S4 Classes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-S4-Methods"><span class="toc-number">6.</span> <span class="toc-text">R S4 Methods</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

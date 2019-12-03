@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-Gene Ontology/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        基因本体论(Gene Ontology) 与通路分析(Pathway Analysis)｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>基因本体论(Gene Ontology) 与通路分析(Pathway Analysis)</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 7, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,102 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="基因本体论"><a href="#基因本体论" class="headerlink" title="基因本体论"></a>基因本体论</h1><p>针对于单个基因特征</p>
+<p>本体论这个词一看就逼格很高的样子，源于哲学，本体论用于描述事物的本质，所以基因本体论就是为了描述基因的本质。GO从三个方面对基因的本质进行描述，</p>
+<ul>
+<li><p>1）细胞组分（Cellular Component, CC）：一般用来描述基因作用的位置，比如说高尔基体，内质网这样的；</p>
+</li>
+<li><p>2）分子功能（Molecular Function, MF）：可以描述为分子水平的活性，如催化或结合活性；</p>
+</li>
+<li><p>3）生物学过程(BP)：比如说蛋白质磷酸化，细胞粘附都是生物学过程。</p>
+</li>
+</ul>
+<p>简单地说，GO就像是给基因贴标签进行注释，比如说给X湿兄贴标签，出没地点——小张聊科研(CC)，文风诙谐幽默(MF)，能够让大家轻松愉悦地学到东西(BP)。</p>
+<p>GO的术语是分层的，呈现出树状结构，上文提到的CC、MF和BP即为GO术语的最顶层，比如说下图是BP的分析结果树状图，最顶端即为BP.<br><img src="http://img.mp.itc.cn/upload/20170419/a6c07195ca0f4b738699979d31fbbeb2_th.jpeg" alt=""></p>
+<h1 id="通路分析"><a href="#通路分析" class="headerlink" title="通路分析"></a>通路分析</h1><p>针对于群基因（protein）特征</p>
+<p>一个生物学过程的实现会涉及到许多蛋白质，这些蛋白质合在一起就是一个通路。通路分析能够帮助我们更好地了解某个或某一些蛋白质在一个生物学过程中所扮演的角色。通路分析和GO都是对基因进行注释，那么为什么要对基因进行注释呢？因为基因说穿了其实是一串RNA，那么它的功能和结构虽然都是客观存在的，但是要如何描述这些客观的东西是基因注释所要解决的问题。<br>最常用的通路分析数据库是京都基因与基因组百科全书 (Kyoto Encyclopedia of Genes and Genomes, KEGG)。1995年，KEGG数据库项目由京都大学化学研究所教授Minoru Kanehisa领头启动。KEGG数据库是手工绘制的KEGG途径图的集合，每个途径图包含分子相互作用和反应的网络，将基因组中的基因与通路中的基因产物（主要是蛋白质）连接。KEGG pathway analysis即为将目的基因定位到KEGG途径图中的过程。下图为small cell lung cancer的KEGG途径图。</p>
+<p><img src="http://img.mp.itc.cn/upload/20170419/7f13e82686194a129b65cfc5a0403d7b_th.png" alt=""></p>
+<h1 id="GO分析-与-Pathyway-分析-总结"><a href="#GO分析-与-Pathyway-分析-总结" class="headerlink" title="GO分析 与 Pathyway 分析 总结"></a>GO分析 与 Pathyway 分析 总结</h1><ul>
+<li><p>GO数据库分别从功能、参与的生物途径及细胞中的定位对基因产物进行了标准化描述，即对基因产物进行简单注释，通过GO富集分析可以粗略了解差异基因富集在哪些生物学功能、途径或者细胞定位。GO分析好比是将基因分门别类放入一个个功能类群的篮子，而pathway则是将基因一个个具体放到代谢网络中的指定位置。</p>
+</li>
+<li><p>Pathway指代谢通路，对差异基因进行pathway分析，可以了解实验条件下显著改变的代谢通路，在机制研究中显得尤为重要。 </p>
+</li>
+</ul>
+<h1 id="基因功能分析-Gene-Ontology-和代谢通路（pathway）分析方法（核心）"><a href="#基因功能分析-Gene-Ontology-和代谢通路（pathway）分析方法（核心）" class="headerlink" title="基因功能分析(Gene Ontology)和代谢通路（pathway）分析方法（核心）"></a>基因功能分析(Gene Ontology)和代谢通路（pathway）分析方法（核心）</h1><ol>
+<li>进行样本组和对照组基因表达差异分析</li>
+<li>对获取的差异表达基因进行功能（GO）和信号通路（Pathway）分析</li>
+<li>在得到功能（GO）和信号通路（Pathway）分析的结果中找出和疾病/研究目标相关的GO 和 Pathway</li>
+<li>对这些相关的基因功能和信号通路的基因取交集，缩小候选基因的范围。</li>
+<li>对取交集得到的基因，如果基因数目还比较多（目标基因：1-2个），就将这些基因和差异表达基因再取交集，根据Fold Change 选择差异表达倍数最大的基因作为我们研究的候选基因。</li>
+</ol>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway0.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway0-1.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway1.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway2.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/go_pathway3.jpg" alt=""></p>
+<hr>
+<p>date: ‘2016-12-15 17:07:42’</p>
+<p>干Bioinformatics差不多2年半了，却一直到对GO和pathway的区别搞不清楚，现在明白又觉好笑，记几个字在这里。</p>
+<p>一般对一组Gene Set 做GO是想看哪些生物功能；比如一个功能，有很多基因都和这个功能相关，把这个功能相关的所有基因找出来。</p>
+<p>而对一组GeneSet 做Kegg主要是看通路，在通路上的联系。</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/07/2017-09-07-GSEAstudy/" data-toggle="tooltip" data-placement="left" title="GSEA富集分析">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/07/2017-09-07-GitCommand/" data-toggle="tooltip" data-placement="top" title="Git 参考手册">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基因本体论"><span class="toc-number">1.</span> <span class="toc-text">基因本体论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通路分析"><span class="toc-number">2.</span> <span class="toc-text">通路分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GO分析-与-Pathyway-分析-总结"><span class="toc-number">3.</span> <span class="toc-text">GO分析 与 Pathyway 分析 总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基因功能分析-Gene-Ontology-和代谢通路（pathway）分析方法（核心）"><span class="toc-number">4.</span> <span class="toc-text">基因功能分析(Gene Ontology)和代谢通路（pathway）分析方法（核心）</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

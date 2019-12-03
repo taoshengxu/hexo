@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-2_GSVA/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        GSVA基因集合变异分析｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>GSVA基因集合变异分析</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Dec 21, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">772 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="GSVA-微阵列和RNA-Seq数据的基因集合变异分析"><a href="#GSVA-微阵列和RNA-Seq数据的基因集合变异分析" class="headerlink" title="GSVA 微阵列和RNA-Seq数据的基因集合变异分析"></a>GSVA 微阵列和RNA-Seq数据的基因集合变异分析</h2><p><a href="https://doi.org/10.1186/1471-2105-14-7" target="_blank" rel="noopener">GSVA: gene set variation analysis for microarray and RNA-Seq data</a>   </p>
+<h2 id="GSVA和GSEA的不同"><a href="#GSVA和GSEA的不同" class="headerlink" title="GSVA和GSEA的不同"></a>GSVA和GSEA的不同</h2><ul>
+<li>GSVA是先将基因对应到gene set上,得到不同的gene set的得分,然后再根据分组,对gene set的得分进行差异分析.</li>
+<li>GSEA是先根据分组对基因进行差异分析,再将基因富集到gene set中.</li>
+</ul>
+<h2 id="GSVA分析中需要用的文件只有两个"><a href="#GSVA分析中需要用的文件只有两个" class="headerlink" title="GSVA分析中需要用的文件只有两个:"></a>GSVA分析中需要用的文件只有两个:</h2><p>(1)基因表达矩阵(gene expression matrix),SYMBOL或者INTERID格式的均可，但要做均一化处理(如TPM值即可) </p>
+<p>(2)geneset:可以直接从MSigDB下载(一般是.gmt格式的文件)，或者自己制作。下载时，要选择合适的geneID，和表达矩阵保持一致即可。（一般都是SYMBOL格式，因为比较容易供使用者观看）</p>
+<h2 id="MSiDB中的数据"><a href="#MSiDB中的数据" class="headerlink" title="MSiDB中的数据"></a>MSiDB中的数据</h2><p>官网主页： <a href="http://software.broadinstitute.org/gsea/msigdb/index.jsp" target="_blank" rel="noopener">http://software.broadinstitute.org/gsea/msigdb/index.jsp</a></p>
+<p>比如我们需要用KEGG相关的的gene set,选择C2,单击C2进入详细介绍页面,就可以看到我们要下载的文件链接了,记得下载和自己的gene ID 格式相同的gmt文件.下载下来之后,可以看到gmt文件的内容也很单纯,每一行表示一个gene set.第一列是gene set的名字,第三列及之后是每个gene set中含有的gene,所以自己制作gene set时,先对gene set命名然后再添加基因就可以了,但要保证其合理性.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">gene &lt;- read.csv(<span class="string">"XXX.csv"</span>,header = <span class="literal">TRUE</span>,sep = <span class="string">","</span>)</span><br><span class="line">genesets &lt;- getGmt(<span class="string">"c2.cp.kegg.v6.1.symbols.gmt"</span>)</span><br><span class="line">nGrp1 &lt;-n</span><br><span class="line">nGrp2 &lt;- m </span><br><span class="line"><span class="comment">#n和m是对照组和处理组的组数。    </span></span><br><span class="line">design &lt;- cbind(sampleGroup1=<span class="number">1</span>, sampleGroup2vs1=c(rep(<span class="number">0</span>, nGrp1), rep(<span class="number">1</span>, nGrp2)))</span><br><span class="line"><span class="keyword">library</span>(limma)</span><br><span class="line"><span class="keyword">library</span>(GSVA)</span><br><span class="line"><span class="comment">#根据需要调整一下表达矩阵</span></span><br><span class="line">rownames(gene) &lt;- gene[,<span class="number">1</span>]    <span class="comment">#添加gene中的行标题</span></span><br><span class="line">gene &lt;- gene[,-<span class="number">1</span>]         <span class="comment">#删除第一列</span></span><br><span class="line">topMatrixGSVA &lt;- gsva(data.matrix(gene), genesets, min.sz=<span class="number">1</span>, max.sz=<span class="number">999999</span>, kcdf=<span class="string">"Poisson"</span>, abs.ranking=<span class="literal">FALSE</span>, verbose=<span class="literal">TRUE</span>)        <span class="comment">#得到GSVA在这些通路上的分值。</span></span><br></pre></td></tr></table></figure>
+<h2 id="GSVA分析"><a href="#GSVA分析" class="headerlink" title="GSVA分析"></a>GSVA分析</h2><p><a href="https://bioconductor.org/packages/release/bioc/vignettes/GSVA/inst/doc/GSVA.pdf" target="_blank" rel="noopener">https://bioconductor.org/packages/release/bioc/vignettes/GSVA/inst/doc/GSVA.pdf</a><br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(GSVA)</span><br><span class="line"></span><br><span class="line">p &lt;- <span class="number">20000</span>    <span class="comment">## number of genes</span></span><br><span class="line">n &lt;- <span class="number">30</span>       <span class="comment">## number of samples</span></span><br><span class="line">nGS &lt;- <span class="number">100</span>    <span class="comment">## number of gene sets</span></span><br><span class="line">min.sz &lt;- <span class="number">10</span>  <span class="comment">## minimum gene set size</span></span><br><span class="line">max.sz &lt;- <span class="number">100</span> <span class="comment">## maximum gene set size</span></span><br><span class="line">X &lt;- matrix(rnorm(p*n), nrow=p, dimnames=list(<span class="number">1</span>:p, <span class="number">1</span>:n))</span><br><span class="line">dim(X)</span><br><span class="line">gs &lt;- as.list(sample(min.sz:max.sz, size=nGS, replace=<span class="literal">TRUE</span>)) <span class="comment">## sample gene set sizes</span></span><br><span class="line">gs &lt;- lapply(gs, <span class="keyword">function</span>(n, p) sample(<span class="number">1</span>:p, size=n, replace=<span class="literal">FALSE</span>), p) <span class="comment">## sample gene sets</span></span><br><span class="line">es.max &lt;- gsva(X, gs, mx.diff=<span class="literal">FALSE</span>, verbose=<span class="literal">FALSE</span>, parallel.sz=<span class="number">1</span>)</span><br><span class="line">es.dif &lt;- gsva(X, gs, mx.diff=<span class="literal">TRUE</span>, verbose=<span class="literal">FALSE</span>, parallel.sz=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### code chunk number 3: maxvsdif</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line">par(mfrow=c(<span class="number">1</span>,<span class="number">2</span>), mar=c(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">1</span>))</span><br><span class="line">plot(density(as.vector(es.max)), main=<span class="string">"Maximum deviation from zero"</span>, xlab=<span class="string">"GSVA score"</span>, lwd=<span class="number">2</span>, las=<span class="number">1</span>, xaxt=<span class="string">"n"</span>, xlim=c(-<span class="number">0.75</span>, <span class="number">0.75</span>), cex.axis=<span class="number">0.8</span>)</span><br><span class="line">axis(<span class="number">1</span>, at=seq(-<span class="number">0.75</span>, <span class="number">0.75</span>, by=<span class="number">0.25</span>), labels=seq(-<span class="number">0.75</span>, <span class="number">0.75</span>, by=<span class="number">0.25</span>), cex.axis=<span class="number">0.8</span>)</span><br><span class="line">plot(density(as.vector(es.dif)), main=<span class="string">"Difference between largest\npositive and negative deviations"</span>,xlab=<span class="string">"GSVA score"</span>, lwd=<span class="number">2</span>, las=<span class="number">1</span>, xaxt=<span class="string">"n"</span>, xlim=c(-<span class="number">0.75</span>, <span class="number">0.75</span>), cex.axis=<span class="number">0.8</span>)</span><br><span class="line">axis(<span class="number">1</span>, at=seq(-<span class="number">0.75</span>, <span class="number">0.75</span>, by=<span class="number">0.25</span>), labels=seq(-<span class="number">0.75</span>, <span class="number">0.75</span>, by=<span class="number">0.25</span>), cex.axis=<span class="number">0.8</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSVA_mxdifff.jpg" alt=""></p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/12/21/2018-12-2_String_process/" data-toggle="tooltip" data-placement="left" title="R语言字符串处理汇总">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/11/08/2018-11-08_allele/" data-toggle="tooltip" data-placement="top" title="同源染色体和等位基因">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GSVA-微阵列和RNA-Seq数据的基因集合变异分析"><span class="toc-number">1.</span> <span class="toc-text">GSVA 微阵列和RNA-Seq数据的基因集合变异分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GSVA和GSEA的不同"><span class="toc-number">2.</span> <span class="toc-text">GSVA和GSEA的不同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GSVA分析中需要用的文件只有两个"><span class="toc-number">3.</span> <span class="toc-text">GSVA分析中需要用的文件只有两个:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSiDB中的数据"><span class="toc-number">4.</span> <span class="toc-text">MSiDB中的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GSVA分析"><span class="toc-number">5.</span> <span class="toc-text">GSVA分析</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

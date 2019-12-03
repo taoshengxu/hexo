@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GitCommand/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Git 参考手册｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Git 参考手册</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 7, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">2,003 words in total, 8 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Git <a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">参考手册中文1</a> <br><br>Git <a href="http://gitref.justjavac.com/" target="_blank" rel="noopener">参考手册中文2</a> <br><br>Git <a href="https://git-scm.com/about" target="_blank" rel="noopener">参考手册ENG</a></p>
+<hr>
+<h1 id="git-branch-命令"><a href="#git-branch-命令" class="headerlink" title="git branch 命令"></a>git branch 命令</h1><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">branch </span>列出所有分支</span><br><span class="line">git <span class="keyword">branch </span>-v 查看每一个分支的最后一次提交</span><br><span class="line">git <span class="keyword">branch </span>-d hotfix 表示删除hotfix分支  </span><br><span class="line">【git 删除本地分支】</span><br><span class="line">git <span class="keyword">branch </span>-D <span class="keyword">br</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">【git </span>删除远程分支】</span><br><span class="line">git push <span class="keyword">origin </span>:<span class="keyword">br </span> (<span class="keyword">origin </span>后面有空格) </span><br><span class="line">或者</span><br><span class="line">$ git push <span class="keyword">origin </span>--delete serverfix</span><br><span class="line"></span><br><span class="line">--merged 与 --no-merged 这两个有用的选项可以过滤这个列表中已经合并或尚未合</span><br><span class="line">并到当前分支的分支如果要查看哪些分支已经合并到当前分支，可以运行 git <span class="keyword">branch </span>--merged：</span><br><span class="line">git <span class="keyword">branch </span>--merged在这个列表中分支名字前没有 * 号的分支通常可以使用 git <span class="keyword">branch </span>-d 删除掉</span><br></pre></td></tr></table></figure>
+<h1 id="git-checkout-命令"><a href="#git-checkout-命令" class="headerlink" title="git checkout 命令"></a>git checkout 命令</h1><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b 创建新分支，并立即切换到它。</span><br><span class="line"></span><br><span class="line">与以下等效：</span><br><span class="line">git branch <span class="keyword">new</span><span class="type">branch</span> </span><br><span class="line">git checkout <span class="keyword">new</span><span class="type">branch</span></span><br></pre></td></tr></table></figure>
+<h1 id="git-merge命令"><a href="#git-merge命令" class="headerlink" title="git merge命令"></a>git merge命令</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">merge</span> [branch] 将[branch] 分枝合并到当前分支中</span><br><span class="line"></span><br><span class="line">例如,首先切换到<span class="keyword">master</span>分支，然后将hotfix分支合并到<span class="keyword">master</span>分支</span><br><span class="line">git checkout <span class="keyword">master</span></span><br><span class="line">git <span class="keyword">merge</span> hotfix</span><br><span class="line"></span><br><span class="line">git <span class="keyword">merge</span> origin/serverfix 将远程git服务器origin的serverfix合并到当前分支</span><br></pre></td></tr></table></figure>
+<h1 id="git-add-命令"><a href="#git-add-命令" class="headerlink" title="git add 命令"></a>git add 命令</h1><p><code>git add xx</code>命令可以将xx文件添加到暂存区，</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> .     提交被修改的和新建的文件，添加全部修改或新增的文件但不包括被删除的文件          </span><br><span class="line">git <span class="built_in">add</span> -<span class="keyword">u</span>    --<span class="keyword">update</span>  <span class="keyword">update</span> tracked <span class="keyword">files</span>  更新所有改变的文件，即提交所有变化的文件,表示添加编辑或者删除的文件，不包括新添加的文件</span><br><span class="line">git <span class="built_in">add</span> -A    --<span class="keyword">all</span>   <span class="built_in">add</span> <span class="keyword">changes</span> from <span class="keyword">all</span> tracked <span class="built_in">and</span> untracked <span class="keyword">files</span>   提交已被修改和已被删除文件，但是不包括新的文件</span><br><span class="line">git <span class="built_in">add</span> -A . 如果有很多改动，可以一次添加所有改变的文件（注意 `-A` 选项后面还有一个句点）。</span><br></pre></td></tr></table></figure>
+<h1 id="git-commit命令"><a href="#git-commit命令" class="headerlink" title="git commit命令"></a>git commit命令</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> -a -m <span class="string">"commit discription"</span>  <span class="string">"-a"</span> 表示git <span class="keyword">add</span>，<span class="string">"-m"</span>表示<span class="keyword">commit</span>的注释</span><br></pre></td></tr></table></figure>
+<h1 id="git-push-命令"><a href="#git-push-命令" class="headerlink" title="git push 命令"></a>git push 命令</h1><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push <span class="string">[alias]</span> <span class="string">[branch]</span>，就会将你的<span class="string">[branch]</span>分支推送成为<span class="string">[alias]</span>远端上的同名<span class="string">[branch]</span> 分支</span><br></pre></td></tr></table></figure>
+<h1 id="git-fetch-命令"><a href="#git-fetch-命令" class="headerlink" title="git fetch 命令"></a>git fetch 命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">从服务器上抓取本地没有的数据时，它并不会修改工作目录中的内容。它只会获取数据然后</span><br><span class="line">让你自己合并。</span><br></pre></td></tr></table></figure>
+<h1 id="git-pull-命令"><a href="#git-pull-命令" class="headerlink" title="git pull 命令"></a>git pull 命令</h1><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在大多数情况下它的含义是一个 git fetch 紧接着一个git <span class="keyword">merge</span> 命令</span><br></pre></td></tr></table></figure>
+<h1 id="删除commit"><a href="#删除commit" class="headerlink" title="删除commit"></a>删除commit</h1><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">reset</span> --hard HEAD~<span class="number">3</span> 删除最顶部的<span class="number">3</span>个commit</span><br><span class="line">git <span class="built_in">reset</span> --hard commit-id 回滚到commit-id,将commit-id之后提交的commit都去除</span><br><span class="line"></span><br><span class="line">【远程代码库回滚】：</span><br><span class="line">应用场景：自动部署系统发布后发现问题，需要回滚到某一个commit，再重新发布</span><br><span class="line">原理：先将本地分支退回到某个commit，删除远程分支，再重新<span class="built_in">push</span>本地分支</span><br><span class="line">操作步骤：</span><br><span class="line"><span class="number">1</span>、git checkout the_branch</span><br><span class="line"><span class="number">2</span>、git pull</span><br><span class="line"><span class="number">3</span>、git branch the_branch_backup //备份一下这个分支当前的情况</span><br><span class="line"><span class="number">4</span>、git <span class="built_in">reset</span> --hard the_commit_id //把the_branch本地回滚到the_commit_id</span><br><span class="line"><span class="number">5</span>、git <span class="built_in">push</span> <span class="built_in">origin</span> :the_branch //删除远程 the_branch</span><br><span class="line"><span class="number">6</span>、git <span class="built_in">push</span> <span class="built_in">origin</span> the_branch //用回滚后的本地分支重新建立远程分支</span><br><span class="line"><span class="number">7</span>、git <span class="built_in">push</span> <span class="built_in">origin</span> :the_branch_backup //如果前面都成功了，删除这个备份分支</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Git-学习"><a href="#Git-学习" class="headerlink" title="Git 学习"></a>Git 学习</h1><h1 id="1-初始化Git"><a href="#1-初始化Git" class="headerlink" title="1.初始化Git"></a>1.初始化Git</h1><p>初始化后，在当前目录下会出现一个名为 .git 的目录，所有 Git 需要的数据和资源都存放在这个目录中<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> D:<span class="string">/Test</span></span><br><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>如果当前目录下有几个文件想要纳入版本控制，需要先用 git add 命令告诉 Git 开始对这些文件进行跟踪，然后提交：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> *.c</span></span><br><span class="line"><span class="bash">git add README</span></span><br><span class="line"><span class="bash">git commit -m <span class="string">'initial project version'</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="从现有仓库克隆"><a href="#从现有仓库克隆" class="headerlink" title="从现有仓库克隆"></a>从现有仓库克隆</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">git</span>://github.com/schacon/grit.git  +目录(可选，指定存的目录)</span><br></pre></td></tr></table></figure>
+<h2 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch <span class="literal">master</span></span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+<h2 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h2><p>git add 将 修改文件放到暂存区，然后再看看 git status 的输出<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> README</span></span><br><span class="line"><span class="bash">git status</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">"commit message"</span></span><br></pre></td></tr></table></figure>
+<p>git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤：</p>
+<h2 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rm grit.gemspec <span class="comment">#问磁盘中删除文件</span></span><br><span class="line">git rm grit.gemspec<span class="comment">#从git 跟踪中删除</span></span><br><span class="line"><span class="comment">#如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f（译注：即 force 的首字母），以防误删除文件后丢失修改的内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#只想把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。换句话说，仅是从跟踪清单中删除。比如一些大型日志文件或者一堆 .a 编译文件，不小心纳入仓库后，要移除跟踪但不删除文件，以便稍后在 .gitignore 文件中补上，用 --cached 选项即可</span></span><br><span class="line">git rm <span class="comment">--cached readme.txt</span></span><br></pre></td></tr></table></figure>
+<h2 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git mv file_from file_to</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">其实，运行 git mv 就相当于运行了下面三条命令：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv README.txt README</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git rm README.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git add README</span></span><br></pre></td></tr></table></figure>
+<h2 id="忽略某些文件"><a href="#忽略某些文件" class="headerlink" title="忽略某些文件"></a>忽略某些文件</h2><p>创建一个名为 .gitignore 的文件，列出要忽略的文件模式。<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> cat .gitignore</span><br><span class="line"><span class="comment">*.[oa]</span></span><br><span class="line"><span class="comment">*~</span></span><br></pre></td></tr></table></figure></p>
+<p>第一行告诉 Git 忽略所有以 .o 或 .a 结尾的文件。<br>第二行告诉 Git 忽略所有以波浪符（~）结尾的文件。</p>
+<p>文件 .gitignore 的格式规范如下：</p>
+<ul>
+<li>所有空行或者以注释符号 ＃ 开头的行都会被 Git 忽略。</li>
+<li>可以使用标准的 glob 模式匹配。</li>
+<li>匹配模式最后跟反斜杠（/）说明要忽略的是目录。</li>
+<li>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。</li>
+</ul>
+<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。星号（*）匹配零个或多个任意字符；[abc] 匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；问号（?）只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 [0-9] 表示匹配所有 0 到 9 的数字）。</p>
+<p>我们再看一个 .gitignore 文件的例子<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 此为注释 – 将被 Git 忽略</span></span><br><span class="line"><span class="comment"># 忽略所有 .a 结尾的文件</span></span><br><span class="line">*.a</span><br><span class="line"><span class="comment"># 但 lib.a 除外</span></span><br><span class="line">!<span class="class"><span class="keyword">lib</span>.<span class="title">a</span></span></span><br><span class="line"><span class="comment"># 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO</span></span><br><span class="line">/TODO</span><br><span class="line"><span class="comment"># 忽略 build/ 目录下的所有文件</span></span><br><span class="line">build/</span><br><span class="line"><span class="comment"># 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span></span><br><span class="line">doc/*.txt</span><br><span class="line"><span class="comment"># 忽略 doc/ 目录下所有扩展名为 txt 的文件</span></span><br><span class="line">doc/**<span class="regexp">/*.txt</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">添加远程仓库</span><br><span class="line">git remote <span class="keyword">add </span>&lt;<span class="keyword">shortname&gt; </span>&lt;url&gt;添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简</span><br><span class="line"></span><br><span class="line">从远程仓库中抓取与拉取</span><br><span class="line">git fetch [remote-name]</span><br><span class="line">git fetch 命令会将数据拉取到你的本地仓库,并不会自动合并或修改你当前的工作。当准备好时你必须手动将其合并入你的工作。</span><br><span class="line"></span><br><span class="line">git pull 命令来自动的抓取然后合并远程分支到当前分支。</span><br><span class="line"></span><br><span class="line">推送到远程仓库</span><br><span class="line">git push [remote-name] [<span class="keyword">branchname]</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">当你想要将 </span>master 分支推送到 <span class="keyword">origin </span>服务器时（再次说明，克隆时通常会自动帮你设置好那两个名</span><br><span class="line">字），那么运行这个命令就可以将你所做的备份到服务器：</span><br><span class="line">git push <span class="keyword">origin </span>master</span><br></pre></td></tr></table></figure></p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/07/2017-09-07-Gene Ontology/" data-toggle="tooltip" data-placement="left" title="基因本体论(Gene Ontology) 与通路分析(Pathway Analysis)">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/06/2017-09-05-StudyCSS/" data-toggle="tooltip" data-placement="top" title="层叠样式表 (Cascading Style Sheets)小结">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-branch-命令"><span class="toc-number">1.</span> <span class="toc-text">git branch 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-checkout-命令"><span class="toc-number">2.</span> <span class="toc-text">git checkout 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-merge命令"><span class="toc-number">3.</span> <span class="toc-text">git merge命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-add-命令"><span class="toc-number">4.</span> <span class="toc-text">git add 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-commit命令"><span class="toc-number">5.</span> <span class="toc-text">git commit命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-push-命令"><span class="toc-number">6.</span> <span class="toc-text">git push 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-fetch-命令"><span class="toc-number">7.</span> <span class="toc-text">git fetch 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-pull-命令"><span class="toc-number">8.</span> <span class="toc-text">git pull 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除commit"><span class="toc-number">9.</span> <span class="toc-text">删除commit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-学习"><span class="toc-number">10.</span> <span class="toc-text">Git 学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-初始化Git"><span class="toc-number">11.</span> <span class="toc-text">1.初始化Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从现有仓库克隆"><span class="toc-number">11.1.</span> <span class="toc-text">从现有仓库克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查当前文件状态"><span class="toc-number">11.2.</span> <span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跟踪新文件"><span class="toc-number">11.3.</span> <span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交更新"><span class="toc-number">11.4.</span> <span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移除文件"><span class="toc-number">11.5.</span> <span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动文件"><span class="toc-number">11.6.</span> <span class="toc-text">移动文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#忽略某些文件"><span class="toc-number">11.7.</span> <span class="toc-text">忽略某些文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">11.8.</span> <span class="toc-text">远程仓库</span></a></li></ol></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

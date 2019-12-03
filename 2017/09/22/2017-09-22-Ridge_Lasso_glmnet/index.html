@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/22/2017-09-22-Ridge_Lasso_glmnet/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        线性回归-岭回归-Lasso-弹性网-多重共线性｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>线性回归-岭回归-Lasso-弹性网-多重共线性</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 22, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">5,043 words in total, 21 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="http://f.dataguru.cn/thread-598486-1-1.html" target="_blank" rel="noopener">原文</a></p>
+<h1 id="1-回归问题的数学描述"><a href="#1-回归问题的数学描述" class="headerlink" title="1. 回归问题的数学描述"></a>1. 回归问题的数学描述</h1><p>1.n个样本，p个变量，X，y已知。对数据中心化、标准化处理后，可以去掉截距项。<br><img src="https://taoshengxu.github.io/DocumentGit/img/GLM1.jpg" alt=""></p>
+<p>2.矩阵形式的多元线性模型为:</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM2.png" alt=""></p>
+<p>求解β，使得误差项ε能达到较低.</p>
+<p>3.残差平方和RSS为</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM3.png" alt=""></p>
+<p>4.多元线性回归问题变为求解β，从而使残差平方和极小值问题（关于系数向量β的二次函数极值问题）</p>
+<p>5.几何意义</p>
+<p>残差向量的几何意义：响应y向量到由p个x向量组成的超平面的距离向量。<br><br>残差平方和几何意义：残差向量长度的平方。</p>
+<h1 id="2-最小二乘回归"><a href="#2-最小二乘回归" class="headerlink" title="2.最小二乘回归"></a>2.最小二乘回归</h1><p>使用最小二乘法拟合的普通线性回归是数据建模的基本方法。其建模要点在于误差项一般要求独立同分布（常假定为正态）零均值。t检验用来检验拟合的模型系数的显著性，F检验用来检验模型的显著性（方差分析）。如果正态性不成立，t检验和F检验就没有意义。</p>
+<p>β的最小二乘估计为：</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM4.jpg" alt=""></p>
+<p>在统计学上，可证明β的最小二乘解为无偏估计，即多次得到的采样值X而计算出来的多个系数估计值向量的平均值将无限接近于真实值向量β。</p>
+<p>如果存在较强的共线性，即X中各列向量之间存在较强的相关性，会导致|X^T X|≈0, 从而引起对角线上的值很大(X^T X的逆矩阵不不存在)</p>
+<hr>
+<h4 id="问题：-X矩阵不存在广义逆（即奇异性）的情况。"><a href="#问题：-X矩阵不存在广义逆（即奇异性）的情况。" class="headerlink" title="问题： X矩阵不存在广义逆（即奇异性）的情况。"></a>问题： X矩阵不存在广义逆（即奇异性）的情况。</h4><ul>
+<li><p>X本身存在线性相关关系（即多重共线性），即非满秩矩阵。当采样值误差造成本身线性相关的样本矩阵仍然可以求出逆阵时，此时的逆阵非常不稳定，所求的解也没有什么意义。</p>
+</li>
+<li><p>当变量比样本多，即p&gt;n时.回归系数会变得很大，无法求解。</p>
+</li>
+</ul>
+<h5 id="对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，普通线性回归会有一些问题："><a href="#对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，普通线性回归会有一些问题：" class="headerlink" title="对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，普通线性回归会有一些问题："></a>对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，普通线性回归会有一些问题：</h5><p>（1）预测精度的问题 如果响应变量和预测变量之间有比较明显的线性关系，最小二乘回归会有很小的偏倚，特别是如果观测数量n远大于预测变量p时，最小二乘回归也会有较小的方差。但是如果n和p比较接近，则容易产生过拟合；如果n&lt;p，最小二乘回归得不到有意义的结果。</p>
+<p>（2）模型解释能力的问题 包括在一个多元线性回归模型里的很多变量可能是和响应变量无关的；也有可能产生多重共线性的现象：即多个预测变量之间明显相关。这些情况都会增加模型的复杂程度，削弱模型的解释能力。这时候需要进行变量选择（特征选择）。</p>
+<h4 id="针对OLS-ordinary-least-squares-的问题，在变量选择方面有三种扩展的方法："><a href="#针对OLS-ordinary-least-squares-的问题，在变量选择方面有三种扩展的方法：" class="headerlink" title="针对OLS (ordinary least squares)的问题，在变量选择方面有三种扩展的方法："></a>针对OLS (ordinary least squares)的问题，在变量选择方面有三种扩展的方法：</h4><ul>
+<li><p>（1）子集选择 这是传统的方法，包括逐步回归和最优子集法等，对可能的部分子集拟合线性模型，利用判别准则 （如AIC,BIC,Cp,调整R2 等）决定最优的模型。</p>
+</li>
+<li><p>（2）收缩方法（shrinkage method） 收缩方法又称为<strong>正则化（regularization）</strong>。主要是岭回归（ridge regression）和lasso回归。通过对最小二乘估计加入罚约束，使某些系数的估计为0。 </p>
+</li>
+<li><p>(3)维数缩减 主成分回归（PCR）和偏最小二乘回归（PLS）的方法。把p个预测变量投影到m维空间（m&lt;p），利用投影得到的不相关的组合建立线性模型。</p>
+</li>
+</ul>
+<h1 id="3-岭回归（Ridge-Regression，RR-1962）"><a href="#3-岭回归（Ridge-Regression，RR-1962）" class="headerlink" title="3.岭回归（Ridge Regression，RR, 1962）"></a>3.岭回归（Ridge Regression，RR, 1962）</h1><p>思路：在原先的β的最小二乘估计中加一个小扰动λI，是原先无法求广义逆的情况变成可以求出其广义逆，使得问题稳定并得以求解。</p>
+<p>极值问题：<br><img src="https://taoshengxu.github.io/DocumentGit/img/GLM5.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/GLM6.jpg" alt=""></p>
+<p>对上式用偏导数求极值，结果就是 </p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM7.jpg" alt=""></p>
+<p>其中<img src="..." alt="">为惩罚函数，它保证了β值不会变的很大。岭参数λ不同，岭回归系数也会不同。</p>
+<p>岭回归是回归参数β的有偏估计。它的结果是使得残差平和变大，但是会使系数检验变好，即R语言summary结果中变量后的*变多。</p>
+<p>岭回归缺陷: </p>
+<ul>
+<li><p>1.主要靠目测选择岭参数</p>
+</li>
+<li><p>2.计算岭参数时，各种方法结果差异较大</p>
+</li>
+</ul>
+<p>所以一般认为，岭迹图只能看多重共线性，却很难做变量筛选</p>
+<h1 id="4-几何解释"><a href="#4-几何解释" class="headerlink" title="4.几何解释"></a>4.几何解释</h1><p>以两个变量为例，系数β1和β2已经经过标准化。残差平方和RSS可以表示为β1和β2的一个二次函数，数学上可以用一个抛物面表示。</p>
+<ol>
+<li>最小二乘法 </li>
+</ol>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM9.jpg" alt=""></p>
+<p>2.岭回归</p>
+<p>约束项为 β1^2+β2^2≤t</p>
+<p>对应着投影为β1和β2平面上的一个圆，即下图中的圆柱.</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM10.jpg" alt=""></p>
+<p>该圆柱与抛物面的交点对应的β1、β2值，即为满足约束项条件下的能取得的最小的β1和β2.</p>
+<p>从β1,β2平面理解，即为抛物面等高线在水平面的投影和圆的交点，如下图所示,可见岭回归解与原先的最小二乘解是有一定距离的。</p>
+<p><img src="http://attachbak.dataguru.cn/attachments/forum/201603/03/GLM11.jpg" alt=""></p>
+<p>3.岭回归性质</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/Ridge20170922104329.png" alt=""></p>
+<p>4.岭迹图</p>
+<p>岭迹图作用：</p>
+<ul>
+<li><p>1）观察λ较佳取值；</p>
+</li>
+<li><p>2）观察变量是否有多重共线性；</p>
+</li>
+</ul>
+<p>是λ的函数，岭迹图的横坐标为λ，纵坐标为β(λ)。而β(λ)是一个向量，由β1(λ)、β2(λ)、…等很多分量组成，每一个分量都是λ的函数，将每一个分量分别用一条线。当不存在奇异性时，岭迹应是稳定地逐渐趋向于0。<br><img src="https://taoshengxu.github.io/DocumentGit/img/GLM12.jpg" alt=""></p>
+<p>岭迹图比较</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/Ridge20170922154100.png" alt=""></p>
+<p>通过岭迹的形状来判断我们是否要剔除掉该参数（例如：岭迹波动很大，说明该变量参数有共线性）</p>
+<p>可见，在λ很小时，通常各β系数取值较大；而如果λ=0，则跟普通意义的多元线性回归的最小二乘解完全一样；当λ略有增大，则各β系数取值迅速减小，即从不稳定趋于稳定。上图类似喇叭形状的岭迹图，一般都存在多重共线性。</p>
+<ul>
+<li><p>λ的选择：一般通过观察，选取喇叭口附近的值，此时各β值已趋于稳定，但总的RSS又不是很大。</p>
+</li>
+<li><p>选择变量：删除那些β取值一直趋于0的变量。</p>
+</li>
+<li><p>注意：用岭迹图筛选变量并非十分靠谱。</p>
+</li>
+</ul>
+<p>岭回归选择变量的原则（不靠谱，仅供参考）</p>
+<ul>
+<li><p>1）在岭回归中设计矩阵X已经中心化和标准化了，这样可以直接比较标准化岭回归系数癿大小。可以剔除掉标准化岭回归系数比较稳定且值很小癿自变量。</p>
+</li>
+<li><p>2）随着λ的增加，回归系数不稳定，震动趋于零的自变量也可以剔除。</p>
+</li>
+<li><p>3）如果依照上述去掉变量的原则，有若干个回归系数不稳定，究竟去掉几个，去掉哪几个，这幵无一般原则可循，这需根据去掉某个变量后重新进行岭回归分析的效果来确定。</p>
+</li>
+</ul>
+<p>5.岭回归R语言分析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">library(MASS)#岭回归在MASS包中。</span><br><span class="line">longley #内置数据集，有关国民经济情况的数据，以多重共线性较强著称</span><br><span class="line">summary(fm1&lt;-lm(Employed~.,data=longley)) #最小二乘估计的多元线性回归</span><br><span class="line">#结果可见，R^2很高，但是系数检验不是非常理想</span><br><span class="line">names(longley)[1]&lt;-&quot;y&quot;  </span><br><span class="line">lm.ridge(y~.,longley)   #此时，仍为线性回归</span><br><span class="line">plot(lm.ridge(y~.,longley,lambda=seq(0,0.1,0.001)))  #加了参数lambda的描述后才画出响应的岭迹图</span><br><span class="line">#由于lambda趋于0时，出现了不稳定的情况，所以可以断定变量中存在多重共线性</span><br><span class="line">select(lm.ridge(y~.,longley,lambda=seq(0,0.1,0.001)))  #用select函数可算lambda值，结果给出了3种方法算的的lambda的估计值</span><br><span class="line"></span><br><span class="line">## modified HKB estimator is 0.006836982 </span><br><span class="line">## modified L-W estimator is 0.05267247 </span><br><span class="line">## smallest value of GCV  at 0.006 </span><br><span class="line"></span><br><span class="line">#以上结果通常取GCV估计，或者观察大多数方法趋近哪个值。</span><br></pre></td></tr></table></figure>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM13.jpg" alt=""></p>
+<h1 id="5-LASSO"><a href="#5-LASSO" class="headerlink" title="5. LASSO"></a>5. LASSO</h1><p>Tibshirani(1996)提出了Lasso(The Least Absolute Shrinkage and Selectionatoroperator)算法，这里  Absolute 指绝对值。Shrinkage收缩的含义：即系数收缩在一定区域内（比如圆内）。</p>
+<p><strong>主要思想</strong>：<br>通过构造一个一阶惩罚函数获得一个精炼的模型；通过最终确定一些指标（变量）癿系数为零（岭回归估计系数等于0癿机会微乎其微，造成筛选变量困难），解释力很强。擅长处理具有多重共线性癿数据，筛选变量，与岭回归一样是有偏估计。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM14.jpg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/GLM15.jpg" alt=""></p>
+<p><strong>几何解释</strong></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM16.jpg" alt=""></p>
+<p>由于方框的顶点更容易交于抛物面，也就是lasso更易求解，而该顶点对应的很多系数为0，也就是起到了筛选变量的目的。</p>
+<p><strong>Lasso plot</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">set.seed(<span class="number">101</span>)</span><br><span class="line">x=matrix(rnorm(<span class="number">1000</span>),<span class="number">100</span>,<span class="number">10</span>)</span><br><span class="line">y=rnorm(<span class="number">100</span>)</span><br><span class="line">fit=glmnet(x,y)</span><br><span class="line"></span><br><span class="line">par(mfrow=c(<span class="number">1</span>,<span class="number">3</span>))</span><br><span class="line"><span class="comment">#par(mar=c(4.5,4.5,1,4))</span></span><br><span class="line"><span class="comment">##plot1</span></span><br><span class="line">plot(fit)</span><br><span class="line">vnat=coef(fit)</span><br><span class="line">vnat=vnat[-<span class="number">1</span>,ncol(vnat)] <span class="comment"># remove the intercept, and get the coefficients at the end of the path</span></span><br><span class="line">axis(<span class="number">4</span>, at=vnat,line=-<span class="number">.5</span>,label=paste(<span class="string">"feature"</span>,<span class="number">1</span>:<span class="number">10</span>),las=<span class="number">1</span>,tick=<span class="literal">FALSE</span>, cex.axis=<span class="number">0.5</span>)</span><br><span class="line"><span class="comment">#plot2</span></span><br><span class="line">plot(fit, xvar = <span class="string">"lambda"</span>)</span><br><span class="line"><span class="comment"># plot3</span></span><br><span class="line">plot(fit, xvar = <span class="string">"dev"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/lasso201710112315.jpeg" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/lasso201710112315.png" alt=""></p>
+<h1 id="6-LASSO-vs-岭回归"><a href="#6-LASSO-vs-岭回归" class="headerlink" title="6.LASSO vs 岭回归"></a>6.LASSO vs 岭回归</h1><p>岭回归一方面可以将其变成一个最小二乘问题。另一方面可以将它解释成一个带约束项的系数优化问题。λ增大的过程就是t减小的过程，该图也说明了岭回归系数估计值为什么通常不为0，因为随着抛物面的扩展，它与约束圆的交点可能在圆周上的任意位置，除非交点恰好位于某个坐标轴或坐标平面上，否则大多数情况交点对应的系数值都不为零。再加上λ的选择应使椭球面和圆周的交点恰好在一个坐标平面上，更增加了求解λ的难度。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM17.jpg" alt=""></p>
+<p>左图为岭回归，右图为lasso回归。横轴越往左，自由度越小（即圆或方框在收缩的过程），λ越大，系数（即纵轴）会越趋于0。但是岭回归没有系数真正为0，但lasso的不断有系数变为0.</p>
+<h1 id="7-一般化的模型"><a href="#7-一般化的模型" class="headerlink" title="7.一般化的模型"></a>7.一般化的模型</h1><p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM18.jpg" alt=""></p>
+<p>不同q对应的约束域形状</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM19.jpg" alt=""></p>
+<h1 id="8-弹性网模型"><a href="#8-弹性网模型" class="headerlink" title="8.弹性网模型"></a>8.弹性网模型</h1><p>Zouand Hastie (2005)提出elasticnet，介于岭回归和lasso回归之间，现在被认为是处理多重共线性和变量筛选较好的收缩方法，而且损失的精度不会太多。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM20.jpg" alt=""></p>
+<h1 id="9-最小角回归-Least-Angel-Regression-是lasso-regression癿一种高效解法。"><a href="#9-最小角回归-Least-Angel-Regression-是lasso-regression癿一种高效解法。" class="headerlink" title="9.最小角回归(Least Angel Regression)是lasso regression癿一种高效解法。"></a>9.最小角回归(Least Angel Regression)是lasso regression癿一种高效解法。</h1><p>Lasso回归中表达式用偏导求极值时，存在部分点不可导的情况（如方框的尖点），如何解决？</p>
+<p>Efron于2004年提出癿一种变量选择癿方法，<strong>类似于</strong>向前逐步回归(Forward Stepwise)的形式，最初用于解决传统的线性回归问题，有清晰的几何意义。</p>
+<p>与向前逐步回归(Forward Stepwise)不同点在于，Forward Step wise 每次都是根据选择的变量子集，完全拟合出线性模型，计算出RSS，再设计统计量（如AIC）对较高癿模型复杂度作出惩罚，而LAR是每次先找出和因变量相关度较高的那个变量, 再沿着LSE的方向一点点调整这个predictor的系数，在这个过程中，这个变量和残差的相关系数会逐渐减小，等到这个相关性没那么显著的时候，就要选进新的相关性较高的变量，然后重新沿着LSE的方向进行变动。而到最后，所有变量都被选中，就和LSE相同了。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM21.jpg" alt=""></p>
+<p>左图为LAR逐步加上变量的过程（从左往右看），右图为LASSO变量逐渐淘汰的收缩过程（从右往左看）。<br>对比两幅图，非常类似。所以可以用LAR方法来计算LASSO，该方法完全是线性解决方法，没有迭代的过程。</p>
+<h1 id="10-相关系数的几何意义"><a href="#10-相关系数的几何意义" class="headerlink" title="10. 相关系数的几何意义"></a>10. 相关系数的几何意义</h1><p>设变量y=[y1,y2,…yn]; 变量x=[x1,x2,…,xn].</p>
+<p>其相关系数为<img src="https://taoshengxu.github.io/DocumentGit/img/GLM22.jpg" alt=""></p>
+<p>其中cov—协方差、var—-方差。</p>
+<p>如果对x和y进行中心化、标准化，则var(y)=var(x)=1,相关系数变为x1y1+x2y2+….+xnyn，即为向量x和y的内积=||x||<em>||y||</em>cos θ，其中θ为x和y的夹角。而对于标准化和中心化后的x和y，则有||x||=||y||=1，所以此时x和y的内积就是它们夹角的余弦。  </p>
+<ul>
+<li><p>如果x和y向量很像，几乎重合，则夹角θ=0，也就是相关系数=内积=1，此时称为高度相关.</p>
+</li>
+<li><p>如果x和y相关程度很低，则表现出来的x和y向量相互垂直，相关系数=0.</p>
+</li>
+<li><p>如果相关系数=-1，标明x和y呈180°，即负相关。</p>
+</li>
+</ul>
+<h1 id="11-LAR算法及几何意义"><a href="#11-LAR算法及几何意义" class="headerlink" title="11. LAR算法及几何意义"></a>11. LAR算法及几何意义</h1><p>参考书The Elements of Statistical Learning .pdf的74页。LAR和Lasso的区别以及LAR解Lasso的修正<br>参考书The Elements of Statistical Learning .pdf的76页。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GLM23.jpg" alt=""></p>
+<p>假设有6个变量，最先加入与残差向量相关系数较大的浅蓝色v2，在v2变化过程中，相关系数越变越小，直到等于深蓝色的v6，于是加入v6，沿着v2与v6的最小角方向（即向量角分线方向）前进，此后v2和v6与残差向量的相关系数是共同变化的，即两者合并变化，使得相关系数越来越小，直到加入黑色v4为止，三个变量一起变化，…，一直打到最小二乘解为止，此时残差向量与所有变量的相关系数都为0，即与他们都垂直。</p>
+<p>横坐标L1 Length表示：从原点开始走了多长距离，就是值距离，L1范数。</p>
+<h1 id="12-R语言中对LAR的实现"><a href="#12-R语言中对LAR的实现" class="headerlink" title="12. R语言中对LAR的实现"></a>12. R语言中对LAR的实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">install.packages(&quot;lars&quot;)  #lars包</span><br><span class="line">longley  #用longley数据集，它是一个著名的多重共线性例子</span><br><span class="line">w=as.matrix(longley)  #将数据集转换为一个矩阵</span><br><span class="line"></span><br><span class="line">laa=lars(w[,2:7],w[,1]) #w的2:7列为自变量，第1列为因变量</span><br><span class="line">laa  #显示LAR回归过程</span><br><span class="line"></span><br><span class="line">##Call:</span><br><span class="line">##lars(x = w[, 2:7], y = w[, 1])</span><br><span class="line">##R-squared: 0.993 </span><br><span class="line">##Sequence of LASSO moves:</span><br><span class="line">##     GNP Year Armed.Forces Unemployed Employed Population Year Employed   Employed Year Employed Employed</span><br><span class="line">##Var    1    5            3                   2                   6           4          -5           -6            6             5  -6        6                                                 </span><br><span class="line">##Step  1    2            3                   4                   5           6           7          8             9             10  11       12 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plot(laa)  #画lasso回归过程图</span><br><span class="line">summary(laa)</span><br><span class="line"></span><br><span class="line">#以上结果显示了每一步的残差平方和RSS和多重共线性指标Cp（Mallows&apos;s Cp http://en.wikipedia.org/wiki/Mallows%27_Cp）</span><br><span class="line">#Cp越小，多重共线性越小，因此结果以第八步为准，即只剩下第1、2、3、4个变量</span><br></pre></td></tr></table></figure>
+<h1 id="13-glmnet包"><a href="#13-glmnet包" class="headerlink" title="13.glmnet包"></a>13.glmnet包</h1><p>From <a href="https://site.douban.com/182577/widget/notes/10567212/note/289294468/" target="_blank" rel="noopener">https://site.douban.com/182577/widget/notes/10567212/note/289294468/</a></p>
+<p>glmnet包是关于Lasso and elastic-net regularized generalized linear models。 作者是Friedman, J., Hastie, T. and Tibshirani, R这三位。</p>
+<p>这个包采用的算法是循环坐标下降法（cyclical coordinate descent），处理的模型包括 linear regression,logistic and multinomial regression models, poisson regression 和 the Cox model，用到的正则化方法就是l1范数（lasso）、l2范数（岭回归）和它们的混合 （elastic net）。</p>
+<p>坐标下降法是关于lasso的一种快速计算方法（是目前关于lasso最快的计算方法），其基本要点为： 对每一个参数在保持其它参数固定的情况下进行优化，循环，直到系数稳定为止。这个计算是在lambda的格点值上进行的。 关于这个算法见[5]。 关于glmnet包的细节可参考[4]，这篇文献同时也是关于lasso的一个不错的文献导读。</p>
+<p>[1]Tibshirani, R.: Regression shrinkage and selection via the LASSO. Journal of the Royal Statistical Society: Series B, Vol. 58 (1996), No 1, 267–288</p>
+<p>[2]Efron, B., Johnstone, I., Hastie, T., and Tibshirani, R.: Least angle regression. Annals of Statistics, Vol. 32 (2004), No 2, 407–499.</p>
+<p>[3]Hastie, T., Tibshirani, R., and Friedman, J.: The Elements of Statistical Learning: Data Mining, Inference and Prediction. Second edition. New York: Springer, 2009.</p>
+<p>[4]Friedman,J.,Hastie,T.,Tibshirani.R.:Regularization Paths for Generalized Linear Models via Coordinate Descent.Journal of Statistical Software,Volume 33(2010), Issue 1.</p>
+<p>[5]J. Friedman, T. Hastie, H. Hoe ing, and R. Tibshirani.:Pathwise coordinate optimization. Annals of Applied Statistics, 2(1):302-332, 2007. <a href="http://www.stanford.edu/~hastie/Papers/pathwise.pdf" target="_blank" rel="noopener">http://www.stanford.edu/~hastie/Papers/pathwise.pdf</a></p>
+<p>[6]Trevor Hastie,Sparse Linear Models:with demonstrations using glmnet.2013.</p>
+<p>[7] Zou, Hui &amp; Trevor Hastie (2005): Regularization and variable selection via the Elastic Net, JRSS (B)67(2):301-320)</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(glmnet)</span><br><span class="line">prostate=read.csv(url(<span class="string">"https://taoshengxu.github.io/DocumentGit/data/prostate.csv"</span>))</span><br><span class="line">prostate=prostate[,c(<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>)]</span><br><span class="line">head(prostate)</span><br><span class="line">x &lt;- as.matrix(prostate[, <span class="number">2</span>:<span class="number">6</span>])</span><br><span class="line">y &lt;- prostate[, <span class="number">1</span>]</span><br><span class="line">set.seed(<span class="number">1</span>)</span><br><span class="line">train &lt;- sample(<span class="number">1</span>:nrow(x), nrow(x) * <span class="number">2</span>/<span class="number">3</span>)</span><br><span class="line">test &lt;- (-train)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 1. Ridge Regression</span></span><br><span class="line">r1 &lt;- glmnet(x = x[train, ], y = y[train], family = <span class="string">"gaussian"</span>, alpha = <span class="number">0</span>)</span><br><span class="line">plot(r1, xvar = <span class="string">"lambda"</span>)</span><br><span class="line"></span><br><span class="line">r1.cv &lt;- cv.glmnet(x = x, y = y, family = <span class="string">"gaussian"</span>, alpha = <span class="number">0</span>, nfold = <span class="number">10</span>)</span><br><span class="line">plot(r1.cv)</span><br><span class="line"></span><br><span class="line">mte &lt;- predict(r1, x[test, ])</span><br><span class="line">mte &lt;- apply((mte - y[test])^<span class="number">2</span>, <span class="number">2</span>, mean)</span><br><span class="line">points(log(r1$lambda), mte, col = <span class="string">"blue"</span>, pch = <span class="number">19</span>)</span><br><span class="line">legend(<span class="string">"topleft"</span>, legend = c(<span class="string">"10 - fold CV"</span>, <span class="string">"Test"</span>), col = c(<span class="string">"red"</span>, <span class="string">"blue"</span>))</span><br><span class="line"></span><br><span class="line">r1.min &lt;- glmnet(x = x, y = y, family = <span class="string">"gaussian"</span>, alpha = <span class="number">0</span>, lambda = r1.cv$lambda.min)</span><br><span class="line">coef(r1.min)</span><br><span class="line"></span><br><span class="line"><span class="comment">##2. Lasso</span></span><br><span class="line"></span><br><span class="line">r2 &lt;- glmnet(x = x[train, ], y = y[train], family = <span class="string">"gaussian"</span>, alpha = <span class="number">1</span>)</span><br><span class="line">plot(r2)</span><br><span class="line">plot(r2, xvar = <span class="string">"lambda"</span>)</span><br><span class="line"></span><br><span class="line">r2.cv &lt;- cv.glmnet(x = x, y = y, family = <span class="string">"gaussian"</span>, alpha = <span class="number">1</span>, nfold = <span class="number">10</span>)</span><br><span class="line">plot(r2.cv)</span><br><span class="line"></span><br><span class="line">mte &lt;- predict(r2, x[test, ])</span><br><span class="line">mte &lt;- apply((mte - y[test])^<span class="number">2</span>, <span class="number">2</span>, mean)</span><br><span class="line">points(log(r2$lambda), mte, col = <span class="string">"blue"</span>, pch = <span class="number">19</span>)</span><br><span class="line">legend(<span class="string">"topleft"</span>, legend = c(<span class="string">"10 - fold CV"</span>, <span class="string">"Test"</span>), col = c(<span class="string">"red"</span>, <span class="string">"blue"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># cv.min vs cv.1se,用全部数据再次拟合模型</span></span><br><span class="line">r2.cv$lambda.min</span><br><span class="line"><span class="comment">## [1] 0.002954</span></span><br><span class="line">r2.cv$lambda.1se</span><br><span class="line"><span class="comment">## [1] 0.1771</span></span><br><span class="line"></span><br><span class="line">r2.1se &lt;- glmnet(x = x, y = y, family = <span class="string">"gaussian"</span>, alpha = <span class="number">1</span>, lambda = r2.cv$lambda.1se)</span><br><span class="line">coef(r2.1se)</span><br><span class="line"><span class="comment">## 6 x 1 sparse Matrix of class "dgCMatrix"</span></span><br><span class="line"><span class="comment">## s0</span></span><br><span class="line"><span class="comment">## (Intercept) 0.3234</span></span><br><span class="line"><span class="comment">## age . </span></span><br><span class="line"><span class="comment">## lbph . </span></span><br><span class="line"><span class="comment">## lcp 0.2462</span></span><br><span class="line"><span class="comment">## gleason . </span></span><br><span class="line"><span class="comment">## lpsa 0.4320</span></span><br><span class="line">r2.min &lt;- glmnet(x = x, y = y, family = <span class="string">"gaussian"</span>, alpha = <span class="number">1</span>, lambda = r2.cv$lambda.min)</span><br><span class="line">coef(r2.min)</span><br><span class="line"><span class="comment">## 6 x 1 sparse Matrix of class "dgCMatrix"</span></span><br><span class="line"><span class="comment">## s0</span></span><br><span class="line"><span class="comment">## (Intercept) -1.44505</span></span><br><span class="line"><span class="comment">## age 0.01851</span></span><br><span class="line"><span class="comment">## lbph -0.08585</span></span><br><span class="line"><span class="comment">## lcp 0.29688</span></span><br><span class="line"><span class="comment">## gleason 0.05081</span></span><br><span class="line"><span class="comment">## lpsa 0.53741</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 岭回归和lasso的比较</span></span><br><span class="line">lasso.pred &lt;- predict(r2, s = r2.cv$lambda.1se, newx = x[test, ])</span><br><span class="line">ridge.pred &lt;- predict(r1, s = r1.cv$lambda.1se, newx = x[test, ])</span><br><span class="line">mean((lasso.pred - y[test])^<span class="number">2</span>)</span><br><span class="line"><span class="comment">## [1] 0.3946</span></span><br><span class="line">mean((ridge.pred - y[test])^<span class="number">2</span>)</span><br><span class="line"><span class="comment">## [1] 0.4239</span></span><br></pre></td></tr></table></figure>
+<h4 id="关于glmnet包的使用"><a href="#关于glmnet包的使用" class="headerlink" title="关于glmnet包的使用"></a>关于glmnet包的使用</h4><ul>
+<li>(1)glment（）和cv.glmnet()</li>
+</ul>
+<p>第一次用这个包的时候，我有个很蠢的问题，为什么有了cv.glmnet()还需要保留glmnet（）呢？ cv.glmnet()可以通过交叉验证得到（关于lambda的）最优的方程，但是就glment包来说仍然不是一个完美的结果，关于alpha的交叉验证依然需要使用者自己来完成（包的文档中给了点提示）。glmnet（）仍然需要保留，因为可以得到正则化的路径，因为算法的原因，coordinate descent 在选取极值上有随机性，路径在变量的选择中还是很重要的。</p>
+<ul>
+<li>(2)cv.glmnet() 中的lambda.min和lambda.1se</li>
+</ul>
+<p>lambda.min:   value of lambda that gives minimum cvm.</p>
+<p>lambda.1se:   largest value of lambda such that error is within 1 standard error of the minimum.</p>
+<p>关于这两个输出值的使用，似乎有点混乱。看了很多网上的讨论推荐使用lambda.1se的比较多，这样可以得到更简洁的模型。 涉及到所谓的1-SE rule。 “one standard error” rule to select the best model, i.e. selecting the most parsimonious model from the subset of models whose score is within one standard error of the best score.但是还有这样的说法：1se rule在低noise的时候才好用高noise的时候，有一两个fold的error很大，cv curve就会增长很快，导致选的lambda太大。</p>
+<h1 id="14-glmnet-Vignettes-非常易读，有益理解"><a href="#14-glmnet-Vignettes-非常易读，有益理解" class="headerlink" title="14.glmnet Vignettes 非常易读，有益理解"></a>14.glmnet Vignettes 非常易读，有益理解</h1><p><a href="https://cran.r-project.org/web/packages/glmnet/vignettes/glmnet_beta.pdf" target="_blank" rel="noopener">https://cran.r-project.org/web/packages/glmnet/vignettes/glmnet_beta.pdf</a></p>
+<p><a href="https://cran.r-project.org/web/packages/glmnet/vignettes/Coxnet.pdf" target="_blank" rel="noopener">https://cran.r-project.org/web/packages/glmnet/vignettes/Coxnet.pdf</a></p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/22/2017-09-22-SSE_MSE_RMSE_R-square/" data-toggle="tooltip" data-placement="left" title="SSE, MSE, RMSE, R-square">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/13/2017-09-13-CoxModle_with_stratified/" data-toggle="tooltip" data-placement="top" title="Cox 分层原理">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-回归问题的数学描述"><span class="toc-number">1.</span> <span class="toc-text">1. 回归问题的数学描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-最小二乘回归"><span class="toc-number">2.</span> <span class="toc-text">2.最小二乘回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题：-X矩阵不存在广义逆（即奇异性）的情况。"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">问题： X矩阵不存在广义逆（即奇异性）的情况。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，普通线性回归会有一些问题："><span class="toc-number">2.0.0.1.1.</span> <span class="toc-text">对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，普通线性回归会有一些问题：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#针对OLS-ordinary-least-squares-的问题，在变量选择方面有三种扩展的方法："><span class="toc-number">2.0.0.2.</span> <span class="toc-text">针对OLS (ordinary least squares)的问题，在变量选择方面有三种扩展的方法：</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#3-岭回归（Ridge-Regression，RR-1962）"><span class="toc-number">3.</span> <span class="toc-text">3.岭回归（Ridge Regression，RR, 1962）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-几何解释"><span class="toc-number">4.</span> <span class="toc-text">4.几何解释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-LASSO"><span class="toc-number">5.</span> <span class="toc-text">5. LASSO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-LASSO-vs-岭回归"><span class="toc-number">6.</span> <span class="toc-text">6.LASSO vs 岭回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-一般化的模型"><span class="toc-number">7.</span> <span class="toc-text">7.一般化的模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-弹性网模型"><span class="toc-number">8.</span> <span class="toc-text">8.弹性网模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-最小角回归-Least-Angel-Regression-是lasso-regression癿一种高效解法。"><span class="toc-number">9.</span> <span class="toc-text">9.最小角回归(Least Angel Regression)是lasso regression癿一种高效解法。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-相关系数的几何意义"><span class="toc-number">10.</span> <span class="toc-text">10. 相关系数的几何意义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-LAR算法及几何意义"><span class="toc-number">11.</span> <span class="toc-text">11. LAR算法及几何意义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-R语言中对LAR的实现"><span class="toc-number">12.</span> <span class="toc-text">12. R语言中对LAR的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-glmnet包"><span class="toc-number">13.</span> <span class="toc-text">13.glmnet包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于glmnet包的使用"><span class="toc-number">13.0.0.1.</span> <span class="toc-text">关于glmnet包的使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-glmnet-Vignettes-非常易读，有益理解"><span class="toc-number">14.</span> <span class="toc-text">14.glmnet Vignettes 非常易读，有益理解</span></a></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

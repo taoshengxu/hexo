@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_dplyr_tidyr/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        dplyr_tidyr包｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>dplyr_tidyr包</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Dec 23, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">919 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://blog.csdn.net/pilouduo1367/article/details/69675678" target="_blank" rel="noopener">https://blog.csdn.net/pilouduo1367/article/details/69675678</a></p>
+<h1 id="1-dplyr包—数据框整理神器"><a href="#1-dplyr包—数据框整理神器" class="headerlink" title="1 dplyr包—数据框整理神器"></a>1 dplyr包—数据框整理神器</h1><h3 id="1-1-展现数据-tbl-df-："><a href="#1-1-展现数据-tbl-df-：" class="headerlink" title="1.1 展现数据 tbl_df()："></a>1.1 展现数据 <code>tbl_df()</code>：</h3><p>函数<code>tbl_df()</code>使得大数据集规范显示出来，行列都只显示10个，跟head差不多，但是head只能控制行，无法控制列，使用<code>tbl_df()</code>就是为了防止数据刷屏。</p>
+<h3 id="1-2-筛选数据-filter-："><a href="#1-2-筛选数据-filter-：" class="headerlink" title="1.2 筛选数据 filter()："></a>1.2 筛选数据 <code>filter()</code>：</h3><p>按给定的逻辑判断筛选出符合要求的子数据集</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mtcars_df &lt;- tbl_df(mtcars)</span><br><span class="line">filter(mtcars_df, mpg == <span class="number">21</span>, cyl == <span class="number">6</span>)</span><br><span class="line"><span class="comment"># A tibble: 2 × 11</span></span><br><span class="line"><span class="comment">#    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span></span><br><span class="line"><span class="comment">#  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span><br><span class="line"><span class="comment">#1    21     6   160   110   3.9 2.620 16.46     0     1     4     4</span></span><br><span class="line"><span class="comment">#2    21     6   160   110   3.9 2.875 17.02     0     1     4     4</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-排列数据-arrange-："><a href="#1-3-排列数据-arrange-：" class="headerlink" title="1.3 排列数据 arrange()："></a>1.3 排列数据 <code>arrange()</code>：</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先对cyl列正序排列，再对carb列倒序排列</span></span><br><span class="line">xx= arrange(mtcars_df, cyl, desc(carb))</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-选择子集-select"><a href="#1-4-选择子集-select" class="headerlink" title="1.4 选择子集 select()"></a>1.4 选择子集 <code>select()</code></h3><p>用列名作参数来选择子数据集</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select(mtcars_df, mpg, disp:wt, carb) <span class="comment"># disp:wt表示从disp列选到wt列</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-5-变形-mutate-："><a href="#1-5-变形-mutate-：" class="headerlink" title="1.5 变形 mutate()："></a>1.5 变形 <code>mutate()</code>：</h3><p>对已有列进行数据运算并添加为新列</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mutate(mtcars_df, NO = <span class="number">1</span>:dim(mtcars_df)[<span class="number">1</span>], res = hp - drat)</span><br></pre></td></tr></table></figure>
+<h3 id="1-6-总览数据-summarise-："><a href="#1-6-总览数据-summarise-：" class="headerlink" title="1.6 总览数据 summarise()："></a>1.6 总览数据 <code>summarise()</code>：</h3><p>对数据框调用其它函数进行汇总操作, 返回一维的结果</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">summarise(mtcars_df, mdisp = mean(disp, na.rm = <span class="literal">TRUE</span>), mhp = mean(hp, na.rm = <span class="literal">TRUE</span>))</span><br><span class="line"><span class="comment"># A tibble: 1 × 2</span></span><br><span class="line">     mdisp      mhp</span><br><span class="line">     &lt;dbl&gt;    &lt;dbl&gt;</span><br><span class="line"><span class="number">1</span> <span class="number">230.7219</span> <span class="number">146.6875</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-7-数据分组-group-by-："><a href="#1-7-数据分组-group-by-：" class="headerlink" title="1.7 数据分组 group_by()："></a>1.7 数据分组 <code>group_by()</code>：</h3><p>当对数据集通过group_by()添加了分组信息后，mutate()，arrange() 和 summarise() 函数会自动对这些 tbl 类数据执行分组操作。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cars &lt;- group_by(mtcars_df, cyl)</span><br><span class="line">(countcars &lt;- summarise(cars, count = n())) <span class="comment"># count = n()用来计算次数</span></span><br><span class="line"><span class="comment"># A tibble: 3 × 2</span></span><br><span class="line">    cyl count</span><br><span class="line">  &lt;dbl&gt; &lt;int&gt;</span><br><span class="line"><span class="number">1</span>     <span class="number">4</span>    <span class="number">11</span></span><br><span class="line"><span class="number">2</span>     <span class="number">6</span>     <span class="number">7</span></span><br><span class="line"><span class="number">3</span>     <span class="number">8</span>    <span class="number">14</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-tidyr包—数据变形"><a href="#2-tidyr包—数据变形" class="headerlink" title="2 tidyr包—数据变形"></a>2 tidyr包—数据变形</h1><h3 id="2-1-宽转长-gather-："><a href="#2-1-宽转长-gather-：" class="headerlink" title="2.1 宽转长 gather()："></a>2.1 宽转长 <code>gather()</code>：</h3><p>使用gather()函数实现宽表转长表，语法如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gather(data, key, value, …, na.rm = FALSE, convert = FALSE)</span></span><br><span class="line"><span class="comment"># data：需要被转换的宽形表</span></span><br><span class="line"><span class="comment"># key：将原数据框中的所有列赋给一个新变量key</span></span><br><span class="line"><span class="comment"># value：将原数据框中的所有值赋给一个新变量value</span></span><br><span class="line"><span class="comment"># …：可以指定哪些列聚到同一列中</span></span><br><span class="line"><span class="comment"># na.rm：是否删除缺失值</span></span><br><span class="line"></span><br><span class="line">longdata &lt;- gather(mtcars_df, attribute, value, -mpg)</span><br><span class="line">longdata &lt;- gather(mtcars_df, attribute, value)</span><br><span class="line">longdata &lt;- gather(mtcars_df, attribute, value, mpg, carb)</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-长转宽-spread-："><a href="#2-2-长转宽-spread-：" class="headerlink" title="2.2 长转宽 spread()："></a>2.2 长转宽 <code>spread()</code>：</h3><p>有时，为了满足建模或绘图的要求，往往需要将长形表转换为宽形表，或将宽形表变为长形表。如何实现这两种数据表类型的转换。使用spread()函数实现长表转宽表，语法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> data：为需要转换的长形表</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> key：需要将变量值拓展为字段的变量</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> value：需要分散的值</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> fill：对于缺失值，可将fill的值赋值给被转型后的缺失值</span></span><br><span class="line"></span><br><span class="line">spread(longdata, attribute, value)</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-合并-unit-："><a href="#2-3-合并-unit-：" class="headerlink" title="2.3 合并 unit()："></a>2.3 合并 <code>unit()</code>：</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># unite(data, col, …, sep = “_”, remove = TRUE)</span></span><br><span class="line"><span class="comment"># data：为数据框</span></span><br><span class="line"><span class="comment"># col：被组合的新列名称</span></span><br><span class="line"><span class="comment"># …：指定哪些列需要被组合</span></span><br><span class="line"><span class="comment"># sep：组合列之间的连接符，默认为下划线</span></span><br><span class="line"><span class="comment"># remove：是否删除被组合的列</span></span><br><span class="line"></span><br><span class="line">TIMES &lt;- data.frame(years = c(<span class="string">'1990'</span>, <span class="string">'1991'</span>, <span class="string">'1992'</span>), months = c(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), day = c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">TIMESunite &lt;- unite(TIMES, information, months, day, sep= <span class="string">"-"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-拆分-separate-："><a href="#2-4-拆分-separate-：" class="headerlink" title="2.4 拆分 separate()："></a>2.4 拆分 <code>separate()</code>：</h3><p>separate()函数可将一列拆分为多列，一般可用于日志数据或日期时间型数据的拆分.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># separate(data, col, into, sep = “[^[:alnum:]]+”, remove = TRUE,</span></span><br><span class="line"><span class="comment"># convert = FALSE, extra = “warn”, fill = “warn”, …)</span></span><br><span class="line"><span class="comment"># data：为数据框</span></span><br><span class="line"><span class="comment"># col：需要被拆分的列</span></span><br><span class="line"><span class="comment"># into：新建的列名，为字符串向量</span></span><br><span class="line"><span class="comment"># sep：被拆分列的分隔符</span></span><br><span class="line"><span class="comment"># remove：是否删除被分割的列</span></span><br><span class="line">TIMESsep &lt;- separate(TIMESunite, information, c(<span class="string">"months"</span>, <span class="string">"day"</span>), sep = <span class="string">"-"</span>)</span><br></pre></td></tr></table></figure>
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/12/24/2018-12-24_Win10_Linuxsystem/" data-toggle="tooltip" data-placement="left" title="Win10 Linux子系统">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/12/23/2018-12-23_WGCNA/" data-toggle="tooltip" data-placement="top" title="WGCNA加权基因共表达网络分析">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-dplyr包—数据框整理神器"><span class="toc-number">1.</span> <span class="toc-text">1 dplyr包—数据框整理神器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-展现数据-tbl-df-："><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1 展现数据 tbl_df()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-筛选数据-filter-："><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2 筛选数据 filter()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-排列数据-arrange-："><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3 排列数据 arrange()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-选择子集-select"><span class="toc-number">1.0.4.</span> <span class="toc-text">1.4 选择子集 select()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-变形-mutate-："><span class="toc-number">1.0.5.</span> <span class="toc-text">1.5 变形 mutate()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-总览数据-summarise-："><span class="toc-number">1.0.6.</span> <span class="toc-text">1.6 总览数据 summarise()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-数据分组-group-by-："><span class="toc-number">1.0.7.</span> <span class="toc-text">1.7 数据分组 group_by()：</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#2-tidyr包—数据变形"><span class="toc-number">2.</span> <span class="toc-text">2 tidyr包—数据变形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-宽转长-gather-："><span class="toc-number">2.0.1.</span> <span class="toc-text">2.1 宽转长 gather()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-长转宽-spread-："><span class="toc-number">2.0.2.</span> <span class="toc-text">2.2 长转宽 spread()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-合并-unit-："><span class="toc-number">2.0.3.</span> <span class="toc-text">2.3 合并 unit()：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-拆分-separate-："><span class="toc-number">2.0.4.</span> <span class="toc-text">2.4 拆分 separate()：</span></a></li></ol></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/06/04/2018-06-04_cluster_criteria/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        聚类算法评价指标｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>聚类算法评价指标</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Jun 4, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,480 words in total, 6 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://blog.csdn.net/sinat_33363493/article/details/52496011" target="_blank" rel="noopener">原文</a><br><a href="https://www.jianshu.com/p/b5996bf06bd6" target="_blank" rel="noopener">原文1</a></p>
+<h1 id="无监督聚类"><a href="#无监督聚类" class="headerlink" title="无监督聚类"></a>无监督聚类</h1><h3 id="1-Compactness-紧密性-CP"><a href="#1-Compactness-紧密性-CP" class="headerlink" title="1. Compactness(紧密性)(CP)"></a>1. Compactness(紧密性)(CP)</h3><p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria1.png" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria2.png" alt=""></p>
+<p>CP计算 每一个类各点到聚类中心的平均距离，CP越低意味着类内聚类距离越近</p>
+<pre><code> 缺点：没有考虑类间效果
+</code></pre><h3 id="2-Separation-间隔性-SP"><a href="#2-Separation-间隔性-SP" class="headerlink" title="2. Separation(间隔性)(SP)"></a>2. Separation(间隔性)(SP)</h3><p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria3.png" alt=""></p>
+<p>SP计算 各聚类中心两两之间平均距离，SP越高意味类间聚类距离越远</p>
+<pre><code> 缺点：没有考虑类内效果
+</code></pre><h3 id="3-Davies-Bouldin-Index-戴维森堡丁指数-分类适确性指标-DB-DBI"><a href="#3-Davies-Bouldin-Index-戴维森堡丁指数-分类适确性指标-DB-DBI" class="headerlink" title="3. Davies-Bouldin Index(戴维森堡丁指数)(分类适确性指标)(DB)(DBI)"></a>3. Davies-Bouldin Index(戴维森堡丁指数)(分类适确性指标)(DB)(DBI)</h3><p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria4.png" alt=""></p>
+<p> DB计算 任意两类别的类内距离平均距离(CP)之和除以两聚类中心距离 求最大值， DB越小意味着类内距离越小 同时类间距离越大 </p>
+<pre><code>  缺点：因使用欧式距离 所以对于环状分布  聚类评测很差
+</code></pre><h3 id="4-Dunn-Validity-Index-邓恩指数-DVI"><a href="#4-Dunn-Validity-Index-邓恩指数-DVI" class="headerlink" title="4. Dunn Validity Index (邓恩指数)(DVI)"></a>4. Dunn Validity Index (邓恩指数)(DVI)</h3><p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria5.png" alt=""></p>
+<p>DVI计算 任意两个簇元素的最短距离(类间)除以任意簇中的最大距离(类内)，DVI越大意味着类间距离越大 同时类内距离越小</p>
+<pre><code>缺点：对离散点的聚类测评很高、对环状分布测评效果差
+</code></pre><h3 id="5-C-index-for-COX-model"><a href="#5-C-index-for-COX-model" class="headerlink" title="5. C-index for COX model"></a>5. C-index for COX model</h3><h3 id="6-Silhouette-width"><a href="#6-Silhouette-width" class="headerlink" title="6. Silhouette width"></a>6. Silhouette width</h3><p>轮廓系数（Silhouette coefficient）适用于实际类别信息未知的情况。对于单个样本，设a是与它同类别中其他样本的平均距离，b是与它距离最近不同类别中样本的平均距离。对于一个样本集合，它的轮廓系数是所有样本轮廓系数的平均值。轮廓系数取值范围是[−1,1]，同类别样本越距离相近且不同类别样本距离越远，分数越高。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria15.png" alt=""></p>
+<h3 id="7-survival-analysis"><a href="#7-survival-analysis" class="headerlink" title="7. survival analysis"></a>7. survival analysis</h3><h1 id="有监督聚类"><a href="#有监督聚类" class="headerlink" title="有监督聚类"></a>有监督聚类</h1><h3 id="1、Cluster-Accuracy-准确性-CA"><a href="#1、Cluster-Accuracy-准确性-CA" class="headerlink" title="1、Cluster Accuracy (准确性)(CA)"></a>1、Cluster Accuracy (准确性)(CA)</h3><p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria6.png" alt=""></p>
+<p>CA计算 聚类正确的百分比</p>
+<p>CA越大证明聚类效果越好</p>
+<p><strong>召回率（Recall）</strong>指的是所有正样本有多少被模型判为正样本</p>
+<p>纯度purity  计算正确聚类的文档数占总文档数的比例）</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria13.jpg" alt=""></p>
+<p>其中Ω = {ω1,ω2, . . . ,ωK}是聚类的集合ωK表示第k个聚类的集合。C = {c1, c2, . . . , cJ}是文档集合，cJ表示第J个文档。N表示文档总数。</p>
+<h3 id="2-ROC曲线-（二分类）"><a href="#2-ROC曲线-（二分类）" class="headerlink" title="2. ROC曲线 （二分类）"></a>2. ROC曲线 （二分类）</h3><p>真正类率(true positive rate ,TPR)，刻画的是分类器所识别出的 正实例占所有正实例的比例（正样本预测结果数 / 正样本实际数）。负正类率(false positive rate, FPR)，计算的是分类器错认为正类的负实例占所有负实例的比例（被预测为正的负样本结果数 /负样本实际数）。</p>
+<blockquote>
+<p>( TPR=0,FPR=0 ) 把每个实例都预测为负类的模型<br>( TPR=1,FPR=1 ) 把每个实例都预测为正类的模型<br>( TPR=1,FPR=0 ) 理想模型  </p>
+</blockquote>
+<h4 id="3-F值"><a href="#3-F值" class="headerlink" title="3. F值"></a>3. F值</h4><p>RI方法有个特点就是把准确率和召回率看得同等重要，事实上有时候我们可能需要某一特性更多一点，这时候就适合F值方法.</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria14.jpg" alt=""></p>
+<h3 id="4-Rand-index-兰德指数-RI-、Adjusted-Rand-index-调整兰德指数-ARI"><a href="#4-Rand-index-兰德指数-RI-、Adjusted-Rand-index-调整兰德指数-ARI" class="headerlink" title="4. Rand index(兰德指数)(RI) 、Adjusted Rand index(调整兰德指数)(ARI)"></a>4. Rand index(兰德指数)(RI) 、Adjusted Rand index(调整兰德指数)(ARI)</h3><p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria7.png" alt=""></p>
+<p>其中C表示实际类别信息，K表示聚类结果，a表示在C与K中都是同类别的元素对数，b表示在C与K中都是不同类别的元素对数。分母表示数据集中可以组成的对数。</p>
+<p>RI取值范围为[0,1]，值越大意味着聚类结果与真实情况越吻合。RI越大表示聚类效果准确性越高 同时每个类内的纯度越高</p>
+<p>为了实现“在聚类结果随机产生的情况下，指标应该接近零”，<strong>调整兰德系数（Adjusted rand index）</strong>被提出，它具有更高的区分度：</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria8.png" alt=""></p>
+<p>ARI取值范围为[−1,1]，值越大意味着聚类结果与真实情况越吻合。从广义的角度来讲，ARI衡量的是两个数据分布的吻合程度。</p>
+<h4 id="5、Normalized-Mutual-Information-标准互信息-NMI-、Mutual-Information-互信息-MI"><a href="#5、Normalized-Mutual-Information-标准互信息-NMI-、Mutual-Information-互信息-MI" class="headerlink" title="5、Normalized Mutual Information (标准互信息)(NMI)、Mutual Information(互信息)(MI)"></a>5、Normalized Mutual Information (标准互信息)(NMI)、Mutual Information(互信息)(MI)</h4><p>互信息（Mutual Information）是用来衡量两个数据分布的吻合程度。也是一有用的信息度量，它是指两个事件集合之间的相关性。<br>用互信息的方法，在某个类别C中的出现概率高，而在其它类别中的出现概率低的词条T，将获得较高的词条和类别互信息，也就可能被选取为类别C的特征。</p>
+<p>互信息是term的存在与否能给类别c的正确判断带来的信息量。词条和类别的互信息体现了词条和类别的相关程度，互信息越大，词条和类别的相关程度也越大。得到词条和类别之间的相关程度后，选取一定比例的，排名靠前的词条作为最能代表此种类别的特征。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria9.png" alt=""></p>
+<p>标准化互聚类信息都是用熵做分母将MI值调整到0与1之间，一个比较多见的实现是下面所示：</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria10.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria11.png" alt=""></p>
+<h1 id="例子讲解"><a href="#例子讲解" class="headerlink" title="例子讲解"></a>例子讲解</h1><p>如图认为x代表一类文档，o代表一类文档，方框代表一类文档，<br><img src="https://taoshengxu.github.io/DocumentGit/img/cluter_criteria12.jpg" alt=""></p>
+<blockquote>
+<p>假设一个集合中有N篇文章<br>一个集合中有N(N-1)/2个集合对<br>TP：同一类的文章被分到同一个簇<br>TN：不同类的文章被分到不同簇<br>FP：不同类的文章被分到同一个簇<br>FN：同一类的文章被分到不同簇    </p>
+<p>purity = ( 5+ 4 + 3) / 17 = 0.71</p>
+<p>RI = （TP+TN）/（TP+FP+FN+TN）#Rand Index度量的正确的百分比<br>TP＋FP ＝ C(2,6) + C(2,6) + C(2,5) = 15 + 15 + 10 = 40    其中C(n,m)是指在m中任选n个的组合数。<br>TP = C(2,5) + C(2,4) + C(2,3) + C(2,2) = 20<br>FP = 40 - 20 = 20<br>相似的方法可以计算出TN = 72 FN = 24<br>所以RI ＝ ( 20 + 72) / ( 20 + 20 + 72 +24) = 0.68     </p>
+<p>准确率Precision=TP/(TP+FP)</p>
+<p>召回率Recall=TP/(TP+FN)</p>
+<p>F1=2×Recall×Precision/(Recall+Precision)</p>
+</blockquote>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/06/04/2018-06-04_gap_statistic/" data-toggle="tooltip" data-placement="left" title="Gap Statistic 间隔统计量">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/05/18/2018-05-18_r-appveyor/" data-toggle="tooltip" data-placement="top" title="R-appveyor设置">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#无监督聚类"><span class="toc-number">1.</span> <span class="toc-text">无监督聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Compactness-紧密性-CP"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. Compactness(紧密性)(CP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Separation-间隔性-SP"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. Separation(间隔性)(SP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Davies-Bouldin-Index-戴维森堡丁指数-分类适确性指标-DB-DBI"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. Davies-Bouldin Index(戴维森堡丁指数)(分类适确性指标)(DB)(DBI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Dunn-Validity-Index-邓恩指数-DVI"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. Dunn Validity Index (邓恩指数)(DVI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-C-index-for-COX-model"><span class="toc-number">1.0.5.</span> <span class="toc-text">5. C-index for COX model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Silhouette-width"><span class="toc-number">1.0.6.</span> <span class="toc-text">6. Silhouette width</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-survival-analysis"><span class="toc-number">1.0.7.</span> <span class="toc-text">7. survival analysis</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#有监督聚类"><span class="toc-number">2.</span> <span class="toc-text">有监督聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Cluster-Accuracy-准确性-CA"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、Cluster Accuracy (准确性)(CA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ROC曲线-（二分类）"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. ROC曲线 （二分类）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-F值"><span class="toc-number">2.0.2.1.</span> <span class="toc-text">3. F值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Rand-index-兰德指数-RI-、Adjusted-Rand-index-调整兰德指数-ARI"><span class="toc-number">2.0.3.</span> <span class="toc-text">4. Rand index(兰德指数)(RI) 、Adjusted Rand index(调整兰德指数)(ARI)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5、Normalized-Mutual-Information-标准互信息-NMI-、Mutual-Information-互信息-MI"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">5、Normalized Mutual Information (标准互信息)(NMI)、Mutual Information(互信息)(MI)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#例子讲解"><span class="toc-number">3.</span> <span class="toc-text">例子讲解</span></a></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

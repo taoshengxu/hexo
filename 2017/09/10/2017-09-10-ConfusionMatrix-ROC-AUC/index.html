@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/10/2017-09-10-ConfusionMatrix-ROC-AUC/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        混淆矩阵(Confusion matrix)-ROC曲线-AUC(Area under Curve)｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>混淆矩阵(Confusion matrix)-ROC曲线-AUC(Area under Curve)</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 10, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,542 words in total, 6 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>混淆矩阵（confusion matrix）是可视化工具，特别用于监督学习， _在无监督学习一般叫做匹配矩阵_ 。在图像精度评价中，主要用于比较分类结果和实际测得值，可以把分类结果的精度显示在一个混淆矩阵里面。混淆矩阵是通过将每个实测像元的位置和分类与分类图像中的相应位置和分类像比较计算的。</p>
+<p>混淆矩阵的每一列代表了预测类别[1]  ，每一列的总数表示预测为该类别的数据的数目；每一行代表了数据的真实归属类别[1]  ，每一行的数据总数表示该类别的数据实例的数目。每一列中的数值表示真实数据被预测为该类的数目：如下图，第一行第一列中的43表示有43个实际归属第一类的实例被预测为第一类，同理，第二行第一列的2表示有2个实际归属为第二类的实例被错误预测为第一类。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">如有<span class="number">150</span>个样本数据，这些数据分成<span class="number">3</span>类，每类<span class="number">50</span>个。分类结束后得到的混淆矩阵为：</span><br><span class="line">                   预测</span><br><span class="line">              类<span class="number">1</span> 类<span class="number">2</span> 类<span class="number">3</span></span><br><span class="line">      类<span class="number">1</span>     <span class="number">43</span>   <span class="number">5</span>   <span class="number">2</span></span><br><span class="line">实际  类<span class="number">2</span>      <span class="number">2</span>   <span class="number">45</span>  <span class="number">3</span></span><br><span class="line">      类<span class="number">3</span>     <span class="number">0</span>    <span class="number">1</span>   <span class="number">49</span></span><br><span class="line">每一行之和为<span class="number">50</span>，表示<span class="number">50</span>个样本，</span><br><span class="line">第一行说明类<span class="number">1</span>的<span class="number">50</span>个样本有<span class="number">43</span>个分类正确，<span class="number">5</span>个错分为类<span class="number">2</span>，<span class="number">2</span>个错分为类<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>另外一个例子 From:<a href="http://blog.csdn.net/vesper305/article/details/44927047" target="_blank" rel="noopener">http://blog.csdn.net/vesper305/article/details/44927047</a></p>
+<p>假设有一个用来对猫（cats）、狗（dogs）、兔子（rabbits）进行分类的系统，混淆矩阵就是为了进一步分析性能而对该算法测试结果做出的总结。假设总共有 27 只动物：8只猫， 6条狗， 13只兔子。结果的混淆矩阵如下图：<br><img src="https://taoshengxu.github.io/DocumentGit/img/confusionmatrix0.png" alt=""></p>
+<p>在这个混淆矩阵中，实际有 8只猫，但是系统将其中3只预测成了狗；对于 6条狗，其中有 1条被预测成了兔子，2条被预测成了猫。从混淆矩阵中我们可以看出系统对于区分猫和狗存在一些问题，但是区分兔子和其他动物的效果还是不错的。所有正确的预测结果都在对角线上，所以从混淆矩阵中可以很方便直观的看出哪里有错误，因为他们呈现在对角线外面。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/confusionmatrix1.png" alt=""></p>
+<p>在预测分析中，混淆表格（有时候也称为混淆矩阵），是由false positives，false negatives，true positives和true negatives组成的两行两列的表格。它允许我们做出更多的分析，而不仅仅是局限在正确率。准确率对于分类器的性能分析来说，并不是一个很好地衡量指标，因为如果数据集不平衡（每一类的数据样本数量相差太大），很可能会出现误导性的结果。例如，如果在一个数据集中有95只猫，但是只有5条狗，那么某些分类器很可能偏向于将所有的样本预测成猫。整体准确率为95%，但是实际上该分类器对猫的识别率是100%，而对狗的识别率是0%。</p>
+<hr>
+<p>下面内容总结了假设检验的重要内容，清晰全面。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/confusionmatrix2.png" alt=""><br><img src="https://taoshengxu.github.io/DocumentGit/img/confusionmatrix3.png" alt=""></p>
+<h1 id="ROC-曲线"><a href="#ROC-曲线" class="headerlink" title="ROC 曲线"></a>ROC 曲线</h1><p><strong>为什么使用Roc和Auc评价分类器</strong></p>
+<p>ROC曲线和AUC常被用来评价一个二值分类器（binary classifier）的优劣。既然已经这么多标准，为什么还要使用ROC和AUC呢？因为ROC曲线有个很好的特性：当测试集中的正负样本的分布变换的时候，ROC曲线能够保持不变。在实际的数据集中经常会出现样本类不平衡，即正负样本比例差距较大，而且测试数据中的正负样本也可能随着时间变化。</p>
+<p><strong>ROC曲线</strong>：接收者操作特征(receiveroperating characteristic),roc曲线上每个点反映着对同一信号刺激的感受性。</p>
+<ul>
+<li><p>横轴：负正类率(false postive rate FPR)，划分实例中所有负例占所有负例的比例；(1-Specificity)</p>
+</li>
+<li><p>纵轴：真正类率(true postive rate TPR)，Sensitivity(灵敏度)</p>
+</li>
+</ul>
+<p>对于一个二分类问题，假设采用逻辑回归分类器，其给出针对每个实例为正类的概率，那么通过设定一个阈值如0.6，概率大于等于0.6的为正类，小于0.6的为负类。对应的就可以算出一组(FPR,TPR),在平面中得到对应坐标点。<strong>随着阈值的逐渐减小，越来越多的实例被划分为正类，但是这些正类中同样也掺杂着真正的负实例，即TPR和FPR会同时增大。阈值最大时，对应坐标点为(0,0),阈值最小时，对应坐标点(1,1)</strong>。通过调节不同的阀值，从而得到一条曲线。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/ROC.jpg" alt=""></p>
+<ul>
+<li><p>横轴FPR:1-TNR,1-Specificity，FPR越大，预测正类中实际负类越多。</p>
+</li>
+<li><p>纵轴TPR：Sensitivity(正类覆盖率),TPR越大，预测正类中实际正类越多。</p>
+</li>
+<li><p>理想目标：TPR=1，FPR=0,即图中(0,1)点，故ROC曲线越靠拢(0,1)点，越偏离45度对角线越好，Sensitivity、Specificity越大效果越好。</p>
+</li>
+</ul>
+<h1 id="AUC-Area-under-Curve"><a href="#AUC-Area-under-Curve" class="headerlink" title="AUC(Area under Curve)"></a>AUC(Area under Curve)</h1><p>Roc曲线下的面积，介于0.5和1之间。Auc作为数值可以直观的评价分类器的好坏，值越大越好。</p>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">library(<span class="string">"pROC"</span>)</span><br><span class="line">data(aSAH)  </span><br><span class="line"><span class="comment"># Build a ROC object and compute the AUC, draw ROC, print AUC and the best THRESHOLDS  </span></span><br><span class="line">roc(aSAH<span class="variable">$outcome</span>, aSAH<span class="variable">$s100b</span>, <span class="attribute">plot</span>=<span class="literal">TRUE</span>, print.<span class="attribute">thres</span>=<span class="literal">TRUE</span>, print.<span class="attribute">auc</span>=<span class="literal">TRUE</span>)  </span><br><span class="line"></span><br><span class="line">roc1 &lt;- plot.roc(aSAH<span class="variable">$outcome</span>, aSAH<span class="variable">$s100</span>, <span class="attribute">main</span>=<span class="string">"Statistical comparison"</span>, <span class="attribute">percent</span>=<span class="literal">TRUE</span>, <span class="attribute">col</span>=<span class="string">"1"</span>)</span><br><span class="line">roc2 &lt;- lines.roc(aSAH<span class="variable">$outcome</span>, aSAH<span class="variable">$ndka</span>, <span class="attribute">percent</span>=<span class="literal">TRUE</span>, <span class="attribute">col</span>=<span class="string">"2"</span>)</span><br><span class="line">testobj&lt;- roc.test(roc1,roc2)</span><br><span class="line">text(50, 50, <span class="attribute">labels</span>=paste("p-value =<span class="string">", format.pval(testobj<span class="variable">$p</span>.value)), adj=c(0, .5))</span></span><br><span class="line"><span class="string">legend("</span>bottomright<span class="string">", legend=c("</span>S100B<span class="string">", "</span>NDKA<span class="string">"), col=c("</span>1<span class="string">", "</span>2<span class="string">"), lwd=2)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">r1=roc(vs~wt,mtcars)</span></span><br><span class="line"><span class="string">plot.roc(r1)</span></span><br><span class="line"><span class="string">r2=roc(vs~mpg,mtcars)</span></span><br><span class="line"><span class="string">lines.roc(r2,col='2')</span></span><br><span class="line"><span class="string">roc.test(r1,r2)</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>在学习<a href="http://bioconductor.org/packages/release/bioc/vignettes/genefu/inst/doc/genefu.pdf" target="_blank" rel="noopener">genefu包</a>时候遇到Confusion Matrix，有必要有个系统的学习和总结。</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/09/13/2017-09-13-CoxModle_with_stratified/" data-toggle="tooltip" data-placement="left" title="Cox 分层原理">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/09/2017-09-09-FoldChange/" data-toggle="tooltip" data-placement="top" title="Fold Change 与火山图">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ROC-曲线"><span class="toc-number">1.</span> <span class="toc-text">ROC 曲线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AUC-Area-under-Curve"><span class="toc-number">2.</span> <span class="toc-text">AUC(Area under Curve)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#R"><span class="toc-number">3.</span> <span class="toc-text">R</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

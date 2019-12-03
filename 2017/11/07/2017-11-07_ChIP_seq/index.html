@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_ChIP_seq/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Chip-Seq 分析｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Chip-Seq 分析</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Nov 7, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#English" title="English">English</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">3,728 words in total, 18 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://taoshengxu.github.io/DocumentGit/html/给学徒ChIP-seq数据处理流程.html">给学徒ChIP-seq数据处理流程</a> 学习这个就可以了</p>
+<p><a href="https://www.bilibili.com/video/av29255401/?p=6&amp;t=335" target="_blank" rel="noopener">B站有视频教程</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line">library(devtools) </span><br><span class="line"><span class="comment">#选择安装源</span></span><br><span class="line"><span class="built_in">local</span>(&#123;</span><br><span class="line">  options( repos  = <span class="string">"https://mirrors.ustc.edu.cn/CRAN/"</span> )</span><br><span class="line">  options( BioC_mirror = <span class="string">"https://mirrors.ustc.edu.cn/bioc/"</span> )</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment"># Step2 List of the used packages  ----------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##bash </span></span><br><span class="line">sudo apt-get install libcurl4-gnutls-dev <span class="comment">##不然RCurl包安装不了</span></span><br><span class="line">sudo apt-get install libssl-dev</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">install.packages(<span class="string">"RCurl"</span>)</span><br><span class="line">bioPackages &lt;- c(<span class="string">'airway'</span>,<span class="string">'DESeq2'</span>,<span class="string">'edgeR'</span>,<span class="string">'limma'</span>,<span class="string">'ChIPpeakAnno'</span>,<span class="string">'ChIPseeker'</span></span><br><span class="line">                 <span class="string">'TxDb.Hsapiens.UCSC.hg19.knownGene'</span>,</span><br><span class="line">                 <span class="string">'TxDb.Hsapiens.UCSC.hg38.knownGene'</span>,</span><br><span class="line">                 <span class="string">'TxDb.Mmusculus.UCSC.mm10.knownGene'</span>)</span><br><span class="line"><span class="comment">##R 3.5</span></span><br><span class="line">install.packages(<span class="string">"BiocManager"</span>)</span><br><span class="line">BiocManager::install(bioPackages, update = TRUE, ask = FALSE)</span><br><span class="line">library(TxDb.Hsapiens.UCSC.hg19.knownGene) </span><br><span class="line">library(TxDb.Mmusculus.UCSC.mm10.knownGene) </span><br><span class="line">library(TxDb.Hsapiens.UCSC.hg38.knownGene) </span><br><span class="line">library(ChIPpeakAnno) </span><br><span class="line">library(ChIPseeker) </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">++++++++</span><br><span class="line"></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">sudo sh Miniconda3-latest-Linux-x86_64.sh</span><br><span class="line">conda  create -n chipseq  python=2 bwa</span><br><span class="line">conda info --envs</span><br><span class="line"><span class="built_in">source</span> activate chipseq</span><br><span class="line"><span class="comment"># 可以用search先进行检索</span></span><br><span class="line">conda search trim-galore</span><br><span class="line"><span class="comment">## 保证所有的软件都是安装在 wes 这个环境下面</span></span><br><span class="line">conda install -y sra-tools  </span><br><span class="line">conda install -y trim-galore  samtools</span><br><span class="line">conda install -y deeptools homer  meme</span><br><span class="line">conda install -y macs2 bowtie bowtie2 </span><br><span class="line">---------------------------------------------</span><br><span class="line"></span><br><span class="line"><span class="comment">##数据下载  或者根据ftp地址迅雷下载  国内下载很慢，不能安装教程的方法</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ` seq 32 50`;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">nohup axel ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR391/SRR3910<span class="variable">$&#123;i&#125;</span>/SRR3910<span class="variable">$&#123;i&#125;</span>.sra &amp; </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> ~/project/epi/</span><br><span class="line"><span class="built_in">source</span> activate chipseq</span><br><span class="line">dump=<span class="string">'/home/jianmingzeng/biosoft/sratoolkit/sratoolkit.2.8.2-1-centos_linux64/bin/fastq-dump'</span></span><br><span class="line">dump=fastq-dump</span><br><span class="line">analysis_dir=raw</span><br><span class="line"><span class="comment">## 下面用到的 config 文件，就是上面自行制作的。</span></span><br><span class="line">cat config|<span class="keyword">while</span> <span class="built_in">read</span> id;</span><br><span class="line"><span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$id</span></span><br><span class="line">arr=(<span class="variable">$id</span>)</span><br><span class="line">srr=<span class="variable">$&#123;arr[1]&#125;</span></span><br><span class="line">sample=<span class="variable">$&#123;arr[0]&#125;</span></span><br><span class="line"><span class="comment"># 单端测序数据的sra转fasq</span></span><br><span class="line">nohup <span class="variable">$dump</span> -A  <span class="variable">$sample</span> -O <span class="variable">$analysis_dir</span>  --gzip --split-3  sra/<span class="variable">$srr</span>.sra &amp; </span><br><span class="line"><span class="keyword">done</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">##这个时候选择trim_galore软件进行过滤，单端测序数据的代码如下；</span></span><br><span class="line">ls ./raw/*gz | <span class="keyword">while</span> <span class="built_in">read</span> fq1;</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">nohup trim_galore -q 25 --phred33 --length 25 -e 0.1 --stringency 4 -o ./clean  <span class="variable">$fq1</span> &amp; </span><br><span class="line"><span class="keyword">done</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">##很明显，QC应该走一波</span></span><br><span class="line"><span class="built_in">cd</span> ~/project/epi/qc</span><br><span class="line"><span class="comment">## 相对目录需要理解</span></span><br><span class="line">ls ../raw/*gz|xargs fastqc -t 10 -o  ./</span><br><span class="line">ls ../clean/*gz|xargs fastqc -t 10 -o  ./</span><br><span class="line"></span><br><span class="line"><span class="comment"># multiqc</span></span><br><span class="line">conda install -c bioconda multiqc</span><br><span class="line">multiqc ./</span><br><span class="line"></span><br><span class="line"><span class="comment">#构建索引</span></span><br><span class="line">nohup time bowtie2-build  /media/ubuntu/Data2/Reference/mm10/mm10.fa /media/ubuntu/Data2/Reference/index/bowtie/mm10 1&gt;mm10.bowtie_index.log 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 下载参考基因组 索引大小为3.2GB， 不建议自己下载基因组构建，可以直接下载索引文件</span></span><br><span class="line">/media/ubuntu/Data2$ mkdir referece &amp;&amp; <span class="built_in">cd</span> reference</span><br><span class="line"><span class="comment">## 断点续传，后台下载</span></span><br><span class="line">wget -c -b ftp://ftp.ccb.jhu.edu/pub/data/bowtie2_indexes/mm10.zip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> align</span><br><span class="line"><span class="comment"># 这个地方搞了好几天都不知道为什么错。原来是存放bowtie2 index后面要带mm10参数才行，如下，..../bowtie是存放mm10索引的目录，在..../bowtie还要加/mm10才能保证正确的索引到</span></span><br><span class="line">bowtie2_index=/media/ubuntu/Data2/Reference/index/bowtie/mm10</span><br><span class="line">ls ../clean/*gz |<span class="keyword">while</span> <span class="built_in">read</span> id</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">file=$(basename <span class="variable">$id</span> )</span><br><span class="line">sample=<span class="variable">$&#123;file%%.*&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$file</span> <span class="variable">$sample</span></span><br><span class="line"><span class="comment">## 比对过程3分钟一个样本</span></span><br><span class="line">bowtie2 -p 5 -x <span class="variable">$bowtie2_index</span> -U <span class="variable">$id</span> | samtools sort -O bam -@ 5 -o -&gt; <span class="variable">$&#123;sample&#125;</span>.bam </span><br><span class="line"><span class="keyword">done</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">#对bam文件进行QC</span></span><br><span class="line"><span class="built_in">cd</span> align</span><br><span class="line">ls  *.bam  |xargs -i samtools index &#123;&#125; </span><br><span class="line">ls  *.bam  | <span class="keyword">while</span> <span class="built_in">read</span> id ;<span class="keyword">do</span> (nohup samtools flagstat <span class="variable">$id</span> &gt; $(basename <span class="variable">$id</span> <span class="string">".bam"</span>).<span class="built_in">stat</span> &amp; );<span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##合并bam文件，因为一个样品分成了多个lane进行测序，所以在进行peaks calling的时候，需要把bam进行合并。</span></span><br><span class="line"><span class="comment">## 如果不用循环：</span></span><br><span class="line"><span class="comment">## samtools merge  control.merge.bam Control_1_trimmed.bam Control_2_trimmed.bam</span></span><br><span class="line"><span class="comment">## 通常我们用批处理。</span></span><br><span class="line"><span class="built_in">cd</span> align</span><br><span class="line">mkdir ../mergeBam</span><br><span class="line">ls *.bam|sed <span class="string">'s/_[0-9]_trimmed.bam//g'</span> |sort -u |<span class="keyword">while</span> <span class="built_in">read</span> id;<span class="keyword">do</span> samtools merge ../mergeBam/<span class="variable">$id</span>.merge.bam <span class="variable">$id</span>*.bam ;<span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /media/ubuntu/Data2/chipseq_jimmy/clean</span><br><span class="line">conda activate chipseq</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.biotrainee.com/thread-2013-1-1.html" target="_blank" rel="noopener">学习提纲</a> </p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&amp;mid=2247485198&amp;idx=1&amp;sn=bfb419c568723c5c121e017b2e265d2f&amp;chksm=9b4847b5ac3fcea303e986c17e19b3750dc145f23a8e18daa74c5de704d4a203f8ba08bed651&amp;mpshare=1&amp;scene=1&amp;srcid=1103lRh7ZlI9oD2bGJJhvqlh#rd" target="_blank" rel="noopener">笔记1</a> </p>
+<p><a href="http://www.bio-info-trainee.com/2773.html" target="_blank" rel="noopener">笔记2</a></p>
+<p><a href="https://guangchuangyu.github.io/cn/2017/10/chipseeker-visualization/" target="_blank" rel="noopener">ChIPseq从入门到放弃</a></p>
+<h1 id="ChIP-Seq介绍"><a href="#ChIP-Seq介绍" class="headerlink" title="ChIP-Seq介绍"></a>ChIP-Seq介绍</h1><h2 id="1-了解基础知识"><a href="#1-了解基础知识" class="headerlink" title="1.了解基础知识"></a>1.了解基础知识</h2><ul>
+<li>peak calling的统计学原理 <a href="http://www.plob.org/2014/05/08/7227.html" target="_blank" rel="noopener">http://www.plob.org/2014/05/08/7227.html</a></li>
+<li>根据比对的bam文件来对peaks区域可视化 <a href="http://www.bio-info-trainee.com/1843.html" target="_blank" rel="noopener">http://www.bio-info-trainee.com/1843.html</a></li>
+<li>wig、bigWig和bedgraph文件详解 <a href="http://www.bio-info-trainee.com/1815.html" target="_blank" rel="noopener">http://www.bio-info-trainee.com/1815.html</a></li>
+</ul>
+<h2 id="2-文章综述"><a href="#2-文章综述" class="headerlink" title="2.文章综述"></a>2.文章综述</h2><p>ChIP-seq guidelines and practices of the ENCODE and modENCODE consortia. <a href="https://www.ncbi.nlm.nih.gov/pubmed/22955991" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/pubmed/22955991</a></p>
+<h2 id="3-Chip-Seq测序的统计学原理"><a href="#3-Chip-Seq测序的统计学原理" class="headerlink" title="3.Chip-Seq测序的统计学原理"></a>3.Chip-Seq测序的统计学原理</h2><p>TF在基因组上的结合其实是一个随机过程，基因组的每个位置其实都有机会结合某个TF，只是概率不一样，说白了，peak出现的位置，是TF结合的热点，而peak-calling就是为了找到这些热点。</p>
+<p>如何定义热点呢？通俗地讲，热点是这样一些位置，这些位置多次被测得的read所覆盖（我们测的是一个细胞群体，read出现次数多，说明该位置被TF结合的几率大）。那么，read数达到多少才叫多？这就要用到统计检验喽。假设TF在基因组上的分布是没有任何规律的，那么，测序得到的read在基因组上的分布也必然是随机的，某个碱基上覆盖的read的数目应该服从二项分布。这其实和高中大学课本上抽小球的过程是类似的。当n很大，p很小时，二项分布可以近似用泊松分布替代。</p>
+<script type="math/tex; mode=display">\lambda=n \ast p, p=\frac{l}{s}</script><p>\(\lambda\)是泊松分布唯一的参数，n是测序得到的read总数目，l是单个read的长度，s是基因组的大小。有了分布，我们可以算出在某个置信概率（如0.00001）下，随机情况下，某个碱基上可以覆盖的read的数目的最小值，当实际观察到的read数目超过这个值（单侧检验）时，我们认为该碱基是TF的一个结合热点。反过来，针对每一个read数目，我们也可以算出对应的置信概率P。<br>但是，这只是一个简化的模型，实际情况要复杂好多。比如，由于测序、mapping过程内在的偏好性，以及不同染色质间的差异性，相比全基因组，某些碱基可能内在地会被更多的read所覆盖，这种情况得到的很多peak可能都是假的。MACS考虑到了这一点，当对某个碱基进行假设检验时，MACS只考虑该碱基附近的染色质区段（如10k），此时，上述公式中n表示附近10k区间内的read数目，s被置为10k。当有对照组实验（Control，相比实验组，没有用抗体捕获TF，或用了一个通用抗体）存在时，利用Control组的数据构建泊松分布，当没有Control时，利用实验组，稍大一点的局部区间（比如50k）的数据构建泊松分布。<br>这儿还有一个问题，read只是跟随着TF一起沉淀下来的DNA fragment的末端，read的位置并不是真实的TF结合的位置。所以在peak-calling之前，延伸read是必须的。不同TF大小不一样，对read延伸的长度也理应不同。我们知道，测得的read最终其实会近似地平均分配到正负链上，这样，对于一个TF结合热点而言，read在附近正负链上会近似地形成“双峰”。MACS会以某个window size扫描基因组，统计每个window里面read的富集程度，然后抽取（比如1000个）合适的（read富集程度适中，过少，无法建立模型，过大，可能反映的只是某种偏好性）window作样本，建立“双峰模型”。最后，两个峰之间的距离就被认为是TF的长度D，每个read将延伸D/2的长度。见下图：</p>
+<h2 id="4-Chip-seq实验"><a href="#4-Chip-seq实验" class="headerlink" title="4.Chip-seq实验"></a>4.Chip-seq实验</h2><p><strong>数据获取</strong></p>
+<ol>
+<li>将蛋白交联到DNA上。 也就是保证蛋白和DNA能够结合，找到互作位点。</li>
+<li>通过超声波剪切DNA链。</li>
+<li>加上附上抗体的磁珠用于免疫沉淀靶蛋白。抗体很重要</li>
+<li>接触蛋白交联；纯化DNA</li>
+<li>测序。</li>
+</ol>
+<p><strong>分析流程</strong>：</p>
+<ol>
+<li>质量控制, 用到的是FastQC</li>
+<li>序列比对, Bowtie2或这BWA</li>
+<li>peak calling，此处用的MACS</li>
+<li>peak注释, 这里用的Y叔的ChIPseeker</li>
+</ol>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/ChIP-Seq.jpg" alt=""></p>
+<h1 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h1><p><a href="https://www.ncbi.nlm.nih.gov/pubmed/23273917" target="_blank" rel="noopener">RYBP and Cbx7 define specific biological functions of polycomb complexes in mouse embryonic stem cells</a></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42466" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42466</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((i=204;i&lt;=209;i++))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">axel ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR620/SRR620<span class="variable">$i</span>/SRR620<span class="variable">$i</span>.sra &amp;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">ls *sra |<span class="keyword">while</span> <span class="built_in">read</span> id; <span class="keyword">do</span> fastq-dump –split-3 <span class="variable">$id</span> &amp; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>注意文件： 这里要注意是双端测序还是单端测序。</p>
+<p>fastq-dump 转换sra文件成fastq/fasta 文件。</p>
+<ul>
+<li>pair-end: fastq-dump —split-3 *.sra</li>
+<li>single-end: fastq-dump <em>.sra 或者 fastq-dump —fasta </em>sra</li>
+</ul>
+<h1 id="下载参考基因组-建立bowtie2索引"><a href="#下载参考基因组-建立bowtie2索引" class="headerlink" title="下载参考基因组,建立bowtie2索引"></a>下载参考基因组,建立bowtie2索引</h1><p>索引可以自己build，也可以下载 ftp://ftp.ccb.jhu.edu/pub/data/bowtie2_indexes/mm10.zip<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p  /data/reference/genome/mm10</span><br><span class="line"><span class="built_in">cd</span> /data/reference/genome/mm10</span><br><span class="line">axel http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/chromFa.tar.gz</span><br><span class="line">tar zvxf chromFa.tar.gz </span><br><span class="line">cat *.fa &gt; mm10.fa</span><br><span class="line">rm chr*.fa </span><br><span class="line"></span><br><span class="line">mkdir -p /data/reference/index/bowtie</span><br><span class="line"><span class="built_in">cd</span> /data/reference/index/bowtie</span><br><span class="line">nohup time bowtie2-build  /data/reference/genome/mm10/mm10.fa  /data/reference/index/bowtie/mm10 1&gt;mm10.bowtie_index.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<h1 id="下载注释文件"><a href="#下载注释文件" class="headerlink" title="下载注释文件"></a>下载注释文件</h1><p><a href="https://genome.ucsc.edu/cgi-bin/hgTables" target="_blank" rel="noopener">https://genome.ucsc.edu/cgi-bin/hgTables</a><br>（参阅<a href="http://www.bio-info-trainee.com/2136.html）" target="_blank" rel="noopener">http://www.bio-info-trainee.com/2136.html）</a><br><img src="https://taoshengxu.github.io/DocumentGit/img/mm10_ucsc_refseq_bed.jpg" alt=""></p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install </span>-c <span class="keyword">bioconda </span><span class="keyword">bowtie2</span></span><br><span class="line"><span class="keyword">conda </span><span class="keyword">install </span>-c <span class="keyword">bioconda </span>deeptools </span><br><span class="line">pip <span class="keyword">install </span>MACS2</span><br></pre></td></tr></table></figure>
+<h1 id="数据处理与分析"><a href="#数据处理与分析" class="headerlink" title="数据处理与分析"></a>数据处理与分析</h1><h2 id="质控"><a href="#质控" class="headerlink" title="质控"></a>质控</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls *fastq <span class="string">|xargs fastqc -t 10</span></span><br></pre></td></tr></table></figure>
+<p>发现3端质量有点问题，我就用了-3 5—local参数，</p>
+<h2 id="序列拼接"><a href="#序列拼接" class="headerlink" title="序列拼接"></a>序列拼接</h2><p>bowtie 短序列比对工具，用bowtie2软件把测序得到的fastq文件比对到mm10参考基因组上面<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /data/ChIPSeq</span><br><span class="line">bowtie2 -p <span class="number">6</span> -<span class="number">3</span> <span class="number">5</span> --<span class="keyword">local</span> -<span class="keyword">x</span> /data/reference/<span class="keyword">index</span>/bowtie/mm1<span class="number">0</span> -U SRR620204.fast<span class="string">q | samtools sort -O bam -o ring1B.bam</span></span><br><span class="line"><span class="string">bowtie2 -p 6 -3 5 --local -x /data/reference/index/bowtie/mm10 -U SRR620205.fastq |</span> samtools <span class="keyword">sort</span> -O bam -o cbx7.bam</span><br><span class="line">bowtie2 -p <span class="number">6</span> -<span class="number">3</span> <span class="number">5</span> --<span class="keyword">local</span> -<span class="keyword">x</span> /data/reference/<span class="keyword">index</span>/bowtie/mm1<span class="number">0</span> -U SRR620206.fast<span class="string">q | samtools sort -O bam -o suz12.bam</span></span><br><span class="line"><span class="string">bowtie2 -p 6 -3 5 --local -x /data/reference/index/bowtie/mm10 -U SRR620207.fastq |</span> samtools <span class="keyword">sort</span> -O bam -o RYBP.bam</span><br><span class="line">bowtie2 -p <span class="number">6</span> -<span class="number">3</span> <span class="number">5</span> --<span class="keyword">local</span> -<span class="keyword">x</span> /data/reference/<span class="keyword">index</span>/bowtie/mm1<span class="number">0</span> -U SRR620208.fast<span class="string">q | samtools sort -O bam -o IgGold.bam</span></span><br><span class="line"><span class="string">bowtie2 -p 6 -3 5 --local -x /data/reference/index/bowtie/mm10 -U SRR620209.fastq |</span> samtools <span class="keyword">sort</span> -O bam -o IgG.bam</span><br></pre></td></tr></table></figure></p>
+<h2 id="call-peaks"><a href="#call-peaks" class="headerlink" title="call peaks"></a>call peaks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">##参数解释</span><br><span class="line">##-m 建立“双峰模型”用到，默认就算10 30，-p p-value 大于 1e-5，</span><br><span class="line">##-f 文件来源是bam格式，-g 基因组大小是小鼠的（代号mm），-n 起名字的话叫 cbx7 </span><br><span class="line">nohup macs2 callpeak -c IgGold.bam -t suz12.bam -m 10 30 -p 1e-5 -f BAM -g mm -n suz12 2&gt;suz12.masc2.log &amp;</span><br><span class="line">nohup macs2 callpeak -c IgGold.bam -t ring1B.bam -m 10 30 -p 1e-5 -f BAM -g mm -n ring1B 2&gt;ring1B.masc2.log &amp;</span><br><span class="line">nohup macs2 callpeak -c IgG.bam -t cbx7.bam -m 10 30 -p 1e-5 -f BAM -g mm -n cbx7 2&gt;cbx7.masc2.log &amp;</span><br><span class="line">nohup macs2 callpeak -c IgG.bam -t RYBP.bam -m 10 30 -p 1e-5 -f BAM -g mm -n RYBP 2&gt;RYBP.masc2.log &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="bam转换成bw文件"><a href="#bam转换成bw文件" class="headerlink" title="bam转换成bw文件"></a>bam转换成bw文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ls *.bam |while read id; do samtools index $id $id.bai; done</span><br><span class="line">ls *bam |while read id</span><br><span class="line">do </span><br><span class="line">  file=$(basename $id )</span><br><span class="line">  sample=$&#123;file%%.*&#125;</span><br><span class="line">  echo $sample</span><br><span class="line">  bamCoverage -b $id -o $sample.bw ## 这里有个参数，-p 10 --normalizeUsingRPKM</span><br><span class="line">  computeMatrix reference-point --referencePoint TSS -b 10000 -a 10000 -R /data/reference/annotation/ChIPSeq/mm10/ucsc.refseq.bed -S $sample.bw --skipZeros -o matrix1_$&#123;sample&#125;_TSS.gz --outFileSortedRegions regions1_$&#123;sample&#125;_genes.bed</span><br><span class="line">  plotHeatmap -m matrix1_$&#123;sample&#125;_TSS.gz -out $&#123;sample&#125;.png</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>结果文件不只是上述提到的一类，还有如下格式：</p>
+<ul>
+<li>NAMEpeaks.xls: 以表格形式存放peak信息，虽然后缀是xls，但其实能用文本编辑器打开，和bed格式类似，但是以1为基，而bed文件是以0为基.也就是说xls的坐标都要减一才是bed文件的坐标</li>
+<li>NAMEpeaks.narrowPeak NAMEpeaks.broadPeak 类似。后面4列表示为， integer score for display， fold-change，-log10pvalue，-log10qvalue，relative summit position to peak start。内容和NAMEpeaks.xls基本一致，适合用于导入R进行分析。</li>
+<li>NAMEsummits.bed：记录每个peak的peak summits，话句话说就是记录极值点的位置。MACS建议用该文件寻找结合位点的motif。 </li>
+<li>NAMEmodel.r，能通过$ Rscript NAME_model.r作图，得到是基于你提供数据的peak模型</li>
+</ul>
+<h2 id="计算peak数"><a href="#计算peak数" class="headerlink" title="计算peak数"></a>计算peak数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -l *summits.bed</span><br></pre></td></tr></table></figure>
+<p>下载原作者的peak数据,可以用于分析结果比较<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42466/suppl/GSE42466_RYBP_peaks_5.txt.gz</span><br><span class="line">gzip -d GSE42466_RYBP_peaks_5.txt.gz</span><br><span class="line">mv GSE42466_RYBP_peaks_5.txt RYBP2_summits.bed</span><br></pre></td></tr></table></figure></p>
+<h2 id="整合所有的chipseq的bam文件，画基因的TSS附近的profile和heatmap图"><a href="#整合所有的chipseq的bam文件，画基因的TSS附近的profile和heatmap图" class="headerlink" title="整合所有的chipseq的bam文件，画基因的TSS附近的profile和heatmap图"></a>整合所有的chipseq的bam文件，画基因的TSS附近的profile和heatmap图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">computeMatrix reference-point -p 10 --referencePoint TSS -b 2000 -a 2000 -S *bw -R /data/reference/annotation/ChIPSeq/mm10/ucsc.refseq.bed --skipZeros -o tmp4.mat.gz</span><br><span class="line">plotHeatmap -m tmp4.mat.gz -out tmp4.merge.png</span><br><span class="line">plotProfile --dpi 720 -m tmp4.mat.gz -out tmp4.profile.pdf --plotFileFormat pdf --perGroup</span><br><span class="line">plotHeatmap --dpi 720 -m tmp4.mat.gz -out tmp4.merge.pdf --plotFileFormat pdf</span><br></pre></td></tr></table></figure>
+<h2 id="整合所有的chipseq的bam文件，画基因的genebody附近的profile和heatmap图"><a href="#整合所有的chipseq的bam文件，画基因的genebody附近的profile和heatmap图" class="headerlink" title="整合所有的chipseq的bam文件，画基因的genebody附近的profile和heatmap图"></a>整合所有的chipseq的bam文件，画基因的genebody附近的profile和heatmap图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">computeMatrix scale-regions -p 10 -S *bw -R /data/reference/annotation/ChIPSeq/mm10/ucsc.refseq.bed -b 3000 -a 3000 -m 5000 --skipZeros -o tmp5.mat.gz</span><br><span class="line">plotHeatmap -m tmp5.mat.gz -out tmp5.merge.png</span><br><span class="line">plotProfile --dpi 720 -m tmp5.mat.gz -out tmp5.profile.pdf --plotFileFormat pdf --perGroup</span><br><span class="line">plotHeatmap --dpi 720 -m tmp5.mat.gz -out tmp5.merge.pdf --plotFileFormat pdf</span><br></pre></td></tr></table></figure>
+<h1 id="结果注释与可视化"><a href="#结果注释与可视化" class="headerlink" title="结果注释与可视化"></a>结果注释与可视化</h1><p>ChIPseeker R package的功能分为三类: </p>
+<ul>
+<li>注释：提取peak附近最近的基因， 注释peak所在区域 </li>
+<li>比较：估计ChIP peak数据集中重叠部分的显著性；整合GEO数据集，以便于将当前结果和已知结果比较 </li>
+<li>可视化： peak的覆盖情况；TSS区域结合的peak的平均表达谱和热图；基因组注释；TSS距离；peak和基因的重叠。</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> (<span class="string">"https://bioconductor.org/biocLite.R"</span>)</span><br><span class="line">biocLite(<span class="string">"ChIPseeker"</span>)</span><br><span class="line">biocLite(<span class="string">"org.Mm.eg.db"</span>)</span><br><span class="line">biocLite(<span class="string">"TxDb.Mmusculus.UCSC.mm10.knownGene"</span>)</span><br><span class="line">biocLite(<span class="string">"clusterProfiler"</span>)</span><br><span class="line">biocLite(<span class="string">"ReactomePA"</span>)</span><br><span class="line">biocLite(<span class="string">"DOSE"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(<span class="string">"ChIPseeker"</span>)</span><br><span class="line"><span class="keyword">library</span>(<span class="string">"org.Mm.eg.db"</span>)</span><br><span class="line"><span class="keyword">library</span>(<span class="string">"TxDb.Mmusculus.UCSC.mm10.knownGene"</span>)</span><br><span class="line">txdb &lt;- TxDb.Mmusculus.UCSC.mm10.knownGene</span><br><span class="line"><span class="keyword">library</span>(<span class="string">"clusterProfiler"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入bed文件</span></span><br><span class="line">ring1B &lt;- readPeakFile(<span class="string">"F:/Chip-seq_exercise/ring1B_peaks.narrowPeak"</span>)</span><br><span class="line"><span class="comment">#查看peak在全基因组的位置</span></span><br><span class="line">covplot(ring1B)<span class="comment">##全基因组</span></span><br><span class="line">covplot(ring1B,chrs=c(<span class="string">"chr17"</span>, <span class="string">"chr18"</span>))   <span class="comment">#指定染色体</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Average Profile of ChIP peaks binding to TSS region</span></span><br><span class="line"><span class="comment">#(Confidence interval estimated by bootstrap method)</span></span><br><span class="line">plotAvgProf(tagMatrix, xlim=c(-<span class="number">3000</span>, <span class="number">3000</span>), conf = <span class="number">0.95</span>, resample = <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>peak的注释</strong></p>
+<p>peak的注释用annotatePeak()函数，</p>
+<ul>
+<li>TSS (transcription start site) region 可以自己设定，默认是（-3000，3000），</li>
+<li>TxDb 是指某个物种的基因组，例如TxDb.Hsapiens.UCSC.hg38.knownGene, TxDb.Hsapiens.UCSC.hg19.knownGene for human genome hg38 and hg19, TxDb.Mmusculus.UCSC.mm10.knownGene and TxDb.Mmusculus.UCSC.mm9.knownGene for mouse mm10 and mm9.</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">peakAnno &lt;- annotatePeak(ring1B, tssRegion=c(-<span class="number">3000</span>, <span class="number">3000</span>),</span><br><span class="line">TxDb=txdb, annoDb=<span class="string">"org.Mm.eg.db"</span>)</span><br><span class="line"><span class="comment">#可视化 Pie and Bar plot</span></span><br><span class="line">plotAnnoBar(peakAnno)</span><br><span class="line">vennpie(peakAnno)</span><br><span class="line">upsetplot(peakAnno)</span><br><span class="line"></span><br><span class="line"><span class="comment">#可视化TSS区域的TF binding loci</span></span><br><span class="line">plotDistToTSS(peakAnno,</span><br><span class="line">title=<span class="string">"Distribution of transcription factor-binding loci\nrelative to TSS"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>多个peak的比较</strong></p>
+<p>多个peak set注释时，先构建list,然后用lapply.list(name1=bed_file1,name2=bed_file2) RYBP的数据有问题，这里加上去，会一直报错。</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">peaks &lt;- list(<span class="name">cbx7=cbx7</span>,ring1B=ring1B,suz12=suz12)</span><br><span class="line">promoter &lt;- getPromoters(<span class="name">TxDb=txdb</span>, upstream=3000, downstream=3000)</span><br><span class="line">tagMatrixList &lt;- lapply(<span class="name">peaks</span>, getTagMatrix, windows=promoter)</span><br><span class="line">plotAvgProf(<span class="name">tagMatrixList</span>, xlim=c(<span class="name">-3000</span>, <span class="number">3000</span>))</span><br><span class="line">plotAvgProf(<span class="name">tagMatrixList</span>, xlim=c(<span class="name">-3000</span>, <span class="number">3000</span>), conf=0.<span class="number">95</span>,resample=500, facet=<span class="string">"row"</span>)</span><br><span class="line">tagHeatmap(<span class="name">tagMatrixList</span>, xlim=c(<span class="name">-3000</span>, <span class="number">3000</span>), color=NULL)</span><br><span class="line"></span><br><span class="line">#ChIP peak annotation comparision</span><br><span class="line">peakAnnoList &lt;- lapply(<span class="name">peaks</span>, annotatePeak, TxDb=txdb,</span><br><span class="line">tssRegion=c(<span class="name">-3000</span>, <span class="number">3000</span>), verbose=FALSE)</span><br><span class="line">plotAnnoBar(<span class="name">peakAnnoList</span>)</span><br><span class="line">plotDistToTSS(<span class="name">peakAnnoList</span>)</span><br><span class="line"></span><br><span class="line">#Overlap of peaks and annotated genes</span><br><span class="line">genes= lapply(<span class="name">peakAnnoList</span>, function(<span class="name">i</span>) as.data.frame(<span class="name">i</span>)$geneId)</span><br><span class="line">vennplot(<span class="name">genes</span>)</span><br></pre></td></tr></table></figure>
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/11/07/2017-11-07_HumanMethylation450/" data-toggle="tooltip" data-placement="left" title="DNA Methylation甲基化450k,850k芯片">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/11/06/2017-11-06_Markdown_Rmarkdown_Shiny/" data-toggle="tooltip" data-placement="top" title="Markdown+Rmarkdown+Shiny手册">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ChIP-Seq介绍"><span class="toc-number">1.</span> <span class="toc-text">ChIP-Seq介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-了解基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">1.了解基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-文章综述"><span class="toc-number">1.2.</span> <span class="toc-text">2.文章综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Chip-Seq测序的统计学原理"><span class="toc-number">1.3.</span> <span class="toc-text">3.Chip-Seq测序的统计学原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Chip-seq实验"><span class="toc-number">1.4.</span> <span class="toc-text">4.Chip-seq实验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据下载"><span class="toc-number">2.</span> <span class="toc-text">数据下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载参考基因组-建立bowtie2索引"><span class="toc-number">3.</span> <span class="toc-text">下载参考基因组,建立bowtie2索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载注释文件"><span class="toc-number">4.</span> <span class="toc-text">下载注释文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#软件安装"><span class="toc-number">5.</span> <span class="toc-text">软件安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据处理与分析"><span class="toc-number">6.</span> <span class="toc-text">数据处理与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#质控"><span class="toc-number">6.1.</span> <span class="toc-text">质控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列拼接"><span class="toc-number">6.2.</span> <span class="toc-text">序列拼接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-peaks"><span class="toc-number">6.3.</span> <span class="toc-text">call peaks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bam转换成bw文件"><span class="toc-number">6.4.</span> <span class="toc-text">bam转换成bw文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算peak数"><span class="toc-number">6.5.</span> <span class="toc-text">计算peak数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整合所有的chipseq的bam文件，画基因的TSS附近的profile和heatmap图"><span class="toc-number">6.6.</span> <span class="toc-text">整合所有的chipseq的bam文件，画基因的TSS附近的profile和heatmap图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整合所有的chipseq的bam文件，画基因的genebody附近的profile和heatmap图"><span class="toc-number">6.7.</span> <span class="toc-text">整合所有的chipseq的bam文件，画基因的genebody附近的profile和heatmap图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结果注释与可视化"><span class="toc-number">7.</span> <span class="toc-text">结果注释与可视化</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

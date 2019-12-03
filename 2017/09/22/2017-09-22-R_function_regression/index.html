@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/09/22/2017-09-22-R_function_regression/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        R语言-线性回归-lm()｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>R语言-线性回归-lm()</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Sep 22, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">2,769 words in total, 12 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<p>From <a href="http://blog.sina.com.cn/s/blog_6fbfcfb50102va2k.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6fbfcfb50102va2k.html</a></p>
+<h1 id="1-回归的多面性"><a href="#1-回归的多面性" class="headerlink" title="1. 回归的多面性"></a>1. 回归的多面性</h1><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">回归类型	用途</span><br><span class="line">---</span><br><span class="line">简单线性	个量化的解释变量来预测一个量化的响应变量（一个因变量、一个自变量）</span><br><span class="line">多项式	  一个量化的解释变量预测一个量化的响应变量，模型的关系是n阶多项式（一个预测变量，但同时包含变量的幂）</span><br><span class="line">多元线性	用两个或多个量化的解释变量预测一个量化的响应变量（不止一个预测变量）</span><br><span class="line">多变量   	用一个或多个解释变量预测多个响应变量</span><br><span class="line">Logistic	用一个或多个解释变量预测一个类别型变量</span><br><span class="line">泊松	    用一个或多个解释变量预测一个代表频数的响应变量</span><br><span class="line">Cox     	用一个或多个解释变量预测一个事件（死亡、失败或旧病复发）发生的时间</span><br><span class="line">时间序列  对误差项相关的时间序列数据建模</span><br><span class="line">非线性	  用一个或多个量化的解释变量预测一个量化的响应变量，不过模型是非线性的</span><br><span class="line">非参数	  用一个或多个量化的解释变量预测一个量化的响应变量，模型的形式源自数据形式，不事先设定</span><br><span class="line">稳健	    用一个或多个量化的解释变量预测一个量化的响应变量，能抵御强影响点的干扰</span><br></pre></td></tr></table></figure>
+<h1 id="2-用lm-拟合回归模型"><a href="#2-用lm-拟合回归模型" class="headerlink" title="2. 用lm()拟合回归模型"></a>2. 用lm()拟合回归模型</h1><p>myfit&lt;-lm(formula,data)</p>
+<p>formula指要拟合的模型形式，data是一个数据框，包含了用于拟合模型的数据。</p>
+<p>formula形式如下：Y~X1+X2+……+Xk （~左边为响应变量，右边为各个预测变量，预测变量之间用+符号分隔）。</p>
+<p><strong>R表达式中常用的符号</strong><br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">符号 用途</span><br><span class="line">---</span><br><span class="line">~  | 分隔符号，左边为响应变量，右边为解释变量，eg：要通过<span class="keyword">x</span>、z和w预测y，代码为y~<span class="keyword">x</span>+z+w</span><br><span class="line">+  | 分隔预测变量</span><br><span class="line">： | 表示预测变量的交互项  eg：要通过<span class="keyword">x</span>、z及<span class="keyword">x</span>与z的交互项预测y，代码为y~<span class="keyword">x</span>+z+<span class="keyword">x</span>:z</span><br><span class="line">*  | 表示所有可能交互项的简洁方式，代码y~<span class="keyword">x</span>*z*w可展开为y~<span class="keyword">x</span>+z+w+<span class="keyword">x</span>:z+<span class="keyword">x</span>:w+z:w+<span class="keyword">x</span>:z:w</span><br><span class="line">^  | 表示交互项达到某个次数，代码y~(<span class="keyword">x</span>+z+w)^<span class="number">2</span>可展开为y~<span class="keyword">x</span>+z+w+<span class="keyword">x</span>:z+<span class="keyword">x</span>:w+z:w</span><br><span class="line">.  | 表示包含除因变量外的所有变量，eg：若一个数据框包含变量<span class="keyword">x</span>、y、z和w，代码y~.可展开为y~<span class="keyword">x</span>+z+w</span><br><span class="line">-  | 减号，表示从等式中移除某个变量，eg：y~(<span class="keyword">x</span>+z+w)^<span class="number">2</span>-<span class="keyword">x</span>:w可展开为y~<span class="keyword">x</span>+z+w+<span class="keyword">x</span>:z+z:w</span><br><span class="line"><span class="number">-1</span> | 删除截距项，eg：表示y~<span class="keyword">x</span><span class="number">-1</span>拟合y在<span class="keyword">x</span>上的回归，并强制直线通过原点</span><br><span class="line">I（） | 从算术的角度来解释括号中的元素。Eg：y~<span class="keyword">x</span>+(z+w)^<span class="number">2</span>将展开为y~<span class="keyword">x</span>+z+w+z:w。相反，代码y~<span class="keyword">x</span>+I((z+w)^<span class="number">2</span>)将展开为y~<span class="keyword">x</span>+h，h是一个由z和w的平方和创建的新变量</span><br><span class="line">function | 可以在表达式中用的数学函数，例如log(y)~<span class="keyword">x</span>+z+w表示通过<span class="keyword">x</span>、z和w来预测log(y)</span><br></pre></td></tr></table></figure></p>
+<p><strong>交互项</strong>是指你的几个变量一块生成了一个新的影响，比如不同性别的不同专业可能会对成绩有不同的影响，性别影响成绩，专业影响成绩，但是性别和专业和在一起又产生新影响。这时候就需要交互项。具体用不用看你的方程,一般不用。</p>
+<p><strong>对拟合线性模型非常有用的其他函数</strong><br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">函数 用途</span><br><span class="line">---</span><br><span class="line">Summary（）展示拟合的详细结果</span><br><span class="line">Coefficients（）列出拟合模型的模型参数（截距项和斜率）</span><br><span class="line">confint（） 提供模型参数的置信区间（默认95%）</span><br><span class="line">fitted（）列出拟合模型的预测值</span><br><span class="line">residuals（）列出拟合模型的残差值</span><br><span class="line">anova（）生成一个拟合模型的方差分析，或者比较两个或更多拟合模型的方差分析表</span><br><span class="line">deviance() 计算残差平和和</span><br><span class="line">vcov（）列出模型参数的协方差矩阵</span><br><span class="line">AIC（）输出赤池信息统计量</span><br><span class="line">plot（）生成评价拟合模型的诊断图</span><br><span class="line">predict（）用拟合模型对新的数据集预测响应变量值</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-R-语言示例lm"><a href="#3-R-语言示例lm" class="headerlink" title="3. R 语言示例lm()"></a>3. R 语言示例lm()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">fit&lt;-lm(weight~height,data=women)  </span><br><span class="line"><span class="comment"># summary(fit)</span></span><br><span class="line"><span class="comment"># Call:</span></span><br><span class="line"><span class="comment"># lm(formula = weight ~ height, data = women)</span></span><br><span class="line"><span class="comment"># Residuals:</span></span><br><span class="line"><span class="comment">#     Min      1Q  Median      3Q     Max </span></span><br><span class="line"><span class="comment"># -1.7333 -1.1333 -0.3833  0.7417  3.1167 </span></span><br><span class="line"><span class="comment"># Coefficients:</span></span><br><span class="line"><span class="comment">#              Estimate Std. Error t value Pr(&gt;|t|)    </span></span><br><span class="line"><span class="comment"># (Intercept) -87.51667    5.93694  -14.74 1.71e-09 ***</span></span><br><span class="line"><span class="comment"># height        3.45000    0.09114   37.85 1.09e-14 ***</span></span><br><span class="line"><span class="comment"># ---</span></span><br><span class="line"><span class="comment"># Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></span><br><span class="line"><span class="comment"># Residual standard error: 1.525 on 13 degrees of freedom</span></span><br><span class="line"><span class="comment"># Multiple R-squared:  0.991,	Adjusted R-squared:  0.9903 </span></span><br><span class="line"><span class="comment"># F-statistic:  1433 on 1 and 13 DF,  p-value: 1.091e-14</span></span><br><span class="line">coef(fit)</span><br><span class="line"><span class="comment">#(Intercept)      height </span></span><br><span class="line"><span class="comment">#  -87.51667     3.45000 </span></span><br><span class="line">fitted(fit)<span class="comment">#拟合模型的预测值  </span></span><br><span class="line">residuals(fit)<span class="comment">#拟合模型的残差值 </span></span><br><span class="line">plot(women$height,women$weight,  </span><br><span class="line">     xlab=<span class="string">"Height （in inches）"</span>,  </span><br><span class="line">     ylab=<span class="string">"Weight（in pounds）"</span>)  </span><br><span class="line">abline(fit)</span><br></pre></td></tr></table></figure>
+<p><strong>1.自变量评估</strong></p>
+<p> 在Pr(&gt;|t|)栏，可以看到回归系数（3.45）或者截距项显著性&lt;0.05，拒绝原假设，表明身高每增加1英寸，体重将预期地增加3.45磅.</p>
+<p>*原假设H0：系数（或截距）为0。</p>
+<p>*备选假设H1：系数（或截距）不为0。</p>
+<p><strong>2.判定系数和F统计量</strong></p>
+<p><strong>残差的标准误(Residual standard error)</strong> 1.53 lbs则可认为模型用身高预测体重的平均误差.</p>
+<p><strong>判定系数R^2</strong></p>
+<script type="math/tex; mode=display">R^2= \frac{SSR}{SST}=\frac{\sum(\hat{Y\_i}-\overline{Y})^2}{\sum(Y_i-\overline{Y})^2}</script><p><strong>R^2的取值范围为[0,1],越接近1表示回归模型对数据的解释能力越强。</strong></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/lm_R2.jpg" alt=""></p>
+<p> <strong>F统计量</strong>使用F分布检验MSR/MSE的比率，原假设：β1=0，备选假设：β1≠0. 检验简化模型\(dist=β0+\varepsilon\)与完整模型\(dist=β0+β1*x +\varepsilon\)之间的残差平方和差异的显著程度。</p>
+<p> <strong>3.方差分析</strong></p>
+<p> 线性回归中，<strong>方差分析用于评估模型或者进行模型间比较</strong>。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> m=lm(dist ~ speed, data=cars)</span><br><span class="line"> summary(m)</span><br><span class="line"><span class="meta">#</span><span class="bash">  Call:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> lm(formula = dist ~ speed, data = cars)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Residuals:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">     Min      1Q  Median      3Q     Max </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -29.069  -9.525  -2.272   9.215  43.201 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Coefficients:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">             Estimate Std. Error t value Pr(&gt;|t|)    </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> (Intercept) -17.5791     6.7584  -2.601   0.0123 *  </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> speed         3.9324     0.4155   9.464 1.49e-12 ***</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Residual standard error: 15.38 on 48 degrees of freedom</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Multiple R-squared:  0.6511,	Adjusted R-squared:  0.6438 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</span></span><br><span class="line"></span><br><span class="line">anova(m)</span><br><span class="line"><span class="meta">#</span><span class="bash"> Analysis of Variance Table</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Response: dist</span></span><br><span class="line"><span class="meta">#</span><span class="bash">           Df Sum Sq Mean Sq F value   Pr(&gt;F)    </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> speed      1  21186 21185.5  89.567 1.49e-12 ***</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Residuals 48  11354   236.5                     </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></span><br><span class="line"></span><br><span class="line">reduced=lm(dist ~ 1, data=cars)  #没有自变量，仅有截距项的简化模型</span><br><span class="line">anova(reduced,m)</span><br><span class="line"><span class="meta">#</span><span class="bash"> Analysis of Variance Table</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Model 1: dist ~ 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Model 2: dist ~ speed</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   Res.Df   RSS Df Sum of Sq      F   Pr(&gt;F)    </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1     49 32539                                 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2     48 11354  1     21186 89.567 1.49e-12 ***</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></span><br></pre></td></tr></table></figure>
+<p>以上3组比较F统计量中p值都为1.49e-12。表面简化模型与完整模型之间存在显著差异，换言之，speed是有意义的解释变量。</p>
+<p>  <strong>4.模型诊断图形</strong></p>
+  <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot(<span class="name">m</span>,which=c(<span class="number">1</span>:<span class="number">3</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/lm_figure.jpg" alt=""></p>
+<ul>
+<li><p>第一个图为预测值Y（X轴）与残差（Y轴），在线性回归中，由于假设误差服从均值为0，方差固定的正态分布，所以认为残差分布与预测的Y值无关，残差均值必须为0。斜率为0的直线是理想情形。</p>
+</li>
+<li><p>第二个图为正态QQ图，查看标准化的残差是否服从正态分布。</p>
+</li>
+<li><p>第三个图为预测值Y（X轴）与标准化残差（Y轴），斜率为0的直线是理想情形。若在特定点观察到距离0较远的值，说明该点不能很好的拟合原始值，这些点肯能成为异常点。</p>
+</li>
+<li><p>第四个图为杠杆值（X轴）与标准化残差（Y轴）。杠杆值表示解释变量向极端的偏斜程度。</p>
+<p><strong>分类变量</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">m=lm(Sepal.Length ~ .,data=iris)</span><br><span class="line"> summary(m)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Call:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> lm(formula = Sepal.Length ~ ., data = iris)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Residuals:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">      Min       1Q   Median       3Q      Max </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -0.79424 -0.21874  0.00899  0.20255  0.73103 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Coefficients:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">                   Estimate Std. Error t value Pr(&gt;|t|)    </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> (Intercept)        2.17127    0.27979   7.760 1.43e-12 ***</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Sepal.Width        0.49589    0.08607   5.761 4.87e-08 ***</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Petal.Length       0.82924    0.06853  12.101  &lt; 2e-16 ***</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Petal.Width       -0.31516    0.15120  -2.084  0.03889 *  </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Speciesversicolor -0.72356    0.24017  -3.013  0.00306 ** </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Speciesvirginica  -1.02350    0.33373  -3.067  0.00258 ** </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Residual standard error: 0.3068 on 144 degrees of freedom</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Multiple R-squared:  0.8673,	Adjusted R-squared:  0.8627 </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> F-statistic: 188.3 on 5 and 144 DF,  p-value: &lt; 2.2e-16</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中Species为分类变量，有三种类别：setosa,versicolor,virginica.</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/lm_species.jpg" alt=""></p>
+<h1 id="4-多项式回归"><a href="#4-多项式回归" class="headerlink" title="4.多项式回归"></a>4.多项式回归</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fit2&lt;-lm(weight~height+I(height^<span class="number">2</span>),data=women)  </span><br><span class="line">summary(fit2)</span><br><span class="line">plot(women$height,women$weight,  </span><br><span class="line">     xlab=<span class="string">"Height（in inches）"</span>,  </span><br><span class="line">     ylab=<span class="string">"Weight（in lbs）"</span>)  </span><br><span class="line">lines(women$height,fitted(fit2)) </span><br><span class="line"></span><br><span class="line"><span class="comment">#一般来说，n次多项式生成一个n-1个弯曲的曲线</span></span><br><span class="line"><span class="comment">#car包中的scatterplot（）函数，可以很容易、方便地绘制二元关系图</span></span><br><span class="line"><span class="keyword">library</span>(car)</span><br><span class="line">scatterplot(weight~height,  </span><br><span class="line">            data=women,  </span><br><span class="line">            spread=<span class="literal">FALSE</span>,  </span><br><span class="line">            lty.smooth=<span class="number">2</span>,  </span><br><span class="line">            pch=<span class="number">19</span>,  </span><br><span class="line">            main=<span class="string">"Women Age 30-39"</span>,  </span><br><span class="line">            xlab=<span class="string">"Height (inches)"</span>,  </span><br><span class="line">            ylab=<span class="string">"Weight(lbs.)"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="6-多元线性回归"><a href="#6-多元线性回归" class="headerlink" title="6.多元线性回归"></a>6.多元线性回归</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">states&lt;-as.data.frame(state.x77[,c(<span class="string">"Murder"</span>,<span class="string">"Population"</span>,<span class="string">"Illiteracy"</span>,<span class="string">"Income"</span>,<span class="string">"Frost"</span>)])</span><br><span class="line">cor(states)  </span><br><span class="line">scatterplotMatrix(states,spread=<span class="literal">FALSE</span>,lty.smooth=<span class="number">2</span>,main=<span class="string">"Scatter Plot Matrix"</span>)</span><br><span class="line"><span class="comment">#scatterplotMatrix（）函数默认在非对角线区域绘制变量间的散点图，并添加平滑（loess）和线性拟合曲线</span></span><br><span class="line"><span class="comment">#多元线性回归</span></span><br><span class="line">fit&lt;-lm(Murder~Population+Illiteracy+Income+Frost,data=states)  </span><br><span class="line">summary(fit)</span><br></pre></td></tr></table></figure>
+<p>对于F统计量，原假设：所有系数β全为0。</p>
+<h1 id="7-有交互项的多元线性回归"><a href="#7-有交互项的多元线性回归" class="headerlink" title="7.有交互项的多元线性回归"></a>7.有交互项的多元线性回归</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fit&lt;-lm(mpg~hp+wt+hp:wt,data=mtcars)  </span><br><span class="line">summary(fit)  </span><br><span class="line"><span class="comment"># 通过effects包中的effect（）函数，可以用图形展示交互项的结果</span></span><br><span class="line">install.packages(<span class="string">"effects"</span>)  </span><br><span class="line"><span class="keyword">library</span>(effects)  </span><br><span class="line">plot(effect(<span class="string">"hp:wt"</span>,fit,  </span><br><span class="line">            list(wt=c(<span class="number">2.2</span>,<span class="number">3.2</span>,<span class="number">4.2</span>))),multiline=<span class="literal">TRUE</span>)</span><br><span class="line">            </span><br><span class="line"><span class="comment"># 二次拟合诊断图</span></span><br><span class="line">fit2&lt;-lm(weight~height+I(height^<span class="number">2</span>),data=women)  </span><br><span class="line">par(mfrow=c(<span class="number">2</span>,<span class="number">2</span>))  </span><br><span class="line">plot(fit2)</span><br></pre></td></tr></table></figure>
+<p><strong>I()</strong>防止对象解析或者转换，例如I(X^2)表示以X^2作为一个独立变量参与到回归，否者则解析为x+x+x:x交互作用。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/lm_interaction.jpg" alt=""></p>
+<h1 id="异常值"><a href="#异常值" class="headerlink" title="异常值"></a>异常值</h1><p><strong>学生化残差</strong>： 残差与残差标准差的比值。</p>
+<p><strong>外部学生化残差</strong>：计算第i个学生化残差时，先去掉i再计算标准差。一般用外部学生化残差评估异常点。</p>
+<p>R中rstudent()计算外部学生化残差。外部学生化残差服从t分布，可以使用t-test来寻找rstudent()值过大或者过小的点。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">m</span>=lm(circumference~ age+I(age^2),<span class="attribute">data</span>=Orange)</span><br><span class="line">rstudent(m)</span><br><span class="line">car::outlierTest(m)</span><br><span class="line"></span><br><span class="line"><span class="comment"># No Studentized residuals with Bonferonni p &lt; 0.05</span></span><br><span class="line"><span class="comment"># Largest |rstudent|:</span></span><br><span class="line"><span class="comment">#    rstudent unadjusted p-value Bonferonni p</span></span><br><span class="line"><span class="comment"># 27 2.050328            0.04887           NA</span></span><br></pre></td></tr></table></figure>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/10/12/2017-10-12-Logistic/" data-toggle="tooltip" data-placement="left" title="Logistic回归">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/09/22/2017-09-22-step_regression/" data-toggle="tooltip" data-placement="top" title="R语言 逐步回归分析">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-回归的多面性"><span class="toc-number">1.</span> <span class="toc-text">1. 回归的多面性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-用lm-拟合回归模型"><span class="toc-number">2.</span> <span class="toc-text">2. 用lm()拟合回归模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-R-语言示例lm"><span class="toc-number">3.</span> <span class="toc-text">3. R 语言示例lm()</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-多项式回归"><span class="toc-number">4.</span> <span class="toc-text">4.多项式回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-多元线性回归"><span class="toc-number">5.</span> <span class="toc-text">6.多元线性回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-有交互项的多元线性回归"><span class="toc-number">6.</span> <span class="toc-text">7.有交互项的多元线性回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异常值"><span class="toc-number">7.</span> <span class="toc-text">异常值</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                119.6k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
