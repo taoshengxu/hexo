@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGAsampleName/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        TCGA样本命名详解｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>TCGA样本命名详解</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: Dec 5, 2019</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Data Mining" title="Data Mining">Data Mining</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">993 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在TCGA中，一个患者可能会对应多个样本，如TCGA-A6-6650可以得到3个样本数据：</p>
+<p><em>TCGA-A6-6650-01A-11R-1774-07, TCGA-A6-6650-01A-11R-A278-07, TCGA-A6-6650-01B-02R-A277-07</em><br>      大家知道一般在做TCGA数据分析的时候样本名实际上只保留到前四个元素（以”-“分割），例如TCGA-A6-6650-01。所以实际上上示3个样本一般只保留一个.</p>
+<ul>
+<li>TCGA：Project, 所有TCGA样本名均以这个开头，标志</li>
+<li>A6：Tissue source site，组织来源编码，如A6就表示来源于Christiana Healthcare中心的结肠癌组织。更多编码所代表的意义详见：<br>  <a href="https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/tissue-source-site-codes" target="_blank" rel="noopener">https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/tissue-source-site-codes</a></li>
+<li>6650：Participant, 参与者编号</li>
+<li>01：Sample, 这两个数字可以说是最关键、最被大家注意的，其中编号01~09表示肿瘤，10~19表示正常对照，如下：<br>  <a href="https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/sample-type-codes" target="_blank" rel="noopener">https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/sample-type-codes</a><br>  所以在TCGA样本名中，这个位置最常见的就是01和11，当然偶尔也会有其他的数字</li>
+<li>A：Vial, 在一系列患者组织中的顺序，绝大多数样本该位置编码都是A; 很少数的是B，表示福尔马林固定石蜡包埋组织，已被证明用于测序分析的效果不佳，所以不建议使用-01B的样本数据.</li>
+<li>11：Portion, 同属于一个患者组织的不同部分的顺序编号，同一组织会分割为100-120mg的部分，分别使用<br>R：Analyte, 分析的分子类型，对应关系如下所示：<br><a href="https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/portion-analyte-codes" target="_blank" rel="noopener">https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/portion-analyte-codes</a></li>
+<li>1774：Plate, 在一系列96孔板中的顺序，值大表示制板越晚</li>
+<li>07：Center, 测序或鉴定中心编码，更多编码详见：<br><a href="https://tcga-data.nci.nih.gov/datareports/codeTablesReport.htm?codeTable=center" target="_blank" rel="noopener">https://tcga-data.nci.nih.gov/datareports/codeTablesReport.htm?codeTable=center</a></li>
+</ul>
+<p>一个借鉴的图片：</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/TCGA_name.png" alt=""></p>
+<p>更多内容详见：<br><a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode" target="_blank" rel="noopener">https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode</a><br><a href="http://docs.cavatica.org/docs/tcga-grch38-metadata" target="_blank" rel="noopener">http://docs.cavatica.org/docs/tcga-grch38-metadata</a></p>
+<p>所以现在看这三个样本其区别就在于，前两个使用的是患者的冰冻组织做的测序，而第三个用的是福尔马林固定石蜡包埋组织；而前两个样本的区别在于同一组织后续使用了不同的96孔板。</p>
+<p>理解了命名规则及三者命名上的主要区别后，现在可以重点解决如何从一个患者的多个样本中挑选样本的问题了，首先排除TCGA-A6-6650-01B-02R-A277-07，因为是<code>01B，福尔马林固定石蜡包埋组织</code>！剩下的两个：</p>
+<p>TCGA-A6-6650-01A-11R-1774-07<br>TCGA-A6-6650-01A-11R-A278-07<br>先看看GDAC firehose遇到这种情况怎么解决，总结起来就是：</p>
+<p>1、对RNA数据来说，Analyte为R的优先级最该，其次是R和T，而对于DNA层面的分析来说，D的优先级最高。<br>2、如果Analyte相同，那就选择Portion和/或Plate值更大的。<br>所以按照GDAC firehose的方法，最终保留TCGA-A6-6650-01A-11R-A278-07，因为其相对于TCGA-A6-6650-01A-11R-1774-07的板号(Plate)更晚：<br><a href="https://github.com/BioinformaticsFMRP/TCGAbiolinks/issues/163" target="_blank" rel="noopener">https://github.com/BioinformaticsFMRP/TCGAbiolinks/issues/163</a><br>虽然看起来可能这么选比较准确，但是稍微有些麻烦~</p>
+<p>然后是cBioPortal中的处理方式：</p>
+<p>随机选择了一个，理由很简单啊，来源于同一个患者的癌组织样本差别不大，小编随机测试了两个样本，表达相关性值是大于0.8的。所以如果遇到需要选择的时候，就仁者见仁了，建议天秤座的小伙伴们也不要太纠结到底哪个最好，当然如果你有不同的意见和看法，欢迎交流讨论！</p>
+<p>————————————————<br>版权声明：本文为CSDN博主「Mr番茄蛋」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_35203425/article/details/80851862" target="_blank" rel="noopener">https://blog.csdn.net/qq_35203425/article/details/80851862</a></p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2019/12/05/2019-12-05_trancript_type/" data-toggle="tooltip" data-placement="left" title="判定基因名类型-codingRNA OR no-codeing RNA">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2019/11/26/2019-11-26_githubDataMining/" data-toggle="tooltip" data-placement="top" title="Github机器学习100天">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2019
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                121.5k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

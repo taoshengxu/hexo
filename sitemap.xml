@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
+    
+    <lastmod>2019-12-05T15:13:45.627Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/10/2017-11-10_gtf_gene_position/</loc>
+    
+    <lastmod>2019-12-05T15:11:20.129Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGAsampleName/</loc>
+    
+    <lastmod>2019-12-05T14:29:16.198Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
     
     <lastmod>2019-12-05T07:19:47.379Z</lastmod>
@@ -86,14 +107,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
@@ -534,13 +555,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -548,7 +562,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -556,6 +570,13 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -607,13 +628,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/05/2017-11-05_transcriptome_analysis/</loc>
     
     <lastmod>2017-11-12T02:24:26.504Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/10/2017-11-10_gtf_gene_position/</loc>
-    
-    <lastmod>2017-11-10T03:02:38.810Z</lastmod>
     
   </url>
   
