@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/</loc>
+    <lastmod>2019-12-06T14:15:26.314Z</lastmod>
+    <data>
+        <display>
+        <title>TCGA miRNA 表达谱矩阵的Name转换</title>
+        <pubTime>2019-04-02T09:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
-    <lastmod>2019-12-06T02:26:51.288Z</lastmod>
+    <lastmod>2019-12-06T14:08:14.582Z</lastmod>
     <data>
         <display>
         <title>判定基因名类型-codingRNA OR no-codeing RNA</title>
@@ -261,7 +281,7 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     <data>
         <display>
@@ -281,7 +301,7 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     <data>
         <display>
@@ -405,26 +425,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/</loc>
-    <lastmod>2019-04-02T12:47:17.678Z</lastmod>
-    <data>
-        <display>
-        <title>人类gene是coding RNA或者non coding RNA</title>
-        <pubTime>2019-04-02T09:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
         </display>
     </data>
     </url>
