@@ -22,7 +22,7 @@
 
     <title>
         
-        下载参考基因组序列｜undefined
+        下载参考基因组序列以及一些重要注释数据库汇总｜undefined
         
     </title>
 
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>下载参考基因组序列</h1>
+                        <h1>下载参考基因组序列以及一些重要注释数据库汇总</h1>
                         
                         
 
@@ -161,14 +161,45 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">196 words in total, 1 minutes required.</span>
+          <span class="post-count">610 words in total, 3 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>UCSC下载：</strong></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wegt http:<span class="regexp">//</span>hgdownload.cse.ucsc.edu<span class="regexp">/goldenPath/</span>hg19<span class="regexp">/bigZips/</span>chromFa.tar.gz <span class="comment">##hg19 </span></span><br><span class="line">wget http:<span class="regexp">//</span>hgdownload.cse.ucsc.edu<span class="regexp">/goldenPath/</span>hg38<span class="regexp">/bigZips/</span>hg38.chromFa.tar.gz <span class="comment">##hg38</span></span><br><span class="line"></span><br><span class="line">tar -zxvf chromFa.tar.gz</span><br><span class="line">cat *.fa &gt;hg19.fa</span><br></pre></td></tr></table></figure>
-<p><strong>NCBI:建议用迅雷或ncbi官网提供的下载器下载速度更快</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##hg19：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 22) X Y</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">nohup axel ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/ARCHIVE/BUILD.37.3/Assembled_chromosomes/seq/hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa.gz &amp;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 22) X Y</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">gunzip -c ./download/hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa.gz &gt; ./hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa</span><br><span class="line">cat hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa &gt;&gt;hg19.fa</span><br><span class="line">sleep 10s;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##hg38：</span></span><br><span class="line">同理，只要找到下载地址，改动一下即可。</span><br><span class="line">ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/Assembled_chromosomes/seq/hs_ref_GRCh38.p7_chr<span class="variable">$&#123;i&#125;</span>.fa.gz</span><br></pre></td></tr></table></figure>
-<p><a href="https://taoshengxu.github.io/DocumentGit/pdf/参考基因组及注释文件下载.pdf">https://taoshengxu.github.io/DocumentGit/pdf/参考基因组及注释文件下载.pdf</a></p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://taoshengxu.github.io/DocumentGit/pdf/参考基因组及注释文件下载.pdf">参考基因组及注释文件下载</a></p>
+<h2 id="1-参考基因组"><a href="#1-参考基因组" class="headerlink" title="1. 参考基因组"></a>1. 参考基因组</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>NCBI</th>
+<th>Ensembl</th>
+<th>UCSC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GRCh36</td>
+<td>release_52</td>
+<td>hg18</td>
+</tr>
+<tr>
+<td>GRCh37</td>
+<td>release_59/61/64/68/69/75</td>
+<td>hg19</td>
+</tr>
+<tr>
+<td>GRCh38</td>
+<td>release_76/77/78/80/81/82</td>
+<td>hg38</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="UCSC下载："><a href="#UCSC下载：" class="headerlink" title="UCSC下载："></a><strong>UCSC下载：</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##hg19：</span></span><br><span class="line">wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/chromFa.tar.gz <span class="comment">##hg19 </span></span><br><span class="line">tar -zxvf chromFa.tar.gz</span><br><span class="line">cat *.fa &gt;hg19.fa</span><br><span class="line"></span><br><span class="line"><span class="comment">##hg38：</span></span><br><span class="line">wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.chromFa.tar.gz <span class="comment">##hg38</span></span><br><span class="line">tar -zxvf hg38.chromFa.tar.gz</span><br><span class="line">cat *.fa &gt;hg38.fa</span><br><span class="line"></span><br><span class="line"><span class="comment">#http://hgdownload.cse.ucsc.edu/goldenPath/mm10/bigZips/chromFa.tar.gz</span></span><br><span class="line"><span class="comment">#http://hgdownload.cse.ucsc.edu/goldenPath/mm9/bigZips/chromFa.tar.gz</span></span><br><span class="line"><span class="comment">#http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/chromFa.tar.gz</span></span><br><span class="line"><span class="comment">#http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/chromFa.tar.gz</span></span><br><span class="line"></span><br><span class="line">但是注释文件下载稍微有点麻烦，需要设置一系列参数来生成：</span><br><span class="line"><span class="comment"># http://genome.ucsc.edu/cgi-bin/hgTables</span></span><br><span class="line">Select the following options:</span><br><span class="line">clade: Mammal</span><br><span class="line">genome: Human</span><br><span class="line">assembly: Feb. 2009 (GRCh37/hg19)</span><br><span class="line">group: Genes and Gene Predictions</span><br><span class="line">track: UCSC Genes</span><br><span class="line">table: knownGene</span><br><span class="line">region: Select <span class="string">"genome"</span> <span class="keyword">for</span> the entire genome.</span><br><span class="line">output format: GTF - gene transfer format</span><br><span class="line">output file: enter a file name to save your results to a file, or leave blank to display results <span class="keyword">in</span> the browser</span><br><span class="line">Click <span class="string">'get output'</span>.</span><br></pre></td></tr></table></figure>
+<h4 id="NCBI下载"><a href="#NCBI下载" class="headerlink" title="NCBI下载"></a><strong>NCBI下载</strong></h4><p><strong>建议用迅雷或ncbi官网提供的下载器下载速度更快</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##GRCH37-- hg19：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 22) X Y</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">nohup axel ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/ARCHIVE/BUILD.37.3/Assembled_chromosomes/seq/hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa.gz &amp;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 22) X Y</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">gunzip -c ./download/hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa.gz &gt; ./hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa</span><br><span class="line">cat hs_ref_GRCh37.p5_chr<span class="variable">$&#123;i&#125;</span>.fa &gt;&gt;hg19.fa</span><br><span class="line">sleep 10s;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##GRCH38-- hg38：</span></span><br><span class="line">同理，只要找到下载地址，改动一下即可。</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 22) X Y</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">nohup wget -c ftp://ftp.ncbi.nlm.nih.gov/genomes/H_sapiens/ARCHIVE/ANNOTATION_RELEASE.109/Assembled_chromosomes/seq/hs_ref_GRCh38.p12_chr<span class="variable">$&#123;i&#125;</span>.fa.gz </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="comment">#ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/Assembled_chromosomes/seq/hs_ref_GRCh38.p7_chr$&#123;i&#125;.fa.gz </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 22) X Y</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">gunzip -c ./download/hs_ref_GRCh38.p12_chr<span class="variable">$&#123;i&#125;</span>.fa.gz &gt; ./hs_ref_GRCh38.p12_chr<span class="variable">$&#123;i&#125;</span>.fa</span><br><span class="line">cat hs_ref_GRCh38.p12_chr<span class="variable">$&#123;i&#125;</span>.fa &gt;&gt;hg38.fa</span><br><span class="line">sleep 10s;</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##注释文件gtf</span></span><br><span class="line">ftp://ftp.ncbi.nlm.nih.gov/genomes/Homo_sapiens/ARCHIVE/</span><br></pre></td></tr></table></figure>
+<h4 id="Ensembl下载"><a href="#Ensembl下载" class="headerlink" title="Ensembl下载"></a><strong>Ensembl下载</strong></h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更改release后的数字下载相应的版本，包括dna、cdna、cds等序列信息，release-75是目前最新的hg19版本。</span></span><br><span class="line"><span class="symbol">ftp:</span>/<span class="regexp">/ftp.ensembl.org/pub</span><span class="regexp">/release-75/fasta</span><span class="regexp">/homo_sapiens/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#注释文件下载（默认gtf，大部分比对软件输入格式）：</span></span><br><span class="line"><span class="symbol">ftp:</span>/<span class="regexp">/ftp.ensembl.org/pub</span><span class="regexp">/release75/gtf</span><span class="regexp">/homo_sapiens/</span>Homo_sapiens.GRCh37.<span class="number">75</span>.gtf.gz</span><br></pre></td></tr></table></figure>
+<h2 id="2-重要基因名注释数据库"><a href="#2-重要基因名注释数据库" class="headerlink" title="2. 重要基因名注释数据库"></a>2. 重要基因名注释数据库</h2><h4 id="genecode"><a href="#genecode" class="headerlink" title="genecode"></a>genecode</h4><p><a href="https://www.gencodegenes.org/human/" target="_blank" rel="noopener">https://www.gencodegenes.org/human/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axel ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.chr_patch_hapl_scaff.annotation.gtf.gz</span><br></pre></td></tr></table></figure>
+<h4 id="HNGC注释数据"><a href="#HNGC注释数据" class="headerlink" title="HNGC注释数据"></a>HNGC注释数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axel ftp://ftp.ebi.ac.uk/pub/databases/genenames/new/tsv/hgnc_complete_set.txt</span><br></pre></td></tr></table></figure>
 
           
           <hr>
@@ -180,7 +211,7 @@
               
               
               <li class="next">
-                  <a href="/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/" data-toggle="tooltip" data-placement="top" title="TCGA miRNA 表达谱矩阵的Name转换">Next Post&rarr;</a>
+                  <a href="/hexo/2019/04/02/2019-04-02_TCGA_miRNAName/" data-toggle="tooltip" data-placement="top" title="TCGA miRNA 表达谱矩阵的Name转换">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -192,7 +223,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-参考基因组"><span class="toc-number">1.</span> <span class="toc-text">1. 参考基因组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UCSC下载："><span class="toc-number">1.0.1.</span> <span class="toc-text">UCSC下载：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NCBI下载"><span class="toc-number">1.0.2.</span> <span class="toc-text">NCBI下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ensembl下载"><span class="toc-number">1.0.3.</span> <span class="toc-text">Ensembl下载</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#2-重要基因名注释数据库"><span class="toc-number">2.</span> <span class="toc-text">2. 重要基因名注释数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#genecode"><span class="toc-number">2.0.1.</span> <span class="toc-text">genecode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HNGC注释数据"><span class="toc-number">2.0.2.</span> <span class="toc-text">HNGC注释数据</span></a></li></ol></li>
         
     </div>
   </div>
@@ -238,7 +269,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                121.5k <b>Words</b>
+                121.9k <b>Words</b>
         </p></div>
 
         <div class="search-container">

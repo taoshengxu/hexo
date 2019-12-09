@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
+    
+    <lastmod>2019-12-09T06:46:12.271Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/02/2019-04-02_TCGA_miRNAName/</loc>
     
     <lastmod>2019-12-06T14:15:26.314Z</lastmod>
     
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
@@ -152,13 +159,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
     
     <lastmod>2019-04-06T05:57:03.691Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
-    
-    <lastmod>2019-04-04T06:34:45.702Z</lastmod>
     
   </url>
   

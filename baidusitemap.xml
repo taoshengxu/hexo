@@ -4,7 +4,27 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/02/2019-04-02_gene_coding_nocoding/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
+    <lastmod>2019-12-09T06:46:12.271Z</lastmod>
+    <data>
+        <display>
+        <title>下载参考基因组序列以及一些重要注释数据库汇总</title>
+        <pubTime>2019-04-03T03:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/02/2019-04-02_TCGA_miRNAName/</loc>
     <lastmod>2019-12-06T14:15:26.314Z</lastmod>
     <data>
         <display>
@@ -281,7 +301,7 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     <data>
         <display>
@@ -301,7 +321,7 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     <data>
         <display>
@@ -384,26 +404,6 @@
         <pubTime>2017-11-07T08:52:20.000Z</pubTime>
         
         <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
-    <lastmod>2019-04-04T06:34:45.702Z</lastmod>
-    <data>
-        <display>
-        <title>下载参考基因组序列</title>
-        <pubTime>2019-04-03T03:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
          
          
            
