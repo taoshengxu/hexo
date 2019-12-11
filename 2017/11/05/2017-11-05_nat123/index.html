@@ -157,13 +157,19 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">269 words in total, 1 minutes required.</span>
+          <span class="post-count">384 words in total, 2 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p><a href="http://www.nat123.com/Pages_17_619.jsp" target="_blank" rel="noopener">教程</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd  /soft/nat123/    --进入自己本地实际安装目录</span><br><span class="line">sudo apt-get install mono-complete</span><br><span class="line"></span><br><span class="line">mono  nat123linux.sh     --根据提示手动输入帐号密码 </span><br><span class="line"><span class="meta">#</span>#或者 </span><br><span class="line">mono  nat123linux.sh  service  &amp;     --自动读取上一次成功登录帐号以后台服务启动</span><br><span class="line"></span><br><span class="line">用ctrl+z转动后台执行</span><br></pre></td></tr></table></figure>
 <h1 id="开机自动登录"><a href="#开机自动登录" class="headerlink" title="开机自动登录"></a>开机自动登录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">（1）本地必须先手动输入帐号密码成功登录一次；</span><br><span class="line">（2）执行“chmod +x /etc/rc.local”命令确保有权限；</span><br><span class="line">（3）把启动程序的命令添加到/etc/rc.local文件中，此文件内容如下，</span><br><span class="line"><span class="meta">#</span>!/bin/sh -e</span><br><span class="line"><span class="meta">#</span> rc.local</span><br><span class="line"><span class="meta">#</span> This script is executed at the end of each multiuser runlevel.</span><br><span class="line"><span class="meta">#</span> Make sure that the script will "exit 0" on success or any other</span><br><span class="line"><span class="meta">#</span> value on error.</span><br><span class="line"><span class="meta">#</span> In order to enable or disable this script just change the execution</span><br><span class="line"><span class="meta">#</span> bits.</span><br><span class="line"><span class="meta">#</span> By default this script does nothing.</span><br><span class="line"></span><br><span class="line">cd  /soft/nat123    --本地实际安装目录</span><br><span class="line">mono  nat123linux.sh  service  &amp;      ---自动读取上次成功登录帐号并以后台服务启动</span><br><span class="line"></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
 <h1 id="LINUX环境开机自动启动防掉线脚本"><a href="#LINUX环境开机自动启动防掉线脚本" class="headerlink" title="LINUX环境开机自动启动防掉线脚本"></a>LINUX环境开机自动启动防掉线脚本</h1><p><a href="http://www.nat123.com/Pages_17_682.jsp" target="_blank" rel="noopener">教程</a></p>
+<h1 id="花生壳盒子（花生棒Pro）设置"><a href="#花生壳盒子（花生棒Pro）设置" class="headerlink" title="花生壳盒子（花生棒Pro）设置"></a>花生壳盒子（花生棒Pro）设置</h1><p>（1）不需要安装任何客户端，</p>
+<p>（2）先设置联上网（有线或者无线）</p>
+<ul>
+<li>花生壳盒子（花生棒Pro）使用教程——有线上网 <a href="http://service.oray.com/question/5098.html" target="_blank" rel="noopener">http://service.oray.com/question/5098.html</a> </li>
+</ul>
+<p>（3）访问“ <a href="alires:///offlinepkg/ww/recent/src/b.oray.com" target="_blank" rel="noopener">b.oray.com</a> ”，然后用sn码和对应密码登录。  登录后，在花生壳管理页面，鼠标移动到右上角偏中间的SN码，点击“切换账号”再用Oray账号登录</p>
 
           
           <hr>
@@ -191,7 +197,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-number">1.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开机自动登录"><span class="toc-number">2.</span> <span class="toc-text">开机自动登录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LINUX环境开机自动启动防掉线脚本"><span class="toc-number">3.</span> <span class="toc-text">LINUX环境开机自动启动防掉线脚本</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#启动"><span class="toc-number">1.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开机自动登录"><span class="toc-number">2.</span> <span class="toc-text">开机自动登录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LINUX环境开机自动启动防掉线脚本"><span class="toc-number">3.</span> <span class="toc-text">LINUX环境开机自动启动防掉线脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#花生壳盒子（花生棒Pro）设置"><span class="toc-number">4.</span> <span class="toc-text">花生壳盒子（花生棒Pro）设置</span></a></li></ol>
         
     </div>
   </div>
@@ -237,7 +243,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                121.9k <b>Words</b>
+                122.0k <b>Words</b>
         </p></div>
 
         <div class="search-container">
