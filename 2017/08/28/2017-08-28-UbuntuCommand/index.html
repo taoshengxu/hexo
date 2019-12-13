@@ -157,7 +157,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">5,057 words in total, 21 minutes required.</span>
+          <span class="post-count">5,033 words in total, 21 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><ul>
@@ -170,11 +170,28 @@
 <li>d: +Enter [D:/]</li>
 </ul>
 <h1 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h1><h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
-<li>sudo su 进入root</li>
-<li>exit <strong>or</strong> logout  <strong>or</strong> ctrl D 退出root</li>
-<li>修改root密码 $ sudo passwd </li>
-<li>修改用户密码 $ sudo passwd username</li>
-<li>修改主机名： $ sudo gedit /etc/hostname 和 $ sudo gedit /etc/hosts</li>
+<li><p>sudo su 进入root</p>
+</li>
+<li><p>exit <strong>or</strong> logout  <strong>or</strong> ctrl D 退出root</p>
+</li>
+<li><p>修改root密码 $ sudo passwd </p>
+</li>
+<li><p>修改用户密码 $ sudo passwd username</p>
+</li>
+<li><p>修改主机名： $ sudo gedit /etc/hostname 和 $ sudo gedit /etc/hosts</p>
+</li>
+</ul>
+<ul>
+<li>&amp; 加在一个命令之后可以把这个命令放到后台运行</li>
+<li>Ctrl+Z 可以把一个前台执行的命令放到后台</li>
+<li>jobs -l 查看后台运行的命令</li>
+<li>fg jobnumber(PID) 将后台命令调到前台</li>
+<li>bg jobnumber(PID) 重启后台暂停的命令</li>
+<li>kill %num 杀死</li>
+<li>kill -9 PID 强制杀死进程</li>
+<li>ps 查看进程号PID</li>
+<li>nohup 始终执行</li>
+<li>ps -aux | grep xxx 显示终端关闭后的后台进程</li>
 </ul>
 <h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ul>
 <li>ls 列出所有文件</li>
@@ -193,23 +210,6 @@
 </li>
 <li>mv file1 dir1      将文件 file1，移到目录 dir1下，文件名仍为 file1。</li>
 <li>mv dir1 dir2       若目录 dir2 存在，则将目录 dir1，及其所有文件和子目录，移到目录 dir2 下，新目录名称为 dir1。若目录 dir2 不存在，则将dir1，及其所有文件和子目录，更改为目录 dir2。</li>
-</ul>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul>
-<li>&amp; 加在一个命令之后可以把这个命令放到后台运行</li>
-<li>Ctrl+Z 可以把一个前台执行的命令放到后台</li>
-<li>jobs -l 查看后台运行的命令</li>
-<li>fg jobnumber(PID) 将后台命令调到前台</li>
-<li>bg jobnumber(PID) 重启后台暂停的命令</li>
-<li>kill %num 杀死</li>
-<li>kill -9 PID 强制杀死进程</li>
-<li>ps 查看进程号PID</li>
-<li>nohup 始终执行</li>
-<li>ps -aux | grep xxx 显示终端关闭后的后台进程</li>
-</ul>
-<ul>
-<li>wget -P 目录 网址</li>
-<li>wget ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra</li>
-<li>nohup axel ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra &amp; (后台执行)</li>
 </ul>
 <h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><p>重启</p>
 <ul>
@@ -252,25 +252,44 @@
 </li>
 </ul>
 <h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><ul>
-<li><strong>sudo mount -t ext4 /dev/sdb /data 挂载到data</strong></li>
-<li>sudo umount /dev/sdb 卸载</li>
-<li>mkdir -p 递归创建目录</li>
-<li>cp 复制</li>
-<li>rmdir 删除空目录  </li>
-<li>df -lh 查看磁盘空间 </li>
-<li>df -kh 查看磁盘挂载</li>
-<li>df -m 以M为单位显示磁盘使用量和占用率</li>
-<li>df -k 以KB为单位显示磁盘使用量和占用率</li>
-<li>du-ck /dir 列出目录下所有文件或目录占用的大小，以KB作为计量单位</li>
-<li>sudo fdisk -lu 显示硬盘及所属分区情况</li>
-<li>sudo fdisk /dev/sdb 对sbd盘分区<br><em>m(help)-n(增加一个新分区)-e(扩展分区)-1-4(分几个区)-…-p(显示分区表)-w(保存分区表)</em></li>
-<li>sudo blkid 查看所有分区的UUID <ul>
+<li><p><strong>sudo mount -t ext4 /dev/sdb /data 挂载到data</strong></p>
+</li>
+<li><p>sudo umount /dev/sdb 卸载</p>
+</li>
+<li><p>mkdir -p 递归创建目录</p>
+</li>
+<li><p>cp 复制</p>
+</li>
+<li><p>rmdir 删除空目录  </p>
+</li>
+<li><p>df -lh 查看磁盘空间 </p>
+</li>
+<li><p>df -kh 查看磁盘挂载</p>
+</li>
+<li><p>df -m 以M为单位显示磁盘使用量和占用率</p>
+</li>
+<li><p>df -k 以KB为单位显示磁盘使用量和占用率</p>
+</li>
+<li><p>du-ck /dir 列出目录下所有文件或目录占用的大小，以KB作为计量单位</p>
+</li>
+<li><p>sudo fdisk -lu 显示硬盘及所属分区情况</p>
+</li>
+<li><p>sudo fdisk /dev/sdb 对sbd盘分区<br><em>m(help)-n(增加一个新分区)-e(扩展分区)-1-4(分几个区)-…-p(显示分区表)-w(保存分区表)</em></p>
+</li>
+<li><p>sudo blkid 查看所有分区的UUID </p>
+<ul>
 <li>sudo blkid /dev/sda5 查看指定盘的UUID</li>
 </ul>
 </li>
-<li>(谨慎复制)sudo mkfs -t ext4 /dev/sdb 对sdb盘格式化为ext4格式</li>
-<li>ubuntu 加载新硬盘教程<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu环境下挂载新硬盘.pdf">pdf</a></li>
-<li>ubuntu<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu命令手册.pdf">命令手册</a> </li>
+<li><p>(谨慎复制)sudo mkfs -t ext4 /dev/sdb 对sdb盘格式化为ext4格式</p>
+</li>
+<li><p>自动挂载 sudo gedit /etc/fstab  在这个文件夹下修改</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UUID=<span class="number">09d387b1</span>-<span class="number">8438</span>-41db-<span class="number">9b88</span>-f3b145cc1674 /data2            ext4    defaults              <span class="number">0</span>       <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ubuntu 加载新硬盘教程<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu环境下挂载新硬盘.pdf">pdf</a></p>
+</li>
+<li><p>ubuntu<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu命令手册.pdf">命令手册</a> </p>
+</li>
 </ul>
 <h3 id="ubuntu上查看cpu、内存、硬盘等参数"><a href="#ubuntu上查看cpu、内存、硬盘等参数" class="headerlink" title="ubuntu上查看cpu、内存、硬盘等参数"></a>ubuntu上查看cpu、内存、硬盘等参数</h3><ul>
 <li>CPU：<br> 型号：<code>grep &quot;model name&quot; /proc/cpuinfo |awk -F &#39;:&#39; &#39;{print $NF}&#39;</code><br> 数量：<code>lscpu |grep &quot;CPU socket&quot; |awk &#39;{print $NF}&#39;</code> 或 <code>lscpu |grep &quot;Socket&quot; |awk &#39;{print $NF}&#39;</code><br> 每个CPU的核数：<code>lscpu |grep &quot;Core(s) per socket&quot; |awk &#39;{print $NF}&#39;</code></li>
@@ -368,7 +387,7 @@
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2017/08/28/2017-08-28-UbuntuDonwload/" data-toggle="tooltip" data-placement="left" title="Ubuntu下载">&larr; Previous Post</a>
+                  <a href="/hexo/2017/08/28/2017-08-28-UbuntuDonwload/" data-toggle="tooltip" data-placement="left" title="Ubuntu下载指令">&larr; Previous Post</a>
               </li>
               
               
@@ -389,7 +408,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOS"><span class="toc-number">1.</span> <span class="toc-text">DOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu"><span class="toc-number">2.</span> <span class="toc-text">Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.0.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-number">2.0.2.</span> <span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu创建、删除文件及文件夹，强制清空回收站方法"><span class="toc-number">2.0.3.</span> <span class="toc-text">ubuntu创建、删除文件及文件夹，强制清空回收站方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">2.0.4.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开关机"><span class="toc-number">2.0.5.</span> <span class="toc-text">开关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载软件"><span class="toc-number">2.0.6.</span> <span class="toc-text">卸载软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看CPU"><span class="toc-number">2.0.7.</span> <span class="toc-text">查看CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新用户和用户组"><span class="toc-number">2.0.8.</span> <span class="toc-text">创建新用户和用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文件权限和所有者"><span class="toc-number">2.0.9.</span> <span class="toc-text">修改文件权限和所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#磁盘管理"><span class="toc-number">2.0.10.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu上查看cpu、内存、硬盘等参数"><span class="toc-number">2.0.11.</span> <span class="toc-text">ubuntu上查看cpu、内存、硬盘等参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本编辑—vi-操作"><span class="toc-number">2.0.12.</span> <span class="toc-text">文本编辑—vi 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本编辑-—-nono-操作"><span class="toc-number">2.0.13.</span> <span class="toc-text">文本编辑 — nono 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在-Ubuntu-系统中修复损坏的程序包"><span class="toc-number">2.0.14.</span> <span class="toc-text">如何在 Ubuntu 系统中修复损坏的程序包</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#方法1：使用-apt-或-apt-get"><span class="toc-number">2.0.14.0.0.1.</span> <span class="toc-text">方法1：使用 apt 或 apt-get</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#方法2：使用-dpkg"><span class="toc-number">2.0.14.0.0.2.</span> <span class="toc-text">方法2：使用 dpkg</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#方法3：解除-dpkg-锁"><span class="toc-number">2.0.14.0.0.3.</span> <span class="toc-text">方法3：解除 dpkg 锁</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Bash-命令"><span class="toc-number">3.</span> <span class="toc-text">Bash 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu的一些命令及查看已安装软件包的命令"><span class="toc-number">3.1.</span> <span class="toc-text">ubuntu的一些命令及查看已安装软件包的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu进入单用户模式—系统修复"><span class="toc-number">3.1.1.</span> <span class="toc-text">Ubuntu进入单用户模式—系统修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-查看用户名并重置新密码"><span class="toc-number">3.1.2.</span> <span class="toc-text">Ubuntu 查看用户名并重置新密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu的apt-get源为国内镜像源的方法"><span class="toc-number">3.2.</span> <span class="toc-text">Ubuntu的apt-get源为国内镜像源的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">3.2.1.</span> <span class="toc-text">解压</span></a></li></ol></li></ol></li>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOS"><span class="toc-number">1.</span> <span class="toc-text">DOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu"><span class="toc-number">2.</span> <span class="toc-text">Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.0.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-number">2.0.2.</span> <span class="toc-text">目录操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu创建、删除文件及文件夹，强制清空回收站方法"><span class="toc-number">2.0.3.</span> <span class="toc-text">ubuntu创建、删除文件及文件夹，强制清空回收站方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开关机"><span class="toc-number">2.0.4.</span> <span class="toc-text">开关机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载软件"><span class="toc-number">2.0.5.</span> <span class="toc-text">卸载软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看CPU"><span class="toc-number">2.0.6.</span> <span class="toc-text">查看CPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新用户和用户组"><span class="toc-number">2.0.7.</span> <span class="toc-text">创建新用户和用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文件权限和所有者"><span class="toc-number">2.0.8.</span> <span class="toc-text">修改文件权限和所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#磁盘管理"><span class="toc-number">2.0.9.</span> <span class="toc-text">磁盘管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu上查看cpu、内存、硬盘等参数"><span class="toc-number">2.0.10.</span> <span class="toc-text">ubuntu上查看cpu、内存、硬盘等参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本编辑—vi-操作"><span class="toc-number">2.0.11.</span> <span class="toc-text">文本编辑—vi 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本编辑-—-nono-操作"><span class="toc-number">2.0.12.</span> <span class="toc-text">文本编辑 — nono 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在-Ubuntu-系统中修复损坏的程序包"><span class="toc-number">2.0.13.</span> <span class="toc-text">如何在 Ubuntu 系统中修复损坏的程序包</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#方法1：使用-apt-或-apt-get"><span class="toc-number">2.0.13.0.0.1.</span> <span class="toc-text">方法1：使用 apt 或 apt-get</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#方法2：使用-dpkg"><span class="toc-number">2.0.13.0.0.2.</span> <span class="toc-text">方法2：使用 dpkg</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#方法3：解除-dpkg-锁"><span class="toc-number">2.0.13.0.0.3.</span> <span class="toc-text">方法3：解除 dpkg 锁</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Bash-命令"><span class="toc-number">3.</span> <span class="toc-text">Bash 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu的一些命令及查看已安装软件包的命令"><span class="toc-number">3.1.</span> <span class="toc-text">ubuntu的一些命令及查看已安装软件包的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu进入单用户模式—系统修复"><span class="toc-number">3.1.1.</span> <span class="toc-text">Ubuntu进入单用户模式—系统修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-查看用户名并重置新密码"><span class="toc-number">3.1.2.</span> <span class="toc-text">Ubuntu 查看用户名并重置新密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu的apt-get源为国内镜像源的方法"><span class="toc-number">3.2.</span> <span class="toc-text">Ubuntu的apt-get源为国内镜像源的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">3.2.1.</span> <span class="toc-text">解压</span></a></li></ol></li></ol></li>
         
     </div>
   </div>

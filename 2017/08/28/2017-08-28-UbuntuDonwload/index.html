@@ -22,7 +22,7 @@
 
     <title>
         
-        Ubuntu下载｜undefined
+        Ubuntu下载指令｜undefined
         
     </title>
 
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>Ubuntu下载</h1>
+                        <h1>Ubuntu下载指令</h1>
                         
                         
 
@@ -157,13 +157,14 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">218 words in total, 1 minutes required.</span>
+          <span class="post-count">249 words in total, 1 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="1-wget"><a href="#1-wget" class="headerlink" title="1. wget"></a>1. wget</h1><p>wget是ubuntu原生集成的命令 支持 断点续传，后台下载。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c -b ftp://ftp.ccb.jhu.edu/pub/data/bowtie2_indexes/mm10.zip</span><br></pre></td></tr></table></figure>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="1-wget"><a href="#1-wget" class="headerlink" title="1. wget"></a>1. wget</h1><p>wget -P 目录 网址</p>
+<p>wget是ubuntu原生集成的命令 支持 断点续传，后台下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra</span><br><span class="line">wget -c -b ftp://ftp.ccb.jhu.edu/pub/data/bowtie2_indexes/mm10.zip</span><br></pre></td></tr></table></figure>
 <h1 id="2-axel"><a href="#2-axel" class="headerlink" title="2. axel"></a>2. axel</h1><p>axel是一个多线程下载工具，下载速度会比wget快很多，据说是支持断点续传的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup axel ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup axel ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP075/SRP075747/SRR3589957/SRR3589957.sra &amp; (后台执行)</span><br></pre></td></tr></table></figure>
 <h1 id="3-uget-aria2插件"><a href="#3-uget-aria2插件" class="headerlink" title="3. uget+aria2插件"></a>3. uget+aria2插件</h1><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.uget的安装：</span><br><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:plushuang-tw/uget-stable </span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install uget</span><br><span class="line">2.aria2的安装：</span><br><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:t-tujikawa/ppa </span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install aria2</span><br><span class="line"><span class="comment">#查看版本和支持的特性。</span></span><br><span class="line">aria2 -v</span><br><span class="line"></span><br><span class="line">在桌面中打开 uget程序</span><br><span class="line">打开菜单中“编辑”-&gt;“设置（S）……”，在弹出的界面中选择“插件”</span><br><span class="line">选择插件匹配顺序“aria2”，参数设置：--enable-rpc=true -D --disable-ipv6 --check-certificate=false</span><br></pre></td></tr></table></figure>
 
           

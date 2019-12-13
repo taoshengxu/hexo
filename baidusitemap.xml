@@ -5,11 +5,26 @@
     
   <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
-    <lastmod>2019-12-11T14:50:43.355Z</lastmod>
+    <lastmod>2019-12-12T01:11:49.061Z</lastmod>
     <data>
         <display>
         <title>DOS-Ubuntu命令集合</title>
         <pubTime>2017-08-28T04:00:58.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
+    <lastmod>2019-12-11T15:02:02.359Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu下载指令</title>
+        <pubTime>2017-08-28T04:00:59.000Z</pubTime>
         
          
            
@@ -301,7 +316,7 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     <data>
         <display>
@@ -321,7 +336,7 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     <data>
         <display>
@@ -410,21 +425,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
-    <lastmod>2019-04-04T02:56:34.533Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu下载</title>
-        <pubTime>2017-08-28T04:00:59.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
