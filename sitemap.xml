@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/08/28/2029-08-28-UbuntuCommand/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2029/04/04/2029-08-28-UbuntuCommand/</loc>
     
-    <lastmod>2019-12-24T02:42:40.073Z</lastmod>
+    <lastmod>2019-12-24T03:12:21.630Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
+    
+    <lastmod>2019-12-24T03:10:42.589Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_miRNAName/</loc>
+    
+    <lastmod>2019-12-24T03:08:29.684Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
+    
+    <lastmod>2019-12-24T02:53:47.326Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
     
     <lastmod>2019-12-24T02:36:19.286Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    
-    <lastmod>2019-12-24T02:30:29.824Z</lastmod>
     
   </url>
   
@@ -54,13 +68,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-04-04_trancript_type/</loc>
     
     <lastmod>2019-12-06T14:39:50.291Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/02/2019-04-02_TCGA_miRNAName/</loc>
-    
-    <lastmod>2019-12-06T14:15:26.314Z</lastmod>
     
   </url>
   
@@ -464,13 +471,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/01/2018-11-01_TCGA_Datadownload/</loc>
-    
-    <lastmod>2018-11-08T01:21:58.966Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
     
     <lastmod>2018-11-07T15:19:32.079Z</lastmod>
@@ -562,14 +562,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
