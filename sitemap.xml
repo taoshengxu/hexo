@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
+    
+    <lastmod>2019-12-24T01:47:37.817Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/04/2019-12-05_trancript_type/</loc>
+    
+    <lastmod>2019-12-24T01:45:12.137Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
     
-    <lastmod>2019-12-23T16:41:45.376Z</lastmod>
+    <lastmod>2019-12-24T01:40:18.231Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
     
     <lastmod>2019-12-12T01:11:49.061Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
-    
-    <lastmod>2019-12-11T15:02:02.359Z</lastmod>
     
   </url>
   
@@ -37,16 +44,16 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/02/2019-04-02_TCGA_miRNAName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-04-04_trancript_type/</loc>
     
-    <lastmod>2019-12-06T14:15:26.314Z</lastmod>
+    <lastmod>2019-12-06T14:39:50.291Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/02/2019-04-02_TCGA_miRNAName/</loc>
     
-    <lastmod>2019-12-06T14:08:14.582Z</lastmod>
+    <lastmod>2019-12-06T14:15:26.314Z</lastmod>
     
   </url>
   
@@ -142,23 +149,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
-    
-    <lastmod>2019-04-26T01:57:35.097Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-29_EMT/</loc>
     
     <lastmod>2019-04-18T11:50:07.623Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/06/2019-04-06_ftp_wholedirdown/</loc>
-    
-    <lastmod>2019-04-06T10:06:05.780Z</lastmod>
     
   </url>
   
@@ -555,6 +548,13 @@
   </url>
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -570,13 +570,6 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
