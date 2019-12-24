@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
+    
+    <lastmod>2019-12-23T16:41:45.376Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/08/28/2017-08-28-UbuntuCommand/</loc>
     
     <lastmod>2019-12-12T01:11:49.061Z</lastmod>
@@ -128,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_ggplot/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/26/2019-04-26_TCGAsampleName/</loc>
     
     <lastmod>2019-04-26T01:57:35.097Z</lastmod>
     
@@ -159,13 +166,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/09/2017-11-09_wes/</loc>
     
     <lastmod>2019-04-06T09:53:41.578Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    
-    <lastmod>2019-04-06T05:57:03.691Z</lastmod>
     
   </url>
   
