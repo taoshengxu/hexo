@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
+    <lastmod>2019-12-25T06:19:19.454Z</lastmod>
+    <data>
+        <display>
+        <title>判定基因名coding RNA OR noncoding RNA</title>
+        <pubTime>2019-12-05T02:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGA_UCSC_xena/</loc>
+    <lastmod>2019-12-25T06:18:56.691Z</lastmod>
+    <data>
+        <display>
+        <title> TCGA数据下载 UCSC Xena</title>
+        <pubTime>2019-12-05T12:39:07.000Z</pubTime>
+        
+        <tag>Bioinformatics</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
     <lastmod>2019-12-25T06:12:20.536Z</lastmod>
     <data>
@@ -102,26 +140,6 @@
         <pubTime>2017-11-07T08:54:20.000Z</pubTime>
         
         <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGA_UCSC_xena/</loc>
-    <lastmod>2019-12-24T11:05:16.843Z</lastmod>
-    <data>
-        <display>
-        <title> TCGA数据下载 UCSC Xena</title>
-        <pubTime>2019-12-05T01:39:07.000Z</pubTime>
-        
-        <tag>Bioinformatics</tag>
          
          
            
@@ -245,24 +263,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/04/2019-12-05_trancript_type/</loc>
-    <lastmod>2019-12-24T01:45:12.137Z</lastmod>
-    <data>
-        <display>
-        <title>判定基因名类型-codingRNA OR no-codeing RNA</title>
-        <pubTime>2019-04-04T11:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/05/2017-11-05_nat123/</loc>
     <lastmod>2019-12-11T02:11:15.379Z</lastmod>
     <data>
@@ -272,24 +272,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-04-04_trancript_type/</loc>
-    <lastmod>2019-12-06T14:39:50.291Z</lastmod>
-    <data>
-        <display>
-        <title>判定基因名类型-codingRNA OR no-codeing RNA</title>
-        <pubTime>2019-12-05T11:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
         </display>
     </data>
     </url>

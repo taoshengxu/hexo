@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
+    
+    <lastmod>2019-12-25T06:19:19.454Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_UCSC_xena/</loc>
+    
+    <lastmod>2019-12-25T06:18:56.691Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
     
     <lastmod>2019-12-25T06:12:20.536Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
     
     <lastmod>2019-12-24T15:55:06.667Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_UCSC_xena/</loc>
-    
-    <lastmod>2019-12-24T11:05:16.843Z</lastmod>
     
   </url>
   
@@ -93,23 +100,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/04/2019-12-05_trancript_type/</loc>
-    
-    <lastmod>2019-12-24T01:45:12.137Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/05/2017-11-05_nat123/</loc>
     
     <lastmod>2019-12-11T02:11:15.379Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-04-04_trancript_type/</loc>
-    
-    <lastmod>2019-12-06T14:39:50.291Z</lastmod>
     
   </url>
   

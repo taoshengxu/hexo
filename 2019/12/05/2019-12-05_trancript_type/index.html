@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-04-04_trancript_type/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_trancript_type/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        判定基因名类型-codingRNA OR no-codeing RNA｜undefined
+        判定基因名coding RNA OR noncoding RNA｜undefined
         
     </title>
 
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>判定基因名类型-codingRNA OR no-codeing RNA</h1>
+                        <h1>判定基因名coding RNA OR noncoding RNA</h1>
                         
                         
 
@@ -166,21 +166,19 @@
 <h2 id="方法一-利用HNGC注释数据"><a href="#方法一-利用HNGC注释数据" class="headerlink" title="方法一 利用HNGC注释数据"></a>方法一 利用HNGC注释数据</h2><p>人类基因命名委员会（HGNC）（<a href="http://www.genenames.org" target="_blank" rel="noopener">http://www.genenames.org</a>) 包含了人类基因所有的命名，别名和ID，可以说是天下命名，无出其右．直接在下载页面　（<a href="http://www.genenames.org/cgi-bin/statistics）底部下载所有的命名关系的一个大表。" target="_blank" rel="noopener">http://www.genenames.org/cgi-bin/statistics）底部下载所有的命名关系的一个大表。</a></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bash axel ftp://ftp.ebi.ac.uk/pub/databases/genenames/new/tsv/hgnc_complete_set.txt</span></span><br><span class="line"><span class="comment"># 数据一致更新</span></span><br><span class="line">hgnc_geneset=fread(file = <span class="string">"hgnc_complete_set.txt"</span>,header = <span class="literal">TRUE</span>)</span><br><span class="line">xx=hgnc_geneset[<span class="number">1</span>:<span class="number">10</span>,]</span><br><span class="line">xx=hgnc_geneset[,c(<span class="string">"symbol"</span>, <span class="string">"locus_group"</span>,<span class="string">"status"</span>,<span class="string">"entrez_id"</span> )]</span><br><span class="line">yy=merge(gene_names,xx,by=c(<span class="string">"symbol"</span>),all.x = <span class="literal">TRUE</span>,sort=<span class="literal">FALSE</span>)</span><br><span class="line">index=match(gene_names1, yy$symbol)</span><br><span class="line">gene_names=yy[index,]</span><br><span class="line">save(sc_data_HMLE,gene_names, file=<span class="string">"sc_data_HMLE.rda"</span> )</span><br><span class="line">sum(na.omit(gene_names$locus_group)==<span class="string">"protein-coding gene"</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/hngc_completeset.png" alt=""></p>
-<h2 id="方法二-利用Genecode"><a href="#方法二-利用Genecode" class="headerlink" title="方法二 利用Genecode"></a>方法二 利用Genecode</h2><p><a href="https://www.gencodegenes.org/human/" target="_blank" rel="noopener">https://www.gencodegenes.org/human/</a></p>
-<p><a href="https://www.jianshu.com/p/3c290fee634f" target="_blank" rel="noopener">https://www.jianshu.com/p/3c290fee634f</a> </p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载GTF文件处理即可 https://www.gencodegenes.org/human/</span></span><br><span class="line"><span class="comment"># bash axel ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.chr_patch_hapl_scaff.annotation.gtf.gz</span></span><br><span class="line"></span><br><span class="line">fread(*.GTF)</span><br></pre></td></tr></table></figure>
+<h2 id="方法二-利用Genecode"><a href="#方法二-利用Genecode" class="headerlink" title="方法二 利用Genecode"></a>方法二 利用Genecode</h2><p><a href="https://www.gencodegenes.org/human/" target="_blank" rel="noopener">https://www.gencodegenes.org/human/</a><br><a href="https://www.jianshu.com/p/3c290fee634f" target="_blank" rel="noopener">https://www.jianshu.com/p/3c290fee634f</a><br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载GTF文件处理即可 https://www.gencodegenes.org/human/</span></span><br><span class="line"><span class="comment"># bash axel ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_32/gencode.v32.chr_patch_hapl_scaff.annotation.gtf.gz</span></span><br><span class="line"></span><br><span class="line">fread(*.GTF)</span><br></pre></td></tr></table></figure></p>
 
           
           <hr>
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/" data-toggle="tooltip" data-placement="left" title="TCGA数据下载总结">&larr; Previous Post</a>
+                  <a href="/hexo/2019/12/05/2019-12-05_TCGA_miRNAName/" data-toggle="tooltip" data-placement="left" title="TCGA miRNA 表达谱矩阵的Name转换">&larr; Previous Post</a>
               </li>
               
               
               <li class="next">
-                  <a href="/hexo/2019/12/05/2019-12-05_TCGAsampleName/" data-toggle="tooltip" data-placement="top" title="TCGA样本命名详解">Next Post&rarr;</a>
+                  <a href="/hexo/2019/11/26/2019-11-26_githubDataMining/" data-toggle="tooltip" data-placement="top" title="Github机器学习100天">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -238,7 +236,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                123.3k <b>Words</b>
+                123.1k <b>Words</b>
         </p></div>
 
         <div class="search-container">
