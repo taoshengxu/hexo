@@ -157,7 +157,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">1,153 words in total, 4 minutes required.</span>
+          <span class="post-count">2,990 words in total, 11 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-甲基化"><a href="#1-甲基化" class="headerlink" title="1. 甲基化"></a>1. 甲基化</h2><p>DNA甲基化是科学家们最早发现的DNA修饰途径之一，即在甲基转移酶的催化下，DNA的CG两个核苷酸的胞嘧啶被选择性地添加甲基，形成5－甲基胞嘧啶。</p>
@@ -175,6 +175,59 @@
 <li>CpG岛一般是非甲基化的，而在失活 X染色体、印记基因和非表达的组织特异基因中则是甲基化的。</li>
 <li>成体基因组通常中，奢侈基因呈现高密度甲基化，而含有丰富 CpG 岛的管家基因则呈非甲基化</li>
 </ul>
+<p>================================================================================</p>
+<h1 id="Illumina-HumanMethylation-BeadChip简介"><a href="#Illumina-HumanMethylation-BeadChip简介" class="headerlink" title="Illumina HumanMethylation BeadChip简介"></a>Illumina HumanMethylation BeadChip简介</h1><p>Illumina最早的甲基化芯片是27K（K代表1000，表示大概可以测到的CpG位点数）的数据，后来增加到了450K（主流的甲基化芯片），而目前illumina已经出了新一代产品EPIC（我习惯称之为850K），但是技术核心在450K已经成熟了，所以分析流程这里以450K为主（也是目前数据库主流的甲基化芯片数据）。</p>
+<p><strong>芯片</strong></p>
+<p>一张芯片包括12个array，也就是一张芯片可以做12个sample，一台机子一次可以跑8张芯片，也就是一共96个sample，每个样本可以测到超过450，000个CpG位点的甲基化信息（大概人所有甲基化位点的1%，但是覆盖了多数CpG岛和启动子区），芯片本身包含一些控制探针可以做质控。</p>
+<p><strong>原理</strong></p>
+<p>简而言之，基于亚硫酸盐处理后的DNA序列杂交的信号探测。亚硫酸盐是甲基化探测的“金标准”，不管是芯片或者甲基化测序，都要先对DNA样品进行亚硫酸盐处理，使非甲基化的C变成U，而甲基化的C保持不变，从而在后续的测序或者杂交后区分出来。450K采用了两种探针对甲基化进行测定，Infinium I采用了两种bead（甲基化M和非甲基化U，如图显示），而II只有一种bead（即甲基化和非甲基化在一起），这也导致了它们在后续荧光探测的不同，450K采用了两种荧光探测信号（红光和绿光）。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation1.jpg" alt=""></p>
+<p>DNA甲基化指的是包裹在DNA上CG碱基（又叫CpG）的外周的一些蛋白发生变化，进而导致基因或者一些调控因子的表达出现变化，进而导致那些基因或者调控因子控制的表型出现变化，进而导致疾病或者差异的发生。DNA甲基化被认为是表观遗传调控的一种方式，如Cytosine methylation (5-mC)是研究最多的，被认为是哺乳动物中常见的甲基化方式, 最近有一些研究也发现了其他形式的甲基化，如2016年Nature上发表了一篇关于鼠的胚胎干细胞的m6A（N6-methyladenine）形式的甲基化。DAN甲基化被认为对基因表达，染色质重塑，细胞分化，疾病等都有重要影响。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation2.jpg" alt=""></p>
+<p><strong>甲基化的检测方法</strong></p>
+<p>目前甲基化检测的方法可以概括为三种：芯片、测序、免疫沉淀。具体选择何种方法主要还是根据实验目的和实验室条件了。但目前来说，甲基化芯片技术从覆盖度，检测灵敏度和价格综合考虑，还是性价比相对高。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation3.jpg" alt=""></p>
+<p><strong>甲基化芯片常见的Glossary</strong></p>
+<ul>
+<li>CpG island: Defned as regions 500 bp, 55% GC and expected/observed CpG ratio of 0.65. 40% of gene promoters contain islands.</li>
+<li>CpG shelves: ~4Kb from islands.</li>
+<li>CpG shores: ~2Kb from islands, 75% of tissuespecifc differentially methylated regions found in shores. Methylation in shores shows higher correlation with gene expression than CpG islands.</li>
+<li>Differentially methylated regions (DMR): Cell-, tissue-, and condition- specifc differences in methylation.</li>
+<li>Enhancer: A short region of DNA that can activate transcription and is often regulated by methylation.</li>
+<li>Hypermethylation: Most cytosines are methylated. Hypomethylation: Most cytosines do not have 5-mC. Euchromatin and active gene promoters are hypomethylated.</li>
+<li>Beta value:通常的甲基化衡量方法被称为“Beta”值; 等于甲基化百分比，并定义为“Meth”除以“Meth + Unmeth”。</li>
+<li>CGI: CpG island 即甲基化岛。</li>
+</ul>
+<p><strong>分析需要考虑的问题</strong></p>
+<ol>
+<li>背景校正</li>
+<li>红光和绿光的校正</li>
+<li>控制芯片的使用（illumina450K本身有一些控制芯片，可以用来做质控，如亚硫酸盐处理效率）</li>
+<li>探针类型（I型和II型）的校正（不同探针类型产生的数据不同）<br>这个问题我们之前关注很多，这里附上两篇文献供大家参考，最终我们选择BMIQ的方法（基于ebayes的原理将II型探针的甲基化水平拉伸到I型水平，如下图显示）来做矫正。(图片来源于第1篇文献)<br>文献1： <a href="http://bioinformatics.oxfordjournals.org/content/29/2/189.short" target="_blank" rel="noopener">http://bioinformatics.oxfordjournals.org/content/29/2/189.short</a><br>文献2： <a href="http://www.tandfonline.com/doi/abs/10.4161/epi.24008" target="_blank" rel="noopener">http://www.tandfonline.com/doi/abs/10.4161/epi.24008</a></li>
+<li>位置的校正（芯片上的不同位置产生的数据可能会有偏差）</li>
+<li>批次的校正（不同的批次做的数据会有偏差）</li>
+<li>探针序列本身是否可靠（有些探针本身位于repeat区或者包含snp等就会影响杂交及最后的结果，应该去除，附上一片参考文献，里边有list可以用来去除不好的探针）<br>文献：<a href="http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-51" target="_blank" rel="noopener">http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-51</a> </li>
+</ol>
+<p><strong>数据处理</strong></p>
+<ol>
+<li>GenomeStudio<br>GS是illumina开发的软件，基于图形界面的操作处理，适合于没有R及编程基础的人使用，但是使用GS需要权限，本人试过挺难破解的，如果有人可以破解，可以提供给论坛小伙伴使用。</li>
+<li>基于R和bioconductor的pipeline<br>bioconductor里开发了很多package供大家使用，如果你会R，那么处理这个甲基化芯片的数据将变得简单。<br>可以处理450K芯片的package有lumi、minfi、wateRmelon、ChAMP等，没有哪一种就特别好，大家都在不断改进，所以只要你知道大概的流程和需要注意的问题，那么你也可以自己写代码处理，只是package可以帮你省很多事情。下边我会附上我的处理流程图和详解，还有我的代码，我的代码是基于minfi的，我再次强调，代码只是手段，你可以用其他的package（例如我的同事很多使用ChAMP），也许会更好。</li>
+</ol>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation4.jpg" alt=""></p>
+<p>流程图详解：</p>
+<ul>
+<li>蓝色部分代表的是有关于数据的准备部分</li>
+<li>红色部分代表的是数据分析部分</li>
+<li>黄色部门代表数据可视化部分</li>
+</ul>
+<p>箭头指示了分析流程，首先是load数据，然后是QC（quality control），然后是normalization，然后是SVD分析（看有没有batch effect）。准备完毕之后，黑点代表了一批质量有保证，经过处理，可以直接上马进行数据分析的数据了。之后的分析，DMP代表找出Differential Methylation Probe（差异化CpG位点），DMR代表找出Differential Methylation Region（差异化CpG区域），Block代表Differential Methylation Block（更大范围的差异化region区域），RefFree代表细胞差异被修正过后再找的DMP，EpiMod是基于基因作用网络的差异化分析。</p>
+<p>我们一般下载或者iscan后的原始数据格式为Idat，首先可以得到每个sample的每个probe的p值和bead数，根据p值和bead数可以进行样本和探针的过滤，过滤之后需要用BMIQ的方法进行I和II型探针的校正，矫正之后去掉那些包含snp之类的不好的探针，最后对数据做batch的校正。校正之后的数据就是预处理后的数据了，可以用于更下游的分析，如差异甲基化和甲基化与表达的关联分析等。<br>我的代码： <a href="https://github.com/wkl1990/illumina-450K-analysis" target="_blank" rel="noopener">https://github.com/wkl1990/illumina-450K-analysis</a> 。</p>
+<h1 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h1><ol>
+<li><a href="http://www.biotrainee.com/thread-237-1-1.html" target="_blank" rel="noopener">Illumina HumanMethylation450 BeadChip甲基化450k芯片预处理初探</a></li>
+<li><a href="http://www.bio-info-trainee.com/2823.html" target="_blank" rel="noopener">850K甲基化芯片数据的分析</a></li>
+<li><a href="https://bioconductor.org/packages/release/bioc/vignettes/ChAMP/inst/doc/ChAMP.html" target="_blank" rel="noopener">Bioconductor ChAMP包</a></li>
+<li><a href="http://blog.csdn.net/joshua_hit/article/details/54982018" target="_blank" rel="noopener">Shiny和Plotly实现可交互DNA甲基化分析包ChAMP</a></li>
+</ol>
 
           
           <hr>
@@ -202,9 +255,9 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-甲基化"><span class="toc-number">1.</span> <span class="toc-text">1. 甲基化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CpG岛—-不易被甲基化"><span class="toc-number">2.</span> <span class="toc-text">2. CpG岛— 不易被甲基化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CpG岛总结"><span class="toc-number">2.1.</span> <span class="toc-text">CpG岛总结</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-甲基化"><span class="toc-number">1.</span> <span class="toc-text">1. 甲基化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CpG岛—-不易被甲基化"><span class="toc-number">2.</span> <span class="toc-text">2. CpG岛— 不易被甲基化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CpG岛总结"><span class="toc-number">2.1.</span> <span class="toc-text">CpG岛总结</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Illumina-HumanMethylation-BeadChip简介"><span class="toc-number"></span> <span class="toc-text">Illumina HumanMethylation BeadChip简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据分析"><span class="toc-number"></span> <span class="toc-text">数据分析</span></a>
         
-    </div>
+    </li></div>
   </div>
 
 
@@ -248,7 +301,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                123.1k <b>Words</b>
+                123.0k <b>Words</b>
         </p></div>
 
         <div class="search-container">

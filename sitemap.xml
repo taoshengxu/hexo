@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2019-12-25T06:37:02.515Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
+    
+    <lastmod>2019-12-25T06:36:14.557Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-28_geneIDtransform/</loc>
+    
+    <lastmod>2019-12-25T06:31:49.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/21/2018-12-2_String_process/</loc>
+    
+    <lastmod>2019-12-25T06:30:48.691Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/12/23/2018-12-23_dplyr_tidyr/</loc>
+    
+    <lastmod>2019-12-25T06:30:29.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
+    
+    <lastmod>2019-12-25T06:28:56.175Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_Data_format/</loc>
+    
+    <lastmod>2019-12-25T06:27:05.445Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
+    
+    <lastmod>2019-12-25T06:23:29.242Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_RNA_Seq/</loc>
+    
+    <lastmod>2019-12-25T06:23:13.792Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
+    
+    <lastmod>2019-12-25T06:21:58.881Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
     
     <lastmod>2019-12-25T06:19:19.454Z</lastmod>
@@ -23,27 +93,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
-    
-    <lastmod>2019-12-25T01:09:32.209Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
-    
-    <lastmod>2019-12-25T01:08:22.629Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_RNA_Seq/</loc>
-    
-    <lastmod>2019-12-25T01:08:14.276Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
     
     <lastmod>2019-12-24T15:59:17.549Z</lastmod>
@@ -61,20 +110,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
     
     <lastmod>2019-12-24T11:03:48.095Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
-    
-    <lastmod>2019-12-24T11:01:04.107Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/04/04/2029-08-28-UbuntuCommand/</loc>
-    
-    <lastmod>2019-12-24T10:33:06.795Z</lastmod>
     
   </url>
   
@@ -289,13 +324,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/12/28/2018-12-28_geneIDtransform/</loc>
-    
-    <lastmod>2018-12-28T15:41:14.810Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/23/2018-12-23_clusterProfiler/</loc>
     
     <lastmod>2018-12-28T14:59:31.941Z</lastmod>
@@ -380,13 +408,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/12/23/2018-12-23_dplyr_tidyr/</loc>
-    
-    <lastmod>2018-12-23T15:02:13.124Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/08/31/2018-08-30_chenwei_gene/</loc>
     
     <lastmod>2018-12-22T17:04:58.414Z</lastmod>
@@ -422,13 +443,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/12/21/2018-12-2_String_process/</loc>
-    
-    <lastmod>2018-12-22T15:40:26.573Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/22/2018-12-2_R_applyfunction/</loc>
     
     <lastmod>2018-12-21T16:59:10.537Z</lastmod>
@@ -450,13 +464,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/08/2018-11-08_squencing/</loc>
-    
-    <lastmod>2018-12-21T02:21:04.803Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/04/2017-11-04_NCBI_ftp_http_Command/</loc>
     
     <lastmod>2018-12-19T06:35:18.008Z</lastmod>
@@ -474,13 +481,6 @@
     <loc>https://taoshengxu.github.io/hexo/2018/11/01/2018-11-01_CNV/</loc>
     
     <lastmod>2018-11-08T01:25:37.670Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
-    
-    <lastmod>2018-11-07T15:19:32.079Z</lastmod>
     
   </url>
   
@@ -555,20 +555,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -577,6 +563,20 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -632,23 +632,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_HumanMethylation450/</loc>
-    
-    <lastmod>2017-11-08T12:48:09.610Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/06/2017-11-06_ENCODE_Data/</loc>
     
     <lastmod>2017-11-06T15:22:41.912Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/06/2017-11-06_Data_format/</loc>
-    
-    <lastmod>2017-11-06T15:10:36.013Z</lastmod>
     
   </url>
   

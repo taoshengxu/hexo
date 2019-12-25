@@ -148,29 +148,6 @@
         <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 post-container">
           
             <div class="post-preview " style="background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')">
-    <a href="/hexo/2017/12/21/2017-12-21_python_study/">
-        <h2 class="post-title">
-            python基本知识
-        </h2>
-        
-        <div class="post-meta">
-          <span>Dec 21, 2017</span>
-          <span class="meta-item">Updated On Mar 20, 2019</span>
-        </div>
-        <div class="post-content-preview">
-            <p>
-                入门教程   视频教程
-python IDE环境配置环境配置 pycharm+ anaconda
-anaconda安装
-1234567Install Anaconda: I installed in the root location of E directly choose both "Add..
-            </p>
-        </div>
-    </a>
-</div>
-<hr>
-
-          
-            <div class="post-preview " style="background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')">
     <a href="/hexo/2017/12/20/2017-12-20_deeplearning/">
         <h2 class="post-title">
             深度学习Tensorflow
@@ -244,18 +221,29 @@ AI圣经
 
           
             <div class="post-preview " style="background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')">
-    <a href="/hexo/2017/11/07/2017-11-07_HumanMethylation450/">
+    <a href="/hexo/2017/11/07/2017-11-07_Data_format/">
         <h2 class="post-title">
-            DNA Methylation甲基化450k,850k芯片
+            常用生物信息学数据格式
         </h2>
         
         <div class="post-meta">
           <span>Nov 7, 2017</span>
-          <span class="meta-item">Updated On Nov 8, 2017</span>
+          <span class="meta-item">Updated On Dec 25, 2019</span>
         </div>
         <div class="post-content-preview">
             <p>
-                Illumina HumanMethylation BeadChip简介Illumina最早的甲基化芯片是27K（K代表1000，表示大概可以测到的CpG位点数）的数据，后来增加到了450K（主流的甲基化芯片），而目前illumina已经出了新一代产品EPIC（我习惯称之为850K），但是技术核..
+                原文 PDF
+
+fasta
+fastq
+gff2
+gtf(gff2.5)
+gff3
+bed
+sam、bam 
+vcf
+
+另外，wig_bigWig和bedgraph文件详解，是为了追踪参考基因组的各个区域的覆盖度，测序深度！而且这些定义好的文件，可以无缝连接到UCSC的Genome Browse..
             </p>
         </div>
     </a>
@@ -320,7 +308,41 @@ AI圣经
             <p>
                 教程
 
+测序的几个概念de-novo 测序没有参考基因组情况下对新物种测序构建参考基因组
+DNA Re-sequencing相对于de-novo而言在有参考基因组的条件下进行较低覆盖度的测序，与参考基因组比对，寻找相似品种之间的差异。
 
+            </p>
+        </div>
+    </a>
+</div>
+<hr>
+
+          
+            <div class="post-preview " style="background-image: url('/hexo/post_cover_images/moon.jpg')">
+    <a href="/hexo/2017/11/07/2017-11-07_ChIP_seq/">
+        <h2 class="post-title">
+            Chip-Seq 分析
+        </h2>
+        
+        <div class="post-meta">
+          <span>Nov 7, 2017</span>
+          <span class="meta-item">Updated On Dec 25, 2019</span>
+        </div>
+        <div class="post-content-preview">
+            <p>
+                数据获取
+
+将蛋白交联到DNA上。 也就是保证蛋白和DNA能够结合，找到互作位点。
+通过超声波剪切DNA链。
+加上附上抗体的磁珠用于免疫沉淀靶蛋白。抗体很重要
+接触蛋白交联；纯化DNA
+测序。
+
+分析流程：
+
+质量控制, 用到的是FastQC
+序列比对, Bowtie2或这BWA
+peak ca..
             </p>
         </div>
     </a>
@@ -379,7 +401,7 @@ AI圣经
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                123.1k <b>Words</b>
+                123.0k <b>Words</b>
         </p></div>
 
         <div class="search-container">

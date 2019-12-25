@@ -4,6 +4,174 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    <lastmod>2019-12-25T06:37:02.515Z</lastmod>
+    <data>
+        <display>
+        <title>DOS-Ubuntu命令集合</title>
+        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
+    <lastmod>2019-12-25T06:36:14.557Z</lastmod>
+    <data>
+        <display>
+        <title>下载参考基因组序列以及一些重要注释数据库汇总</title>
+        <pubTime>2019-04-03T03:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2018-12-28_geneIDtransform/</loc>
+    <lastmod>2019-12-25T06:31:49.530Z</lastmod>
+    <data>
+        <display>
+        <title>☆基因名称转换☆</title>
+        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
+        
+        <tag>gene</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-2_String_process/</loc>
+    <lastmod>2019-12-25T06:30:48.691Z</lastmod>
+    <data>
+        <display>
+        <title>R 字符串处理</title>
+        <pubTime>2018-12-21T14:49:16.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_dplyr_tidyr/</loc>
+    <lastmod>2019-12-25T06:30:29.573Z</lastmod>
+    <data>
+        <display>
+        <title>dplyr 数据框整理神器+ tidyr数据变形</title>
+        <pubTime>2018-12-23T13:58:23.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
+    <lastmod>2019-12-25T06:28:56.175Z</lastmod>
+    <data>
+        <display>
+        <title>DNA甲基化</title>
+        <pubTime>2018-11-07T13:12:37.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_Data_format/</loc>
+    <lastmod>2019-12-25T06:27:05.445Z</lastmod>
+    <data>
+        <display>
+        <title>常用生物信息学数据格式</title>
+        <pubTime>2017-11-07T14:59:05.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
+    <lastmod>2019-12-25T06:23:29.242Z</lastmod>
+    <data>
+        <display>
+        <title>RNA-Seq分析 笔记</title>
+        <pubTime>2017-11-07T01:34:40.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq/</loc>
+    <lastmod>2019-12-25T06:23:13.792Z</lastmod>
+    <data>
+        <display>
+        <title>RNA-Seq分析</title>
+        <pubTime>2017-11-07T01:34:39.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
+    <lastmod>2019-12-25T06:21:58.881Z</lastmod>
+    <data>
+        <display>
+        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
+        <pubTime>2017-11-07T08:53:20.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
     <lastmod>2019-12-25T06:19:19.454Z</lastmod>
     <data>
@@ -62,56 +230,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
-    <lastmod>2019-12-25T01:09:32.209Z</lastmod>
-    <data>
-        <display>
-        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
-        <pubTime>2017-11-07T08:53:20.000Z</pubTime>
-        
-        <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
-    <lastmod>2019-12-25T01:08:22.629Z</lastmod>
-    <data>
-        <display>
-        <title>转录组分析笔记（2）</title>
-        <pubTime>2017-11-07T01:34:40.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq/</loc>
-    <lastmod>2019-12-25T01:08:14.276Z</lastmod>
-    <data>
-        <display>
-        <title>转录组分析笔记</title>
-        <pubTime>2017-11-07T01:34:39.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
     <lastmod>2019-12-24T15:59:17.549Z</lastmod>
     <data>
@@ -161,44 +279,6 @@
         
         <tag>Data mining</tag>
          
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/04/03/2019-04-03_genomic_reference/</loc>
-    <lastmod>2019-12-24T11:01:04.107Z</lastmod>
-    <data>
-        <display>
-        <title>下载参考基因组序列以及一些重要注释数据库汇总</title>
-        <pubTime>2019-04-03T03:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2029/04/04/2029-08-28-UbuntuCommand/</loc>
-    <lastmod>2019-12-24T10:33:06.795Z</lastmod>
-    <data>
-        <display>
-        <title>DOS-Ubuntu命令集合</title>
-        <pubTime>2029-04-04T11:39:07.000Z</pubTime>
-        
          
            
              
@@ -738,26 +818,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2018-12-28_geneIDtransform/</loc>
-    <lastmod>2018-12-28T15:41:14.810Z</lastmod>
-    <data>
-        <display>
-        <title>Gene ID 转换汇总</title>
-        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
-        
-        <tag>gene</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_clusterProfiler/</loc>
     <lastmod>2018-12-28T14:59:31.941Z</lastmod>
     <data>
@@ -945,21 +1005,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_dplyr_tidyr/</loc>
-    <lastmod>2018-12-23T15:02:13.124Z</lastmod>
-    <data>
-        <display>
-        <title>dplyr_tidyr包</title>
-        <pubTime>2018-12-23T13:58:23.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/08/31/2018-08-30_chenwei_gene/</loc>
     <lastmod>2018-12-22T17:04:58.414Z</lastmod>
     <data>
@@ -1035,21 +1080,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-2_String_process/</loc>
-    <lastmod>2018-12-22T15:40:26.573Z</lastmod>
-    <data>
-        <display>
-        <title>R语言字符串处理汇总</title>
-        <pubTime>2018-12-21T14:49:16.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/22/2018-12-2_R_applyfunction/</loc>
     <lastmod>2018-12-21T16:59:10.537Z</lastmod>
     <data>
@@ -1095,21 +1125,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/08/2018-11-08_squencing/</loc>
-    <lastmod>2018-12-21T02:21:04.803Z</lastmod>
-    <data>
-        <display>
-        <title>测序的几个概念</title>
-        <pubTime>2018-11-08T01:07:42.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/04/2017-11-04_NCBI_ftp_http_Command/</loc>
     <lastmod>2018-12-19T06:35:18.008Z</lastmod>
     <data>
@@ -1146,21 +1161,6 @@
         <display>
         <title>CNV学习</title>
         <pubTime>2018-11-01T06:38:35.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
-    <lastmod>2018-11-07T15:19:32.079Z</lastmod>
-    <data>
-        <display>
-        <title>DNA甲基化</title>
-        <pubTime>2018-11-07T13:12:37.000Z</pubTime>
         
          
            
@@ -1429,42 +1429,12 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_HumanMethylation450/</loc>
-    <lastmod>2017-11-08T12:48:09.610Z</lastmod>
-    <data>
-        <display>
-        <title>DNA Methylation甲基化450k,850k芯片</title>
-        <pubTime>2017-11-07T15:39:50.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/06/2017-11-06_ENCODE_Data/</loc>
     <lastmod>2017-11-06T15:22:41.912Z</lastmod>
     <data>
         <display>
         <title>ENCODE计划数据,千人基因组计划数据,Roadmap计划数据</title>
         <pubTime>2017-11-06T08:44:54.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/06/2017-11-06_Data_format/</loc>
-    <lastmod>2017-11-06T15:10:36.013Z</lastmod>
-    <data>
-        <display>
-        <title>常用生物信息学格式介绍</title>
-        <pubTime>2017-11-06T14:59:05.000Z</pubTime>
         
          
            
