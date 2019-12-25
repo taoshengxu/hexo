@@ -4,6 +4,86 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
+    <lastmod>2019-12-25T00:53:31.994Z</lastmod>
+    <data>
+        <display>
+        <title>Chip-Seq 分析</title>
+        <pubTime>2017-11-07T08:52:20.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
+    <lastmod>2019-12-24T15:59:17.549Z</lastmod>
+    <data>
+        <display>
+        <title>DNA-SEQ 直播我的基因组</title>
+        <pubTime>2017-11-07T08:58:20.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
+    <lastmod>2019-12-24T15:55:29.586Z</lastmod>
+    <data>
+        <display>
+        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
+        <pubTime>2017-11-07T08:53:20.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
+    <lastmod>2019-12-24T15:55:06.667Z</lastmod>
+    <data>
+        <display>
+        <title>WES分析</title>
+        <pubTime>2017-11-07T08:54:20.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGA_UCSC_xena/</loc>
     <lastmod>2019-12-24T11:05:16.843Z</lastmod>
     <data>
@@ -52,66 +132,6 @@
         <pubTime>2019-04-03T03:39:07.000Z</pubTime>
         
         <tag>Data mining</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
-    <lastmod>2019-12-24T10:51:56.928Z</lastmod>
-    <data>
-        <display>
-        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
-        <pubTime>2017-11-07T08:54:20.000Z</pubTime>
-        
-        <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
-    <lastmod>2019-12-24T10:51:26.676Z</lastmod>
-    <data>
-        <display>
-        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
-        <pubTime>2017-11-07T08:53:20.000Z</pubTime>
-        
-        <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    <lastmod>2019-12-24T10:37:37.274Z</lastmod>
-    <data>
-        <display>
-        <title>Chip-Seq 分析</title>
-        <pubTime>2017-11-07T08:52:20.000Z</pubTime>
-        
-        <tag>English</tag>
          
          
            
@@ -1343,21 +1363,6 @@
         <display>
         <title>决策树</title>
         <pubTime>2017-11-21T01:26:01.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/10/2017-11-10_genomic_live_streaming/</loc>
-    <lastmod>2017-11-13T16:13:38.871Z</lastmod>
-    <data>
-        <display>
-        <title>Jimmy 直播基因组学习笔记</title>
-        <pubTime>2017-11-10T12:34:59.000Z</pubTime>
         
          
            
