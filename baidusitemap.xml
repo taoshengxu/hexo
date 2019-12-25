@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    <lastmod>2019-12-25T00:53:31.994Z</lastmod>
+    <lastmod>2019-12-25T06:12:20.536Z</lastmod>
     <data>
         <display>
         <title>Chip-Seq 分析</title>
@@ -24,12 +24,12 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
-    <lastmod>2019-12-24T15:59:17.549Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
+    <lastmod>2019-12-25T01:09:32.209Z</lastmod>
     <data>
         <display>
-        <title>DNA-SEQ 直播我的基因组</title>
-        <pubTime>2017-11-07T08:58:20.000Z</pubTime>
+        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
+        <pubTime>2017-11-07T08:53:20.000Z</pubTime>
         
         <tag>English</tag>
          
@@ -44,12 +44,42 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
-    <lastmod>2019-12-24T15:55:29.586Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
+    <lastmod>2019-12-25T01:08:22.629Z</lastmod>
     <data>
         <display>
-        <title>WGS,WES,RNA-seq组与ChIP-seq之间的异同</title>
-        <pubTime>2017-11-07T08:53:20.000Z</pubTime>
+        <title>转录组分析笔记（2）</title>
+        <pubTime>2017-11-07T01:34:40.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq/</loc>
+    <lastmod>2019-12-25T01:08:14.276Z</lastmod>
+    <data>
+        <display>
+        <title>转录组分析笔记</title>
+        <pubTime>2017-11-07T01:34:39.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
+    <lastmod>2019-12-24T15:59:17.549Z</lastmod>
+    <data>
+        <display>
+        <title>DNA-SEQ 直播我的基因组</title>
+        <pubTime>2017-11-07T08:58:20.000Z</pubTime>
         
         <tag>English</tag>
          
@@ -1387,21 +1417,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/05/2017-11-05_transcriptome_analysis/</loc>
-    <lastmod>2017-11-12T02:24:26.504Z</lastmod>
-    <data>
-        <display>
-        <title>转录组分析笔记</title>
-        <pubTime>2017-11-05T01:34:39.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/06/2017-11-06_Markdown_Rmarkdown_Shiny/</loc>
     <lastmod>2017-11-09T13:55:47.984Z</lastmod>
     <data>
@@ -1468,21 +1483,6 @@
         <display>
         <title>常用生物信息学格式介绍</title>
         <pubTime>2017-11-06T14:59:05.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/05/2017-11-05_transcriptome_analysis-1/</loc>
-    <lastmod>2017-11-06T02:26:03.245Z</lastmod>
-    <data>
-        <display>
-        <title>转录组分析笔记（2）</title>
-        <pubTime>2017-11-05T01:34:40.000Z</pubTime>
         
          
            
