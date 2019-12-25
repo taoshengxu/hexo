@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-21_GSVA/</loc>
+    <lastmod>2019-12-25T08:28:50.008Z</lastmod>
+    <data>
+        <display>
+        <title>GSVA基因集合变异分析</title>
+        <pubTime>2018-12-21T11:21:43.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-21-GSEA/</loc>
+    <lastmod>2019-12-25T08:28:35.382Z</lastmod>
+    <data>
+        <display>
+        <title>GSEA富集分析</title>
+        <pubTime>2018-12-21T06:56:07.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/04/2017-11-04_geo/</loc>
+    <lastmod>2019-12-25T06:53:25.304Z</lastmod>
+    <data>
+        <display>
+        <title>GEO数据下载</title>
+        <pubTime>2017-11-04T13:52:45.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-BeautySurvCurves/</loc>
+    <lastmod>2019-12-25T06:47:48.737Z</lastmod>
+    <data>
+        <display>
+        <title>生存曲线美化</title>
+        <pubTime>2017-09-07T08:27:18.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
     <lastmod>2019-12-25T06:37:02.515Z</lastmod>
     <data>
@@ -697,21 +757,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GSEAstudy/</loc>
-    <lastmod>2019-03-15T09:38:46.565Z</lastmod>
-    <data>
-        <display>
-        <title>GSEA富集分析</title>
-        <pubTime>2017-09-07T06:56:07.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-15_cell_line/</loc>
     <lastmod>2019-03-15T07:34:46.962Z</lastmod>
     <data>
@@ -930,21 +975,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-2_GSVA/</loc>
-    <lastmod>2018-12-25T16:21:37.035Z</lastmod>
-    <data>
-        <display>
-        <title>GSVA基因集合变异分析</title>
-        <pubTime>2018-12-21T02:21:43.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_WGCNA/</loc>
     <lastmod>2018-12-24T16:13:44.895Z</lastmod>
     <data>
@@ -1116,21 +1146,6 @@
         <display>
         <title>ExpressionSet简单讲解</title>
         <pubTime>2017-09-08T08:38:17.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/04/2017-11-04_NCBI_ftp_http_Command/</loc>
-    <lastmod>2018-12-19T06:35:18.008Z</lastmod>
-    <data>
-        <display>
-        <title>NCBI-GEO数据下载</title>
-        <pubTime>2017-11-04T13:52:45.000Z</pubTime>
         
          
            
@@ -1615,21 +1630,6 @@
         <display>
         <title>GCBI 学院</title>
         <pubTime>2017-09-09T01:19:35.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-BeautySurvCurves/</loc>
-    <lastmod>2017-09-07T08:38:20.111Z</lastmod>
-    <data>
-        <display>
-        <title>生存曲线美化</title>
-        <pubTime>2017-09-07T08:27:18.000Z</pubTime>
         
          
            
