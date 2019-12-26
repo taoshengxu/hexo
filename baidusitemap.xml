@@ -4,6 +4,51 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
+    <lastmod>2019-12-26T08:39:43.319Z</lastmod>
+    <data>
+        <display>
+        <title>RNA-Seq分析 笔记</title>
+        <pubTime>2017-11-07T01:34:40.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/27/2017-08-27_tricks/</loc>
+    <lastmod>2019-12-26T08:37:30.912Z</lastmod>
+    <data>
+        <display>
+        <title>杂项</title>
+        <pubTime>2017-08-27T14:50:14.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-21_WGCNA/</loc>
+    <lastmod>2019-12-26T08:34:01.373Z</lastmod>
+    <data>
+        <display>
+        <title>WGCNA加权基因共表达网络分析</title>
+        <pubTime>2018-12-20T17:17:52.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
     <lastmod>2019-12-26T08:27:53.878Z</lastmod>
     <data>
@@ -149,21 +194,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/08/2018-11-08_allele/</loc>
-    <lastmod>2019-12-25T15:12:19.592Z</lastmod>
-    <data>
-        <display>
-        <title>同源染色体和等位基因</title>
-        <pubTime>2018-11-08T02:10:25.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/07/2018-11-07_DNaseI/</loc>
     <lastmod>2019-12-25T15:10:29.229Z</lastmod>
     <data>
@@ -300,21 +330,6 @@
         <display>
         <title>常用生物信息学数据格式</title>
         <pubTime>2017-11-07T14:59:05.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
-    <lastmod>2019-12-25T06:23:29.242Z</lastmod>
-    <data>
-        <display>
-        <title>RNA-Seq分析 笔记</title>
-        <pubTime>2017-11-07T01:34:40.000Z</pubTime>
         
          
            
@@ -472,21 +487,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/05/2017-11-05_nat123/</loc>
-    <lastmod>2019-12-11T02:11:15.379Z</lastmod>
-    <data>
-        <display>
-        <title>nat123</title>
-        <pubTime>2017-11-05T14:02:28.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGAsampleName/</loc>
     <lastmod>2019-12-05T14:29:16.198Z</lastmod>
     <data>
@@ -567,21 +567,6 @@
              
               <breadCrumb title="Data Mining" url="https://taoshengxu.github.io/hexo/hexo/categories/Data-Mining/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/27/2017-08-27_tricks/</loc>
-    <lastmod>2019-11-26T06:11:31.243Z</lastmod>
-    <data>
-        <display>
-        <title>杂项</title>
-        <pubTime>2017-08-27T14:50:14.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -1036,21 +1021,6 @@
          
         <tag>blog</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/23/2018-12-23_WGCNA/</loc>
-    <lastmod>2018-12-24T16:13:44.895Z</lastmod>
-    <data>
-        <display>
-        <title>WGCNA加权基因共表达网络分析</title>
-        <pubTime>2018-12-22T17:17:52.000Z</pubTime>
-        
          
            
         </display>
