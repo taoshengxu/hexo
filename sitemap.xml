@@ -2,6 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    
+    <lastmod>2019-12-26T07:59:33.160Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_NGS_Epigenetic/</loc>
+    
+    <lastmod>2019-12-26T07:26:06.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_SRA_data/</loc>
+    
+    <lastmod>2019-12-26T06:24:00.341Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2019-12-26T05:51:26.316Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/04/2017-11-04_geo/</loc>
+    
+    <lastmod>2019-12-26T03:05:40.019Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
+    
+    <lastmod>2019-12-26T01:58:07.342Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_scRNA/</loc>
+    
+    <lastmod>2019-12-26T01:15:41.406Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
+    
+    <lastmod>2019-12-25T15:25:22.193Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/11/08/2018-11-08_allele/</loc>
+    
+    <lastmod>2019-12-25T15:12:19.592Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNaseI/</loc>
+    
+    <lastmod>2019-12-25T15:10:29.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
+    
+    <lastmod>2019-12-25T15:09:54.653Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/21/2018-12-21_GSVA/</loc>
     
     <lastmod>2019-12-25T08:28:50.008Z</lastmod>
@@ -16,23 +93,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/04/2017-11-04_geo/</loc>
-    
-    <lastmod>2019-12-25T06:53:25.304Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/09/07/2017-09-07-BeautySurvCurves/</loc>
     
     <lastmod>2019-12-25T06:47:48.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    
-    <lastmod>2019-12-25T06:37:02.515Z</lastmod>
     
   </url>
   
@@ -61,13 +124,6 @@
     <loc>https://taoshengxu.github.io/hexo/2018/12/23/2018-12-23_dplyr_tidyr/</loc>
     
     <lastmod>2019-12-25T06:30:29.573Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
-    
-    <lastmod>2019-12-25T06:28:56.175Z</lastmod>
     
   </url>
   
@@ -114,13 +170,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_ChIP_seq/</loc>
-    
-    <lastmod>2019-12-25T06:12:20.536Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
     
     <lastmod>2019-12-24T15:59:17.549Z</lastmod>
@@ -131,20 +180,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
     
     <lastmod>2019-12-24T15:55:06.667Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
-    
-    <lastmod>2019-12-24T11:03:48.095Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
-    
-    <lastmod>2019-12-24T03:10:42.589Z</lastmod>
     
   </url>
   
@@ -436,23 +471,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNaseI/</loc>
-    
-    <lastmod>2018-12-22T16:57:18.202Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/09/07/2017-09-07-Gene%20Ontology/</loc>
     
     <lastmod>2018-12-22T16:48:21.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/08/2018-11-08_allele/</loc>
-    
-    <lastmod>2018-12-22T15:47:58.788Z</lastmod>
     
   </url>
   
@@ -562,7 +583,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -583,7 +604,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
