@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
+    
+    <lastmod>2019-12-26T08:27:53.878Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
     
-    <lastmod>2019-12-26T07:59:33.160Z</lastmod>
+    <lastmod>2019-12-26T08:03:02.045Z</lastmod>
     
   </url>
   
@@ -37,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
-    
-    <lastmod>2019-12-26T01:58:07.342Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_scRNA/</loc>
     
     <lastmod>2019-12-26T01:15:41.406Z</lastmod>
@@ -68,13 +68,6 @@
     <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNaseI/</loc>
     
     <lastmod>2019-12-25T15:10:29.229Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
-    
-    <lastmod>2019-12-25T15:09:54.653Z</lastmod>
     
   </url>
   
@@ -506,13 +499,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/11/01/2018-11-01_CNV/</loc>
-    
-    <lastmod>2018-11-08T01:25:37.670Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/08/26/2018-08-26_Entropy/</loc>
     
     <lastmod>2018-09-14T14:36:44.996Z</lastmod>
@@ -597,14 +583,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     

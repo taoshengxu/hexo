@@ -4,8 +4,26 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
+    <lastmod>2019-12-26T08:27:53.878Z</lastmod>
+    <data>
+        <display>
+        <title>TCGA数据类型下载总结</title>
+        <pubTime>2019-12-05T11:39:08.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
-    <lastmod>2019-12-26T07:59:33.160Z</lastmod>
+    <lastmod>2019-12-26T08:03:02.045Z</lastmod>
     <data>
         <display>
         <title>conda命令</title>
@@ -93,24 +111,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
-    <lastmod>2019-12-26T01:58:07.342Z</lastmod>
-    <data>
-        <display>
-        <title>TCGA数据类型下载总结</title>
-        <pubTime>2019-12-05T11:39:08.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Data Mining" url="https://taoshengxu.github.io/hexo/hexo/categories/Data-Mining/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_scRNA/</loc>
     <lastmod>2019-12-26T01:15:41.406Z</lastmod>
     <data>
@@ -170,21 +170,6 @@
         <display>
         <title>染色质 DNaseⅠ超敏感位点</title>
         <pubTime>2018-11-07T00:49:48.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/07/2018-11-07_DNAmethylation/</loc>
-    <lastmod>2019-12-25T15:09:54.653Z</lastmod>
-    <data>
-        <display>
-        <title>DNA甲基化</title>
-        <pubTime>2018-11-07T13:12:37.000Z</pubTime>
         
          
            
@@ -1215,21 +1200,6 @@
         <display>
         <title>GISTIC2.0</title>
         <pubTime>2018-11-08T01:07:42.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/11/01/2018-11-01_CNV/</loc>
-    <lastmod>2018-11-08T01:25:37.670Z</lastmod>
-    <data>
-        <display>
-        <title>CNV学习</title>
-        <pubTime>2018-11-01T06:38:35.000Z</pubTime>
         
          
            
