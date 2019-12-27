@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2019-12-27T07:28:22.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
+    
+    <lastmod>2019-12-27T07:04:59.996Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_NGS_Epigenetic/</loc>
+    
+    <lastmod>2019-12-27T05:51:59.472Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_SRA_data/</loc>
+    
+    <lastmod>2019-12-27T02:14:10.909Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
     
     <lastmod>2019-12-26T08:39:43.319Z</lastmod>
@@ -33,27 +61,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
     
     <lastmod>2019-12-26T08:03:02.045Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_NGS_Epigenetic/</loc>
-    
-    <lastmod>2019-12-26T07:26:06.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_SRA_data/</loc>
-    
-    <lastmod>2019-12-26T06:24:00.341Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    
-    <lastmod>2019-12-26T05:51:26.316Z</lastmod>
     
   </url>
   
@@ -173,13 +180,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_DNA_seq/</loc>
     
     <lastmod>2019-12-24T15:59:17.549Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
-    
-    <lastmod>2019-12-24T15:55:06.667Z</lastmod>
     
   </url>
   

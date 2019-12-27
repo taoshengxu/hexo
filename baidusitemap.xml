@@ -4,6 +4,80 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    <lastmod>2019-12-27T07:28:22.072Z</lastmod>
+    <data>
+        <display>
+        <title>DOS-Ubuntu命令集合</title>
+        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
+    <lastmod>2019-12-27T07:04:59.996Z</lastmod>
+    <data>
+        <display>
+        <title>WES分析</title>
+        <pubTime>2017-11-07T08:54:20.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_NGS_Epigenetic/</loc>
+    <lastmod>2019-12-27T05:51:59.472Z</lastmod>
+    <data>
+        <display>
+        <title>NGS表观调控学习</title>
+        <pubTime>2019-12-26T02:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_SRA_data/</loc>
+    <lastmod>2019-12-27T02:14:10.909Z</lastmod>
+    <data>
+        <display>
+        <title>SRA 序列数据库</title>
+        <pubTime>2019-12-26T02:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_RNA_Seq_1/</loc>
     <lastmod>2019-12-26T08:39:43.319Z</lastmod>
     <data>
@@ -76,60 +150,6 @@
         
         <tag>Data mining</tag>
          
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_NGS_Epigenetic/</loc>
-    <lastmod>2019-12-26T07:26:06.394Z</lastmod>
-    <data>
-        <display>
-        <title>NGS表观调控学习</title>
-        <pubTime>2019-12-26T02:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_SRA_data/</loc>
-    <lastmod>2019-12-26T06:24:00.341Z</lastmod>
-    <data>
-        <display>
-        <title>SRA 序列数据库</title>
-        <pubTime>2019-12-26T02:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2019-12-26T05:51:26.316Z</lastmod>
-    <data>
-        <display>
-        <title>DOS-Ubuntu命令集合</title>
-        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
-        
          
            
              
@@ -418,26 +438,6 @@
         <display>
         <title>DNA-SEQ 直播我的基因组</title>
         <pubTime>2017-11-07T08:58:20.000Z</pubTime>
-        
-        <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
-    <lastmod>2019-12-24T15:55:06.667Z</lastmod>
-    <data>
-        <display>
-        <title>WES分析</title>
-        <pubTime>2017-11-07T08:54:20.000Z</pubTime>
         
         <tag>English</tag>
          
