@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">5,213 words in total, 22 minutes required.</span>
+          <span class="post-count">5,212 words in total, 22 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /   [root]</span><br><span class="line"><span class="keyword">cd</span> ~  [home <span class="built_in">or</span> root/user]</span><br><span class="line"><span class="keyword">cd</span> . [Current]</span><br><span class="line"><span class="keyword">cd</span> .. [Father]</span><br><span class="line"><span class="keyword">cd</span> - [<span class="keyword">previous</span>]</span><br><span class="line"><span class="keyword">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -227,9 +227,7 @@
 </blockquote>
 </li>
 <li><p>cut 命令</p>
-<blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ cat ssgao.txt </span><br><span class="line">&gt;name ssgao age 37</span><br><span class="line">&gt;<span class="comment">### 默认使用制表符("tab")进行分割</span></span><br><span class="line">&gt;$ cut -f 2 ssgao.txt  获取第2列</span><br><span class="line">&gt;ssgao</span><br><span class="line">&gt;$ cut -f 2,4 ssgao.txt 获取第2,4列</span><br><span class="line">&gt;ssgao   37</span><br><span class="line">&gt;<span class="comment">###使用自定义的分割符</span></span><br><span class="line">&gt;$ cat ssgao.txt </span><br><span class="line">&gt;name,ssgao,age,37</span><br><span class="line">&gt;$ cut -f 1 -d <span class="string">","</span> ssgao.txt  <span class="comment">#使用","进行分割，并获取第1列</span></span><br><span class="line">&gt;name</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat ssgao.txt</span></span><br><span class="line">name ssgao age 37</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##默认使用制表符("tab")进行分割</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 2 ssgao.txt  获取第2列</span></span><br><span class="line">ssgao</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 2,4 ssgao.txt 获取第2,4列</span></span><br><span class="line">ssgao   37</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##使用自定义的分割符</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat ssgao.txt</span></span><br><span class="line">name,ssgao,age,37</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 1 -d <span class="string">","</span> ssgao.txt  <span class="comment">#使用","进行分割，并获取第1列</span></span></span><br><span class="line">name</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>目录操作</p>
 <blockquote>
@@ -254,12 +252,12 @@
 <blockquote>
 <ul>
 <li>[dpkg —list]查找软件</li>
-<li>[sudo apt-get remove <programname>] 卸载<h3 id="创建、删除文件及文件夹"><a href="#创建、删除文件及文件夹" class="headerlink" title="创建、删除文件及文件夹"></a>创建、删除文件及文件夹</h3></programname></li>
+<li>[sudo apt-get remove <programname>] 卸载</programname></li>
 </ul>
 </blockquote>
 </li>
 </ul>
-<ul>
+<h3 id="创建、删除文件及文件夹"><a href="#创建、删除文件及文件夹" class="headerlink" title="创建、删除文件及文件夹"></a>创建、删除文件及文件夹</h3><ul>
 <li>mkdir 目录名       创建一个目录</li>
 <li>mkdir -p 递归创建目录</li>
 <li>cp 复制</li>
@@ -298,40 +296,30 @@
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> sudo chmod <span class="number">600</span> ××× （只有所有者有读和写的权限）</span></span><br><span class="line"><span class="ruby">- sudo chmod <span class="number">644</span> ××× （所有者有读和写的权限，组用户只有读的权限）</span></span><br><span class="line"><span class="ruby">- sudo chmod <span class="number">700</span> ××× （只有所有者有读和写以及执行的权限）</span></span><br><span class="line"><span class="ruby">- sudo chmod <span class="number">666</span> ××× （每个人都有读和写的权限）</span></span><br><span class="line"><span class="ruby">- sudo chmod <span class="number">777</span> ××× （每个人都有读和写以及执行的权限）</span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line"><span class="ruby"><span class="comment"># r 可读 w 可写  x 可执行</span></span></span><br><span class="line"><span class="ruby">- sudo chmod +x test.py     <span class="comment"># 脚本文件添加可执行权限</span></span></span><br><span class="line"><span class="ruby">- sudo chmod -x test.py     <span class="comment"># 脚本文件去除可执行权限</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改文件所有者</p>
-<p>​       命令：chown 用户 目录或文件名</p>
+<p>  命令：chown 用户 目录或文件名</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 把home目录下的qq目录的拥有者改为qq用户</span></span><br><span class="line">chown qq /home/qq </span><br><span class="line"><span class="comment">## 将所有者为root的abc(文件或者目录)修改用户为username</span></span><br><span class="line">sudo chown -R username:root /data/abc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改文件或目录所属的组：</p>
-<pre><code>       命令：chgrp 组 目录或文件名
+<pre><code> 命令：chgrp 组 目录或文件名
 </code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chgrp qq /home/qq  (把home目录下的qq目录的所属组改为qq组)</span><br><span class="line">sudo chmod 775 /srv/shiny-server/xxxx/</span><br><span class="line">sudo chown :shiny /srv/shiny-server/xxxx/ 修改该目录为 shiny用户组</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><ul>
-<li><p><strong>sudo mount -t ext4 /dev/sdb /data 挂载到data</strong></p>
-</li>
-<li><p>sudo umount /dev/sdb 卸载</p>
-</li>
-<li><p>df -lh 查看磁盘空间 </p>
-</li>
-<li><p>df -kh 查看磁盘挂载</p>
-</li>
-<li><p>df -m 以M为单位显示磁盘使用量和占用率</p>
-</li>
-<li><p>df -k 以KB为单位显示磁盘使用量和占用率</p>
-</li>
-<li><p>du-ck /dir 列出目录下所有文件或目录占用的大小，以KB作为计量单位</p>
-</li>
-<li><p>sudo fdisk -lu 显示硬盘及所属分区情况</p>
-</li>
-<li><p>sudo fdisk /dev/sdb 对sbd盘分区<br><em>m(help)-n(增加一个新分区)-e(扩展分区)-1-4(分几个区)-…-p(显示分区表)-w(保存分区表)</em></p>
-</li>
+<li><strong>sudo mount -t ext4 /dev/sdb /data 挂载到data</strong></li>
+<li>sudo umount /dev/sdb 卸载</li>
+<li>df -lh 查看磁盘空间 </li>
+<li>df -kh 查看磁盘挂载</li>
+<li>df -m 以M为单位显示磁盘使用量和占用率</li>
+<li>df -k 以KB为单位显示磁盘使用量和占用率</li>
+<li>du-ck /dir 列出目录下所有文件或目录占用的大小，以KB作为计量单位</li>
+<li>sudo fdisk -lu 显示硬盘及所属分区情况</li>
+<li>sudo fdisk /dev/sdb 对sbd盘分区<br><em>m(help)-n(增加一个新分区)-e(扩展分区)-1-4(分几个区)-…-p(显示分区表)-w(保存分区表)</em></li>
 <li><p>sudo blkid 查看所有分区的UUID </p>
 <ul>
 <li>sudo blkid /dev/sda5 查看指定盘的UUID</li>
 </ul>
 </li>
-<li><p>(谨慎复制)sudo mkfs -t ext4 /dev/sdb 对sdb盘格式化为ext4格式</p>
-</li>
+<li>(谨慎复制)sudo mkfs -t ext4 /dev/sdb 对sdb盘格式化为ext4格式</li>
 <li><p>自动挂载 sudo gedit /etc/fstab  在这个文件夹下修改</p>
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UUID=<span class="number">09d387b1</span>-<span class="number">8438</span>-41db-<span class="number">9b88</span>-f3b145cc1674 /data2            ext4    defaults              <span class="number">0</span>       <span class="number">0</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -474,7 +462,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                118.8k <b>Words</b>
+                119.1k <b>Words</b>
         </p></div>
 
         <div class="search-container">

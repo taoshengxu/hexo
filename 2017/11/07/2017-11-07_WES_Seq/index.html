@@ -181,10 +181,29 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">1,041 words in total, 6 minutes required.</span>
+          <span class="post-count">1,229 words in total, 7 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://taoshengxu.github.io/DocumentGit/html/给学徒的WES数据分析流程.html">给学徒的WES数据分析流程（无数据）</a>    <a href="https://www.bilibili.com/video/av28030610/?p=6" target="_blank" rel="noopener">对应B站视频</a></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/WES_flow.PNG" alt=""></p>
+<ol>
+<li><p>测序数据的输入文件为raw fastq，质控软件为fastqc 和trim_galore，通过参数设置，得到结果文件clean fastq。</p>
+</li>
+<li><p>比对。输入文件为clean/HQ fastq，比对软件使用BWA，结果文件为raw sam，然后转成bam文件。</p>
+<ol>
+<li><p>使用BWA构建参考基因组的index数据库</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bwa index genome<span class="selector-class">.fasta</span> -<span class="selector-tag">p</span> genome</span><br><span class="line"></span><br><span class="line">bwa index hg38.fa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BWA-MEM比对（BWA-SW 和 BWA-backtrack用的少）</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bwa mem -t <span class="number">4</span> hg38 F2-<span class="number">19.1</span><span class="selector-class">.fastq</span> F2-<span class="number">19.2</span><span class="selector-class">.fastq</span> &gt; F2-<span class="number">19</span><span class="selector-class">.mem</span><span class="selector-class">.sam</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>找变异。IGV可视化bam，GATK过滤bam，GATK找变异得到vcf</p>
+</li>
+<li><p>注释。输入文件为HQ vcf，比对软件Annovar，使用参考数据库，得到结果文件即与功能相关的变异信息.(<a href="https://www.jianshu.com/p/9d4ba8cf8d2a" target="_blank" rel="noopener">https://www.jianshu.com/p/9d4ba8cf8d2a</a>)</p>
+</li>
+</ol>
 <h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;conda create -n wes python=2</span><br><span class="line">&gt;conda info --envs</span><br><span class="line">&gt;<span class="built_in">source</span> activate wes</span><br><span class="line">&gt;<span class="comment">#需要软件ascp,samtools,vcftools,bcftools,fastqc,multiqc,trim_galore,bwa,sra-tools,cutadapt,gatk4</span></span><br><span class="line">&gt;conda install sra-tools</span><br><span class="line">&gt;conda install samtools gatk4</span><br><span class="line">&gt;conda install -y bcftools vcftools  snpeff</span><br><span class="line">&gt;conda install -y multiqc qualimap</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -286,7 +305,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                118.8k <b>Words</b>
+                119.1k <b>Words</b>
         </p></div>
 
         <div class="search-container">
