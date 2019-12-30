@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/12/2017-11-11_sam_samtools/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_sam_samtools/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        SAM文件与SAMtools｜undefined
+        SAM,BAM文件与SAMtools｜undefined
         
     </title>
 
@@ -125,14 +125,14 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>SAM文件与SAMtools</h1>
+                        <h1>SAM,BAM文件与SAMtools</h1>
                         
                         
 
                         
                           <span class="meta">
                                <span class="meta-item">Author: xt</span>
-                               <span class="meta-item">Date: Nov 12, 2017</span>
+                               <span class="meta-item">Date: Nov 11, 2017</span>
                                
                           </span>
                           <div class="tags text-center">
@@ -157,10 +157,15 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">995 words in total, 4 minutes required.</span>
+          <span class="post-count">1,102 words in total, 5 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="SAM"><a href="#SAM" class="headerlink" title="SAM"></a>SAM</h1><p>SAM输出的结果中每一行都包括十二项通过Tab分隔<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">FCC0YG3ACXX:</span><span class="number">2</span><span class="string">:1103:1572:139769#GCTTAATG</span> <span class="number">99</span>  <span class="string">chr10</span>   <span class="number">60001</span>   <span class="number">0</span>   <span class="number">90</span><span class="string">M</span> <span class="string">=</span>   <span class="number">60390</span>   <span class="number">479</span> <span class="string">GAATTCCTTGAGGCCTAAATGCATCGGGGTGCTCTGGTTTTGTTGTTGTTATTTCTGAATGACATTTACTTTGGTGCTCTTTATTTTGCG</span>  <span class="string">CCCFFFFFHHHHHJJJJJJJJIJJJJJJJ?HHGIJJJBFHIJIJIDHIHIEHJJIJJIJJJHHGHHHFFFFFFEDCEEECCDDDDEECDD</span>  <span class="attr">XT:A:R</span>  <span class="attr">NM:i:0</span>  <span class="attr">SM:i:0</span>  <span class="attr">AM:i:0</span>  <span class="attr">X0:i:2</span>  <span class="attr">X1:i:0</span>  <span class="attr">XM:i:0</span>  <span class="attr">XO:i:0</span>  <span class="attr">XG:i:0</span>  <span class="attr">MD:Z:90</span> <span class="attr">XA:Z:chr18,+14415,90M,0;</span>    <span class="attr">RG:Z:120618_I245_FCC0YG3ACXX_L2_SZAXPI010030-30</span></span><br></pre></td></tr></table></figure></p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul>
+<li>SAM是李恒在冷泉港鼓捣出来的一种文件格式，存储了测序获得的信息，map到基因组后的各种信息。SAM格式为纯文本格式，字里行间压缩了极大的信息。</li>
+<li>BAM则是SAM的二进制版，在SAM的基础上运用二进制编码，又极大的压缩了SAM文件的体积。</li>
+</ul>
+<p><a href="https://taoshengxu.github.io/DocumentGit/html/BAM_SAM文件格式的一些小知识.html">BAM_SAM文件格式的一些小知识</a></p>
+<h1 id="SAM"><a href="#SAM" class="headerlink" title="SAM"></a>SAM</h1><p>SAM输出的结果中每一行都包括十二项通过Tab分隔<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">FCC0YG3ACXX:</span><span class="number">2</span><span class="string">:1103:1572:139769#GCTTAATG</span> <span class="number">99</span>  <span class="string">chr10</span>   <span class="number">60001</span>   <span class="number">0</span>   <span class="number">90</span><span class="string">M</span> <span class="string">=</span>   <span class="number">60390</span>   <span class="number">479</span> <span class="string">GAATTCCTTGAGGCCTAAATGCATCGGGGTGCTCTGGTTTTGTTGTTGTTATTTCTGAATGACATTTACTTTGGTGCTCTTTATTTTGCG</span>  <span class="string">CCCFFFFFHHHHHJJJJJJJJIJJJJJJJ?HHGIJJJBFHIJIJIDHIHIEHJJIJJIJJJHHGHHHFFFFFFEDCEEECCDDDDEECDD</span>  <span class="attr">XT:A:R</span>  <span class="attr">NM:i:0</span>  <span class="attr">SM:i:0</span>  <span class="attr">AM:i:0</span>  <span class="attr">X0:i:2</span>  <span class="attr">X1:i:0</span>  <span class="attr">XM:i:0</span>  <span class="attr">XO:i:0</span>  <span class="attr">XG:i:0</span>  <span class="attr">MD:Z:90</span> <span class="attr">XA:Z:chr18,+14415,90M,0;</span>    <span class="attr">RG:Z:120618_I245_FCC0YG3ACXX_L2_SZAXPI010030-30</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">(1)FCC0YG3ACXX:2:1103:1572:139769#GCTTAATG</span></span><br><span class="line"><span class="string">(2)99</span></span><br><span class="line"><span class="string">(3)chr10</span></span><br><span class="line"><span class="string">(4)60001</span></span><br><span class="line"><span class="string">(5)0</span></span><br><span class="line"><span class="string">(6)90M</span></span><br><span class="line"><span class="string">(7)=</span></span><br><span class="line"><span class="string">(8)60390</span></span><br><span class="line"><span class="string">(9)479</span></span><br><span class="line"><span class="string">(10)GAATTCCTTGAGGCCTAAATGCATCGGGGTGCTCTGGTTTTGTTGTTGTTATTTCTGAATGACATTTACTTTGGTGCTCTTTATTTTGCG</span></span><br><span class="line"><span class="string">(11)CCCFFFFFHHHHHJJJJJJJJIJJJJJJJ?HHGIJJJBFHIJIJIDHIHIEHJJIJJIJJJHHGHHHFFFFFFEDCEEECCDDDDEECDD</span></span><br><span class="line"><span class="string">(12)XT:A:R</span>  <span class="attr">NM:i:0</span>  <span class="attr">SM:i:0</span>  <span class="attr">AM:i:0</span>  <span class="attr">X0:i:2</span>  <span class="attr">X1:i:0</span>  <span class="attr">XM:i:0</span>  <span class="attr">XO:i:0</span>  <span class="attr">XG:i:0</span>  <span class="attr">MD:Z:90</span> <span class="attr">XA:Z:chr18,+14415,90M,0;</span>    <span class="attr">RG:Z:120618_I245_FCC0YG3ACXX_L2_SZAXPI010030-30</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">(1)read的名字</span></span><br><span class="line"><span class="string">(2)Flag</span> <span class="string">为各个标志的和</span></span><br><span class="line"><span class="string">(3)比对到的染色体号</span></span><br><span class="line"><span class="string">(4)第一个比对上的碱基所在位置</span></span><br><span class="line"><span class="string">(5)质量值</span> </span><br><span class="line"><span class="number">6.</span> <span class="string">CIGAR</span>  <span class="string">如果CIGAR是*，这个才是判断左右端是否匹配失败的标准</span></span><br><span class="line"><span class="number">7.</span> <span class="string">mate比对上的染色体号，如果是“=”，则表示在同一条染色体上，*表示没有比对上</span></span><br><span class="line"><span class="number">8.</span> <span class="string">mate第一个比对上的碱基所在位置</span> </span><br><span class="line"><span class="number">9.</span> <span class="string">该read和mate的距离(估计出的片段的长度，当mate</span> <span class="string">序列位于本序列上游时该值为负值)</span></span><br><span class="line"><span class="number">10.</span> <span class="string">序列</span> </span><br><span class="line"><span class="number">11.</span> <span class="string">序列对应的质量值</span> <span class="string">(ASCII码格式)</span></span><br><span class="line"><span class="number">12.</span> <span class="string">标记</span></span><br></pre></td></tr></table></figure>
 <p>(1)如果PE reads的左右两端均没有比对成功，那么第3,6,7列都是*，4，5，8，9都是0，第2列flag只有77,141这两种情况。</p>
 <ul>
@@ -188,7 +193,7 @@
 </ul>
 <h4 id="质量值"><a href="#质量值" class="headerlink" title="质量值"></a>质量值</h4><p>因工具而异。质量值越高这个比对越可信，如果质量值为0，可能是该序列在参考基因组有多种定位的可能性。</p>
 <h4 id="CIGAR"><a href="#CIGAR" class="headerlink" title="CIGAR"></a>CIGAR</h4><p>如37M1D2M1I，这段字符的意思是37个匹配，1个参考序列上的删除，2个匹配，1个参考序列上的插入。M代表的是alignment match(可以是错配)</p>
-<h1 id="SAMtools"><a href="#SAMtools" class="headerlink" title="SAMtools"></a>SAMtools</h1><p><a href="https://taoshengxu.github.io/DocumentGit/pdf/samtools常用命令详解.pdf">SAMtools使用手册</a></p>
+<h1 id="BAM"><a href="#BAM" class="headerlink" title="BAM"></a>BAM</h1><h1 id="SAMtools"><a href="#SAMtools" class="headerlink" title="SAMtools"></a>SAMtools</h1><p><a href="https://taoshengxu.github.io/DocumentGit/pdf/samtools常用命令详解.pdf">SAMtools使用手册</a></p>
 <p>SAM（sequence Alignment/mapping)数据格式是目前高通量测序中存放比对数据的标准格式，当然他可以用于存放未比对的数据。</p>
 <p>主要功能有：</p>
 <ul>
@@ -227,7 +232,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SAM"><span class="toc-number">1.</span> <span class="toc-text">SAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flag-标志"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Flag 标志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#质量值"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">质量值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CIGAR"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">CIGAR</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#SAMtools"><span class="toc-number">2.</span> <span class="toc-text">SAMtools</span></a></li>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SAM"><span class="toc-number">1.</span> <span class="toc-text">SAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flag-标志"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Flag 标志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#质量值"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">质量值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CIGAR"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">CIGAR</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#BAM"><span class="toc-number">2.</span> <span class="toc-text">BAM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SAMtools"><span class="toc-number">3.</span> <span class="toc-text">SAMtools</span></a></li>
         
     </div>
   </div>
@@ -273,7 +278,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                124.0k <b>Words</b>
+                126.3k <b>Words</b>
         </p></div>
 
         <div class="search-container">

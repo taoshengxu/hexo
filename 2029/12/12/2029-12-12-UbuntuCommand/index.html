@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">5,212 words in total, 22 minutes required.</span>
+          <span class="post-count">5,234 words in total, 22 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /   [root]</span><br><span class="line"><span class="keyword">cd</span> ~  [home <span class="built_in">or</span> root/user]</span><br><span class="line"><span class="keyword">cd</span> . [Current]</span><br><span class="line"><span class="keyword">cd</span> .. [Father]</span><br><span class="line"><span class="keyword">cd</span> - [<span class="keyword">previous</span>]</span><br><span class="line"><span class="keyword">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -229,7 +229,9 @@
 <li><p>cut 命令</p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat ssgao.txt</span></span><br><span class="line">name ssgao age 37</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##默认使用制表符("tab")进行分割</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 2 ssgao.txt  获取第2列</span></span><br><span class="line">ssgao</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 2,4 ssgao.txt 获取第2,4列</span></span><br><span class="line">ssgao   37</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##使用自定义的分割符</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat ssgao.txt</span></span><br><span class="line">name,ssgao,age,37</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 1 -d <span class="string">","</span> ssgao.txt  <span class="comment">#使用","进行分割，并获取第1列</span></span></span><br><span class="line">name</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>目录操作</p>
+<li><p>grep命令</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> /data  -<span class="built_in">name</span> *gz |grep -v <span class="string">'\._'</span> 在结果中排除掉<span class="string">'\._'</span>的目录</span><br></pre></td></tr></table></figure>
+<p>*目录操作</p>
 <blockquote>
 <ul>
 <li>ls 列出所有文件</li>
@@ -462,7 +464,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                124.0k <b>Words</b>
+                126.3k <b>Words</b>
         </p></div>
 
         <div class="search-container">
