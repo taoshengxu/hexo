@@ -4,8 +4,23 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_sam_samtools/</loc>
+    <lastmod>2020-01-03T13:57:59.231Z</lastmod>
+    <data>
+        <display>
+        <title>SAM,BAM,VCF文件与SAMtools</title>
+        <pubTime>2017-11-11T01:32:54.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/07/2017-11-07_WES_Seq/</loc>
-    <lastmod>2019-12-30T08:55:12.423Z</lastmod>
+    <lastmod>2020-01-03T08:05:42.428Z</lastmod>
     <data>
         <display>
         <title>WES分析</title>
@@ -18,21 +33,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_sam_samtools/</loc>
-    <lastmod>2019-12-28T23:55:08.207Z</lastmod>
-    <data>
-        <display>
-        <title>SAM,BAM文件与SAMtools</title>
-        <pubTime>2017-11-11T01:32:54.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
