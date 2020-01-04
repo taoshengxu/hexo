@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_scRNA/</loc>
+    
+    <lastmod>2020-01-04T06:52:10.174Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/11/11/2017-11-11_sam_samtools/</loc>
     
     <lastmod>2020-01-03T13:57:59.231Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/04/2017-11-04_geo/</loc>
     
     <lastmod>2019-12-26T03:05:40.019Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/26/2019-12-26_scRNA/</loc>
-    
-    <lastmod>2019-12-26T01:15:41.406Z</lastmod>
     
   </url>
   

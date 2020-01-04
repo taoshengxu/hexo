@@ -131,7 +131,7 @@
 
                         
                           <span class="meta">
-                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Author: XT，MJ</span>
                                <span class="meta-item">Date: Dec 26, 2019</span>
                                
                           </span>
@@ -159,14 +159,83 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">118 words in total, 1 minutes required.</span>
+          <span class="post-count">2,402 words in total, 9 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="1-传统常规测序"><a href="#1-传统常规测序" class="headerlink" title="1. 传统常规测序"></a>1. 传统常规测序</h4><p>针对数百万或者更多细胞的混合DNA样本，能够得到基因表达信息，但是只是一群细胞中平均值，或者只是代表占优势数量细胞的信息，单个细胞独有的特性被忽略。</p>
-<h4 id="1-scRNA测序"><a href="#1-scRNA测序" class="headerlink" title="1. scRNA测序"></a>1. scRNA测序</h4><p>能够提供每个细胞的表达谱，并鉴定异质细胞群中的稀有细胞。</p>
+<h4 id="2-scRNA测序"><a href="#2-scRNA测序" class="headerlink" title="2. scRNA测序"></a>2. scRNA测序</h4><p>能够提供每个细胞的表达谱，并鉴定异质细胞群中的稀有细胞。</p>
 <blockquote>
-<p>单细胞测序本质是二代测序技术。</p>
+<p>单细胞测序本质是二代测序技术。即利用优化后的高通量测序技术（NGS，Next Generation Sequencing）分析每一个单个细胞的序列信息，从而更高分辨率地揭示细胞间的细胞差异以及其在微环境中的功能情况。</p>
 </blockquote>
+<p><strong>技术流程：</strong></p>
+<ul>
+<li><p>1、单细胞分离；</p>
+<p>连续稀释法、显微操作法、激光捕获显微切 割术(laser capture microdissection，LCM) 、拉曼镊子技术(Raman tweezers) 、荧光激活细胞分选术( fluorescence activated cell sorting，FACS) 和微流控技术( microfluidics)、免疫磁珠分离技术(MACS)等。</p>
+</li>
+<li><p>2、细胞溶解与基因组DNA获取；</p>
+<p>  分离得到单细胞后，需要将细胞进行溶解来获取基因组 DNA(genome DNA，gDNA)。这一步骤非常关键，gDNA的质量直接影响后续基因组扩增的效果。</p>
+<p>物理法(如超声、冷冻、研磨、剪切、高压和热破坏法) 、化学法(如SDS、tritonX-100和极端pH)和酶降解法 (如蛋白酶K和溶菌酶)。细胞溶解方法的选定，需要综合考虑多方面因素，如细胞的类型、下游用途、gDNA纯化难易程度等。</p>
+</li>
+<li><p>3、全基因组扩增<strong>( WGA)</strong>；</p>
+<p> 高通量测序至少需要200ng的DNA样品，而1个细胞中的总DNA一般仅有数匹克，即使使用第3代测序技术可能也无法满足样品量的需求，因此WGA对于单细胞测序是非常必要的。目前有多种方法可以用于 WGA，这些方法都是利用DNA聚合酶和不同形式的引物来进行扩增的，包括特异性的、简并的或杂合的引物。</p>
+<ul>
+<li><p><strong>PCR**</strong>技术**，根据引物的不同可以将其划分为三大类: 特异性引物PCR扩增、简并性引物PCR扩增及杂合性引物PCR扩增。利用PCR技术进行全基因组的扩增，扩增的覆盖度比较高，但是容易出现错误和覆盖度不均的现象，故该技术现在已经在逐步淘汰。</p>
+</li>
+<li><p>基于MDA技术的扩增方法为了避免PCR技术进行全基因组扩增的种种缺点，具有核酸外切酶抗性的随机引物结合枯草芽孢杆菌噬菌体(phi29DNA)聚合酶进行扩增的技术已经开始被使用，该技术也称<strong>多位点置换扩增(MDA)</strong>。</p>
+</li>
+<li><p>MDA与PCR相结合的方法。多次退火环状循环扩增技术(multiple annealing and looping-based amplification cycles，MALBAC)是一种新的将 MDA与PCR结合的扩增技术，可以降低扩增偏倚性，提高测序覆盖度，也可明显提高单核苷酸多态性(SNPs)等位基因的检出率。</p>
+</li>
+</ul>
+</li>
+<li><p>4、测序与数据分析。</p>
+<p>​     数据分析前要把不需要的标签序列(barcodes)、连接序列(linker)、接头序列(adapter)、低质量碱基和污染DNA移除。 传统的序列拼接方法是基于“嵌合序列比例很小且读取深度随基因组呈泊松分布”的假设，而<strong>单细胞数据中嵌合序列比例高且基因组覆盖度不均匀</strong>，不能满足这一假设，必须对基因组进行预处理。目前可以用的预处理策略主要有:  核酸文库标准化、单细胞测序数据混合分析以及生物信息学分析。</p>
+</li>
+</ul>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_1.png" alt=""></p>
+<h4 id="3-scRNA测序平台"><a href="#3-scRNA测序平台" class="headerlink" title="3. scRNA测序平台"></a>3. scRNA测序平台</h4><p><strong>1. SMART-seq</strong></p>
+<p>SMART-seq可能是最为人知的单细胞测序技术，2014年“升级换代”成SMART-seq2后，成为几乎每个单细胞测序公司都使用过的方法，直到现在还有许多厂商在制造SMART-seq2的试剂盒。大家熟悉的宝日医生物公司（TAKARA）就是其中之一。</p>
+<ul>
+<li>有长期细胞实验经验的科研人员；</li>
+<li>微量细胞样本（如胚胎细胞样本、CTC等），适用于深入研究。</li>
+</ul>
+<p><strong>2. Fluidigm C1</strong> </p>
+<p><strong>真正第一个实现商业化的平台</strong>。富鲁达（Fluidigm®）公司使用的integrated fluidic circuits（IFCs），也就是微流控芯片技术能够一次上样的细胞数为96个左右。C1平台成功的商业化使得更多人能够涉足单细胞测序领域。C1能够在几小时内捕获96个左右的细胞，允许捕获的细胞直径在5-25μm的范围内，最终能够得到细胞的全转录组信息。现在很多非RNA类Single Cell测序，仍然在采用这样的技术，如Single Cell DNA-Seq，Single Cell ATAC-Seq等，都是采用此技术进行单细胞分选后再分别用不同试剂盒建库。</p>
+<ul>
+<li>少量样本研究；</li>
+<li>直径在5-25μm的细胞</li>
+</ul>
+<hr>
+<p>在2017-2018年，商业化的测序平台（10X Genomics®, BD Rhapsody®）出现，最终让Single-Cell测序技术走进了民用市场。这两种技术实现了细胞通量的飞跃，并且大幅降低了单细胞测序的成本。相对于Smart-Seq技术在细胞数量上的问题，BD和10X这两个平台普遍提供的细胞数量都在1,000—20,000区间，这个量级的测序细胞量已经可以覆盖绝大部分组织的Single Cell群体类型。因此，这两种技术在进行准确细胞分型的层面上，无论是从细胞数量上来说还是表达检测可靠性来说，都会更实用。</p>
+<p>从发布时间来看，10X发布更早，而BD发布在其1年之后，这点上10X Genomics的设备稍占优势。而在国内生物公司公布的捕获效率（~79%）来看，BD Rhapsody的捕获效率更高较占优势（10x官方捕获率为65%）。</p>
+<p>目前单细胞领域几乎是10X的天下。并不是因为没有更新、更好的技术被发明出来。而是因为没有公司能将前沿的技术商业化成稳定的平台。由于10X Genomics成功的宣传推广，具备一定实力的公司大多买了10X的仪器，有些甚至还顺势购买了BD仪器。很难更换。</p>
+<blockquote>
+<p>10X Genomics和Drop-Seq具有类似的技术原理。从横向孔道中逐一输入凝胶微珠，第一纵向孔道输入细胞，凝胶微珠与细胞碰撞后会吸附在凝胶微珠上，并通过微流控技术，将之输入到第二纵向孔道，即油相孔道中。这时候，就形成了一个个油滴，最终输出并收集在EP管中。每一个油滴中会落入一个细胞以及一个凝胶微珠，那么在每一个凝胶微珠中上长满了不同的Cell Barcode和UMI Barcode连接形成的序列，再加上一端PolyT的抓手，构成我们的捕获凝胶微珠。而这个凝胶微珠抓手就会使用oligo dT抓住mRNA构建文库。</p>
+<p>一个油滴=一个单细胞=一个凝胶微珠=一个RNA-Seq，可以说这就是10X的基本技术原理。</p>
+<p>从技术原理上分析两种Single Cell测序技术，都是基于UMI（Unique Molecular Identifier）+ CL（Cell Label）的技术，与传统Smart-Seq + Fluidigm的C1技术比较起来，引入UMI技术（这个我们会在分析部分简单介绍）进行表达定量，使得大规模scRNA-Seq的基因表达定量结果几乎不会受到PCR Bias影响，从而更精确。</p>
+</blockquote>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_4.png" alt=""></p>
+<hr>
+<p><strong>3.  10x Genomics</strong></p>
+<p>​        10X是到目前为止商业化最成功的平台。在主流高IF期刊上有可信的数据发表，并且都与Smart-Seq数据的结果存在比较，因此10X是可用可信的大规模Single Cell RNA-Seq技术。10X Genomics起源自Drop-Seq技术，含有 Barcode 信息的 Gel beads 在微流体“双十字”交叉系统的第一个进样口与样品和酶的混合物混合；在微流体“双十字”交叉系统的第二个进样口与油表面活性剂结合形成 GEMs，通过这样的过程实现单个细胞的捕获。</p>
+<ul>
+<li>直径40μm以下细胞（受仪器管道直径限制）</li>
+<li>大规模细胞样本，适用于分群、谱系等研究。</li>
+</ul>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/10xGenomics.png" alt=""></p>
+<p><strong>4. BD Rhapsody</strong></p>
+<p>​       比10X晚一年发布的BD Rhapsody平台源于Cytoseq蜂窝板技术，采用20W+的微孔（远超过细胞数量，目的就是为了一孔一个细胞），因此可以叫做“微孔捕获”，效率会相对更高一些。捕获后也是裂解细胞，再进行mRNA抓取。</p>
+<p>​        BD最显眼的就是它充满科技感的大屏幕。通过这个屏幕，实验人员可以实时监控细胞的捕获情况。避免了传统仪器上机之后只能一条路走到黑的窘境。</p>
+<p>适用范围：</p>
+<ul>
+<li>直径&lt;20μm的细胞（受磁珠结合效率限制）。</li>
+<li>大规模细胞样本，适用于分群、谱系等研究。</li>
+</ul>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_3.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/BD_Rhapsody.png" alt=""></p>
+<p><strong>5. ICB-scSeq</strong></p>
+<p>2017年开始出现的新想法：组合标签技术。</p>
+<p>上海其明信息技术有限公司的ICB-scSeq经过了大量的实验、测试和优化，是现在唯一一个能够运用组合标签法进行稳定建库的产品。</p>
 
           
           <hr>
@@ -190,7 +259,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-传统常规测序"><span class="toc-number">1.</span> <span class="toc-text">1. 传统常规测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-scRNA测序"><span class="toc-number">2.</span> <span class="toc-text">1. scRNA测序</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-传统常规测序"><span class="toc-number">1.</span> <span class="toc-text">1. 传统常规测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-scRNA测序"><span class="toc-number">2.</span> <span class="toc-text">2. scRNA测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-scRNA测序平台"><span class="toc-number">3.</span> <span class="toc-text">3. scRNA测序平台</span></a></li></ol>
         
     </div>
   </div>
@@ -236,7 +305,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                126.7k <b>Words</b>
+                128.9k <b>Words</b>
         </p></div>
 
         <div class="search-container">
