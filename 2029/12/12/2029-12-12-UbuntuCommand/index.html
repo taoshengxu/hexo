@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">5,234 words in total, 22 minutes required.</span>
+          <span class="post-count">5,427 words in total, 23 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /   [root]</span><br><span class="line"><span class="keyword">cd</span> ~  [home <span class="built_in">or</span> root/user]</span><br><span class="line"><span class="keyword">cd</span> . [Current]</span><br><span class="line"><span class="keyword">cd</span> .. [Father]</span><br><span class="line"><span class="keyword">cd</span> - [<span class="keyword">previous</span>]</span><br><span class="line"><span class="keyword">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -229,19 +229,34 @@
 <li><p>cut 命令</p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat ssgao.txt</span></span><br><span class="line">name ssgao age 37</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##默认使用制表符("tab")进行分割</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 2 ssgao.txt  获取第2列</span></span><br><span class="line">ssgao</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 2,4 ssgao.txt 获取第2,4列</span></span><br><span class="line">ssgao   37</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##使用自定义的分割符</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat ssgao.txt</span></span><br><span class="line">name,ssgao,age,37</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut -f 1 -d <span class="string">","</span> ssgao.txt  <span class="comment">#使用","进行分割，并获取第1列</span></span></span><br><span class="line">name</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>grep命令</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> /data  -<span class="built_in">name</span> *gz |grep -v <span class="string">'\._'</span> 在结果中排除掉<span class="string">'\._'</span>的目录</span><br></pre></td></tr></table></figure>
-<p>*目录操作</p>
+</ul>
+<ul>
+<li>grep命令<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> /data  -<span class="built_in">name</span> *gz |grep -v <span class="string">'\._'</span> 在结果中排除掉<span class="string">'\._'</span>的目录</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>less 命令  浏览文件名<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-S 行过长时间将超出部分舍弃</span><br><span class="line">-N 显示每行的行号</span><br><span class="line">-o &lt;文件名&gt; 将less 输出的内容在指定文件中保存起来</span><br><span class="line">-s 显示连续空行为一行</span><br><span class="line">直接按Q健 退出less 命令</span><br><span class="line">ps -ef |less ps查看进程信息并通过less分页显示</span><br><span class="line"></span><br><span class="line">查看压缩包文件 就用 zless</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>wc命令    在默认的情况下，wc将计算指定文件的行数、字数，以及字节数。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-l或--lines 只显示行数。</span><br><span class="line">-c或--bytes或--chars 只显示Bytes数。</span><br><span class="line">-w或--words 只显示字数。</span><br><span class="line"></span><br><span class="line">$ wc testfile           <span class="comment"># testfile文件的统计信息  </span></span><br><span class="line">3 92 598 testfile       <span class="comment"># testfile文件的行数为3、单词数92、字节数598</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>目录操作</p>
 <blockquote>
 <ul>
 <li>ls 列出所有文件</li>
-<li>ls -lh 列出目录的文件的详细信息</li>
+<li>ls -lh 列出目录的文件的详细信息 </li>
 <li>ls -ld  文件目录  #查看文件</li>
 <li>tree -h  目录名     #以树的结构列出所有目录和子目录 以及 标注文件大小（非常直观）</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;ls -l</span><br><span class="line">&gt;<span class="comment">#drwxr-xr-x 2 nsf users 1024 12-10 17:37 下载文件备份 </span></span><br><span class="line">&gt;<span class="comment">#文件属性 连接数 文件拥有者 所属群组 文件大小 文件修改时间 文件名</span></span><br><span class="line">&gt;r 是可读 w 可写  x 可执行</span><br><span class="line">&gt;其中文件属性分为四段，---- --- --- 10个位置 </span><br><span class="line">&gt;d 　 rwx 　 r-x　 r-x </span><br><span class="line">&gt;第一段字符指定了文件类型。如果是d，表示是一个目录。在通常意义上，一个目录也是一个文件。如果第一个字符是横线，表示是一个非目录的文件。</span><br><span class="line">&gt;第二段是文件拥有者的属性， </span><br><span class="line">&gt;第三段是文件所属群组的属性， </span><br><span class="line">&gt;第四段是对于其它用户的属性， </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
+</ul>
+<ul>
 <li><p>Bash 命令</p>
 <blockquote>
 <ul>
@@ -406,7 +421,7 @@
               
               
               <li class="next">
-                  <a href="/hexo/2019/12/26/2019-12-26_scRNA/" data-toggle="tooltip" data-placement="top" title="单细胞测序学习">Next Post&rarr;</a>
+                  <a href="/hexo/2020/01/06/2020-01-06_lincs_database/" data-toggle="tooltip" data-placement="top" title="NCBI数据库资源">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -464,7 +479,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                128.9k <b>Words</b>
+                141.2k <b>Words</b>
         </p></div>
 
         <div class="search-container">
