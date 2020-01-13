@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020/01/10/2020-01-20_assembly_tools/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        基因组比对注释工具｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>基因组比对注释工具</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: Jan 10, 2020</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,216 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="开放阅读框-Open-Reading-Frame-ORF"><a href="#开放阅读框-Open-Reading-Frame-ORF" class="headerlink" title="开放阅读框(Open Reading Frame, ORF)"></a>开放阅读框(Open Reading Frame, ORF)</h2><p>在分子生物学中，开放阅读框(Open Reading Frame, ORF)从起始密码子开始，是DNA序列中具有编码蛋白质潜能的序列，结束于终止密码子连续的碱基序列。</p>
+<p>由于<a href="https://baike.baidu.com/item/密码子/1517603" target="_blank" rel="noopener">密码子</a>（codon）读写起始位点的不同，DNA序列可能按六种ORF阅读和翻译（每条链三种，对应三种不同的起始位点）。<a href="https://baike.baidu.com/item/ORF" target="_blank" rel="noopener">ORF</a>识别则是确定哪种开放阅读框对应真正的多肽编码序列的过程。</p>
+<p>在真核生物中，ORF可能跨过外显子，在mRNA中进行拼接。</p>
+<p>开放阅读框[open reading frame，ORF] 是结构基因的正常核苷酸序列，从起始密码子到终止密码子的阅读框可编码完整的多肽链，其间不存在使翻译中断的终止密码子。</p>
+<p>在mRNA序列中，每三个连续碱基(即三联“ 密码子”） 编码相应的氨基酸。其中有一个起始密码子AUG和三个终止密码子UAA，UAG，UGA。核糖体从起始密码子开始翻译，沿着mRNA序列合成多肽链并不断延伸，遇到终止密码子时，多肽链的延伸反应终止。由于读写位置不同，ORF在两条链上具有六种可能性。</p>
+<h2 id="尿嘧啶是RNA特有的碱基"><a href="#尿嘧啶是RNA特有的碱基" class="headerlink" title="尿嘧啶是RNA特有的碱基"></a><em>尿嘧啶</em>是RNA特有的碱基</h2><p>相当于DNA中的胸腺<em>嘧啶</em>(T)。是组成RNA四种构成的碱基之一。</p>
+<h2 id="GC含量"><a href="#GC含量" class="headerlink" title="GC含量"></a>GC含量</h2><p>GC含量是在DNA4种碱基中，鸟嘌呤（Guanine）和胞嘧啶（Cytosine）所占的比率称为GC含量。在双链DNA中，腺嘌呤( Adenine)与胸腺嘧啶(Thymine)（A/T）之比，以及鸟嘌呤与胞嘧啶（G/C）之比都是1。但是，（A+T）/（G+C）之比则随DNA的种类不同而异。GC含量愈高，DNA的密度也愈高，同时热及碱不易使之变性，因此利用这一特性便可进行DNA的分离或测定。一种生物的基因组或特定DNA、RNA片段有特定的GC含量。</p>
+<blockquote>
+<p>GC含量是指二代测序平台存在一定的偏好性。用来判断测序过程是否足够随机。比如人类的基因组GC含量大约为40%，如果测序原始数据的GC含量远远偏离这个比例，说明测序数据存在一定偏好行，如果直接用测序数据，会影响后续的CNV和变异检测的分析。</p>
+</blockquote>
+<h2 id="mer"><a href="#mer" class="headerlink" title="mer"></a>mer</h2><p>在分子生物学领域中意义为单体单元 （monomeric unit，mer）。通常用于核酸序列中的单位，代表nt或者bp，例如，100 mer DNA代表这段DNA序列单链长度100nt，或者双链长度100bp。</p>
+<h2 id="HISAT-2-：基因组比对工具（mapping）"><a href="#HISAT-2-：基因组比对工具（mapping）" class="headerlink" title="HISAT 2 ：基因组比对工具（mapping）"></a>HISAT 2 ：基因组比对工具（mapping）</h2><p>由于测序仪机器读长的限制，在构建文库的过程中首先需要将DNA片段化，测序得到的序列只是基因组上的部分序列。为了确定测序reads在基因组上的位置，需要将reads比对回参考基因组上，这个步骤叫做mapping。</p>
+<p>要找到新的isoform，或者RNA的可变剪切，看看外显子使用差异的话，需要TopHat, HISAT2或者是STAR这类工具用于找到剪切位点。因为RNA-Seq不同于DNA-Seq，DNA在转录成mRNA的时候会把内含子部分去掉。所以mRNA反转的cDNA如果比对不到参考序列，会被分开，重新比对一次，判断中间是否有内含子。</p>
+<h2 id="trimmomatic"><a href="#trimmomatic" class="headerlink" title="trimmomatic"></a>trimmomatic</h2><p>可以对测序数据进行过滤, trimmomatic可以对测序数据进行过滤. 这个于 2014 年发表在 Bioinformatics 上的软件.</p>
+<p>强大的去接头能力,Trimmomatic 有两种模式：Single End Mode 和 Paired End Mode，对于单端测序数据，它和其它软件相比没有明显的优势；<strong>但如果是双端测序的数据，Trimmomatic 采用两种去接头方式，更强大，更彻底！</strong></p>
+<h2 id="RepeatMasker使用"><a href="#RepeatMasker使用" class="headerlink" title="RepeatMasker使用"></a><a href="https://www.cnblogs.com/pxy7896/p/10008578.html" target="_blank" rel="noopener">RepeatMasker使用</a></h2><p>RM是library-based，通过相似性比对来识别重复序列，可以屏蔽序列中转座子重复序列和低复杂度序列（默认将其替换成N）。使用数据库Dfam和Repbase。</p>
+<p>The Dfam database is a collection of <strong>Repetitive DNA element</strong> sequence alignments, <strong>hidden Markov models (HMMs)</strong> and <strong>matches lists</strong> for complete Eukaryote genomes.</p>
+<p>Repbase是由美国遗传信息研究所（GIRI）创建并维护，收录了转座子和其他重复序列及其注释信息。本地安装RepeatMasker，除了需要RepeatMasker主程序外，还需要TRF（Tandem Repeats Finder）、序列搜索引擎（以RMBlast为例）以及Repbase数据库。搜索引擎可以安装多个，但是每次只能用一个。</p>
+<p> Using RepeatMasker to Identify Repetitive Elements in Genomic Sequences</p>
+<p>要屏蔽的区域：low-complexity DNA sequences and interspersed repeats</p>
+<p><strong>比对引擎：</strong>cross_match WU-BLAST(更快)</p>
+<p>如果DNA source没有参考基因组，那么需要用RECON或者RepeatScout建立一个Repbase类型的文件</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2029/12/12/2029-12-12-UbuntuCommand/" data-toggle="tooltip" data-placement="left" title="DOS-Ubuntu命令集合">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2020/01/08/2020-01-06_nextflow/" data-toggle="tooltip" data-placement="top" title="nextflow">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开放阅读框-Open-Reading-Frame-ORF"><span class="toc-number">1.</span> <span class="toc-text">开放阅读框(Open Reading Frame, ORF)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尿嘧啶是RNA特有的碱基"><span class="toc-number">2.</span> <span class="toc-text">尿嘧啶是RNA特有的碱基</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC含量"><span class="toc-number">3.</span> <span class="toc-text">GC含量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mer"><span class="toc-number">4.</span> <span class="toc-text">mer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HISAT-2-：基因组比对工具（mapping）"><span class="toc-number">5.</span> <span class="toc-text">HISAT 2 ：基因组比对工具（mapping）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#trimmomatic"><span class="toc-number">6.</span> <span class="toc-text">trimmomatic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RepeatMasker使用"><span class="toc-number">7.</span> <span class="toc-text">RepeatMasker使用</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2020
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                146.4k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

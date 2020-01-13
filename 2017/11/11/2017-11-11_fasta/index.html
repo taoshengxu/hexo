@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_fasta/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        对fasta/fastq进行一些小操作｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>对fasta/fastq进行一些小操作</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Nov 11, 2017</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,219 words in total, 6 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="对fasta-fastq进行一些小操作"><a href="#对fasta-fastq进行一些小操作" class="headerlink" title="对fasta/fastq进行一些小操作"></a>对fasta/fastq进行一些小操作</h1><blockquote>
+<p>刘小泽写于18.12.27</p>
+<p>参考biostar handbook以及Wei Shen的SeqKit（处理fa/fq领域还比较出名）<a href="http://bioinf.shenwei.me/seqkit/，它可以处理压缩的或者解压的fa/fq" target="_blank" rel="noopener">http://bioinf.shenwei.me/seqkit/，它可以处理压缩的或者解压的fa/fq</a></p>
+</blockquote>
+<h3 id="下载测试数据"><a href="#下载测试数据" class="headerlink" title="下载测试数据"></a>下载测试数据</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http://data.biostarhandbook.com/reads/duplicated-reads.fq.gz</span><br><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz</span><br><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.protein.faa.gz</span><br></pre></td></tr></table></figure>
+<h3 id="小操作们"><a href="#小操作们" class="headerlink" title="小操作们"></a>小操作们</h3><h4 id="先看一下整体的数据统计"><a href="#先看一下整体的数据统计" class="headerlink" title="先看一下整体的数据统计"></a>先看一下整体的数据统计</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> seqkit <span class="built_in">stat</span> *.gz</span></span><br><span class="line">file                      format  type     num_seqs    sum_len  min_len   avg_len  max_len</span><br><span class="line">duplicated-reads.fq.gz    FASTQ   DNA        15,000  1,515,000      101       101      101</span><br><span class="line">viral.1.1.genomic.fna.gz  FASTA   DNA             7    197,450    1,608  28,207.1  154,675</span><br><span class="line">viral.1.protein.faa.gz    FASTA   Protein       113     56,244       38     497.7    3,122</span><br></pre></td></tr></table></figure>
+<h4 id="关于GC含量"><a href="#关于GC含量" class="headerlink" title="关于GC含量"></a>关于GC含量</h4><p>使用<code>fx2tab</code> 将fq/fa的统计信息转为制表符分割的表格，(fasta默认包括ID、sequence；fastq默认包括ID、sequence、quality）；另外可以自己指定length、GC等信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认输出：ID、sequence</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit fx2tab viral.1.1.genomic.fna.gz</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定输出(输出name、GC、length)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit fx2tab --name --only-id --gc --length </span></span><br><span class="line">viral.1.1.genomic.fna.gz</span><br><span class="line"></span><br><span class="line">NC_024015.1         1608    44.22</span><br><span class="line">NC_001798.2         154675  70.38</span><br><span class="line">NC_030692.1         8908    50.10</span><br><span class="line">NC_027892.1         8957    40.57</span><br><span class="line">NC_029642.1         9006    39.88</span><br><span class="line">NC_001607.1         8910    50.07</span><br><span class="line">NC_001422.1         5386    44.76</span><br><span class="line"><span class="meta">#</span><span class="bash"> [--name可以用-n替代，--only-id可以用-i替代]</span></span><br></pre></td></tr></table></figure>
+<p>当然，除了GC含量，任何碱基的含量也可以得到</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> seqkit fx2tab -H -n -i -B a -B c -B ac viral.1.1.genomic.fna.gz</span></span><br><span class="line"><span class="meta">#</span><span class="bash">name   seq qual    a   c   ac</span></span><br><span class="line">NC_024015.1         27.18   26.43   53.61</span><br><span class="line">NC_001798.2         14.87   35.03   49.90</span><br><span class="line">NC_030692.1         25.03   25.25   50.28</span><br><span class="line">NC_027892.1         29.68   19.44   49.11</span><br><span class="line">NC_029642.1         30.14   19.22   49.36</span><br><span class="line">NC_001607.1         25.30   25.54   50.84</span><br><span class="line">NC_001422.1         23.97   21.48   45.45</span><br></pre></td></tr></table></figure>
+<h4 id="如何根据ID得到fa-fq的子集？"><a href="#如何根据ID得到fa-fq的子集？" class="headerlink" title="如何根据ID得到fa/fq的子集？"></a>如何根据ID得到fa/fq的子集？</h4><p>这个还真是一个高频问题，许多时候就想要一个fastq/fasta中的某些ID的信息，利用<code>seqkit grep</code>可以方便解决</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先做一个测试数据，包括一些ID信息(就是从duplicated-reads.fq.gz中随机取样)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit sample --proportion 0.001 duplicated-reads.fq.gz | seqkit seq --name --only-id &gt;id.txt</span></span><br><span class="line">SRR1972739.2996</span><br><span class="line">SRR1972739.3044</span><br><span class="line">SRR1972739.3562</span><br><span class="line">SRR1972739.4162</span><br><span class="line">SRR1972739.5975</span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后根据ID抽取其中的序列</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit grep --pattern-file id.txt duplicated-reads.fq.gz &gt; dup_sub.fq.gz</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 用这个检查一下是不是这些ID</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit seq --name --only-id dup_sub.fq.gz</span></span><br></pre></td></tr></table></figure>
+<h4 id="找到质量差的碱基（非ATCG）并定位它们"><a href="#找到质量差的碱基（非ATCG）并定位它们" class="headerlink" title="找到质量差的碱基（非ATCG）并定位它们"></a>找到质量差的碱基（非ATCG）并定位它们</h4><p>先用conda安装好<code>csvtk</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> seqkit fx2tab -n -i -a xxx.fq.gz | csvtk -H -t -f 4 -r -i grep  -p <span class="string">"[^ATCG]"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 因为这里的实例数据都是不错的，没有低质量(可能之前的序列结果又更新了)。可以自己找一个包括N碱基的序列试试，替换掉xxx.fq.gz就好</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> csvtk参数表示：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -H: --no-header-row </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -t: --tabs </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -f: --fileds </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -r: --use-regexp</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -i: --ignore-case</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> grep -p: grep --pattern</span></span><br></pre></td></tr></table></figure>
+<p>假入找到了低质量碱基，我们想过滤掉</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先找到低质量序列ID</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit fx2tab -n -i -a xxx.fq.gz | csvtk -H -t -f 4 -r -i grep  -p <span class="string">"[^ATCG]"</span> | csvtk -H -t cut -f 1 &gt; id2.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后找到这些ID并去除</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> seqkit grep --pattern-file id2.txt --invert-match xxx.fq.gz &gt;clean.fa</span></span><br></pre></td></tr></table></figure>
+<p>或者我们想看看这些低质量碱基所在序列的信息（包括基因ID、正负链、起始终止位点等）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> seqkit grep --pattern-file id2.txt xxx.fq.gz | seqkit locate --ignore-case --only-positive-strand --pattern N+</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 其中--pattern可以多设置几个，就找出包含多种碱基的序列，比如可以再加一个 --pattern K+</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这个+表示含有一个或者多个前面的碱基</span></span><br></pre></td></tr></table></figure>
+<h4 id="想要移除重复的序列"><a href="#想要移除重复的序列" class="headerlink" title="想要移除重复的序列"></a>想要移除重复的序列</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> seqkit rmdup --by-seq --ignore-case duplicated-reads.fq.gz &gt; rmdup.fq.gz</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果序列非常大的话，可以用 -m/--md5，利用md5信息代替原始序列信息，来减少内存占用</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果想根据序列名进行去重，可以使用参数 --by-name</span></span><br></pre></td></tr></table></figure>
+<h4 id="序列定位motif-subsequence-enzyme-digest-sites"><a href="#序列定位motif-subsequence-enzyme-digest-sites" class="headerlink" title="序列定位motif/subsequence/enzyme digest sites"></a>序列定位motif/subsequence/enzyme digest sites</h4><p>假入现在有一个文件存放的是motifs / enzyme digest sites</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat enzymes.fa</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">EcoRI</span></span><br><span class="line">GAATTC</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">MmeI</span></span><br><span class="line">TCCRAC</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">SacI</span></span><br><span class="line">GAGCTC</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">XcmI</span></span><br><span class="line">CCANNNNNNNNNTGG #表示我们这里就像匹配到CCA和TGG，中间保证9个碱基就好</span><br></pre></td></tr></table></figure>
+<p>我们为了保证上面的<code>XcmI</code>这种情况也能成功进行匹配，需要定义一个<code>-d或者--degenerate</code>参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seqkit locate --degenerate --ignore-case --pattern-file enzymes.fa viral.1.1.genomic.fna.gz</span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">seqkit locate -d -i -f enzymes.fa viral.1.1.genomic.fna.gz</span><br></pre></td></tr></table></figure>
+<h4 id="将fasta序列排序"><a href="#将fasta序列排序" class="headerlink" title="将fasta序列排序"></a>将fasta序列排序</h4><p>可以按照序列长度</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> seqkit sort --by-length viral.1.1.genomic.fna.gz &gt; sorted.fa</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 对于大型的fasta文件，可以使用-2或者--two-pass减少内存使用</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上都是一些较为常用的小操作，对于更复杂的比如“拆分fasta”、“合并fasta“等，用到可以再去搜索</p>
+</blockquote>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2017/11/21/2017-11-13_decision_tree/" data-toggle="tooltip" data-placement="left" title="决策树">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2017/11/11/2017-11-11_sam_samtools/" data-toggle="tooltip" data-placement="top" title="SAM,BAM,VCF文件与SAMtools">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#对fasta-fastq进行一些小操作"><span class="toc-number">1.</span> <span class="toc-text">对fasta/fastq进行一些小操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载测试数据"><span class="toc-number">1.0.1.</span> <span class="toc-text">下载测试数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小操作们"><span class="toc-number">1.0.2.</span> <span class="toc-text">小操作们</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#先看一下整体的数据统计"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">先看一下整体的数据统计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于GC含量"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">关于GC含量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何根据ID得到fa-fq的子集？"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">如何根据ID得到fa/fq的子集？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#找到质量差的碱基（非ATCG）并定位它们"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">找到质量差的碱基（非ATCG）并定位它们</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#想要移除重复的序列"><span class="toc-number">1.0.2.5.</span> <span class="toc-text">想要移除重复的序列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#序列定位motif-subsequence-enzyme-digest-sites"><span class="toc-number">1.0.2.6.</span> <span class="toc-text">序列定位motif/subsequence/enzyme digest sites</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将fasta序列排序"><span class="toc-number">1.0.2.7.</span> <span class="toc-text">将fasta序列排序</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2020
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                146.4k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

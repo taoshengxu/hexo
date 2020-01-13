@@ -4,12 +4,27 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_CPM_RPKM/</loc>
-    <lastmod>2020-01-06T09:32:56.317Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_fasta/</loc>
+    <lastmod>2020-01-11T04:23:29.347Z</lastmod>
     <data>
         <display>
-        <title>CPM RPKM FPKM</title>
-        <pubTime>2019-12-05T15:40:08.000Z</pubTime>
+        <title>对fasta/fastq进行一些小操作</title>
+        <pubTime>2017-11-11T01:38:54.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
+    <lastmod>2020-01-10T13:06:52.558Z</lastmod>
+    <data>
+        <display>
+        <title>基因组比对注释工具</title>
+        <pubTime>2020-01-10T09:39:07.000Z</pubTime>
         
          
            
@@ -22,11 +37,46 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/06/2020-01-06_lincs_database/</loc>
-    <lastmod>2020-01-06T09:16:35.408Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/04/2017-11-04_geo/</loc>
+    <lastmod>2020-01-10T09:58:13.150Z</lastmod>
     <data>
         <display>
-        <title>NCBI数据库资源</title>
+        <title>GEO数据</title>
+        <pubTime>2017-11-04T13:52:45.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
+    <lastmod>2020-01-10T09:02:43.021Z</lastmod>
+    <data>
+        <display>
+        <title>英语-表达-写作</title>
+        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/06/2020-01-06_lincs_database/</loc>
+    <lastmod>2020-01-09T14:05:07.564Z</lastmod>
+    <data>
+        <display>
+        <title>lincs数据库资源</title>
         <pubTime>2020-01-06T02:39:07.000Z</pubTime>
         
          
@@ -40,11 +90,62 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/04/2020-01-04_ncbi_database/</loc>
-    <lastmod>2020-01-06T03:18:28.327Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
+    <lastmod>2020-01-09T13:49:58.857Z</lastmod>
     <data>
         <display>
-        <title>lincs数据库资源</title>
+        <title>python—sklearn学习</title>
+        <pubTime>2017-12-21T03:17:40.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_allele_transposon/</loc>
+    <lastmod>2020-01-09T03:53:16.587Z</lastmod>
+    <data>
+        <display>
+        <title>染色体-同源染色体-等位基因-转坐子</title>
+        <pubTime>2019-12-05T15:39:08.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/08/2020-01-06_nextflow/</loc>
+    <lastmod>2020-01-08T08:47:53.385Z</lastmod>
+    <data>
+        <display>
+        <title>nextflow</title>
+        <pubTime>2020-01-08T02:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/04/2020-01-04_ncbi_database/</loc>
+    <lastmod>2020-01-08T02:04:01.099Z</lastmod>
+    <data>
+        <display>
+        <title>NCBI数据库资源</title>
         <pubTime>2020-01-04T02:39:07.000Z</pubTime>
         
          
@@ -58,15 +159,46 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
-    <lastmod>2020-01-06T03:15:35.071Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    <lastmod>2020-01-07T06:14:43.792Z</lastmod>
     <data>
         <display>
-        <title>英语-表达-写作</title>
-        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
+        <title>DOS-Ubuntu命令集合</title>
+        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
         
-        <tag>English</tag>
          
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
+    <lastmod>2020-01-07T06:11:50.981Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu下载指令</title>
+        <pubTime>2017-08-28T04:00:59.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_CPM_RPKM/</loc>
+    <lastmod>2020-01-06T09:37:05.675Z</lastmod>
+    <data>
+        <display>
+        <title>CPM RPKM FPKM</title>
+        <pubTime>2019-12-05T15:40:08.000Z</pubTime>
+        
          
            
              
@@ -87,24 +219,6 @@
         
         <tag>English</tag>
          
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2020-01-04T10:28:02.212Z</lastmod>
-    <data>
-        <display>
-        <title>DOS-Ubuntu命令集合</title>
-        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
-        
          
            
              
@@ -201,39 +315,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/05/2019-12-05_allele/</loc>
-    <lastmod>2019-12-28T02:14:52.177Z</lastmod>
-    <data>
-        <display>
-        <title>染色体-同源染色体-等位基因</title>
-        <pubTime>2019-12-05T15:39:08.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/28/2017-08-28-UbuntuDonwload/</loc>
-    <lastmod>2019-12-27T17:20:10.521Z</lastmod>
-    <data>
-        <display>
-        <title>Ubuntu下载指令</title>
-        <pubTime>2017-08-28T04:00:59.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -353,21 +434,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/04/2017-11-04_geo/</loc>
-    <lastmod>2019-12-26T03:05:40.019Z</lastmod>
-    <data>
-        <display>
-        <title>GEO数据</title>
-        <pubTime>2017-11-04T13:52:45.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -1380,21 +1446,6 @@
         <display>
         <title>Python资料汇总</title>
         <pubTime>2017-12-21T03:18:40.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
-    <lastmod>2018-08-29T01:22:15.577Z</lastmod>
-    <data>
-        <display>
-        <title>python—sklearn学习</title>
-        <pubTime>2017-12-21T03:17:40.000Z</pubTime>
         
          
            
