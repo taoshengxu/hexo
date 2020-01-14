@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">5,779 words in total, 24 minutes required.</span>
+          <span class="post-count">5,899 words in total, 25 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /   [root]</span><br><span class="line"><span class="keyword">cd</span> ~  [home <span class="built_in">or</span> root/user]</span><br><span class="line"><span class="keyword">cd</span> . [Current]</span><br><span class="line"><span class="keyword">cd</span> .. [Father]</span><br><span class="line"><span class="keyword">cd</span> - [<span class="keyword">previous</span>]</span><br><span class="line"><span class="keyword">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -243,8 +243,9 @@
 <li><p>wc命令    在默认的情况下，wc将计算指定文件的行数、字数，以及字节数。</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-l或--lines 只显示行数。</span><br><span class="line">-c或--bytes或--chars 只显示Bytes数。</span><br><span class="line">-w或--words 只显示字数。</span><br><span class="line"></span><br><span class="line">$ wc testfile           <span class="comment"># testfile文件的统计信息  </span></span><br><span class="line">3 92 598 testfile       <span class="comment"># testfile文件的行数为3、单词数92、字节数598</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
+<li><p>Screen命令</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">screen -S session_name           <span class="comment"># 新建一个叫session_name的session</span></span><br><span class="line"> screen -ls                       <span class="comment"># 列出当前所有的session</span></span><br><span class="line"> screen -r session_name            <span class="comment"># 回到session_name这个session</span></span><br><span class="line"> screen -d session_name           <span class="comment"># 远程detach某个session</span></span><br><span class="line"> screen -d -r session_name        <span class="comment"># 结束当前session并回到session_name这个session</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">#快捷键</span></span><br><span class="line"> crtl+a+d  <span class="comment">#进入screen窗口后，想暂时退出（等会还想连接这个screen窗口）</span></span><br><span class="line"> <span class="built_in">exit</span>或者ctrl+d <span class="comment">#退出当前screen窗口，结束当前screen窗口，不想再连接回来（即杀死会话）</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>目录操作</p>
 <blockquote>
 <ul>
@@ -480,7 +481,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                146.4k <b>Words</b>
+                146.5k <b>Words</b>
         </p></div>
 
         <div class="search-container">
