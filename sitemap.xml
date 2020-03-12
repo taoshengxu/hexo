@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-12_perl/</loc>
+    
+    <lastmod>2020-03-12T08:01:21.075Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-11_ESTs/</loc>
+    
+    <lastmod>2020-03-11T08:50:15.454Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
+    
+    <lastmod>2020-02-11T09:06:26.827Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/01/10/2020-02-11_coronavirus/</loc>
+    
+    <lastmod>2020-02-11T09:02:57.268Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
+    
+    <lastmod>2020-01-15T12:40:16.250Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
     
-    <lastmod>2020-01-13T13:38:58.538Z</lastmod>
+    <lastmod>2020-01-15T01:27:59.777Z</lastmod>
     
   </url>
   
@@ -12,13 +47,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/11/2017-11-11_fasta/</loc>
     
     <lastmod>2020-01-11T04:23:29.347Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
-    
-    <lastmod>2020-01-10T13:06:52.558Z</lastmod>
     
   </url>
   
@@ -40,13 +68,6 @@
     <loc>https://taoshengxu.github.io/hexo/2020/01/06/2020-01-06_lincs_database/</loc>
     
     <lastmod>2020-01-09T14:05:07.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
-    
-    <lastmod>2020-01-09T13:49:58.857Z</lastmod>
     
   </url>
   
@@ -618,7 +639,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     
@@ -632,14 +660,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     

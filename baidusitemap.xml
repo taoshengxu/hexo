@@ -4,8 +4,95 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/11/2020-03-12_perl/</loc>
+    <lastmod>2020-03-12T08:01:21.075Z</lastmod>
+    <data>
+        <display>
+        <title>perl 学习</title>
+        <pubTime>2020-03-11T09:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/11/2020-03-11_ESTs/</loc>
+    <lastmod>2020-03-11T08:50:15.454Z</lastmod>
+    <data>
+        <display>
+        <title>表达标签序列</title>
+        <pubTime>2020-03-11T09:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
+    <lastmod>2020-02-11T09:06:26.827Z</lastmod>
+    <data>
+        <display>
+        <title>基因组比对注释工具</title>
+        <pubTime>2020-01-10T09:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/10/2020-02-11_coronavirus/</loc>
+    <lastmod>2020-02-11T09:02:57.268Z</lastmod>
+    <data>
+        <display>
+        <title>冠状病毒</title>
+        <pubTime>2020-01-10T09:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
+    <lastmod>2020-01-15T12:40:16.250Z</lastmod>
+    <data>
+        <display>
+        <title>python—sklearn学习</title>
+        <pubTime>2017-12-21T03:17:40.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2020-01-13T13:38:58.538Z</lastmod>
+    <lastmod>2020-01-15T01:27:59.777Z</lastmod>
     <data>
         <display>
         <title>DOS-Ubuntu命令集合</title>
@@ -31,24 +118,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
-    <lastmod>2020-01-10T13:06:52.558Z</lastmod>
-    <data>
-        <display>
-        <title>基因组比对注释工具</title>
-        <pubTime>2020-01-10T09:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
         </display>
     </data>
     </url>
@@ -102,21 +171,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
-    <lastmod>2020-01-09T13:49:58.857Z</lastmod>
-    <data>
-        <display>
-        <title>python—sklearn学习</title>
-        <pubTime>2017-12-21T03:17:40.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
