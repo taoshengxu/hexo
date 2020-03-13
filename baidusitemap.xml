@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
+    <lastmod>2020-03-13T03:59:53.997Z</lastmod>
+    <data>
+        <display>
+        <title>conda命令</title>
+        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/11/2020-03-12_perl/</loc>
-    <lastmod>2020-03-12T08:01:21.075Z</lastmod>
+    <lastmod>2020-03-12T09:04:10.459Z</lastmod>
     <data>
         <display>
         <title>perl 学习</title>
@@ -463,26 +483,6 @@
         <title>TCGA数据类型下载总结</title>
         <pubTime>2019-12-05T11:39:08.000Z</pubTime>
         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
-    <lastmod>2019-12-26T08:03:02.045Z</lastmod>
-    <data>
-        <display>
-        <title>conda命令</title>
-        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
-         
          
            
              

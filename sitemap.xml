@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    
+    <lastmod>2020-03-13T03:59:53.997Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-12_perl/</loc>
     
-    <lastmod>2020-03-12T08:01:21.075Z</lastmod>
+    <lastmod>2020-03-12T09:04:10.459Z</lastmod>
     
   </url>
   
@@ -187,13 +194,6 @@
     <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_TCGA_Datadownload/</loc>
     
     <lastmod>2019-12-26T08:27:53.878Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
-    
-    <lastmod>2019-12-26T08:03:02.045Z</lastmod>
     
   </url>
   
