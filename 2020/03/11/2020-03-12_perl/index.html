@@ -159,33 +159,25 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">267 words in total, 1 minutes required.</span>
+          <span class="post-count">158 words in total, 1 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="perl-学习记录"><a href="#perl-学习记录" class="headerlink" title="perl 学习记录"></a>perl 学习记录</h2><h4 id="1-perl-配置perl依赖库文件安装源"><a href="#1-perl-配置perl依赖库文件安装源" class="headerlink" title="1. perl 配置perl依赖库文件安装源"></a>1. <a href="https://blog.csdn.net/developerof/article/details/89717061" target="_blank" rel="noopener">perl 配置perl依赖库文件安装源</a></h4><p>如果需要重新配置CPAN,输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">cpan <span class="comment">#进入cpan后，输入：</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">CPAN&gt;o conf init</span></span><br></pre></td></tr></table></figure>
-<p>查看镜像列表:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">cpan[1]&gt;</span><span class="bash">o conf urllist</span></span><br></pre></td></tr></table></figure>
-<p>确认修改</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">o conf commit</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">cpan <span class="comment">#进入cpan后，输入：</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">CPAN&gt;o conf init</span></span><br><span class="line">查看镜像列表:</span><br><span class="line"><span class="meta">cpan[1]&gt;</span><span class="bash">o conf urllist</span></span><br><span class="line">确认修改</span><br><span class="line">o conf commit</span><br></pre></td></tr></table></figure>
 <p>安装perl组件出错：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/<span class="keyword">make</span> — NOT OK</span><br><span class="line">Running <span class="keyword">make</span> test</span><br><span class="line">Can’t test without successful <span class="keyword">make</span></span><br><span class="line">Running <span class="keyword">make</span> install</span><br><span class="line"><span class="keyword">make</span> had returned <span class="keyword">bad</span> status, install seems impossible</span><br><span class="line">可以尝试</span><br><span class="line">#cpan</span><br><span class="line">cpan&gt;<span class="keyword">o</span> <span class="keyword">conf</span> <span class="keyword">make</span> /usr/bin/<span class="keyword">make</span></span><br><span class="line">cpan&gt;<span class="keyword">o</span> <span class="keyword">conf</span> commit</span><br><span class="line">cpan&gt;<span class="keyword">exit</span>然后用<span class="keyword">perl</span>命令再安装一下该组件，看能否成功。</span><br></pre></td></tr></table></figure>
-<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p>Can’t locate ExtUtils/Manifest.pm in @INC (@INC contains: /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/inc/bundle /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/inc/perl/lib /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/inc/lib /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/../perl/lib /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/lib /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/../lib /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .)</p>
-<p>at /home/grp-huangxd/xutaosheng/bioinformatics/maker/src/inc/bundle/Module/Build/Base.pm line 1836.</p>
-<p>rpm2cpio perl-ExtUtils-MakeMaker-6.68-3.el7.noarch.rpm |cpio -idvm</p>
-<p>上次工作记录： 建立了一个maker screen</p>
-
+<h3 id="2-☆-各个平台下-Perl-模块安装总结（非常好）"><a href="#2-☆-各个平台下-Perl-模块安装总结（非常好）" class="headerlink" title="2. ☆ 各个平台下 Perl 模块安装总结（非常好）"></a>2. <a href="https://taoshengxu.github.io/DocumentGit/html/各个平台下 Perl 模块安装总结.html">☆ 各个平台下 Perl 模块安装总结（非常好）</a></h3>
           
           <hr>
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2020/03/11/2020-03-11_ESTs/" data-toggle="tooltip" data-placement="left" title="表达标签序列">&larr; Previous Post</a>
+                  <a href="/hexo/2020/03/28/2020-03-28_fastacut/" data-toggle="tooltip" data-placement="left" title="切割fasta文件">&larr; Previous Post</a>
               </li>
               
               
               <li class="next">
-                  <a href="/hexo/2020/01/10/2020-01-20_assembly_tools/" data-toggle="tooltip" data-placement="top" title="基因组比对注释工具">Next Post&rarr;</a>
+                  <a href="/hexo/2020/03/11/2020-03-11_ESTs/" data-toggle="tooltip" data-placement="top" title="表达标签序列EST">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -197,7 +189,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#perl-学习记录"><span class="toc-number">1.</span> <span class="toc-text">perl 学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-perl-配置perl依赖库文件安装源"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. perl 配置perl依赖库文件安装源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-number">1.1.</span> <span class="toc-text">2.</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#perl-学习记录"><span class="toc-number">1.</span> <span class="toc-text">perl 学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-perl-配置perl依赖库文件安装源"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. perl 配置perl依赖库文件安装源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-☆-各个平台下-Perl-模块安装总结（非常好）"><span class="toc-number">1.1.</span> <span class="toc-text">2. ☆ 各个平台下 Perl 模块安装总结（非常好）</span></a></li></ol>
         
     </div>
   </div>
@@ -243,7 +235,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                147.5k <b>Words</b>
+                148.2k <b>Words</b>
         </p></div>
 
         <div class="search-container">

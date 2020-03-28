@@ -2,37 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
     
-    <lastmod>2020-03-13T03:59:53.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-12_perl/</loc>
-    
-    <lastmod>2020-03-12T09:04:10.459Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-11_ESTs/</loc>
-    
-    <lastmod>2020-03-11T08:50:15.454Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
-    
-    <lastmod>2020-02-11T09:06:26.827Z</lastmod>
+    <lastmod>2020-03-28T05:12:19.402Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/2020/01/10/2020-02-11_coronavirus/</loc>
     
-    <lastmod>2020-02-11T09:02:57.268Z</lastmod>
+    <lastmod>2020-03-28T05:10:38.639Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/01/10/2020-01-20_assembly_tools/</loc>
+    
+    <lastmod>2020-03-28T05:10:15.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-12_perl/</loc>
+    
+    <lastmod>2020-03-28T05:09:21.381Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/03/11/2020-03-11_ESTs/</loc>
+    
+    <lastmod>2020-03-28T05:05:27.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/03/28/2020-03-28_maker/</loc>
+    
+    <lastmod>2020-03-28T04:08:11.041Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/03/28/2020-03-28_fastacut/</loc>
+    
+    <lastmod>2020-03-28T04:02:05.873Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    
+    <lastmod>2020-03-23T14:24:46.113Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2020-03-23T14:23:59.565Z</lastmod>
     
   </url>
   
@@ -40,13 +68,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/12/21/2017-12-21_python_sklearn/</loc>
     
     <lastmod>2020-01-15T12:40:16.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    
-    <lastmod>2020-01-15T01:27:59.777Z</lastmod>
     
   </url>
   
@@ -264,13 +285,6 @@
     <loc>https://taoshengxu.github.io/hexo/2017/11/07/2017-11-07_WES_RNASEQ_CHIPSEQ/</loc>
     
     <lastmod>2019-12-25T06:21:58.881Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/12/05/2019-12-05_trancript_type/</loc>
-    
-    <lastmod>2019-12-25T06:19:19.454Z</lastmod>
     
   </url>
   
@@ -646,6 +660,13 @@
   </url>
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -654,13 +675,6 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     

@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020/01/08/2020-01-06_nextflow/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020/03/28/2020-03-28_fastacut/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -22,7 +22,7 @@
 
     <title>
         
-        nextflow｜undefined
+        切割fasta文件｜undefined
         
     </title>
 
@@ -125,14 +125,14 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>nextflow</h1>
+                        <h1>切割fasta文件</h1>
                         
                         
 
                         
                           <span class="meta">
                                <span class="meta-item">Author: XT</span>
-                               <span class="meta-item">Date: Jan 8, 2020</span>
+                               <span class="meta-item">Date: Mar 28, 2020</span>
                                
                           </span>
                           <div class="tags text-center">
@@ -159,22 +159,26 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">8 words in total, 1 minutes required.</span>
+          <span class="post-count">67 words in total, 1 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">printf</span> <span class="string">'Hello world!'</span> | <span class="keyword">split</span> -b <span class="number">6</span> - chunk<span class="number">_</span></span><br></pre></td></tr></table></figure>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>用一个perl脚本 </p>
+<p>从fasta文件中获取一条contig或者几天contig</p>
+<p><a href="https://taoshengxu.github.io/DocumentGit/data/filter.pl">filter.pl</a></p>
+<p>用法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">perl filter.pl <span class="attribute">--min_size_cutoff</span>=480664 <span class="attribute">--input_file</span>=pilon2.fasta <span class="attribute">--output_file</span>=filter.fasta</span><br><span class="line"></span><br><span class="line">perl filter.pl <span class="attribute">--min_size_cutoff</span>=160000 <span class="attribute">--max_size_cutoff</span>=200000 <span class="attribute">--limit_count</span>=1 <span class="attribute">--input_file</span>=pilon2.fasta <span class="attribute">--output_file</span>=filter_200000.fasta</span><br><span class="line"></span><br><span class="line">perl filter.pl <span class="attribute">--min_size_cutoff</span>=600000  <span class="attribute">--limit_count</span>=100 <span class="attribute">--input_file</span>=pilon2.fasta <span class="attribute">--output_file</span>=filter_600000.fasta</span><br></pre></td></tr></table></figure>
 
           
           <hr>
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2020/01/10/2020-01-20_assembly_tools/" data-toggle="tooltip" data-placement="left" title="基因组比对注释工具">&larr; Previous Post</a>
+                  <a href="/hexo/2020/03/28/2020-03-28_maker/" data-toggle="tooltip" data-placement="left" title="maker 用法总结">&larr; Previous Post</a>
               </li>
               
               
               <li class="next">
-                  <a href="/hexo/2020/01/06/2020-01-06_lincs_database/" data-toggle="tooltip" data-placement="top" title="lincs数据库资源">Next Post&rarr;</a>
+                  <a href="/hexo/2020/03/11/2020-03-12_perl/" data-toggle="tooltip" data-placement="top" title="perl 学习">Next Post&rarr;</a>
               </li>
               
           </ul>
