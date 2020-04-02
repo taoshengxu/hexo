@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">541 words in total, 3 minutes required.</span>
+          <span class="post-count">760 words in total, 4 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-maker-：-gene-annotation"><a href="#1-maker-：-gene-annotation" class="headerlink" title="1. maker  ： gene annotation"></a>1. maker  ： gene annotation</h2><p><a href="https://yandell-lab.org/software/maker.html" target="_blank" rel="noopener">make 官方</a></p>
@@ -189,6 +189,18 @@
 <h2 id="4-注释数据库"><a href="#4-注释数据库" class="headerlink" title="4. 注释数据库"></a>4. 注释数据库</h2><p>1.植物蛋白组序列数据库</p>
 <p><a href="ftp://ftp.ebi.ac.uk/pub/databases/fastafiles/uniprot/" target="_blank" rel="noopener">ftp://ftp.ebi.ac.uk/pub/databases/fastafiles/uniprot/</a></p>
 <p>2.植物EST数据库<br><a href="ftp://ftp.ebi.ac.uk/pub/databases/fastafiles/emblrelease/" target="_blank" rel="noopener">ftp://ftp.ebi.ac.uk/pub/databases/fastafiles/emblrelease/</a></p>
+<h2 id="5-Apollo"><a href="#5-Apollo" class="headerlink" title="5. Apollo"></a>5. <strong>Apollo</strong></h2><p> Using Docker to Run Apollo   <a href="https://genomearchitect.readthedocs.io/en/latest/Docker.html" target="_blank" rel="noopener">https://genomearchitect.readthedocs.io/en/latest/Docker.html</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在非root权限用户下</span></span><br><span class="line">创建docker组</span><br><span class="line">sudo groupadd docker</span><br><span class="line">将当前用户加入docker组</span><br><span class="line">sudo gpasswd -a <span class="variable">$&#123;USER&#125;</span> docker</span><br><span class="line">当前用户退出系统重新登陆</span><br><span class="line">运行docker命令</span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p>Example Workflow</p>
+<ol>
+<li>Make the following directories somewhere with write permissions: postgres-data and jbrowse-data.</li>
+<li>Copy your jbrowse data into jbrowse-data. We provide working sample data.</li>
+<li><p>Run the docker-command: </p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v <span class="regexp">/absolute/</span>path<span class="regexp">/to/</span>jbrowse-<span class="string">data:</span><span class="regexp">/data -v /</span>absolute<span class="regexp">/path/</span>to<span class="regexp">/postgres-data:/</span>var<span class="regexp">/lib/</span>postgresql -p <span class="number">8888</span>:<span class="number">8080</span> quay.io<span class="regexp">/gmod/</span><span class="string">apollo:</span>latest</span><br><span class="line"></span><br><span class="line">docker run -it -v <span class="regexp">/data/</span>home<span class="regexp">/xutaosheng5/</span>biosoft<span class="regexp">/Apollo/</span>jbrowse-<span class="string">data:</span><span class="regexp">/data -v /</span>data<span class="regexp">/home/</span>xutaosheng5<span class="regexp">/biosoft/</span>Apollo<span class="regexp">/postgres-data:/</span>var<span class="regexp">/lib/</span>postgresql -p <span class="number">8888</span>:<span class="number">8080</span> quay.io<span class="regexp">/gmod/</span><span class="string">apollo:</span>latest</span><br><span class="line"></span><br><span class="line"><span class="regexp">/data/</span>home<span class="regexp">/xutaosheng5/</span>biosoft<span class="regexp">/Apollo/</span>jbrowse-data/yeast</span><br><span class="line"></span><br><span class="line">sudo docker run -it -v <span class="regexp">/data/</span>home<span class="regexp">/xutaosheng/</span>Soft<span class="regexp">/Apollo/</span>jbrowse-<span class="string">data:</span><span class="regexp">/data -v /</span>data<span class="regexp">/home/</span>xutaosheng<span class="regexp">/Soft/</span>Apollo<span class="regexp">/postgres-data:/</span>var<span class="regexp">/lib/</span>postgresql -p <span class="number">8888</span>:<span class="number">8080</span> quay.io<span class="regexp">/gmod/</span><span class="string">apollo:</span>latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Login to the server at <a href="http://localhost:8888/" target="_blank" rel="noopener">http://localhost:8888/</a></p>
+</li>
+</ol>
 
           
           <hr>
@@ -212,7 +224,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-maker-：-gene-annotation"><span class="toc-number">1.</span> <span class="toc-text">1. maker  ： gene annotation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Install"><span class="toc-number">2.</span> <span class="toc-text">2. Install</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-原始安装包安装"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 原始安装包安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-conda-安装"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. conda 安装</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#3-基因注释"><span class="toc-number">3.</span> <span class="toc-text">3. 基因注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-注释数据库"><span class="toc-number">4.</span> <span class="toc-text">4. 注释数据库</span></a></li>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-maker-：-gene-annotation"><span class="toc-number">1.</span> <span class="toc-text">1. maker  ： gene annotation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Install"><span class="toc-number">2.</span> <span class="toc-text">2. Install</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-原始安装包安装"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 原始安装包安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-conda-安装"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. conda 安装</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#3-基因注释"><span class="toc-number">3.</span> <span class="toc-text">3. 基因注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-注释数据库"><span class="toc-number">4.</span> <span class="toc-text">4. 注释数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Apollo"><span class="toc-number">5.</span> <span class="toc-text">5. Apollo</span></a></li>
         
     </div>
   </div>
@@ -258,7 +270,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                148.2k <b>Words</b>
+                148.6k <b>Words</b>
         </p></div>
 
         <div class="search-container">
