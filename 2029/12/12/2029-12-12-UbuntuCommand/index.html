@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">6,269 words in total, 26 minutes required.</span>
+          <span class="post-count">6,334 words in total, 27 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /   [root]</span><br><span class="line"><span class="keyword">cd</span> ~  [home <span class="built_in">or</span> root/user]</span><br><span class="line"><span class="keyword">cd</span> . [Current]</span><br><span class="line"><span class="keyword">cd</span> .. [Father]</span><br><span class="line"><span class="keyword">cd</span> - [<span class="keyword">previous</span>]</span><br><span class="line"><span class="keyword">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -281,7 +281,7 @@
 <p>以添加mongodb server为列</p>
 </blockquote>
 <p><strong>修改方法一：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/mongodb/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line">//配置完后可以通过<span class="built_in">echo</span> <span class="variable">$PATH</span>查看配置结果。</span><br><span class="line">生效方法：立即生效</span><br><span class="line">有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置</span><br><span class="line">用户局限：仅对当前用户</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; export PATH=<span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>配置完后可以通过echo <span class="variable">$PATH</span>查看配置结果。</span><br><span class="line">生效方法：立即生效</span><br><span class="line">有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置</span><br><span class="line">用户局限：仅对当前用户</span><br></pre></td></tr></table></figure>
 <p><strong>修改方法二：（本人一般采用此种方法）</strong></p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">通过修改<span class="string">.bashrc</span>文件:</span><br><span class="line">vim ~<span class="string">/.bashrc</span></span><br><span class="line"><span class="string">//</span>在最后一行添上：</span><br><span class="line">export PATH=<span class="string">/usr/local/mongodb/bin</span>:$PATH</span><br><span class="line"></span><br><span class="line">生效方法：（有以下两种）</span><br><span class="line">1、关闭当前终端窗口，重新打开一个新终端窗口就能生效</span><br><span class="line">2、输入“source ~<span class="string">/.bashrc</span>”命令，立即生效</span><br><span class="line">有效期限：永久有效</span><br><span class="line">用户局限：仅对当前用户</span><br></pre></td></tr></table></figure>
 <p><strong>修改方法三:</strong></p>
@@ -289,19 +289,35 @@
 <p><strong>修改方法四:</strong></p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过修改environment文件<span class="symbol">:</span></span><br><span class="line">vim /etc/environment</span><br><span class="line">在PATH=<span class="string">"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"</span>中加入“<span class="symbol">:/usr/local/mongodb/bin</span>”</span><br><span class="line">生效方法：系统重启</span><br><span class="line">有效期限：永久有效</span><br><span class="line">用户局限：对所有用户</span><br></pre></td></tr></table></figure>
 <h3 id="创建、删除文件及文件夹"><a href="#创建、删除文件及文件夹" class="headerlink" title="创建、删除文件及文件夹"></a>创建、删除文件及文件夹</h3><ul>
-<li>mkdir 目录名       创建一个目录</li>
-<li>mkdir -p 递归创建目录</li>
-<li>cp 复制</li>
-<li>rmdir 空目录名     删除一个空目录</li>
-<li>rm 文件名 文件名   删除一个文件或多个文件</li>
-<li>rm –rf 非空目录名  删除一个非空目录下的一切</li>
-<li>touch 文件名       创建一个空文件</li>
-<li>mv file1 file2     将文件 file1，更名为 file2。</li>
-<li>mv file1 dir1      将文件 file1移到目录 dir1下</li>
-<li>mv dir1 dir2      <ul>
+<li><p>mkdir 目录名       创建一个目录</p>
+</li>
+<li><p>mkdir -p 递归创建目录</p>
+</li>
+<li><p>cp 复制</p>
+</li>
+<li><p>rmdir 空目录名     删除一个空目录</p>
+</li>
+<li><p>rm 文件名 文件名   删除一个文件或多个文件</p>
+</li>
+<li><p>[不要复制,谨慎] (sudo)rm –rf 非空目录名  删除一个非空目录下的一切</p>
+</li>
+<li><p>touch 文件名       创建一个空文件</p>
+</li>
+<li><p>mv file1 file2     将文件 file1，更名为 file2。</p>
+</li>
+<li><p>mv file1 dir1      将文件 file1移到目录 dir1下</p>
+</li>
+<li><p>mv dir1 dir2      </p>
+<ul>
 <li>若目录 dir2 存在，则将目录 dir1及其所有文件和子目录，移到目录 dir2 下。</li>
 <li>若目录 dir2 不存在，则将dir1及其所有文件和子目录，更改为目录 dir2。</li>
 </ul>
+</li>
+<li><p>例如：从本地拷贝文件到155服务器上</p>
+<p>scp /home/oracle/xpaddump/xpad.dmp root@192.168.10.155:/home/oracle/xpad</p>
+</li>
+<li><p>例如：从164服务器上拷贝文件到本地</p>
+<p>scp root@192.168.10.164:/home/oracle/xpaddump/xpad.dmp /home/oracle/xpad/</p>
 </li>
 </ul>
 <h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><p>重启</p>
@@ -493,7 +509,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                149.8k <b>Words</b>
+                148.9k <b>Words</b>
         </p></div>
 
         <div class="search-container">
