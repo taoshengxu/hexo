@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2020-04-08T15:40:23.448Z</lastmod>
+    <lastmod>2020-04-13T12:46:53.642Z</lastmod>
     <data>
         <display>
         <title>DOS-Ubuntu命令集合</title>
@@ -22,8 +22,26 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/04/12/2020-03-28_RepeatMasker/</loc>
+    <lastmod>2020-04-12T14:12:58.161Z</lastmod>
+    <data>
+        <display>
+        <title>RepeatMasker</title>
+        <pubTime>2020-04-12T04:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/04/03/2020-04-03_NGS_server/</loc>
-    <lastmod>2020-04-04T15:33:02.421Z</lastmod>
+    <lastmod>2020-04-12T13:26:08.565Z</lastmod>
     <data>
         <display>
         <title>NGS server集群</title>
@@ -40,13 +58,48 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_fasta/</loc>
+    <lastmod>2020-04-12T09:24:09.892Z</lastmod>
+    <data>
+        <display>
+        <title>对fasta/fastq进行一些小操作</title>
+        <pubTime>2017-11-11T01:38:54.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/11/2020-03-12_perl/</loc>
-    <lastmod>2020-04-03T12:46:59.578Z</lastmod>
+    <lastmod>2020-04-10T07:15:34.702Z</lastmod>
     <data>
         <display>
         <title>perl 学习</title>
         <pubTime>2020-03-11T09:39:07.000Z</pubTime>
         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
+    <lastmod>2020-04-09T14:14:25.886Z</lastmod>
+    <data>
+        <display>
+        <title>conda命令</title>
+        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
          
            
              
@@ -139,59 +192,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/28/2020-03-28_fastacut/</loc>
-    <lastmod>2020-03-28T04:02:05.873Z</lastmod>
-    <data>
-        <display>
-        <title>切割fasta文件</title>
-        <pubTime>2020-03-28T04:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
-    <lastmod>2020-03-23T14:24:46.113Z</lastmod>
-    <data>
-        <display>
-        <title>conda命令</title>
-        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/11/11/2017-11-11_fasta/</loc>
-    <lastmod>2020-01-11T04:23:29.347Z</lastmod>
-    <data>
-        <display>
-        <title>对fasta/fastq进行一些小操作</title>
-        <pubTime>2017-11-11T01:38:54.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
