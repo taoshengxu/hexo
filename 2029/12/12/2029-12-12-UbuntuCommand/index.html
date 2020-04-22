@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">6,456 words in total, 27 minutes required.</span>
+          <span class="post-count">6,489 words in total, 27 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /   [root]</span><br><span class="line"><span class="keyword">cd</span> ~  [home <span class="built_in">or</span> root/user]</span><br><span class="line"><span class="keyword">cd</span> . [Current]</span><br><span class="line"><span class="keyword">cd</span> .. [Father]</span><br><span class="line"><span class="keyword">cd</span> - [<span class="keyword">previous</span>]</span><br><span class="line"><span class="keyword">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -300,9 +300,11 @@
 </li>
 <li><p>从本地拷贝文件到155服务器上</p>
 <p>scp /home/oracle/xpaddump/xpad.dmp root@192.168.10.155:/home/oracle/xpad</p>
+<p>scp -r /home/oracle/xpaddump/ root@192.168.10.155:/home/oracle/ [目录拷贝]</p>
 </li>
 <li><p>从164服务器上拷贝文件到本地</p>
-<p>scp root@192.168.10.164:/home/oracle/xpaddump/xpad.dmp /home/oracle/xpad/</p>
+<p>scp  username@192.168.10.164:/home/oracle/xpaddump/xpad.dmp /home/oracle/xpad/</p>
+<p>scp -r username@10.21.53.251:/home/oracle/xpaddump/ /home/oracle/xpad/   [目录拷贝]</p>
 </li>
 </ul>
 <h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启</span></span><br><span class="line">- sudo reboot</span><br><span class="line">- sudo shutdown -r now 立刻重启(root用户使用)</span><br><span class="line">- sudo shutdown -r 10 过10分钟自动重启(root用户使用)</span><br><span class="line">- sudo shutdown -r 20:35 在时间为20:35时候重启(root用户使用)</span><br><span class="line">- 如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启</span><br><span class="line"><span class="comment"># 关机</span></span><br><span class="line">- halt   立刻关机</span><br><span class="line">- poweroff 立刻关机</span><br><span class="line">- shutdown -h now 立刻关机(root用户使用)</span><br><span class="line">- shutdown -h 10 10分钟后自动关机</span><br></pre></td></tr></table></figure>
@@ -490,7 +492,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                151.9k <b>Words</b>
+                152.0k <b>Words</b>
         </p></div>
 
         <div class="search-container">
