@@ -157,13 +157,14 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">3,715 words in total, 13 minutes required.</span>
+          <span class="post-count">3,713 words in total, 13 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>富集是将基因根据一些先验的知识（也就是常见的注释）进行分类的过程。我们一般会想到最常见的是GO/KEGG富集，其思路是先筛选差异基因，然后确定这些差异基因的GO/KEGG注释，然后通过超几何分布计算出哪些通路富集到了，通常会选择一个阈值来卡一下，比如p值和FDR等。因此这会涉及到人为的阈值选择，具有一定的主观性，而且只能用于差异较大的基因，所以结果可能有一定的局限性。</p>
 <p>GSEA（Gene Set Enrichment Analysis），其思路是发表于2005年的<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1239896/" target="_blank" rel="noopener">Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles</a>，</p>
 <p>主要是要有两个概念：</p>
-<p><strong><code>预先定义的基因集S（基于先验知识的基因注释信息）</code>和<code>待测排序基因集L（一般是表达矩阵）</code>；然后GSEA目的就是为了判断S基因集中的基因是随机分布于L（排序后的数据集），还是聚集分布在L的顶部或者底部（这也就是富集）。如果待测基因集中的某些基因显著富集在L的顶部或者底部，这说明这些基因的表达（因为其是根据表达谱数据）对你定义的分组（预先分组，表型）的差异有显著影响（一致性），从而找到我们关注的基因集。待测基因集的排序依据是其在不同表型状态下的表达差异。</strong>从而衡量基因全局表达量的变化是否有某些特定的基因集合的倾向性。</p>
+<p><strong><code>预先定义的基因集S（基于先验知识的基因注释信息）</code>和<code>待测排序基因集L（一般是表达矩阵）</code>；</strong></p>
+<p><strong>GSEA目的就是为了判断 基因集S 中的基因是随机分布于L（排序后的数据集），还是聚集分布在L的顶部或者底部（富集）。如果预先定义的基因集S的某些基因显著富集在L的顶部或者底部，这说明这些基因的表达（因为其是根据表达谱数据）对你定义的分组（预先分组，表型）的差异有显著影响（一致性），从而找到我们关注的基因集。待测基因集的排序依据是其在不同表型状态下的表达差异。</strong>从而衡量基因全局表达量的变化是否有某些特定的基因集合的倾向性。</p>
 <p>给定一个排序的基因表L和一个预先定义的基因集S (比如编码某个代谢通路的产物的基因, 基因组上物理位置相近的基因，或同一GO注释下的基因)，GSEA的目的是判断S里面的成员s在L里面是随机分布还是主要聚集在L的顶部或底部。这些基因排序的依据是其在不同表型状态下的表达差异，若研究的基因集S的成员显著聚集在L的顶部或底部，则说明此基因集成员对表型的差异有贡献，也是我们关注的基因集。</p>
 <p>在富集分析的理论中，GSEA可以认为是第二代，即Functional Class Scoring (FCS) Approaches。GSEA（Gene Set Enrichment Analysis）方法是目前在pathway analysis方法中的state of the art.</p>
 <h1 id="GSEA"><a href="#GSEA" class="headerlink" title="GSEA"></a>GSEA</h1><p>Gene Set Enrichment Analysis <strong>(基因集富集分析)用来评估一个预先定义的基因集的基因 在与表型相关度排序的基因表中的分布趋势，从而判断其对表型的贡献</strong>。软件会对基因根据其于表型的关联度(可以理解为表达值的变化)从大到小排序，然后判断基因集内每条注释下的基因是否富集于表型相关度排序后基因表的上部或下部，从而判断此基因集内基因的协同变化对表型变化的影响。</p>
@@ -318,7 +319,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                152.0k <b>Words</b>
+                154.7k <b>Words</b>
         </p></div>
 
         <div class="search-container">

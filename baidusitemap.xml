@@ -4,8 +4,133 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    <lastmod>2020-05-23T11:47:44.219Z</lastmod>
+    <data>
+        <display>
+        <title>DOS-Ubuntu命令集合</title>
+        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
+    <lastmod>2020-05-23T09:37:21.665Z</lastmod>
+    <data>
+        <display>
+        <title>英语-表达-写作</title>
+        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
+        
+        <tag>English</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/21/2020-05-21_singlecell/</loc>
+    <lastmod>2020-05-23T08:12:36.511Z</lastmod>
+    <data>
+        <display>
+        <title>single cell</title>
+        <pubTime>2020-05-21T05:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GitCommand/</loc>
+    <lastmod>2020-05-22T13:22:20.417Z</lastmod>
+    <data>
+        <display>
+        <title>Git 参考手册</title>
+        <pubTime>2017-09-07T01:06:46.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/17/2020-05-17_Breast_cellline/</loc>
+    <lastmod>2020-05-22T13:18:48.191Z</lastmod>
+    <data>
+        <display>
+        <title>乳腺癌细胞系</title>
+        <pubTime>2020-05-17T03:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/22/2020-05-22_scRNA/</loc>
+    <lastmod>2020-05-22T08:53:18.233Z</lastmod>
+    <data>
+        <display>
+        <title>单细胞测序学习</title>
+        <pubTime>2020-05-22T02:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/11/2020-03-12_perl/</loc>
+    <lastmod>2020-05-08T12:13:15.066Z</lastmod>
+    <data>
+        <display>
+        <title>perl 学习</title>
+        <pubTime>2020-03-11T09:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/04/03/2020-04-03_NGS_server/</loc>
-    <lastmod>2020-04-16T13:54:21.421Z</lastmod>
+    <lastmod>2020-05-06T10:38:11.699Z</lastmod>
     <data>
         <display>
         <title>NGS server集群</title>
@@ -22,18 +147,15 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2020-04-16T09:12:31.069Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-21-GSEA/</loc>
+    <lastmod>2020-04-23T09:46:02.883Z</lastmod>
     <data>
         <display>
-        <title>DOS-Ubuntu命令集合</title>
-        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
+        <title>GSEA富集分析</title>
+        <pubTime>2018-12-21T06:56:07.000Z</pubTime>
         
          
            
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
         </display>
     </data>
     </url>
@@ -79,24 +201,6 @@
         <display>
         <title>RepeatMasker</title>
         <pubTime>2020-04-12T04:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/03/11/2020-03-12_perl/</loc>
-    <lastmod>2020-04-10T07:15:34.702Z</lastmod>
-    <data>
-        <display>
-        <title>perl 学习</title>
-        <pubTime>2020-03-11T09:39:07.000Z</pubTime>
         
          
            
@@ -231,26 +335,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/28/2025-01-01-English_expression/</loc>
-    <lastmod>2020-01-10T09:02:43.021Z</lastmod>
-    <data>
-        <display>
-        <title>英语-表达-写作</title>
-        <pubTime>2018-12-28T15:35:07.000Z</pubTime>
-        
-        <tag>English</tag>
-         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/01/06/2020-01-06_lincs_database/</loc>
     <lastmod>2020-01-09T14:05:07.564Z</lastmod>
     <data>
@@ -347,24 +431,6 @@
         
         <tag>English</tag>
          
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_scRNA/</loc>
-    <lastmod>2020-01-04T06:52:10.174Z</lastmod>
-    <data>
-        <display>
-        <title>单细胞测序学习</title>
-        <pubTime>2019-12-26T02:39:07.000Z</pubTime>
-        
          
            
              
@@ -569,21 +635,6 @@
         <display>
         <title>GSVA基因集合变异分析</title>
         <pubTime>2018-12-21T11:21:43.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/12/21/2018-12-21-GSEA/</loc>
-    <lastmod>2019-12-25T08:28:35.382Z</lastmod>
-    <data>
-        <display>
-        <title>GSEA富集分析</title>
-        <pubTime>2018-12-21T06:56:07.000Z</pubTime>
         
          
            
@@ -1072,24 +1123,6 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/15/2019-03-15_cell_line/</loc>
-    <lastmod>2019-03-15T07:34:46.962Z</lastmod>
-    <data>
-        <display>
-        <title>Cell line 细胞系理解</title>
-        <pubTime>2019-03-15T02:47:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017/10/13/2017-10-13-statistics/</loc>
     <lastmod>2019-03-15T06:52:23.186Z</lastmod>
     <data>
@@ -1311,21 +1344,6 @@
         <display>
         <title>Win10 Linux子系统</title>
         <pubTime>2018-12-24T07:15:34.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/07/2017-09-07-GitCommand/</loc>
-    <lastmod>2018-12-24T01:19:30.622Z</lastmod>
-    <data>
-        <display>
-        <title>Git 参考手册</title>
-        <pubTime>2017-09-07T01:06:46.000Z</pubTime>
         
          
            

@@ -9,7 +9,7 @@
     <meta name="description" content="Adelaide">
     <meta name="author" content="xt">
     <meta name="keyword" content="">
-    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2019/12/26/2019-12-26_scRNA/">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020/05/22/2020-05-22_scRNA/">
     <link rel="shortcut icon" href="/hexo/img/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -132,7 +132,7 @@
                         
                           <span class="meta">
                                <span class="meta-item">Author: XT，MJ</span>
-                               <span class="meta-item">Date: Dec 26, 2019</span>
+                               <span class="meta-item">Date: May 22, 2020</span>
                                
                           </span>
                           <div class="tags text-center">
@@ -159,10 +159,10 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">2,402 words in total, 9 minutes required.</span>
+          <span class="post-count">2,582 words in total, 9 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="1-传统常规测序"><a href="#1-传统常规测序" class="headerlink" title="1. 传统常规测序"></a>1. 传统常规测序</h4><p>针对数百万或者更多细胞的混合DNA样本，能够得到基因表达信息，但是只是一群细胞中平均值，或者只是代表占优势数量细胞的信息，单个细胞独有的特性被忽略。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="1-传统常规测序"><a href="#1-传统常规测序" class="headerlink" title="1. 传统常规测序"></a>1. 传统常规测序</h4><p>针对数百万或者更多细胞的混合DNA样本，能够得到基因表达信息，但是只是一群细胞中平均值，或者只是代表占优势数量细胞的信息，单个细胞独有的特性被忽略。 （bulk expresssion）</p>
 <h4 id="2-scRNA测序"><a href="#2-scRNA测序" class="headerlink" title="2. scRNA测序"></a>2. scRNA测序</h4><p>能够提供每个细胞的表达谱，并鉴定异质细胞群中的稀有细胞。</p>
 <blockquote>
 <p>单细胞测序本质是二代测序技术。即利用优化后的高通量测序技术（NGS，Next Generation Sequencing）分析每一个单个细胞的序列信息，从而更高分辨率地揭示细胞间的细胞差异以及其在微环境中的功能情况。</p>
@@ -170,7 +170,7 @@
 <p><strong>技术流程：</strong></p>
 <ul>
 <li><p>1、单细胞分离；</p>
-<p>连续稀释法、显微操作法、激光捕获显微切 割术(laser capture microdissection，LCM) 、拉曼镊子技术(Raman tweezers) 、荧光激活细胞分选术( fluorescence activated cell sorting，FACS) 和微流控技术( microfluidics)、免疫磁珠分离技术(MACS)等。</p>
+<p>连续稀释法、显微操作法、激光捕获显微切割术(laser capture microdissection，LCM) 、拉曼镊子技术(Raman tweezers) 、荧光激活细胞分选术( fluorescence activated cell sorting，FACS) 和微流控技术( microfluidics)、免疫磁珠分离技术(MACS)等。</p>
 </li>
 <li><p>2、细胞溶解与基因组DNA获取；</p>
 <p>  分离得到单细胞后，需要将细胞进行溶解来获取基因组 DNA(genome DNA，gDNA)。这一步骤非常关键，gDNA的质量直接影响后续基因组扩增的效果。</p>
@@ -179,7 +179,7 @@
 <li><p>3、全基因组扩增<strong>( WGA)</strong>；</p>
 <p> 高通量测序至少需要200ng的DNA样品，而1个细胞中的总DNA一般仅有数匹克，即使使用第3代测序技术可能也无法满足样品量的需求，因此WGA对于单细胞测序是非常必要的。目前有多种方法可以用于 WGA，这些方法都是利用DNA聚合酶和不同形式的引物来进行扩增的，包括特异性的、简并的或杂合的引物。</p>
 <ul>
-<li><p><strong>PCR**</strong>技术**，根据引物的不同可以将其划分为三大类: 特异性引物PCR扩增、简并性引物PCR扩增及杂合性引物PCR扩增。利用PCR技术进行全基因组的扩增，扩增的覆盖度比较高，但是容易出现错误和覆盖度不均的现象，故该技术现在已经在逐步淘汰。</p>
+<li><p><strong>PCR </strong>技术，根据引物的不同可以将其划分为三大类: 特异性引物PCR扩增、简并性引物PCR扩增及杂合性引物PCR扩增。利用PCR技术进行全基因组的扩增，扩增的覆盖度比较高，但是容易出现错误和覆盖度不均的现象，故该技术现在已经在逐步淘汰。</p>
 </li>
 <li><p>基于MDA技术的扩增方法为了避免PCR技术进行全基因组扩增的种种缺点，具有核酸外切酶抗性的随机引物结合枯草芽孢杆菌噬菌体(phi29DNA)聚合酶进行扩增的技术已经开始被使用，该技术也称<strong>多位点置换扩增(MDA)</strong>。</p>
 </li>
@@ -201,10 +201,12 @@
 <p><strong>2. Fluidigm C1</strong> </p>
 <p><strong>真正第一个实现商业化的平台</strong>。富鲁达（Fluidigm®）公司使用的integrated fluidic circuits（IFCs），也就是微流控芯片技术能够一次上样的细胞数为96个左右。C1平台成功的商业化使得更多人能够涉足单细胞测序领域。C1能够在几小时内捕获96个左右的细胞，允许捕获的细胞直径在5-25μm的范围内，最终能够得到细胞的全转录组信息。现在很多非RNA类Single Cell测序，仍然在采用这样的技术，如Single Cell DNA-Seq，Single Cell ATAC-Seq等，都是采用此技术进行单细胞分选后再分别用不同试剂盒建库。</p>
 <ul>
-<li>少量样本研究；</li>
-<li>直径在5-25μm的细胞</li>
+<li><p>少量样本研究；</p>
+</li>
+<li><p>直径在5-25μm的细胞</p>
+</li>
 </ul>
-<hr>
+<p><strong>3.  10x Genomics</strong></p>
 <p>在2017-2018年，商业化的测序平台（10X Genomics®, BD Rhapsody®）出现，最终让Single-Cell测序技术走进了民用市场。这两种技术实现了细胞通量的飞跃，并且大幅降低了单细胞测序的成本。相对于Smart-Seq技术在细胞数量上的问题，BD和10X这两个平台普遍提供的细胞数量都在1,000—20,000区间，这个量级的测序细胞量已经可以覆盖绝大部分组织的Single Cell群体类型。因此，这两种技术在进行准确细胞分型的层面上，无论是从细胞数量上来说还是表达检测可靠性来说，都会更实用。</p>
 <p>从发布时间来看，10X发布更早，而BD发布在其1年之后，这点上10X Genomics的设备稍占优势。而在国内生物公司公布的捕获效率（~79%）来看，BD Rhapsody的捕获效率更高较占优势（10x官方捕获率为65%）。</p>
 <p>目前单细胞领域几乎是10X的天下。并不是因为没有更新、更好的技术被发明出来。而是因为没有公司能将前沿的技术商业化成稳定的平台。由于10X Genomics成功的宣传推广，具备一定实力的公司大多买了10X的仪器，有些甚至还顺势购买了BD仪器。很难更换。</p>
@@ -214,16 +216,21 @@
 <p>从技术原理上分析两种Single Cell测序技术，都是基于UMI（Unique Molecular Identifier）+ CL（Cell Label）的技术，与传统Smart-Seq + Fluidigm的C1技术比较起来，引入UMI技术（这个我们会在分析部分简单介绍）进行表达定量，使得大规模scRNA-Seq的基因表达定量结果几乎不会受到PCR Bias影响，从而更精确。</p>
 </blockquote>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_4.png" alt=""></p>
-<hr>
-<p><strong>3.  10x Genomics</strong></p>
+<p>10x Genomics RNA-seq 原理详解 <a href="https://www.jianshu.com/p/70dcddd2084e" target="_blank" rel="noopener">https://www.jianshu.com/p/70dcddd2084e</a> </p>
+<p>陈巍学基因10x 原理： <a href="https://www.bilibili.com/video/BV1PJ411k7mz" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1PJ411k7mz</a></p>
 <p>​        10X是到目前为止商业化最成功的平台。在主流高IF期刊上有可信的数据发表，并且都与Smart-Seq数据的结果存在比较，因此10X是可用可信的大规模Single Cell RNA-Seq技术。10X Genomics起源自Drop-Seq技术，含有 Barcode 信息的 Gel beads 在微流体“双十字”交叉系统的第一个进样口与样品和酶的混合物混合；在微流体“双十字”交叉系统的第二个进样口与油表面活性剂结合形成 GEMs，通过这样的过程实现单个细胞的捕获。</p>
 <ul>
-<li>直径40μm以下细胞（受仪器管道直径限制）</li>
-<li>大规模细胞样本，适用于分群、谱系等研究。</li>
+<li><p>直径40μm以下细胞（受仪器管道直径限制）</p>
+</li>
+<li><p>大规模细胞样本，适用于分群、谱系等研究。</p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2_1.png" alt=""></p>
+<p>![](<a href="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png">https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png</a></p>
+</li>
 </ul>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png" alt=""></p>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/10xGenomics.png" alt=""></p>
-<p><strong>4. BD Rhapsody</strong></p>
+<h6 id="UMI-核心含义是-文库的数量"><a href="#UMI-核心含义是-文库的数量" class="headerlink" title="UMI  核心含义是 文库的数量"></a>UMI  核心含义是 文库的数量</h6><p>为了减少由于扩增引起的误差，人们在一些单细胞测序的步骤中增加了 UMI（unique molecular identifiers），UMIs 是由 4-10 个随机核苷酸组成的序列，在 mRNA 反转录后，进入到文库中，每一个 mRNA，随机连上一个 UMI，因此可以计数不同的 UMI，最终计数 mRNA 的数量 。 最后通过数相同的UMI的数目用来标记不同的PCR产物（数count）</p>
+<h6 id="GEM-10X-单细胞数据来源一个油包水磁珠（GEM）"><a href="#GEM-10X-单细胞数据来源一个油包水磁珠（GEM）" class="headerlink" title="GEM    10X 单细胞数据来源一个油包水磁珠（GEM）"></a>GEM    10X <em>单细胞</em>数据来源一个油包水磁珠（<em>GEM</em>）</h6><p><strong>4. BD Rhapsody</strong></p>
 <p>​       比10X晚一年发布的BD Rhapsody平台源于Cytoseq蜂窝板技术，采用20W+的微孔（远超过细胞数量，目的就是为了一孔一个细胞），因此可以叫做“微孔捕获”，效率会相对更高一些。捕获后也是裂解细胞，再进行mRNA抓取。</p>
 <p>​        BD最显眼的就是它充满科技感的大屏幕。通过这个屏幕，实验人员可以实时监控细胞的捕获情况。避免了传统仪器上机之后只能一条路走到黑的窘境。</p>
 <p>适用范围：</p>
@@ -242,12 +249,12 @@
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2020/01/04/2020-01-04_ncbi_database/" data-toggle="tooltip" data-placement="left" title="NCBI数据库资源">&larr; Previous Post</a>
+                  <a href="/hexo/2029/12/12/2029-12-12-UbuntuCommand/" data-toggle="tooltip" data-placement="left" title="DOS-Ubuntu命令集合">&larr; Previous Post</a>
               </li>
               
               
               <li class="next">
-                  <a href="/hexo/2019/12/26/2019-12-26_SRA_data/" data-toggle="tooltip" data-placement="top" title="SRA 序列数据库">Next Post&rarr;</a>
+                  <a href="/hexo/2020/05/21/2020-05-21_singlecell/" data-toggle="tooltip" data-placement="top" title="single cell">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -259,7 +266,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-传统常规测序"><span class="toc-number">1.</span> <span class="toc-text">1. 传统常规测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-scRNA测序"><span class="toc-number">2.</span> <span class="toc-text">2. scRNA测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-scRNA测序平台"><span class="toc-number">3.</span> <span class="toc-text">3. scRNA测序平台</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-传统常规测序"><span class="toc-number">1.</span> <span class="toc-text">1. 传统常规测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-scRNA测序"><span class="toc-number">2.</span> <span class="toc-text">2. scRNA测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-scRNA测序平台"><span class="toc-number">3.</span> <span class="toc-text">3. scRNA测序平台</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#UMI-核心含义是-文库的数量"><span class="toc-number">3.0.1.</span> <span class="toc-text">UMI  核心含义是 文库的数量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GEM-10X-单细胞数据来源一个油包水磁珠（GEM）"><span class="toc-number">3.0.2.</span> <span class="toc-text">GEM    10X 单细胞数据来源一个油包水磁珠（GEM）</span></a></li></ol></li></ol>
         
     </div>
   </div>
@@ -305,7 +312,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                152.0k <b>Words</b>
+                154.7k <b>Words</b>
         </p></div>
 
         <div class="search-container">
