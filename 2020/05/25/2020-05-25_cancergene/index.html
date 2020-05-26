@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020/05/25/2020-05-25_cancergene/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        癌症基因｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>癌症基因</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT，MJ</span>
+                               <span class="meta-item">Date: May 25, 2020</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,413 words in total, 5 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="0-预备知识"><a href="#0-预备知识" class="headerlink" title="0. 预备知识"></a>0. 预备知识</h3><p><strong>氨基酸残基</strong>：两氨基酸形成肽键时一个羧基脱掉羟基，另一个氨基脱掉氢，连接后肽键形成。这个脱掉基团后连接在肽链中的氨基酸叫做氨基酸残基。</p>
+<p><strong>肽键</strong>：一分子氨基酸的α-氨基与另一分子氨基酸的α-羧基脱水缩合形成的共价键(—CO—NH—)称为肽键( peptide bond)。通常由10个以内氨基酸连成的肽称为寡肽( oligopeptide，小分子肽）；更多的氨基酸可连成<a href="https://baike.baidu.com/item/多肽/1511295" target="_blank" rel="noopener">多肽</a>( polypeptide)，氨基酸相互连接，形成长链，称为<a href="https://baike.baidu.com/item/多肽链/1271962" target="_blank" rel="noopener">多肽链</a>（polypeptide chain）。</p>
+<p><strong>多肽</strong>：通常由10~100氨基酸分子脱水缩合而成的化合物叫多肽,它们的分子量低于10,000Da（Dalton,道尔顿）,能透过半透膜,不被三氯乙酸及硫酸铵所沉淀.</p>
+<p><strong>蛋白质</strong>：由一条或两条以上多肽组成的大分子,空间结构复杂，其结构分为一级、二级、三级、四级。而多肽只能是一条肽链,通常也就是二级结构.</p>
+<p><strong>细胞周期</strong>：Cell cycle，是指细胞从一次分裂完成开始，到下一次分裂结束所经历的整个过程。G1期、S期、G2期、M期，这样4个阶段。其中，G1期，first Gap，是准备原材料，合成RNA和蛋白质；S期，Synthesis，是DNA合成期；G2期，secondgap，是DNA合成后期，这时候是准备有丝分裂所需要的物质，包括微管蛋白等；M期，是有丝分裂期，mitosis。</p>
+<h3 id="1-P53（Tumor-Protein-53）基因"><a href="#1-P53（Tumor-Protein-53）基因" class="headerlink" title="1. P53（Tumor Protein 53）基因"></a>1. P53（Tumor Protein 53）基因</h3><p>P53基因是防止正常细胞变成癌细胞的一个重要的看门基因。据统计数据显示，50%以上的肿瘤病例当中，有P53基因的突变、或者有P53基因的丢失。P53的基因位于第17号染色体的短臂上。P53基因编码的蛋白质，有393个氨基酸残基。</p>
+<p>P53蛋白刚翻译出来的时候，是以单体形式存在。但是，单体形式是没有活性的，只有当<strong>4个单体聚合</strong>成一个四聚体之后，这个四聚体才是有活性的。</p>
+<p>P53蛋白在抑制细胞的癌变中，主要起四个作用：</p>
+<ul>
+<li>第1，当有DNA损伤的时候，P53就可以把让细胞停留在细胞周期的G1期，不让细胞进入到S期。也就是不让有DNA损伤的细胞进行分裂、增殖。</li>
+<li>第2，在DNA受到损伤的时候，P53会启动对DNA的修复功能。</li>
+<li>第3，对于难以修复DNA损伤的细胞，就将细胞老化，Senescence。也就是让这个细胞永远不能分裂。</li>
+<li>第4，当DNA有严重的损伤的时候，P53会启动细胞的凋亡，apoptosis。所谓细胞的凋亡，也就是细胞的程序性自杀机制。</li>
+</ul>
+<p><strong>P53蛋白浓度的调控</strong></p>
+<p>MDM2蛋白是对P53蛋白浓度进行调控的重要因素。MDM2是一个泛素连接酶，它会和P53蛋白相结合，结合之后把泛素连接到P53蛋白上，被结合了泛素的P53蛋白，就会进入到蛋白的降解过程当中去。P53蛋白会启动MDM2基因的转录，当P53蛋白多的时候，就会启动MDM2基因，多表达一些的MDM2蛋白。增多的MDM2蛋白会加速P53蛋白的降解，这样就形成了一个负反馈的调节。</p>
+<p><strong>P53蛋白分子活性的调控</strong></p>
+<p>ATM蛋白和ATR蛋白，会直接对P53蛋白进行磷酸化。ATM蛋白和ATR蛋白，还会增加CHK1和CHK2的量，CHK1蛋白和CHK2蛋白也会把P53蛋白进行磷酸化。P53蛋白被磷酸化之后，与目标DNA的结合能力大大增强，这就是上游因素对P53蛋白的分子活性的调控。</p>
+<p>能够激活P53的外界因素有，这些因素都会增加细胞中P53的浓度，并会促进P53的磷酸化。</p>
+<ul>
+<li>1，DNA损伤</li>
+<li>2，强的增殖信号</li>
+<li>3，氧化压力</li>
+<li>4，缺氧</li>
+<li>5，缺少营养</li>
+<li>6，缺少核苷酸</li>
+<li>7，复制压力</li>
+<li>8，端粒损耗</li>
+</ul>
+<p><strong>P53对下游基因的调控</strong></p>
+<p>当P53的浓度升高，并且被磷酸化之后，P53蛋白就可以开始对下游基因进行调控。P53蛋白对下游基因的调控，主要是作为反式调控因子（蛋白），结合到目标基因的顺式调控因子（DNA序列，启动子、增强子等）上来起作用的。P53蛋白直接调控的基因，有129个以上。这些被调控的基因，按其功能，分成9个大类。前4个大类：</p>
+<ul>
+<li><p>第1个，细胞周期捕获，也就是把细胞阻止在G1期，不让细胞进入到S期</p>
+</li>
+<li><p>第2，DNA修复</p>
+</li>
+<li><p>第3，细胞老化</p>
+</li>
+<li><p>第4，细胞凋亡</p>
+<p>以上P53总是把细胞向静止、修复、死亡的方向进行调控。</p>
+</li>
+<li><p>第5类，代谢和抗氧化。P53的调控方向是减弱细胞的合成代谢。</p>
+</li>
+<li>第6类，细胞自噬。P53的调控方向是加强细胞的自噬，也就是加强清除细胞内部的垃圾。</li>
+<li>第7个，肿瘤的微环境。P53的调控方向，是加强周围的免疫反应、炎症的反应。吸引更多的巨噬细胞、杀伤细胞前来。用一句通俗的话说，叫作“向我开炮”。</li>
+<li>第8，细胞的侵袭和转移能力。P53的调控方向，是减弱细胞的侵袭和转移能力。</li>
+<li>第9，干细胞功能。P53的调控方向，是阻止干细胞功能。</li>
+</ul>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2029/12/12/2029-12-12-UbuntuCommand/" data-toggle="tooltip" data-placement="left" title="DOS-Ubuntu命令集合">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/" data-toggle="tooltip" data-placement="top" title="单细胞测序学习">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-预备知识"><span class="toc-number">1.</span> <span class="toc-text">0. 预备知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-P53（Tumor-Protein-53）基因"><span class="toc-number">2.</span> <span class="toc-text">1. P53（Tumor Protein 53）基因</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2020
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                156.7k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

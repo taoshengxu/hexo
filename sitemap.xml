@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell/</loc>
     
-    <lastmod>2020-05-24T09:00:04.561Z</lastmod>
+    <lastmod>2020-05-26T08:21:45.344Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/05/15/2018-05-15_R_environment/</loc>
+    
+    <lastmod>2020-05-25T07:32:02.375Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_expression/</loc>
     
-    <lastmod>2020-05-23T09:37:21.665Z</lastmod>
+    <lastmod>2020-05-25T06:05:40.793Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-05-25_cancergene/</loc>
     
-    <lastmod>2020-05-23T08:12:36.511Z</lastmod>
+    <lastmod>2020-05-25T02:47:35.307Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2020-05-24T12:05:25.546Z</lastmod>
     
   </url>
   
@@ -37,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
     
     <lastmod>2020-05-22T08:53:18.233Z</lastmod>
     
@@ -369,13 +383,6 @@
     <loc>https://taoshengxu.github.io/hexo/2018/12/28/2025-01-01-English_word/</loc>
     
     <lastmod>2019-11-26T05:45:24.353Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/05/15/2018-05-15_R_environment/</loc>
-    
-    <lastmod>2019-05-23T08:21:22.451Z</lastmod>
     
   </url>
   
