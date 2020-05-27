@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/</loc>
     
-    <lastmod>2020-05-26T08:21:45.344Z</lastmod>
+    <lastmod>2020-05-27T07:10:17.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
+    
+    <lastmod>2020-05-27T02:25:40.628Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
+    
+    <lastmod>2020-05-26T13:25:50.091Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>https://taoshengxu.github.io/hexo/2020/05/17/2020-05-17_Breast_cellline/</loc>
     
     <lastmod>2020-05-22T13:18:48.191Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
-    
-    <lastmod>2020-05-22T08:53:18.233Z</lastmod>
     
   </url>
   
@@ -583,13 +590,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/</loc>
-    
-    <lastmod>2018-12-21T11:42:10.963Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2017/09/08/2017-09-08-ExpressionSet/</loc>
     
     <lastmod>2018-12-21T08:16:32.818Z</lastmod>
@@ -667,6 +667,13 @@
   </url>
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -682,13 +689,6 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     

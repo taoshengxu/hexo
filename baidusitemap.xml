@@ -4,12 +4,45 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/21/2020-05-21_singlecell/</loc>
-    <lastmod>2020-05-26T08:21:45.344Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/</loc>
+    <lastmod>2020-05-27T07:10:17.074Z</lastmod>
+    <data>
+        <display>
+        <title>ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4</title>
+        <pubTime>2017-09-08T08:38:18.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
+    <lastmod>2020-05-27T02:25:40.628Z</lastmod>
     <data>
         <display>
         <title>single cell</title>
         <pubTime>2020-05-21T05:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
+    <lastmod>2020-05-26T13:25:50.091Z</lastmod>
+    <data>
+        <display>
+        <title>单细胞测序学习</title>
+        <pubTime>2020-05-22T02:39:07.000Z</pubTime>
         
          
            
@@ -114,24 +147,6 @@
         <display>
         <title>乳腺癌细胞系</title>
         <pubTime>2020-05-17T03:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
-    <lastmod>2020-05-22T08:53:18.233Z</lastmod>
-    <data>
-        <display>
-        <title>单细胞测序学习</title>
-        <pubTime>2020-05-22T02:39:07.000Z</pubTime>
         
          
            
@@ -1422,21 +1437,6 @@
         <display>
         <title>R Apply函数</title>
         <pubTime>2018-12-21T16:48:16.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/</loc>
-    <lastmod>2018-12-21T11:42:10.963Z</lastmod>
-    <data>
-        <display>
-        <title>ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4</title>
-        <pubTime>2017-09-08T08:38:18.000Z</pubTime>
         
          
            

@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">2,582 words in total, 9 minutes required.</span>
+          <span class="post-count">2,594 words in total, 9 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h4 id="1-传统常规测序"><a href="#1-传统常规测序" class="headerlink" title="1. 传统常规测序"></a>1. 传统常规测序</h4><p>针对数百万或者更多细胞的混合DNA样本，能够得到基因表达信息，但是只是一群细胞中平均值，或者只是代表占优势数量细胞的信息，单个细胞独有的特性被忽略。 （bulk expresssion）</p>
@@ -214,23 +214,26 @@
 <p>10X Genomics和Drop-Seq具有类似的技术原理。从横向孔道中逐一输入凝胶微珠，第一纵向孔道输入细胞，凝胶微珠与细胞碰撞后会吸附在凝胶微珠上，并通过微流控技术，将之输入到第二纵向孔道，即油相孔道中。这时候，就形成了一个个油滴，最终输出并收集在EP管中。每一个油滴中会落入一个细胞以及一个凝胶微珠，那么在每一个凝胶微珠中上长满了不同的Cell Barcode和UMI Barcode连接形成的序列，再加上一端PolyT的抓手，构成我们的捕获凝胶微珠。而这个凝胶微珠抓手就会使用oligo dT抓住mRNA构建文库。</p>
 <p>一个油滴=一个单细胞=一个凝胶微珠=一个RNA-Seq，可以说这就是10X的基本技术原理。</p>
 <p>从技术原理上分析两种Single Cell测序技术，都是基于UMI（Unique Molecular Identifier）+ CL（Cell Label）的技术，与传统Smart-Seq + Fluidigm的C1技术比较起来，引入UMI技术（这个我们会在分析部分简单介绍）进行表达定量，使得大规模scRNA-Seq的基因表达定量结果几乎不会受到PCR Bias影响，从而更精确。</p>
-</blockquote>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_4.png" alt=""></p>
+<p><strong>UMI  核心含义是 文库的数量</strong></p>
+<p>10X使用 UMI的数量表示reads的数量</p>
+<p>为了减少由于扩增引起的误差，人们在一些单细胞测序的步骤中增加了 UMI（unique molecular identifiers），UMIs 是由 4-10 个随机核苷酸组成的序列，在 mRNA 反转录后，进入到文库中，每一个 mRNA，随机连上一个 UMI，因此可以计数不同的 UMI，最终计数 mRNA 的数量 。 最后通过数相同的UMI的数目用来标记不同的PCR产物（数count）</p>
+<p><strong>GEM：    10X 单细胞数据来源一个油包水磁珠（GEM）</strong></p>
 <p>10x Genomics RNA-seq 原理详解 <a href="https://www.jianshu.com/p/70dcddd2084e" target="_blank" rel="noopener">https://www.jianshu.com/p/70dcddd2084e</a> </p>
 <p>陈巍学基因10x 原理： <a href="https://www.bilibili.com/video/BV1PJ411k7mz" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1PJ411k7mz</a></p>
+</blockquote>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_4.png" alt=""></p>
 <p>​        10X是到目前为止商业化最成功的平台。在主流高IF期刊上有可信的数据发表，并且都与Smart-Seq数据的结果存在比较，因此10X是可用可信的大规模Single Cell RNA-Seq技术。10X Genomics起源自Drop-Seq技术，含有 Barcode 信息的 Gel beads 在微流体“双十字”交叉系统的第一个进样口与样品和酶的混合物混合；在微流体“双十字”交叉系统的第二个进样口与油表面活性剂结合形成 GEMs，通过这样的过程实现单个细胞的捕获。</p>
 <ul>
 <li><p>直径40μm以下细胞（受仪器管道直径限制）</p>
 </li>
 <li><p>大规模细胞样本，适用于分群、谱系等研究。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2_1.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2_1.jpg" alt=""></p>
 <p>![](<a href="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png">https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png</a></p>
 </li>
 </ul>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png" alt=""></p>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/10xGenomics.png" alt=""></p>
-<h6 id="UMI-核心含义是-文库的数量"><a href="#UMI-核心含义是-文库的数量" class="headerlink" title="UMI  核心含义是 文库的数量"></a>UMI  核心含义是 文库的数量</h6><p>为了减少由于扩增引起的误差，人们在一些单细胞测序的步骤中增加了 UMI（unique molecular identifiers），UMIs 是由 4-10 个随机核苷酸组成的序列，在 mRNA 反转录后，进入到文库中，每一个 mRNA，随机连上一个 UMI，因此可以计数不同的 UMI，最终计数 mRNA 的数量 。 最后通过数相同的UMI的数目用来标记不同的PCR产物（数count）</p>
-<h6 id="GEM-10X-单细胞数据来源一个油包水磁珠（GEM）"><a href="#GEM-10X-单细胞数据来源一个油包水磁珠（GEM）" class="headerlink" title="GEM    10X 单细胞数据来源一个油包水磁珠（GEM）"></a>GEM    10X <em>单细胞</em>数据来源一个油包水磁珠（<em>GEM</em>）</h6><p><strong>4. BD Rhapsody</strong></p>
+<p><strong>4. BD Rhapsody</strong></p>
 <p>​       比10X晚一年发布的BD Rhapsody平台源于Cytoseq蜂窝板技术，采用20W+的微孔（远超过细胞数量，目的就是为了一孔一个细胞），因此可以叫做“微孔捕获”，效率会相对更高一些。捕获后也是裂解细胞，再进行mRNA抓取。</p>
 <p>​        BD最显眼的就是它充满科技感的大屏幕。通过这个屏幕，实验人员可以实时监控细胞的捕获情况。避免了传统仪器上机之后只能一条路走到黑的窘境。</p>
 <p>适用范围：</p>
@@ -254,7 +257,7 @@
               
               
               <li class="next">
-                  <a href="/hexo/2020/05/21/2020-05-21_singlecell/" data-toggle="tooltip" data-placement="top" title="single cell">Next Post&rarr;</a>
+                  <a href="/hexo/2020/05/21/2020-05-21_singlecell_analysis/" data-toggle="tooltip" data-placement="top" title="single cell">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -266,7 +269,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-传统常规测序"><span class="toc-number">1.</span> <span class="toc-text">1. 传统常规测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-scRNA测序"><span class="toc-number">2.</span> <span class="toc-text">2. scRNA测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-scRNA测序平台"><span class="toc-number">3.</span> <span class="toc-text">3. scRNA测序平台</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#UMI-核心含义是-文库的数量"><span class="toc-number">3.0.1.</span> <span class="toc-text">UMI  核心含义是 文库的数量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GEM-10X-单细胞数据来源一个油包水磁珠（GEM）"><span class="toc-number">3.0.2.</span> <span class="toc-text">GEM    10X 单细胞数据来源一个油包水磁珠（GEM）</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-传统常规测序"><span class="toc-number">1.</span> <span class="toc-text">1. 传统常规测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-scRNA测序"><span class="toc-number">2.</span> <span class="toc-text">2. scRNA测序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-scRNA测序平台"><span class="toc-number">3.</span> <span class="toc-text">3. scRNA测序平台</span></a></li></ol>
         
     </div>
   </div>
@@ -312,7 +315,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                156.7k <b>Words</b>
+                160.7k <b>Words</b>
         </p></div>
 
         <div class="search-container">
