@@ -159,7 +159,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">69 words in total, 1 minutes required.</span>
+          <span class="post-count">585 words in total, 3 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>MAGIC (Markov Affinity-based Graph Imputation of Cells), is a method for imputing missing values restoring structure of large biological datasets.</p>
@@ -170,6 +170,21 @@
 <li><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114397" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE114397</a></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP145597" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP145597</a></li>
 </ul>
+<hr>
+<p>MAGIC 包升级导致在R中出现问题。</p>
+<p>花了一整天时间在各种尝试，精神到奔溃的边缘了（20200602），最后终于弄好了</p>
+<p>不要动系统的python</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">##1 .用reticulate安装miniconda</span></span><br><span class="line"> reticulate::install_miniconda()</span><br><span class="line"><span class="comment">##国内在R里下载miniconda 根本不能成功，只能下载R包原代码，修改install_miniconda()函数，把installer用下载好的本地文件代替</span></span><br><span class="line"><span class="comment">## status &lt;- 0</span></span><br><span class="line"><span class="comment">## installer &lt;-"/home/ubuntu/temp/Miniconda3-latest-Linux-x86_64.sh"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 2. </span></span><br><span class="line">use_condaenv(<span class="string">"/home/ubuntu/.local/share/r-miniconda"</span>)</span><br><span class="line">py_config()</span><br><span class="line">py_module_available(<span class="string">"pandas"</span>)</span><br><span class="line">py_module_available(<span class="string">"magic-impute"</span>)</span><br><span class="line">py_discover_config(required_module = <span class="literal">NULL</span>, use_environment = <span class="literal">NULL</span>)</span><br><span class="line">py_install(<span class="string">"magic-impute"</span>) <span class="comment"># 这个包不在标准的库里，所以安装不成功，需要用pip安装</span></span><br><span class="line">reticulate::use_virtualenv(<span class="string">"~/pythonenvs/userenv"</span>)</span><br><span class="line"></span><br><span class="line">用conda 里面的pip安装模块</span><br><span class="line">/home/ubuntu/.local/share/r-miniconda/envs/r-reticulate/bin/pip list</span><br><span class="line">/home/ubuntu/.local/share/r-miniconda/envs/r-reticulate/bin/pip install --user magic-impute</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(<span class="string">"reticulate"</span>)</span><br><span class="line">use_condaenv(<span class="string">"/home/ubuntu/.local/share/r-miniconda"</span>)</span><br><span class="line">use_condaenv(<span class="string">"/soft/miniconda3"</span>)</span><br><span class="line"></span><br><span class="line">py_config()</span><br><span class="line">py_available()</span><br><span class="line"></span><br><span class="line">py_discover_config(required_module = <span class="literal">NULL</span>, use_environment = <span class="literal">NULL</span>)</span><br><span class="line">py_install(<span class="string">"magic-impute"</span>)</span><br><span class="line"></span><br><span class="line">py_module_available(<span class="string">"pandas"</span>)</span><br><span class="line">py_module_available(<span class="string">"magic-impute"</span>)</span><br><span class="line"><span class="keyword">library</span>(reticulate)</span><br><span class="line">reticulate::use_virtualenv(<span class="string">"~/pythonenvs/userenv"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(Rmagic)</span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">data(magic_testdata)</span><br><span class="line">MAGIC_data &lt;- magic(magic_testdata, genes=c(<span class="string">"VIM"</span>, <span class="string">"CDH1"</span>, <span class="string">"ZEB1"</span>))</span><br><span class="line">ggplot(MAGIC_data) +</span><br><span class="line">  geom_point(aes(x=VIM, y=CDH1, color=ZEB1))</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/tandelin/article/details/88031770" target="_blank" rel="noopener">https://blog.csdn.net/tandelin/article/details/88031770</a></p>
+<p><a href="https://blog.csdn.net/qq_31342997/article/details/89433255" target="_blank" rel="noopener">https://blog.csdn.net/qq_31342997/article/details/89433255</a></p>
+<p><a href="https://pypi.org/project/magic-impute/2.0.3/" target="_blank" rel="noopener">https://pypi.org/project/magic-impute/2.0.3/</a></p>
+<h1 id="繁星fanxing"><a href="#繁星fanxing" class="headerlink" title="繁星fanxing"></a><a href="https://www.cnblogs.com/ambitious-to-49/" target="_blank" rel="noopener">繁星fanxing</a></h1><h2 id="通过pip下载python包缓慢的解决方法"><a href="#通过pip下载python包缓慢的解决方法" class="headerlink" title="通过pip下载python包缓慢的解决方法"></a><a href="https://www.cnblogs.com/ambitious-to-49/p/11945646.html" target="_blank" rel="noopener">通过pip下载python包缓慢的解决方法</a></h2><p>原因：通过pip命令直接下载，一般下载的资源存放在国外的服务器上，导致下载速度慢、下载过程中报错；</p>
+<p>解决方法：通过pip的命令参数，从国内的下载源，国外的替换为国内的镜像，进行目标包的下载；</p>
+<p>具体参数： -i 参数，后跟国内的镜像地址；</p>
+<p>例如：安装web模块django ，我们这里指定用豆瓣。。</p>
+<p>​        pip install django -i <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a></p>
+<p>国内的一些站点：<br>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><br>清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a><br>阿里云：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a><br>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>华中理工大学：<a href="http://pypi.hustunique.com/" target="_blank" rel="noopener">http://pypi.hustunique.com/</a><br>山东理工大学：<a href="http://pypi.sdutlinux.org/" target="_blank" rel="noopener">http://pypi.sdutlinux.org/</a> </p>
 
           
           <hr>
@@ -193,7 +208,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#繁星fanxing"><span class="toc-number">1.</span> <span class="toc-text">繁星fanxing</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#通过pip下载python包缓慢的解决方法"><span class="toc-number">1.1.</span> <span class="toc-text">通过pip下载python包缓慢的解决方法</span></a></li></ol></li></ol>
         
     </div>
   </div>
@@ -239,7 +254,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                160.7k <b>Words</b>
+                162.0k <b>Words</b>
         </p></div>
 
         <div class="search-container">

@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-06-03_ATAC-Seq_Chip-Seq/</loc>
     
-    <lastmod>2020-05-27T07:10:17.074Z</lastmod>
+    <lastmod>2020-06-03T07:47:40.890Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/18/2019-03-18_magic/</loc>
+    
+    <lastmod>2020-06-02T16:08:28.303Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2020-06-02T15:18:16.189Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2018/05/15/2018-05-15_R_environment/</loc>
+    
+    <lastmod>2020-05-31T08:38:59.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-05-31_DEseq2/</loc>
+    
+    <lastmod>2020-05-31T06:25:48.406Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
     
-    <lastmod>2020-05-27T02:25:40.628Z</lastmod>
+    <lastmod>2020-05-30T12:33:45.226Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/09/08/2017-09-08-ExpressionSet_SummarizedExperiment/</loc>
+    
+    <lastmod>2020-05-27T07:26:36.506Z</lastmod>
     
   </url>
   
@@ -19,13 +54,6 @@
     <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
     
     <lastmod>2020-05-26T13:25:50.091Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/05/15/2018-05-15_R_environment/</loc>
-    
-    <lastmod>2020-05-25T07:32:02.375Z</lastmod>
     
   </url>
   
@@ -40,13 +68,6 @@
     <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-05-25_cancergene/</loc>
     
     <lastmod>2020-05-25T02:47:35.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    
-    <lastmod>2020-05-24T12:05:25.546Z</lastmod>
     
   </url>
   
@@ -415,13 +436,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/18/2019-03-18_magic/</loc>
-    
-    <lastmod>2019-03-20T02:08:55.695Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2019/03/18/2019-03-18_t-NSE/</loc>
     
     <lastmod>2019-03-18T16:03:49.502Z</lastmod>
@@ -590,13 +604,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/09/08/2017-09-08-ExpressionSet/</loc>
-    
-    <lastmod>2018-12-21T08:16:32.818Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2018/11/08/2018-11-08_GISTIC2/</loc>
     
     <lastmod>2018-11-08T14:43:22.540Z</lastmod>
@@ -667,6 +674,13 @@
   </url>
   
   <url>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    
+    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
@@ -682,13 +696,6 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
-    
-    <lastmod>2018-05-30T06:10:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30T06:10:57.000Z</lastmod>
     

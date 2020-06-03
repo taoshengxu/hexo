@@ -22,7 +22,7 @@
 
     <title>
         
-        ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4｜undefined
+        ExpressionSet_SingleCellExperiment_S4｜undefined
         
     </title>
 
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>ExpressionSet_SummarizedExperiment_GEOquery_biomaRt_S4</h1>
+                        <h1>ExpressionSet_SingleCellExperiment_S4</h1>
                         
                         
 
@@ -166,7 +166,7 @@
 <p>下面代码列举了ExpressionSet对象大部分常用函数的用法，ExpressionSet对象可以直接取pData()样本分组信息的列名的数据如 <code>ALL$sex</code></p>
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> exprs() 表达谱数据  函数提取表达矩阵</span></span><br><span class="line"><span class="ruby">- pData() 对象分组信息 看该对象的样本分组信息</span></span><br><span class="line"><span class="ruby">- sampleNames()</span></span><br><span class="line"><span class="ruby">- featureNames()</span></span><br><span class="line"><span class="ruby">- phenoData()</span></span><br><span class="line"><span class="ruby">- featureData()</span></span><br><span class="line"><span class="ruby">- experimentData()</span></span><br></pre></td></tr></table></figure>
 <h3 id="ExpressionSet的组成："><a href="#ExpressionSet的组成：" class="headerlink" title="ExpressionSet的组成："></a>ExpressionSet的组成：</h3><ul>
-<li><p><strong>assayData</strong>: 一个matrix类型或者environment类型数据。用于保存表达数据值。<br>当它是一个matrix时，它的行表示不同的探针组（probe sets）（也是features，总之是一个无重复的索引值）的值，它的列表示不同的样品。如果有行号或者列号的话，那么行号必须与featureData及phenoData中的行号一致，列号就是样品名。当我们使用<code>exprs()</code>方法时，就是调取的这个assayData的matrix。<br>当它是一个enviroment时，它必须有两个变量，一个就是与上一段描述一致的matrix，另一个就是epxrs，而这个exprs会响应exprs()方法，返回表达值。</p>
+<li><p><strong>assayData</strong>: 一个matrix类型或者environment类型数据。用于保存表达数据值。<br>当它是一个matrix时，它的行表示不同的探针组（probe sets）（也是features，总之是一个无重复的索引值）的值，它的列表示不同的样品。如果有行号或者列号的话，那么行号必须与featureData及phenoData中的行号一致，列号就是样品名。当我们使用<code>exprs()</code>方法时，就是调取的这个assayData的matrix。当它是一个enviroment时，它必须有两个变量，一个就是与上一段描述一致的matrix，另一个就是epxrs，而这个exprs会响应exprs()方法，返回表达值。</p>
 </li>
 <li><p><strong>头文件</strong>：用于描述实验平台相关的数据，其中包括phenoData, featureData，protocolData以及annotation等等。其中<br><strong>phenoData</strong>是一个存放样品信息的data.frame或者AnnotatedDataFrame类型的数据。如果有行号的话，其行号必须与assayData的列号一致（也就是样品名）。如果没有行号，则其行数必须与assayData的列数一致。<br><strong>featureData</strong>是一个存放features的data.frame或者AnnotatedDataFrame类型的数据。它的行数必须与assayData的行数一致。如果有行号的话，那么它的行号必须和assayData的行号一致。<br><strong>annotation</strong>是用于存放芯片类型的字符串，比如hgu95av2之类。<br><strong>protocolData</strong>用于存放设备相当的数据。它是AnnotatedDataFrame类型。它的维度必须与assayData的维度一致。</p>
 </li>
@@ -251,7 +251,7 @@
               
               
               <li class="next">
-                  <a href="/hexo/2017/09/08/2017-09-08-ExpressionSet/" data-toggle="tooltip" data-placement="top" title="ExpressionSet简单讲解">Next Post&rarr;</a>
+                  <a href="/hexo/2017/09/07/2017-09-07-BeautySurvCurves/" data-toggle="tooltip" data-placement="top" title="生存曲线美化">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -313,7 +313,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                160.7k <b>Words</b>
+                162.0k <b>Words</b>
         </p></div>
 
         <div class="search-container">
