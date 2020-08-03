@@ -157,7 +157,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">1,624 words in total, 8 minutes required.</span>
+          <span class="post-count">1,640 words in total, 8 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Rblogdonw+Hugo用来实现静态网页，Shiny用于实现动态网页，几乎把R这个工具发挥到了极致，使其无所不能，R可以解决一切<strong>简单</strong>的需要了。</p>
@@ -179,7 +179,7 @@
 </ul>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">library</span><span class="params">(shiny)</span></span></span><br><span class="line"><span class="function"><span class="title">runExample</span><span class="params">(<span class="string">"08_html"</span>)</span></span></span><br></pre></td></tr></table></figure>
 <h1 id="3-shiny-server"><a href="#3-shiny-server" class="headerlink" title="3. shiny server"></a>3. shiny server</h1><p><a href="https://github.com/rstudio/shiny-server" target="_blank" rel="noopener">学习入口</a><br><a href="https://www.rstudio.com/products/shiny/download-server/" target="_blank" rel="noopener">最新安装文件</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su - \</span><br><span class="line">-c &quot;R -e \&quot;install.packages(&apos;shiny&apos;, repos=&apos;https://cran.rstudio.com/&apos;)\&quot;&quot;</span><br><span class="line">$ sudo apt-get install gdebi-core</span><br><span class="line">$ wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.4.869-amd64.deb</span><br><span class="line">$ sudo gdebi shiny-server-1.5.4.869-amd64.deb</span><br><span class="line"></span><br><span class="line">start shiny-server 　　　　   # 启动</span><br><span class="line">stop shiny-server 　　　　　# 停止</span><br><span class="line">restart shiny-server 　　　　# 重启</span><br><span class="line">status shiny-server 　　　　#查看状态  </span><br><span class="line">reload shiny-server 　　　　#不中断服务的前提下 更新加载配置项</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su - \</span><br><span class="line">-c &quot;R -e \&quot;install.packages(&apos;shiny&apos;, repos=&apos;https://cran.rstudio.com/&apos;)\&quot;&quot;</span><br><span class="line">$ sudo apt-get install gdebi-core</span><br><span class="line">$ wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.4.869-amd64.deb</span><br><span class="line">$ sudo gdebi shiny-server-1.5.4.869-amd64.deb</span><br><span class="line"></span><br><span class="line">sudo systemctl start shiny-server 　　　　   # 启动</span><br><span class="line">sudo systemctl stop shiny-server 　　　　　# 停止</span><br><span class="line">sudo systemctl restart shiny-server　　　　# 重启</span><br><span class="line">status shiny-server 　　　　#查看状态  </span><br><span class="line">reload shiny-server 　　　　#不中断服务的前提下 更新加载配置项</span><br><span class="line"># https://docs.rstudio.com/shiny-server/#stopping-and-starting</span><br></pre></td></tr></table></figure>
 <h3 id="web-查看"><a href="#web-查看" class="headerlink" title="web 查看"></a>web 查看</h3><p>默认端口时3838 </p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">localhost:</span><span class="number">3838</span></span><br></pre></td></tr></table></figure>
 <p><strong>可以在配置文件(/etc/shiny-server/shiny-server.conf)中修改</strong></p>
@@ -270,7 +270,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                162.0k <b>Words</b>
+                163.8k <b>Words</b>
         </p></div>
 
         <div class="search-container">
