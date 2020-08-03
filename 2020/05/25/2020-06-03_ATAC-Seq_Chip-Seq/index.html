@@ -159,17 +159,19 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">1,478 words in total, 5 minutes required.</span>
+          <span class="post-count">1,462 words in total, 5 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><strong>ATAC-seq（Assay for Transposase-Accessible Chromatin with high throughput sequencing）</strong> 是2013年由斯坦福大学<a href="http://greenleaf.stanford.edu/index.html" target="_blank" rel="noopener">William J. Greenleaf</a>和<a href="http://changlab.stanford.edu/index.html" target="_blank" rel="noopener">Howard Y. Chang</a>实验室开发的用于研究染色质可及性（通常也理解为染色质的开放性）的方法， 原理是通过转座酶Tn5容易结合在开放染色质的特性，然后对Tn5酶捕获到的DNA序列进行测序。ATAC-seq使用改造后的Tn5转座酶，并将转座DNA设计为测序接头，这样通过“剪切”和“粘贴”的方式，直接将测序接头引入开放染色质中，进行捕获测序。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h3 id="ATAC-seq（Assay-for-Transposase-Accessible-Chromatin-with-high-throughput-sequencing）"><a href="#ATAC-seq（Assay-for-Transposase-Accessible-Chromatin-with-high-throughput-sequencing）" class="headerlink" title="ATAC-seq（Assay for Transposase-Accessible Chromatin with high throughput sequencing）"></a><strong>ATAC-seq（Assay for Transposase-Accessible Chromatin with high throughput sequencing）</strong></h3><p>2013年由斯坦福大学<a href="http://greenleaf.stanford.edu/index.html" target="_blank" rel="noopener">William J. Greenleaf</a>和<a href="http://changlab.stanford.edu/index.html" target="_blank" rel="noopener">Howard Y. Chang</a>实验室开发的用于研究染色质可及性（通常也理解为染色质的开放性）。 原理是通过转座酶Tn5容易结合在开放染色质的特性，然后对Tn5酶捕获到的DNA序列进行测序。ATAC-seq使用改造后的Tn5转座酶，并将转座DNA设计为测序接头，这样通过“剪切”和“粘贴”的方式，直接将测序接头引入开放染色质中，进行捕获测序。</p>
 <blockquote>
-<p>真核生物的核DNA并不是裸露的，而是与<strong>组蛋白</strong>结合形成染色体的基本结构单位<strong>核小体</strong>，核小体再经逐步的压缩折叠最终形成染色体高级结构（如人的DNA链完整展开约2m长，经过这样的折叠就变成了纳米级至微米级的染色质结构而可以储存在小小的细胞核）。而DNA的复制转录是需要将DNA的紧密结构打开，从而允许一些调控因子结合（转录因子或其他调控因子）。这部分打开的染色质，就叫开放染色质，打开的染色质允许其他调控因子结合的特性称为染色质的可及性（chromatin accessibility）。因此，认为染色质的可及性与转录调控密切相关。</p>
+<p>真核生物的核DNA并不是裸露的，而是与<strong>组蛋白</strong>结合形成染色体的基本结构单位<strong>核小体</strong>，核小体再经逐步的压缩折叠最终形成染色体高级结构（如人的DNA链完整展开约2m长，经过这样的折叠就变成了纳米级至微米级的染色质结构而可以储存在小小的细胞核）。而DNA的复制转录是需要将DNA的紧密结构打开，从而允许一些调控因子结合（转录因子或其他调控因子）。这部分打开的染色质，就叫开放染色质，</p>
+<p><strong>染色质的可及性（chromatin accessibility）</strong>：打开的染色质允许其他调控因子结合的特性称为染色质的可及性（chromatin accessibility）。因此，认为染色质的可及性与转录调控密切相关。</p>
 </blockquote>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/ATAC-Seq.jpg" alt=""></p>
-<p>DNA转座，是一种把DNA序列从染色体的一个区域搬运到另外一个区域的现象，由DNA转座酶来实现。这种转座插入DNA，也是需要插入位点的染色质是开放的，否则就会被一大坨高级结构给卡住。那么，如上图a，我们只要人为地，将携带已知DNA序列标签的转座复合物（即带着红色蓝色测序标签的转座酶Tn5），加入到细胞核中，再利用已知序列的标签进行PCR后测序，就知道哪些区域是开放染色质了。而这也就是ATAC-seq的原理。ATAC-seq出来的结果，和传统方法出来的结果具有很强的一致性，同时也和基于组蛋白修饰marker的ChIP-seq有较高的吻合程度。也就是说，ATAC-seq中的peak，往往是启动子、增强子序列，以及一些反式调控因子结合的位点。</p>
+<h3 id="DNA转座"><a href="#DNA转座" class="headerlink" title="DNA转座"></a>DNA转座</h3><p>一种把DNA序列从染色体的一个区域搬运到另外一个区域的现象，由DNA转座酶来实现。这种转座插入DNA，也是需要插入位点的染色质是开放的，否则就会被一大坨高级结构给卡住。那么，如上图a，我们只要人为地，将携带已知DNA序列标签的转座复合物（即带着红色蓝色测序标签的转座酶Tn5），加入到细胞核中，再利用已知序列的标签进行PCR后测序，就知道哪些区域是开放染色质了。而这也就是ATAC-seq的原理。ATAC-seq出来的结果，和传统方法出来的结果具有很强的一致性，同时也和基于组蛋白修饰marker的ChIP-seq有较高的吻合程度。也就是说，ATAC-seq中的peak，往往是启动子、增强子序列，以及一些反式调控因子结合的位点。</p>
 <blockquote>
-<p>相比起来，ATAC-seq的重复性，比MNase-seq和DNase-seq的更强，操作起来也更加简单，而且只需要很少的细胞/组织量，同时出来的信号更加漂亮。目前已经是研究染色质开放性首选的技术方法。 开放染色质的研究方法有ATAC-seq以及传统的DNase-Seq及FAIRE-seq等，ATAC-Seq由于所需细胞量少，实验简单，可以在全基因组范围内检测染色质的开放状态，目前已经成为研究染色质开放性的首选技术方法。</p>
+<p>相比起来，ATAC-seq的重复性，比MNase-seq和DNase-seq的更强，操作起来也更加简单，而且只需要很少的细胞/组织量，同时出来的信号更加漂亮。</p>
+<p> 开放染色质的研究方法有ATAC-seq以及传统的DNase-Seq及FAIRE-seq等，ATAC-Seq由于所需细胞量少，实验简单，可以在全基因组范围内检测染色质的开放状态，目前已经成为研究染色质开放性的首选技术方法。</p>
 </blockquote>
 <h3 id="ATAC-Seq与ChIP-Seq的异同"><a href="#ATAC-Seq与ChIP-Seq的异同" class="headerlink" title="ATAC-Seq与ChIP-Seq的异同"></a>ATAC-Seq与ChIP-Seq的异同</h3><p><strong>ATAC-Seq</strong>是全基因组范围内检测染色质的开放程度，可以得到全基因组范围内的蛋白质可能结合的位点信息，一般用于不知道特定的转录因子，用此方法与其他方法结合筛查感兴趣的特定调控因子；</p>
 <p><strong>ChIP-Seq</strong>（Chromatin immunoprecipitation，染色质免疫沉淀）是明确知道感兴趣的转录因子是什么，根据感兴趣的转录因子设计抗体去做ChIP实验拉DNA，验证感兴趣的转录因子是否与DNA存在相互作用。</p>
@@ -182,8 +184,7 @@
 <li><strong>MNase-Seq</strong>是用来鉴定核小体区域。</li>
 </ul>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/ATAC_ChIP-Seq.jpg" alt="An overview of ChIP–seq, DNase-seq, ATAC-seq, MNase-seq and FAIRE–seq experiments"><span class="image-caption-center">An overview of ChIP–seq, DNase-seq, ATAC-seq, MNase-seq and FAIRE–seq experiments</span></p>
-<p><strong>全基因组范围的转录因子（TFs）结合位点分析</strong></p>
-<p>确定转录因子结合位点（TFBS）是理解转录调控机制，建立转录调控网络的关键，可以提供基因表达机制层面的重要信息。转录因子结合位点预测是<strong>ATAC-seq的“拿手好戏”</strong>，可以在一次实验中获得全基因组范围内全部的TFBS，再结合ChIP-seq的验证，可将所有转录因子的“行踪”尽收眼底~</p>
+<h3 id="全基因组范围的转录因子（TFs）结合位点分析"><a href="#全基因组范围的转录因子（TFs）结合位点分析" class="headerlink" title="全基因组范围的转录因子（TFs）结合位点分析"></a><strong>全基因组范围的转录因子（TFs）结合位点分析</strong></h3><p>确定转录因子结合位点（TFBS）是理解转录调控机制，建立转录调控网络的关键，可以提供基因表达机制层面的重要信息。转录因子结合位点预测是<strong>ATAC-seq的“拿手好戏”</strong>，可以在一次实验中获得全基因组范围内全部的TFBS，再结合ChIP-seq的验证，可将所有转录因子的“行踪”尽收眼底</p>
 <p><strong>02. 揭示核小体位置（Nucleosome）</strong></p>
 <p>核小体定位变化总是伴随着基因表达模式的转变，其在转录调控、DNA复制和修复等多种细胞过程及肿瘤研究中有重要研究价值，也是目前表观遗传学研究的热点。例如，2016年Snyder等发表在<em>Cell</em>上的文章证实，不同种类肿瘤的核小体定位存在显著差异，可以借此进行肿瘤分型研究。</p>
 <p><strong>01.</strong> <strong>获得样本间染色质开放性差异信息</strong></p>
@@ -212,7 +213,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ATAC-Seq与ChIP-Seq的异同"><span class="toc-number">1.</span> <span class="toc-text">ATAC-Seq与ChIP-Seq的异同</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#ATAC-seq（Assay-for-Transposase-Accessible-Chromatin-with-high-throughput-sequencing）"><span class="toc-number">1.</span> <span class="toc-text">ATAC-seq（Assay for Transposase-Accessible Chromatin with high throughput sequencing）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNA转座"><span class="toc-number">2.</span> <span class="toc-text">DNA转座</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ATAC-Seq与ChIP-Seq的异同"><span class="toc-number">3.</span> <span class="toc-text">ATAC-Seq与ChIP-Seq的异同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全基因组范围的转录因子（TFs）结合位点分析"><span class="toc-number">4.</span> <span class="toc-text">全基因组范围的转录因子（TFs）结合位点分析</span></a></li></ol>
         
     </div>
   </div>
