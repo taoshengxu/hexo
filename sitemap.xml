@@ -2,23 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-06-03_ATAC-Seq_Chip-Seq/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2020/07/29/2020-08-05_SCENIC/</loc>
     
-    <lastmod>2020-08-03T07:30:39.720Z</lastmod>
+    <lastmod>2020-09-14T01:06:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/07/29/2020-07-29_ggplot2/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2018/05/15/2018-05-15_R_environment/</loc>
     
-    <lastmod>2020-08-03T01:31:40.000Z</lastmod>
+    <lastmod>2020-09-13T14:45:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
     
-    <lastmod>2020-08-03T01:31:18.000Z</lastmod>
+    <lastmod>2020-09-13T14:14:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/09/12/2020-09-12_jupyterNotebook/</loc>
+    
+    <lastmod>2020-09-13T11:48:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/12/21/2017-12-21_python/</loc>
+    
+    <lastmod>2020-09-13T07:07:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
+    
+    <lastmod>2020-09-12T06:25:10.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
+    
+    <lastmod>2020-09-09T03:20:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
+    
+    <lastmod>2020-09-09T01:38:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2017/08/27/2017-08-27_markdown_tricks/</loc>
+    
+    <lastmod>2020-09-08T12:16:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/07/29/2020-07-29_ggplot2/</loc>
+    
+    <lastmod>2020-08-05T02:19:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/08/03/2020-08-03_kinase/</loc>
+    
+    <lastmod>2020-08-03T11:25:39.811Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-06-03_ATAC-Seq_Chip-Seq/</loc>
+    
+    <lastmod>2020-08-03T07:30:39.720Z</lastmod>
     
   </url>
   
@@ -44,23 +107,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
-    
-    <lastmod>2020-07-30T07:15:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/2020/07/23/2020-07-23_GAM/</loc>
     
     <lastmod>2020-07-30T06:55:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
-    
-    <lastmod>2020-07-25T09:23:43.698Z</lastmod>
     
   </url>
   
@@ -75,13 +124,6 @@
     <loc>https://taoshengxu.github.io/hexo/2020/05/25/2020-05-31_DEseq2/</loc>
     
     <lastmod>2020-07-23T03:22:40.378Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2018/05/15/2018-05-15_R_environment/</loc>
-    
-    <lastmod>2020-07-16T13:45:26.607Z</lastmod>
     
   </url>
   
@@ -166,13 +208,6 @@
     <loc>https://taoshengxu.github.io/hexo/2020/04/12/2020-03-28_RepeatMasker/</loc>
     
     <lastmod>2020-04-12T14:12:58.161Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2019/03/21/2019-03-21_conda/</loc>
-    
-    <lastmod>2020-04-09T14:14:25.886Z</lastmod>
     
   </url>
   
@@ -530,13 +565,6 @@
     <loc>https://taoshengxu.github.io/hexo/2018/12/31/2018-12-31_newyear/</loc>
     
     <lastmod>2019-01-27T04:28:37.395Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2017/08/27/2017-08-27_markdown_tricks/</loc>
-    
-    <lastmod>2018-12-29T16:15:57.894Z</lastmod>
     
   </url>
   

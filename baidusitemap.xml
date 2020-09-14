@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/25/2020-06-03_ATAC-Seq_Chip-Seq/</loc>
-    <lastmod>2020-08-03T07:30:39.720Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/07/29/2020-08-05_SCENIC/</loc>
+    <lastmod>2020-09-14T01:06:19.000Z</lastmod>
     <data>
         <display>
-        <title>ATAC-Seq技术</title>
-        <pubTime>2020-05-25T02:39:07.000Z</pubTime>
+        <title>SCENIC</title>
+        <pubTime>2020-07-29T06:39:07.000Z</pubTime>
         
          
            
@@ -22,8 +22,145 @@
 
     
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2018/05/15/2018-05-15_R_environment/</loc>
+    <lastmod>2020-09-13T14:45:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>R包安装路径设置及从Bioconductor安装包,BiocCheck</title>
+        <pubTime>2018-05-15T07:36:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
+    <lastmod>2020-09-13T14:14:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>DOS-Ubuntu命令集合</title>
+        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/09/12/2020-09-12_jupyterNotebook/</loc>
+    <lastmod>2020-09-13T11:48:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>Jupyter Notebook</title>
+        <pubTime>2020-09-12T06:59:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/12/21/2017-12-21_python/</loc>
+    <lastmod>2020-09-13T07:07:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>python 相关</title>
+        <pubTime>2017-12-21T03:17:39.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
+    <lastmod>2020-09-12T06:25:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>conda命令</title>
+        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
+        
+        <tag>Data mining</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
+    <lastmod>2020-09-09T03:20:39.000Z</lastmod>
+    <data>
+        <display>
+        <title>Single cell RNA 数据处理</title>
+        <pubTime>2020-05-21T05:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
+    <lastmod>2020-09-09T01:38:07.000Z</lastmod>
+    <data>
+        <display>
+        <title>single cell测序技术</title>
+        <pubTime>2020-05-22T02:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/27/2017-08-27_markdown_tricks/</loc>
+    <lastmod>2020-09-08T12:16:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>Markdown博客技巧汇总</title>
+        <pubTime>2017-08-27T13:56:14.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/07/29/2020-07-29_ggplot2/</loc>
-    <lastmod>2020-08-03T01:31:40.000Z</lastmod>
+    <lastmod>2020-08-05T02:19:21.000Z</lastmod>
     <data>
         <display>
         <title>ggplot2</title>
@@ -40,12 +177,30 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2029/12/12/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2020-08-03T01:31:18.000Z</lastmod>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/08/03/2020-08-03_kinase/</loc>
+    <lastmod>2020-08-03T11:25:39.811Z</lastmod>
     <data>
         <display>
-        <title>DOS-Ubuntu命令集合</title>
-        <pubTime>2029-12-11T16:00:00.000Z</pubTime>
+        <title>激酶kinase</title>
+        <pubTime>2020-08-03T06:39:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/25/2020-06-03_ATAC-Seq_Chip-Seq/</loc>
+    <lastmod>2020-08-03T07:30:39.720Z</lastmod>
+    <data>
+        <display>
+        <title>ATAC-Seq技术</title>
+        <pubTime>2020-05-25T02:39:07.000Z</pubTime>
         
          
            
@@ -112,48 +267,12 @@
 
     
   <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/21/2020-05-21_singlecell_analysis/</loc>
-    <lastmod>2020-07-30T07:15:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>single cell数据分析</title>
-        <pubTime>2020-05-21T05:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2020/07/23/2020-07-23_GAM/</loc>
     <lastmod>2020-07-30T06:55:28.000Z</lastmod>
     <data>
         <display>
         <title>广义加性模型（Generalized Additive Model,GAM）</title>
         <pubTime>2020-07-23T02:39:07.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2020/05/22/2020-05-22_scRNA_sequcencing/</loc>
-    <lastmod>2020-07-25T09:23:43.698Z</lastmod>
-    <data>
-        <display>
-        <title>单细胞测序平台</title>
-        <pubTime>2020-05-22T02:39:07.000Z</pubTime>
         
          
            
@@ -196,21 +315,6 @@
              
               <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2018/05/15/2018-05-15_R_environment/</loc>
-    <lastmod>2020-07-16T13:45:26.607Z</lastmod>
-    <data>
-        <display>
-        <title>R包安装路径设置及从Bioconductor安装包,BiocCheck</title>
-        <pubTime>2018-05-15T07:36:41.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
@@ -406,26 +510,6 @@
         <title>RepeatMasker</title>
         <pubTime>2020-04-12T04:39:07.000Z</pubTime>
         
-         
-           
-             
-              <breadCrumb title="Bioinformatics" url="https://taoshengxu.github.io/hexo/hexo/categories/Bioinformatics/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2019/03/21/2019-03-21_conda/</loc>
-    <lastmod>2020-04-09T14:14:25.886Z</lastmod>
-    <data>
-        <display>
-        <title>conda命令</title>
-        <pubTime>2019-03-21T13:39:07.000Z</pubTime>
-        
-        <tag>Data mining</tag>
-         
          
            
              
@@ -1326,21 +1410,6 @@
              
               <breadCrumb title="闲情" url="https://taoshengxu.github.io/hexo/hexo/categories/%E9%97%B2%E6%83%85/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2017/08/27/2017-08-27_markdown_tricks/</loc>
-    <lastmod>2018-12-29T16:15:57.894Z</lastmod>
-    <data>
-        <display>
-        <title>Markdown博客技巧汇总</title>
-        <pubTime>2017-08-27T13:56:14.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
