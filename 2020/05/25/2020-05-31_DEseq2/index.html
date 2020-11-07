@@ -22,7 +22,7 @@
 
     <title>
         
-        DEseq2差异表达分析｜undefined
+        离差，基因离差，DEseq2差异表达分析｜undefined
         
     </title>
 
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                     <div class="site-heading">
-                        <h1>DEseq2差异表达分析</h1>
+                        <h1>离差，基因离差，DEseq2差异表达分析</h1>
                         
                         
 
@@ -159,17 +159,31 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">460 words in total, 2 minutes required.</span>
+          <span class="post-count">1,207 words in total, 6 minutes required.</span>
           <hr>
           
-          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://www.jianshu.com/p/3a0e1e3e41d0" target="_blank" rel="noopener">https://www.jianshu.com/p/3a0e1e3e41d0</a></p>
-<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><p>因为以前处理的芯片表达谱数据是符合正态分布，所以可以用t检验来筛选差异表达基因，但RNA-seq的read count普遍认为符合泊松分布。所以筛选DEGs的方法还是不一样。</p>
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-离差-Dispersion"><a href="#1-离差-Dispersion" class="headerlink" title="1.离差 Dispersion"></a>1.离差 Dispersion</h2><p>In statistics, <strong>dispersion</strong> (also called variability, scatter, or spread) denotes how stretched or squeezed a distribution (theoretical or that underlying a statistical sample) is. Common examples of measures of statistical <strong>dispersion</strong> are the <strong>variance</strong>, standard deviation and interquartile range.</p>
+<p>在统计学中，离差基本是方差的同义词。</p>
+<h2 id="2-基因离差-Gene-Dispersion-代表-Biological-coefficient-of-variation-BCV"><a href="#2-基因离差-Gene-Dispersion-代表-Biological-coefficient-of-variation-BCV" class="headerlink" title="2.基因离差 Gene Dispersion  代表 Biological coefficient of variation (BCV)"></a>2.基因离差 Gene Dispersion  代表 Biological coefficient of variation (BCV)</h2><p><a href="https://support.bioconductor.org/p/75260/" target="_blank" rel="noopener">https://support.bioconductor.org/p/75260/</a> 这个网页解释的非常棒。</p>
+<p>The dispersion is sometimes a synonym for the variance. But <strong>not</strong> in gene case.  The dispersion is not the variance of your gene. It’s correlated but it cannot be translated exactly.  You can read more about this on <a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Negative_binomial_distribution</a></p>
+<p>DESeq assumes a <em>negative binomial distribution</em>, which has two parameters: mean and dispersion. <strong>The dispersion is a parameter describing how much the variance deviates from the mean.</strong> The Poission distribution is sometimes said to be a special case of the NB distribution, when dispersion=1 and thereby mean = variance.</p>
+<p>Check out Section 2.8.2 of the <code>edgeR</code> user’s guide (v3.12.0). <strong>Briefly, <em>the square root of the negative binomial dispersion for a gene is the biological coefficient of variation (BCV) across your replicate samples.</em></strong> This refers to the standard deviation divided by the mean, for the fraction of all cDNA fragments corresponding to that gene. Roughly speaking, this is interpretable as the proportion of expression attributable to variability.</p>
+<p><code>Larger values for the BCV indicate that the gene expression is more variable relative to the mean.</code> This is arguably more useful than the variance itself. Highly expressed genes will usually have a larger absolute variance because the counts are bigger, but the relative variability and BCV are often lower. For example, if you have a highly expressed gene, then even if it has a large absolute variance, that might not matter if the variance contributes to a very small wobble around the large mean expression across replicates. Conversely, a small variance might be substantial for lowly expressed genes because the wobble would be relatively large compared to the mean.</p>
+<p>No, you use the <code>estimateDisp</code> function. We’ve already set it up for you, so don’t try to do it yourself. This is not a simple calculation; it maximizes the adjusted profile likelihood to obtain an unbiased estimate of the NB dispersion, with some EB shrinkage to stabilize the estimate in the presence of limited replicates. Of course, you don’t need that level of understanding to interpret the value of the dispersion; all you need to know is <strong>“bigger dispersion = more variable”</strong>.</p>
+<p>As for the example, imagine you have a gene with counts of 1000, 1010, 990, 1000. Now imagine you have another gene with counts of 10, 20, 0, 10. They have the same variance, but which one would you consider to be more variable?</p>
+<p><strong>Edit:</strong> Obviously, this is a rhetorical question. The first gene has fluctuations of 1% around the mean. The second gene has fluctuations of 100%. It’s clear that the second one is more variable, and this will be reflected in the BCV/dispersion.</p>
+<p>The first gene has a mean of 1000 across all samples. The second gene has a mean of 10. In each gene, one sample has an increase of 10, and another sample has a decrease of 10. This represents a 1% change relative to the mean for the first gene, and a 100% change for the second gene. So, clearly, the second gene is more variable across your samples; its expression doubles in one sample and is completely absent in another, while the first gene has fairly stable expression across all samples. I should also stress that this example has nothing to do with differential expression. The numbers above don’t have any relation to the dispersion parameter, either; the example is just to show that the absolute variance of the counts is less important than the variance relative to the mean (which is quantified by the biological coefficient of variation, which in turn is represented as the square-root of the dispersion).</p>
+<blockquote>
+<p>我理解的离差公式 Gene Dispersion= var/mean. 只是大致的意思，实际计算过程更复杂。</p>
+</blockquote>
+<h2 id="3-DESeq2-差异表达分析"><a href="#3-DESeq2-差异表达分析" class="headerlink" title="3. DESeq2 差异表达分析"></a>3. DESeq2 差异表达分析</h2><p><a href="https://www.jianshu.com/p/3a0e1e3e41d0" target="_blank" rel="noopener">https://www.jianshu.com/p/3a0e1e3e41d0</a></p>
+<p><a href="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#recommendations-for-single-cell-analysis" target="_blank" rel="noopener">https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#recommendations-for-single-cell-analysis</a></p>
+<p>  因为以前处理的芯片表达谱数据是符合正态分布，所以可以用t检验来筛选差异表达基因，但RNA-seq的read count普遍认为符合泊松分布。所以筛选DEGs的方法还是不一样。</p>
 <ul>
 <li><h6 id="正式载入数据之前，先看一下数据结构data-structure，因为这是我们下面一切分析的起点。"><a href="#正式载入数据之前，先看一下数据结构data-structure，因为这是我们下面一切分析的起点。" class="headerlink" title="正式载入数据之前，先看一下数据结构data structure，因为这是我们下面一切分析的起点。"></a>正式载入数据之前，先看一下数据结构data structure，因为这是我们下面一切分析的起点。</h6></li>
 <li><h6 id="我们需要准备2个table：一个是countData，一个是colData"><a href="#我们需要准备2个table：一个是countData，一个是colData" class="headerlink" title="我们需要准备2个table：一个是countData，一个是colData"></a>我们需要准备2个table：一个是countData，一个是colData</h6></li>
 </ul>
 <p><img src="https:////upload-images.jianshu.io/upload_images/7976641-0cd71153773325fe.png?imageMogr2/auto-orient/strip|imageView2/2/w/945/format/webp" alt="img"><span class="image-caption-center">img</span></p>
-<p>two kinds of data.png</p>
 <h4 id="关于上面两个表的说明"><a href="#关于上面两个表的说明" class="headerlink" title="关于上面两个表的说明"></a>关于上面两个表的说明</h4><p><strong>countData</strong>表示的是count矩阵，行代表gene，列代表样品，中间的数字代表对应count数。<strong>colData</strong>表示sample的元数据，因为这个表提供了sample的元数据。<br> because this table supplies metadata/information about the columns of the  countData matrix. Notice that the first column of colData must match the column names of  countData (except the first, which is the gene ID column).</p>
 <p><strong>colData的行名与countData的列名一致（除去代表gene ID的第一列）</strong></p>
 <p>===========</p>
@@ -208,7 +222,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"> </span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#正式载入数据之前，先看一下数据结构data-structure，因为这是我们下面一切分析的起点。"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">正式载入数据之前，先看一下数据结构data structure，因为这是我们下面一切分析的起点。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#我们需要准备2个table：一个是countData，一个是colData"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">我们需要准备2个table：一个是countData，一个是colData</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#关于上面两个表的说明"><span class="toc-number">1.1.</span> <span class="toc-text">关于上面两个表的说明</span></a></li>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-离差-Dispersion"><span class="toc-number">1.</span> <span class="toc-text">1.离差 Dispersion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基因离差-Gene-Dispersion-代表-Biological-coefficient-of-variation-BCV"><span class="toc-number">2.</span> <span class="toc-text">2.基因离差 Gene Dispersion  代表 Biological coefficient of variation (BCV)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-DESeq2-差异表达分析"><span class="toc-number">3.</span> <span class="toc-text">3. DESeq2 差异表达分析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#正式载入数据之前，先看一下数据结构data-structure，因为这是我们下面一切分析的起点。"><span class="toc-number">3.0.0.0.1.</span> <span class="toc-text">正式载入数据之前，先看一下数据结构data structure，因为这是我们下面一切分析的起点。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#我们需要准备2个table：一个是countData，一个是colData"><span class="toc-number">3.0.0.0.2.</span> <span class="toc-text">我们需要准备2个table：一个是countData，一个是colData</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#关于上面两个表的说明"><span class="toc-number">3.0.1.</span> <span class="toc-text">关于上面两个表的说明</span></a></li>
         
     </div>
   </div>
@@ -254,7 +268,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                170.1k <b>Words</b>
+                174.8k <b>Words</b>
         </p></div>
 
         <div class="search-container">

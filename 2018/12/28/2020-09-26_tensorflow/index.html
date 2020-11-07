@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2018/12/28/2020-09-26_tensorflow/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        深度学习tensorflow｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost="true" data-istags="false" data-ishome="false">
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb">
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </div></nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>深度学习tensorflow</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Dec 28, 2018</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics" title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#English" title="English">English</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1,093 words in total, 5 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="卸载NVIDIA"><a href="#卸载NVIDIA" class="headerlink" title="卸载NVIDIA"></a>卸载NVIDIA</h1><h4 id="1-2手动run文件安装"><a href="#1-2手动run文件安装" class="headerlink" title="1.2手动run文件安装"></a>1.2手动run文件安装</h4><p>推荐这种方式，我们可以根据具体机器配置具体选项。避免出现黑屏，循环登录等问题。</p>
+<h2 id="2-run文件安装详解"><a href="#2-run文件安装详解" class="headerlink" title="2.run文件安装详解"></a>2.run文件安装详解</h2><h4 id="2-1手动下载驱动"><a href="#2-1手动下载驱动" class="headerlink" title="2.1手动下载驱动"></a>2.1手动下载驱动</h4><p><a href="https://www.geforce.cn/drivers" target="_blank" rel="noopener">官方显卡驱动</a>NVIDIA-Linux-x86_64-390.48.run   选择合适的参数后可以下载</p>
+<h4 id="2-2卸载旧驱动"><a href="#2-2卸载旧驱动" class="headerlink" title="2.2卸载旧驱动"></a>2.2卸载旧驱动</h4><p>卸载可能存在的旧版本 nvidia 驱动（对没有安装过 nvidia 驱动的主机，这步可以省略，但推荐执行，无害），如果你安装失败了也需要执行这一步。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove --purge nvidia*</span><br><span class="line"><span class="comment">#若安装失败也是这样卸载以及</span></span><br><span class="line">./NVIDIA-Linux-x86_64-390.48.run --uninstall <span class="comment">#确保卸载干净。</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-3安装可能需要的依赖（可跳过）"><a href="#2-3安装可能需要的依赖（可跳过）" class="headerlink" title="2.3安装可能需要的依赖（可跳过）"></a>2.3安装可能需要的依赖（可跳过）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#其实很多你的环境已经安装了，所以一般并没有多少时间。</span></span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install dkms build-essential linux-headers-generic</span><br><span class="line">sudo apt-get install gcc-multilib xorg-dev</span><br><span class="line">sudo apt-get install freeglut3-dev libx11-dev libxmu-dev install libxi-dev  libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev</span><br></pre></td></tr></table></figure>
+<h4 id="2-4禁用noueau驱动"><a href="#2-4禁用noueau驱动" class="headerlink" title="2.4禁用noueau驱动"></a>2.4禁用noueau驱动</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> sudo vi /etc/modprobe.d/blacklist-nouveau.conf </span><br><span class="line"> <span class="comment">#在文件 blacklist-nouveau.conf 中加入如下内容：</span></span><br><span class="line">  blacklist nouveau</span><br><span class="line">  blacklist lbm-nouveau</span><br><span class="line">  options nouveau modeset=0</span><br><span class="line">  <span class="built_in">alias</span> nouveau off</span><br><span class="line">  <span class="built_in">alias</span> lbm-nouveau off</span><br><span class="line">  <span class="comment">#保存   :wq</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#禁用nouveau 内核模块</span></span><br><span class="line"><span class="built_in">echo</span> options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf</span><br><span class="line">sudo update-initramfs -u</span><br><span class="line">reboot <span class="comment">#重启</span></span><br><span class="line">lsmod |grep nouveau <span class="comment">#无显示则成功</span></span><br><span class="line"><span class="comment">#当然驱动没了你的桌面分辨率会比较大。</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-5进入blos关闭secure-boot-（华硕还有fast-boot）否则无法安装成功。"><a href="#2-5进入blos关闭secure-boot-（华硕还有fast-boot）否则无法安装成功。" class="headerlink" title="2.5进入blos关闭secure boot （华硕还有fast boot）否则无法安装成功。"></a>2.5进入blos关闭secure boot （华硕还有fast boot）否则无法安装成功。</h4><h4 id="2-6关闭图形界面，进入终端连接"><a href="#2-6关闭图形界面，进入终端连接" class="headerlink" title="2.6关闭图形界面，进入终端连接"></a>2.6关闭图形界面，进入终端连接</h4><p>按 CTRL + ALT + F1 键登录，从 GUI 转至终端tty1（全黑色）。为了重建视频输出，必须先将其暂停。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>lightdm stop1</span><br></pre></td></tr></table></figure>
+<p>如果命令行没有效果，Ubuntu 新版本使用 systemctl 替换 lightdm。</p>
+<h4 id="2-7-运行-run文件选择合适选项。"><a href="#2-7-运行-run文件选择合适选项。" class="headerlink" title="2.7 运行.run文件选择合适选项。"></a>2.7 运行.run文件选择合适选项。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> 下载目录</span><br><span class="line">chmod a+x NVIDIA-Linux-x86_64-384.90.run <span class="comment">#添加权限</span></span><br><span class="line">sudo ./NVIDIA-Linux-x86_64-384.90.run --dkms --no-opengl-files123</span><br><span class="line"></span><br><span class="line">- –no-opengl-files：表示只安装驱动文件，不安装OpenGL文件。这个参数不可省略，否则会导致登陆界面死循环，英语一般称为”login loop”或者”stuck <span class="keyword">in</span> login”。</span><br><span class="line">  当然脸红的情况下并不会。</span><br><span class="line">  必选参数解释：因为NVIDIA的驱动默认会安装OpenGL，而Ubuntu的内核本身也有OpenGL、且与GUI显示息息相关，一旦NVIDIA的驱动覆写了OpenGL，在GUI需要动态链接OpenGL库的时候就引起问题。</span><br><span class="line">- –no-x-check：表示安装驱动时不检查X服务，非必需，我们已经禁用图形界面。</span><br><span class="line">- –no-nouveau-check：表示安装驱动时不检查nouveau，非必需，我们已经禁用驱动。</span><br><span class="line">- -Z, –<span class="built_in">disable</span>-nouveau：禁用nouveau。此参数非必需，因为之前已经手动禁用了nouveau。</span><br><span class="line">- -A：查看更多高级选项。</span><br><span class="line">- -dkms（默认开启）在 kernel 自行更新时将驱动程序安装至模块中，从而阻止驱动程序重新安装。在 kernel 更新期间，dkms 触发驱动程序重编译至新的 kernel 模块堆栈。</span><br></pre></td></tr></table></figure>
+<h4 id="2-8-关于pre-script-failed"><a href="#2-8-关于pre-script-failed" class="headerlink" title="2.8 关于pre-script failed"></a>2.8 关于pre-script failed</h4><p>运行时，你可能会收到一条 pre-install script failed 信息。这没什么影响,选择继续安装就行，因为预安装脚本包含命令 exit 1，其目标是确保你真的想安装驱动程序。 具体解释见我的博客。<a href="https://blog.csdn.net/u014561933/article/details/79958130" target="_blank" rel="noopener">https://blog.csdn.net/u014561933/article/details/79958130</a>  当然你前面的工作没做对，会提示其他报错信息。日志在/var/log/nvidia-install.log</p>
+<h4 id="2-9-安装过程中的选项"><a href="#2-9-安装过程中的选项" class="headerlink" title="2.9 安装过程中的选项"></a>2.9 安装过程中的选项</h4><ul>
+<li>dkms 安装最好 选yes</li>
+<li>32位兼容 安装最好 选yes</li>
+<li>x-org 最好别安，选no，有的电脑可能导致登录界面黑屏</li>
+</ul>
+<h4 id="2-10安装完成后验证"><a href="#2-10安装完成后验证" class="headerlink" title="2.10安装完成后验证"></a>2.10安装完成后验证</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi <span class="comment">#若列出GPU的信息列表，表示驱动安装成功</span></span><br></pre></td></tr></table></figure>
+<p>若失败则跳回第一步卸载后重新开始。</p>
+<h4 id="2-11-重新进入桌面"><a href="#2-11-重新进入桌面" class="headerlink" title="2.11 重新进入桌面"></a>2.11 重新进入桌面</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>lightdm start #没自动跳的话 crtl+alt+f7</span><br><span class="line">nvidia-settings #若弹出设置对话框，亦表示驱动安装成功</span><br></pre></td></tr></table></figure>
+<h1 id="安装tensorflow"><a href="#安装tensorflow" class="headerlink" title="安装tensorflow"></a>安装tensorflow</h1><p><a href="https://www.tensorflow.org/install" target="_blank" rel="noopener">https://www.tensorflow.org/install</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda create -n tensorflow python=<span class="number">3.6</span></span><br><span class="line"><span class="comment">#激活环境</span></span><br><span class="line">pip install --ignore-installed --upgrade https:<span class="regexp">//</span>storage.googleapis.com<span class="regexp">/tensorflow/</span>linux<span class="regexp">/gpu/</span>tensorflow_gpu-<span class="number">2.1</span>.<span class="number">0</span>-cp36-cp36m-manylinux2010_x86_64.whl</span><br></pre></td></tr></table></figure>
+<h1 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h1><p><a href="http://pytorch123.com/" target="_blank" rel="noopener">http://pytorch123.com/</a></p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2018/12/28/2018-12-29_EMT/" data-toggle="tooltip" data-placement="left" title="EMT（Epithelial-mesenchymal transition）">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2018/12/28/2025-01-01-English_word/" data-toggle="tooltip" data-placement="top" title="英语-词汇">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#卸载NVIDIA"><span class="toc-number">1.</span> <span class="toc-text">卸载NVIDIA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2手动run文件安装"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.2手动run文件安装</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#2-run文件安装详解"><span class="toc-number">1.1.</span> <span class="toc-text">2.run文件安装详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1手动下载驱动"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">2.1手动下载驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2卸载旧驱动"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">2.2卸载旧驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3安装可能需要的依赖（可跳过）"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">2.3安装可能需要的依赖（可跳过）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4禁用noueau驱动"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">2.4禁用noueau驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5进入blos关闭secure-boot-（华硕还有fast-boot）否则无法安装成功。"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">2.5进入blos关闭secure boot （华硕还有fast boot）否则无法安装成功。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6关闭图形界面，进入终端连接"><span class="toc-number">1.1.0.6.</span> <span class="toc-text">2.6关闭图形界面，进入终端连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-运行-run文件选择合适选项。"><span class="toc-number">1.1.0.7.</span> <span class="toc-text">2.7 运行.run文件选择合适选项。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8-关于pre-script-failed"><span class="toc-number">1.1.0.8.</span> <span class="toc-text">2.8 关于pre-script failed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-9-安装过程中的选项"><span class="toc-number">1.1.0.9.</span> <span class="toc-text">2.9 安装过程中的选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-10安装完成后验证"><span class="toc-number">1.1.0.10.</span> <span class="toc-text">2.10安装完成后验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-11-重新进入桌面"><span class="toc-number">1.1.0.11.</span> <span class="toc-text">2.11 重新进入桌面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装tensorflow"><span class="toc-number">2.</span> <span class="toc-text">安装tensorflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Pytorch"><span class="toc-number">3.</span> <span class="toc-text">安装Pytorch</span></a></li>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2020
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                174.8k <b>Words</b>
+        </p></div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search...">
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>

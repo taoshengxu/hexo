@@ -157,7 +157,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">2,778 words in total, 13 minutes required.</span>
+          <span class="post-count">2,792 words in total, 14 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="对fasta-fastq进行一些小操作"><a href="#对fasta-fastq进行一些小操作" class="headerlink" title="对fasta/fastq进行一些小操作"></a>对fasta/fastq进行一些小操作</h1><blockquote>
@@ -195,7 +195,7 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">perl filter.pl <span class="attribute">--min_size_cutoff</span>=480664 <span class="attribute">--input_file</span>=pilon2.fasta <span class="attribute">--output_file</span>=filter.fasta</span><br><span class="line"></span><br><span class="line">perl filter.pl <span class="attribute">--min_size_cutoff</span>=160000 <span class="attribute">--max_size_cutoff</span>=200000 <span class="attribute">--limit_count</span>=1 <span class="attribute">--input_file</span>=pilon2.fasta <span class="attribute">--output_file</span>=filter_200000.fasta</span><br><span class="line"></span><br><span class="line">perl filter.pl <span class="attribute">--min_size_cutoff</span>=600000  <span class="attribute">--limit_count</span>=100 <span class="attribute">--input_file</span>=pilon2.fasta <span class="attribute">--output_file</span>=filter_600000.fasta</span><br></pre></td></tr></table></figure>
 <h2 id="去除fasta-空行"><a href="#去除fasta-空行" class="headerlink" title="去除fasta 空行"></a>去除fasta 空行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'BEGIN &#123;RS = "&gt;" ; FS = "\n" ; ORS = ""&#125; &#123;if ($2) print "&gt;"$0&#125;'</span> input.fa &gt; output.fa</span><br><span class="line"></span><br><span class="line">With RS, we <span class="built_in">declare</span> that the records are separated by &gt;. If the record contains a second line <span class="variable">$2</span> (i.e. is not an empty fasta record), <span class="built_in">print</span> the record (add a &gt; <span class="keyword">in</span> front).</span><br><span class="line"></span><br><span class="line">edit: just added a missing space <span class="keyword">for</span> readability. Note that it is also possible to drop the <span class="keyword">if</span>:</span><br><span class="line"></span><br><span class="line">awk <span class="string">'BEGIN &#123;RS = "&gt;" ; FS = "\n" ; ORS = ""&#125; $2 &#123;print "&gt;"$0&#125;'</span> input.fas &gt; output.fas</span><br></pre></td></tr></table></figure>
 <h2 id="对fasta-文件头重新命名"><a href="#对fasta-文件头重新命名" class="headerlink" title="对fasta  文件头重新命名"></a>对fasta  文件头重新命名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 注意下面命令所有的&gt; &lt;都是命令内容</span></span><br><span class="line">awk <span class="string">'/^&gt;/&#123;print "&gt;fasta" ++i; next&#125;&#123;print&#125;'</span> &lt; file.fasta &gt; output.fa</span><br></pre></td></tr></table></figure>
-<h2 id="对fasta-文件头字符替换"><a href="#对fasta-文件头字符替换" class="headerlink" title="对fasta  文件头字符替换"></a>对fasta  文件头字符替换</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'s/\_/\#/'</span> scaffolds_FINAL.fasta &gt; scaffolds_FINAL1.fasta</span><br></pre></td></tr></table></figure>
+<h2 id="对fasta-文件头字符替换"><a href="#对fasta-文件头字符替换" class="headerlink" title="对fasta  文件头字符替换"></a>对fasta  文件头字符替换</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## sed 's/str1/str2/' scaffolds_FINAL.fasta &gt; scaffolds_FINAL1.fasta  把str1替换为str2</span></span><br><span class="line">sed <span class="string">'s/\_/\#/'</span> scaffolds_FINAL.fasta &gt; scaffolds_FINAL1.fasta</span><br></pre></td></tr></table></figure>
           
           <hr>
           <ul class="pager no-print">
@@ -268,7 +268,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                170.1k <b>Words</b>
+                174.8k <b>Words</b>
         </p></div>
 
         <div class="search-container">
