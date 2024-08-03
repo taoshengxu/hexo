@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020-11-11_python_numpy_pandas/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        python学习和使用｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>python学习和使用</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: xt</span>
+                               <span class="meta-item">Date: Nov 11, 2020</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">4,051 words in total, 19 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="python-参考书"><a href="#python-参考书" class="headerlink" title="python 参考书"></a>python 参考书</h1><p><a href="https://github.com/apachecn/pyda-2e-zh">https://github.com/apachecn/pyda-2e-zh</a></p>
+<p><img src="https://github.com/apachecn/pyda-2e-zh/blob/master/cover.jpg" alt="https://github.com/apachecn/pyda-2e-zh/blob/master/cover.jpg"><span class="image-caption-center">https://github.com/apachecn/pyda-2e-zh/blob/master/cover.jpg</span></p>
+<h1 id="python-基本函数"><a href="#python-基本函数" class="headerlink" title="python 基本函数"></a>python 基本函数</h1><h3 id="矩阵装置"><a href="#矩阵装置" class="headerlink" title="矩阵装置"></a>矩阵装置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%time 语句    返回语句执行时间</span><br><span class="line">A.T  矩阵A的转置</span><br></pre></td></tr></table></figure>
+<h3 id="元素查找"><a href="#元素查找" class="headerlink" title="元素查找"></a>元素查找</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.isin()   抽取<span class="string">'0d'</span>, <span class="string">'8h'</span>, <span class="string">'1d'</span>, <span class="string">'3d'</span>, <span class="string">'7d'</span>的样本,获取index</span><br><span class="line"><span class="comment">## 可以用来查找两个向量中出现的相同元素，但是不能解决现在的问题</span></span><br><span class="line">indices = np.where(np.in1d(A549_TGFB_cells, data_cells))[<span class="number">0</span>]  <span class="comment"># 只能查找有没有，没有序号</span></span><br></pre></td></tr></table></figure>
+<h3 id="range-函数：-返回的是一个range对象，需要用list-把对象转化为向量，但是在for循环中直接使用range"><a href="#range-函数：-返回的是一个range对象，需要用list-把对象转化为向量，但是在for循环中直接使用range" class="headerlink" title="range 函数： 返回的是一个range对象，需要用list 把对象转化为向量，但是在for循环中直接使用range"></a>range 函数： 返回的是一个range对象，需要用list 把对象转化为向量，但是在for循环中直接使用range</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(range(<span class="number">10</span>))</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">a=range(<span class="number">5</span>)     <span class="comment"># 默认从 0 开始, 在 5 以内, 到不了 5</span></span><br><span class="line">print(list(a)) <span class="comment"># [0, 1, 2, 3, 4]</span></span><br><span class="line">a=range(<span class="number">2</span>,<span class="number">2468</span>,<span class="number">2</span>) <span class="comment"># 最大下标这样获得:len(a)-1</span></span><br><span class="line">print(a[<span class="number">0</span>],a[<span class="number">1</span>],a[<span class="number">2</span>],a[len(a)<span class="number">-1</span>]) <span class="comment">#  2 4 6 2466</span></span><br><span class="line">a=range(<span class="number">100</span>,<span class="number">80</span>,<span class="number">-2</span>) <span class="comment"># 前大后小的,步长应该是负数</span></span><br><span class="line">print(list(a)) <span class="comment"># [100, 98, 96, 94, 92, 90, 88, 86, 84, 82]</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10</span>, <span class="number">5</span>):</span><br><span class="line">    xxxx</span><br></pre></td></tr></table></figure>
+<h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">type(aa) <span class="comment"># 查看变量的类型</span></span><br><span class="line">astype(<span class="string">"category"</span>) <span class="comment"># 将变量改为category类型</span></span><br><span class="line">df[<span class="string">"grade"</span>] = df[<span class="string">"raw_grade"</span>].astype(<span class="string">"category"</span>)</span><br><span class="line"><span class="comment">#改变类别标签</span></span><br><span class="line">df[<span class="string">"grade"</span>].cat.categories = [<span class="string">"very good"</span>, <span class="string">"good"</span>, <span class="string">"very bad"</span>]</span><br><span class="line"><span class="comment">#改变类别标签集合，注意和上面的对.categories的操作进行区分。</span></span><br><span class="line">df[<span class="string">"grade"</span>] = df[<span class="string">"grade"</span>].cat.set_categories([<span class="string">"very bad"</span>, <span class="string">"bad"</span>, <span class="string">"medium"</span>, <span class="string">"good"</span>, <span class="string">"very good"</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="字符串替换"><a href="#字符串替换" class="headerlink" title="字符串替换"></a>字符串替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bb=adata.obs.index.values</span><br><span class="line">type(bb)</span><br><span class="line">bb = [w.replace(<span class="string">'-'</span>, <span class="string">''</span>) <span class="keyword">for</span> w <span class="keyword">in</span> bb]</span><br><span class="line">bb = [w.replace(<span class="string">':'</span>, <span class="string">'_'</span>) <span class="keyword">for</span> w <span class="keyword">in</span> bb]</span><br><span class="line">bb = [w.replace(<span class="string">'x'</span>, <span class="string">''</span>) <span class="keyword">for</span> w <span class="keyword">in</span> bb]</span><br><span class="line">bb = [w.replace(<span class="string">'Mi'</span>, <span class="string">'Mix'</span>) <span class="keyword">for</span> w <span class="keyword">in</span> bb]</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">cc=re.sub(<span class="string">r'[-]'</span>, <span class="string">''</span>, bb) <span class="comment"># 前面是正则表达式，匹配多种字符（串）</span></span><br><span class="line">cc=re.sub(<span class="string">r'[:]'</span>, <span class="string">'_'</span>, cc)</span><br><span class="line">cc</span><br></pre></td></tr></table></figure>
+<h2 id="2-Numpy-数组"><a href="#2-Numpy-数组" class="headerlink" title="2. Numpy 数组"></a>2. Numpy 数组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .A1 表示把矩阵拉平成为要给数组</span></span><br><span class="line">np.matrix(np.arange(<span class="number">12</span>).reshape((<span class="number">3</span>,<span class="number">4</span>))).A1</span><br><span class="line"></span><br><span class="line"><span class="comment"># the `.A1` is only necessary as X is sparse (to transform to a dense array after summing)</span></span><br><span class="line">adata.obs[<span class="string">'percent_mito'</span>] = np.sum(</span><br><span class="line">    adata[:, mito_genes].X, axis=<span class="number">1</span>).A1 / np.sum(adata.X, axis=<span class="number">1</span>).A1</span><br><span class="line"><span class="comment"># add the total counts per cell as observations-annotation to adata</span></span><br><span class="line">adata.obs[<span class="string">'n_counts'</span>] = adata.X.sum(axis=<span class="number">1</span>).A1</span><br><span class="line"></span><br><span class="line"><span class="comment">##</span></span><br><span class="line">type(r2) <span class="comment">##查看r2数据类型</span></span><br><span class="line">r2.dtype() <span class="comment">## 查看r2里面存储数据的类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#矩阵拼接</span></span><br><span class="line">np.concatenate((arr,arr),axis=<span class="number">0</span>) <span class="comment"># 按行拼接</span></span><br><span class="line">np.concatenate((arr,arr),axis=<span class="number">1</span>) <span class="comment"># 按列拼接</span></span><br><span class="line"><span class="comment">## 矩阵切分</span></span><br><span class="line">np.split(arr2,<span class="number">2</span>,axis=<span class="number">1</span>)</span><br><span class="line"><span class="comment">## 生成随机数</span></span><br><span class="line">np.random.randint(<span class="number">1</span>,<span class="number">6</span>,<span class="number">15</span>)</span><br><span class="line"><span class="comment">##过滤数组</span></span><br><span class="line">arr.compress(arr&gt;<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 取一行</span></span><br><span class="line">arr.ix[<span class="number">0</span>]<span class="comment">#取第0行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 稀疏矩阵转化为完全矩阵</span></span><br><span class="line"><span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> csr_matrix</span><br><span class="line">A = csr_matrix([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>]])</span><br><span class="line"> <span class="comment"># 2x3 sparse matrix of type '&lt;type 'numpy.int64'&gt;'  with 3 stored elements in Compressed Sparse Row format&gt;</span></span><br><span class="line">B=A.todense()</span><br><span class="line"><span class="comment">## DataFrame显示</span></span><br><span class="line">pd.DataFrame(B)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 求方差</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment">#求均值</span></span><br><span class="line">arr_mean = np.mean(arr)</span><br><span class="line"><span class="comment">#求方差</span></span><br><span class="line">arr_var = np.var(arr)</span><br><span class="line"><span class="comment">#求标准差</span></span><br><span class="line">arr_std = np.std(arr, ddof=<span class="number">1</span>)</span><br><span class="line">print(<span class="string">"平均值为：%f"</span> % arr_mean)</span><br><span class="line">print(<span class="string">"方差为：%f"</span> % arr_var)</span><br><span class="line">print(<span class="string">"标准差为:%f"</span> % arr_std)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查找数组中 NA的位置</span></span><br><span class="line">[i <span class="keyword">for</span> i, x <span class="keyword">in</span> enumerate(X_test_zscore.isnull().any()) <span class="keyword">if</span> x]</span><br></pre></td></tr></table></figure>
+<h2 id="3-Pandas-数据矩阵（行名是索引index，列名是名字）"><a href="#3-Pandas-数据矩阵（行名是索引index，列名是名字）" class="headerlink" title="3. Pandas 数据矩阵（行名是索引index，列名是名字）"></a>3. Pandas 数据矩阵（行名是索引index，列名是名字）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 定义列名</span></span><br><span class="line">aa.columns=cnames</span><br><span class="line"><span class="comment">## DataFrame显示</span></span><br><span class="line">pd.DataFrame(B)</span><br><span class="line">aa=df_output.sum().values</span><br><span class="line">aa=aa&gt;<span class="number">1000</span></span><br><span class="line">type(aa)</span><br><span class="line">df_output.columns[aa]</span><br></pre></td></tr></table></figure>
+<h3 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> pd.read_csv(filename)：从CSV文件导入数据</span></span><br><span class="line"><span class="ruby">- pd.read_table(filename)：从限定分隔符的文本文件导入数据</span></span><br><span class="line"><span class="ruby">- pd.read_excel(filename)：从Excel文件导入数据</span></span><br><span class="line"><span class="ruby">- pd.read_sql(query, connection_object)：从SQL表/库导入数据</span></span><br><span class="line"><span class="ruby">- pd.read_json(json_string)：从JSON格式的字符串导入数据</span></span><br><span class="line"><span class="ruby">- pd.read_html(url)：解析URL、字符串或者HTML文件，抽取其中的tables表格</span></span><br><span class="line"><span class="ruby">- pd.read_clipboard()：从你的粘贴板获取内容，并传给read_table()</span></span><br><span class="line"><span class="ruby">- pd.DataFrame(dict)：从字典对象导入数据，Key是列名，Value是数据</span></span><br></pre></td></tr></table></figure>
+<h3 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> df.to_csv(filename)：导出数据到CSV文件</span></span><br><span class="line"><span class="ruby">- df.to_excel(filename)：导出数据到Excel文件</span></span><br><span class="line"><span class="ruby">- df.to_sql(table_name, connection_object)：导出数据到SQL表</span></span><br><span class="line"><span class="ruby">- df.to_json(filename)：以Json格式导出数据到文本文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建测试对象"><a href="#创建测试对象" class="headerlink" title="创建测试对象"></a>创建测试对象</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- pd.DataFrame(np.random.rand(<span class="number">20</span>,<span class="number">5</span>))：创建<span class="number">20</span>行<span class="number">5</span>列的随机数组成的DataFrame对象</span><br><span class="line">- pd.Series(my_list)：从可迭代对象my_list创建一个Series对象</span><br><span class="line">- df.index = pd.date_range('<span class="number">1900</span>/<span class="number">1</span>/<span class="number">30</span>', periods=df.shape[<span class="number">0</span>])：增加一个日期索引</span><br></pre></td></tr></table></figure>
+<h3 id="查看、检查数据"><a href="#查看、检查数据" class="headerlink" title="查看、检查数据"></a>查看、检查数据</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> df.head(n)：查看DataFrame对象的前n行</span></span><br><span class="line"><span class="ruby">- df.tail(n)：查看DataFrame对象的最后n行</span></span><br><span class="line"><span class="ruby">- df.shape()：查看行数和列数</span></span><br><span class="line"><span class="ruby">- df.info()：查看索引、数据类型和内存信息</span></span><br><span class="line"><span class="ruby">- df.describe()：查看数值型列的汇总统计</span></span><br><span class="line"><span class="ruby">- s.value_counts(dropna=False)：查看Series对象的唯一值和计数</span></span><br><span class="line"><span class="ruby">- df.apply(pd.Series.value_counts)：查看DataFrame对象中每一列的唯一值和计数</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据选取"><a href="#数据选取" class="headerlink" title="数据选取"></a>数据选取</h3><p>Pandas取数据：通过行/列号(数字)来取行数据, loc函数：通过行索引 “Index” 中的具体值来取数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">- s.iloc[<span class="number">0</span>]：按位置选取数据，取第<span class="number">0</span>行</span><br><span class="line">- s.loc[<span class="string">'index_one'</span>]：按索引选取数据</span><br><span class="line"></span><br><span class="line">- df[col]：根据列名，并以Series的形式返回列</span><br><span class="line">- df[[col1, col2]]：以DataFrame形式返回多列</span><br><span class="line">- df.iloc[<span class="number">0</span>,:]：返回第一行</span><br><span class="line">- df.iloc[<span class="number">0</span>,<span class="number">0</span>]：返回第一列的第一个元素</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data[<span class="string">"hsa-let-7b"</span>] 取一列数据 ,这样是对的</span><br><span class="line">行数据取法： data.loc[<span class="string">'a'</span>] <span class="comment">#按名字取</span></span><br><span class="line">           data.iloc[<span class="number">0</span>]  <span class="comment">#按照序号取</span></span><br><span class="line">列数据取法： data.loc[:,[<span class="string">'A'</span>,<span class="string">'B'</span>]] <span class="comment">#按名字取 </span></span><br><span class="line">           data.iloc[:,[<span class="number">0</span>,<span class="number">1</span>]]    <span class="comment">#按照序号取 #按名字取    冒号不能丢</span></span><br><span class="line">行和列同时取值 data.loc[[<span class="string">'a'</span>,<span class="string">'b'</span>],[<span class="string">'A'</span>,<span class="string">'B'</span>]]，</span><br><span class="line">             data.iloc[[<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>]]   <span class="comment">#按照序号取</span></span><br><span class="line">    </span><br><span class="line">data.loc[data[<span class="string">'A'</span>]==<span class="number">0</span>] <span class="comment">#提取A列中数字为0所在的行数据)</span></span><br><span class="line"></span><br><span class="line">data[<span class="number">1</span>:] 从第<span class="number">2</span>行开始取， 取所有行数据</span><br><span class="line">data[<span class="number">1</span>:<span class="number">3</span>] 取第<span class="number">1</span>,<span class="number">2</span>行数据</span><br><span class="line">data[<span class="number">1</span>]  这种是错误的。</span><br><span class="line">data = data.iloc[:, <span class="number">-1</span>:] <span class="comment">#取最后一列</span></span><br><span class="line">data = data.iloc[:, :<span class="number">-1</span>]   <span class="comment"># 删除最后一列</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据清理"><a href="#数据清理" class="headerlink" title="数据清理"></a>数据清理</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> s.astype(float)：将Series中的数据类型更改为float类型</span></span><br><span class="line"><span class="ruby">- s.replace(<span class="number">1</span>,<span class="string">'one'</span>)：用‘one’代替所有等于<span class="number">1</span>的值</span></span><br><span class="line"><span class="ruby">- s.replace([<span class="number">1</span>,<span class="number">3</span>],[<span class="string">'one'</span>,<span class="string">'three'</span>])：用<span class="string">'one'</span>代替<span class="number">1</span>，用<span class="string">'three'</span>代替<span class="number">3</span></span></span><br><span class="line"><span class="ruby"></span></span><br><span class="line"><span class="ruby">- df.columns = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]：重命名列名</span></span><br><span class="line"><span class="ruby">- pd.isnull()：检查DataFrame对象中的空值，并返回一个Boolean数组</span></span><br><span class="line"><span class="ruby">- pd.notnull()：检查DataFrame对象中的非空值，并返回一个Boolean数组</span></span><br><span class="line"><span class="ruby">- df.dropna()：删除所有包含空值的行</span></span><br><span class="line"><span class="ruby">- df.dropna(axis=<span class="number">1</span>)：删除所有包含空值的列</span></span><br><span class="line"><span class="ruby">- df.dropna(axis=<span class="number">1</span>,thresh=n)：删除所有小于n个非空值的行</span></span><br><span class="line"><span class="ruby">- df.fillna(x)：用x替换DataFrame对象中所有的空值</span></span><br><span class="line"><span class="ruby">- df.rename(columns=lambda <span class="symbol">x:</span> x + <span class="number">1</span>)：批量更改列名</span></span><br><span class="line"><span class="ruby">- df.rename(columns=&#123;<span class="string">'old_name'</span>: <span class="string">'new_ name'</span>&#125;)：选择性更改列名</span></span><br><span class="line"><span class="ruby">- df.set_index(<span class="string">'column_one'</span>)：更改索引列</span></span><br><span class="line"><span class="ruby">- df.rename(index=lambda <span class="symbol">x:</span> x + <span class="number">1</span>)：批量重命名索引</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据处理：Filter、Sort和GroupBy"><a href="#数据处理：Filter、Sort和GroupBy" class="headerlink" title="数据处理：Filter、Sort和GroupBy"></a>数据处理：Filter、Sort和GroupBy</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> df[df[col] &gt; <span class="number">0</span>.<span class="number">5</span>]：选择col列的值大于<span class="number">0</span>.<span class="number">5</span>的行</span></span><br><span class="line"><span class="ruby">- df.sort_values(col1)：按照列col1排序数据，默认升序排列</span></span><br><span class="line"><span class="ruby">- df.sort_values(col2, ascending=False)：按照列col1降序排列数据</span></span><br><span class="line"><span class="ruby">- df.sort_values([col1,col2], ascending=[True,False])：先按列col1升序排列，后按col2降序排列数据</span></span><br><span class="line"><span class="ruby">- df.groupby(col)：返回一个按列col进行分组的Groupby对象</span></span><br><span class="line"><span class="ruby">- df.groupby([col1,col2])：返回一个按多列进行分组的Groupby对象</span></span><br><span class="line"><span class="ruby">- df.groupby(col1)[col2]：返回按列col1进行分组后，列col2的均值</span></span><br><span class="line"><span class="ruby">- df.pivot_table(index=col1, values=[col2,col3], aggfunc=max)：创建一个按列col1进行分组，并计算col2和col3的最大值的数据透视表</span></span><br><span class="line"><span class="ruby">- df.groupby(col1).agg(np.mean)：返回按列col1分组的所有列的均值</span></span><br><span class="line"><span class="ruby">- data.apply(np.mean)：对DataFrame中的每一列应用函数np.mean</span></span><br><span class="line"><span class="ruby">- data.apply(np.max,axis=<span class="number">1</span>)：对DataFrame中的每一行应用函数np.max</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a>数据合并</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> df1.append(df2)：将df2中的行添加到df1的尾部</span></span><br><span class="line"><span class="ruby">- df.concat([df1, df2],axis=<span class="number">1</span>)：将df2中的列添加到df1的尾部</span></span><br><span class="line"><span class="ruby">- df1.join(df2,on=col1,how=<span class="string">'inner'</span>)：对df1的列和df2的列执行SQL形式的join</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> df.describe()：查看数据值列的汇总统计</span></span><br><span class="line"><span class="ruby">- df.mean()：返回所有列的均值</span></span><br><span class="line"><span class="ruby">- df.corr()：返回列与列之间的相关系数</span></span><br><span class="line"><span class="ruby">- df.count()：返回每一列中的非空值的个数</span></span><br><span class="line"><span class="ruby">- df.max()：返回每一列的最大值</span></span><br><span class="line"><span class="ruby">- df.min()：返回每一列的最小值</span></span><br><span class="line"><span class="ruby">- df.median()：返回每一列的中位数</span></span><br><span class="line"><span class="ruby">- df.std()：返回每一列的标准差</span></span><br><span class="line"><span class="ruby">- df.sum()：返回每一列的和</span></span><br></pre></td></tr></table></figure>
+<p>————————————————————————————————————————————————————————————</p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="1-python-脚本"><a href="#1-python-脚本" class="headerlink" title="1. python 脚本"></a>1. python 脚本</h2><p>所有 Python 文件将以 .py 为扩展名。用 $ python *.py 执行脚本。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Hello, World!"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line">print(<span class="string">"Hello, World!"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="2-python语法"><a href="#2-python语法" class="headerlink" title="2. python语法"></a>2. python语法</h2><p><strong>（非常重要）Python 的代码块不使用大括号 {} 来控制类，函数以及其他逻辑判断。python 最具特色的就是用缩进来写模块。缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行。</strong></p>
+<h3 id="2-1-变量定义"><a href="#2-1-变量定义" class="headerlink" title="2.1 变量定义"></a>2.1 变量定义</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">变量:</span><br><span class="line"><span class="number">1.</span>  前带_的变量:  标明是一个私有变量, 只用于标明, 外部类还是可以访问到这个变量</span><br><span class="line"><span class="number">2.</span>  前带两个_ _ ,后带两个_ _ 的变量:  标明是内置变量,</span><br><span class="line"><span class="number">3.</span>  大写加下划线的变量:  标明是不会发生改变的全局变量</span><br><span class="line">函数:</span><br><span class="line"><span class="number">1.</span> 前带_的变量: 标明是一个私有函数, 只用于标明,</span><br><span class="line"><span class="number">2.</span>  前带两个_ ,后带两个_ 的函数:  标明是特殊函数</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-python函数"><a href="#2-2-python函数" class="headerlink" title="2.2 python函数"></a>2.2 python函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">functionname</span><span class="params">( parameters )</span>:</span></span><br><span class="line">   <span class="string">"函数_文档字符串"</span></span><br><span class="line">   function_suite</span><br><span class="line">   <span class="keyword">return</span> [expression]</span><br><span class="line"><span class="comment">#示例</span></span><br><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printme</span><span class="params">( str )</span>:</span></span><br><span class="line">   <span class="string">"打印任何传入的字符串"</span></span><br><span class="line">   <span class="keyword">print</span> str;</span><br><span class="line">   <span class="keyword">return</span>;</span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">printme(<span class="string">"我要调用用户自定义函数!"</span>);</span><br><span class="line">printme(<span class="string">"再次调用同一函数"</span>);</span><br><span class="line"></span><br><span class="line">__init__() 类对象的初始化函数</span><br><span class="line">**\_\_call\_\_**</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-Python-模块"><a href="#2-2-Python-模块" class="headerlink" title="2.2 Python 模块"></a>2.2 Python 模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和Python语句。</span><br><span class="line"><span class="comment"># 定义support.py 模块：</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_func</span><span class="params">( par )</span>:</span></span><br><span class="line">   <span class="keyword">print</span> <span class="string">"Hello : "</span>, par</span><br><span class="line">   <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">**模块的引入**</span><br><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">import</span> support</span><br><span class="line"><span class="comment"># 现在可以调用模块里包含的函数了</span></span><br><span class="line"><span class="comment"># 调用方法：模块名.函数名</span></span><br><span class="line">support.print_func(<span class="string">"Runoob"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span>...<span class="keyword">import</span></span><br><span class="line">如 <span class="keyword">from</span> A <span class="keyword">import</span> b,相当于 <span class="keyword">import</span> A  b=A.b</span><br><span class="line">在此过程中有一个隐含的赋值的过程</span><br><span class="line"><span class="keyword">import</span> A <span class="keyword">as</span> B,给予A库一个B的别称</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fib <span class="keyword">import</span> fibonacci  <span class="keyword">from</span> 语句让你从模块中导入一个指定的部分到当前命名空间中。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**<span class="number">1.</span> 查看模块下所有函数**</span><br><span class="line">dir(module_name)</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line">dir(datasets)</span><br><span class="line">[<span class="string">'__all__'</span>, <span class="string">'__builtins__'</span>, <span class="string">'__cached__'</span>, <span class="string">'__doc__'</span>, <span class="string">'__file__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__path__'</span>, <span class="string">'__spec__'</span>, <span class="string">'_svmlight_format'</span>, <span class="string">'base'</span>, <span class="string">'california_housing'</span>, <span class="string">'clear_data_home'</span>, <span class="string">'covtype'</span>, <span class="string">'dump_svmlight_file'</span>, <span class="string">'fetch_20newsgroups'</span>, <span class="string">'fetch_20newsgroups_vectorized'</span>, <span class="string">'fetch_california_housing'</span>, ...<span class="string">']</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">**2. 查看模块下特定函数信息**</span></span><br><span class="line"><span class="string">#方法一：</span></span><br><span class="line"><span class="string">help(datasets.load_iris)</span></span><br><span class="line"><span class="string">#方法二：</span></span><br><span class="line"><span class="string">print(datasets.load_iris.__doc__)</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-常用语句"><a href="#2-3-常用语句" class="headerlink" title="2.3 常用语句"></a>2.3 常用语句</h3><p> <strong>读文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>)</span><br><span class="line">    print(f.read())</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br><span class="line">        </span><br><span class="line"><span class="comment">#with语句来自动帮我们调用close()方法</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read())</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">    print(line.strip()) <span class="comment"># 把末尾的'\n'删掉</span></span><br></pre></td></tr></table></figure>
+<p> <strong>写文件</strong></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.<span class="built_in">write</span>(<span class="string">'Hello, world!'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-常规语法"><a href="#2-4-常规语法" class="headerlink" title="2.4  常规语法"></a>2.4  常规语法</h3><p><strong>原始字符串</strong><br><code>在单引号或者双引号 前面加一个字符 r</code></p>
+<p><strong>运算符</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line">a+=<span class="number">1</span>  等价于 a=a+<span class="number">1</span>=<span class="number">11</span></span><br><span class="line">/  除法</span><br><span class="line">// 除法取整</span><br><span class="line">% 取余</span><br><span class="line">** 幂运算  <span class="number">3</span>**<span class="number">2</span>=<span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p><strong>三元操作符</strong>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">small =x <span class="keyword">if</span> x &lt;y <span class="keyword">else</span> y 条件真为x, 假为y</span><br></pre></td></tr></table></figure>
+<p><strong>断言</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> <span class="number">3</span>&gt;<span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p><strong>循环</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">for</span> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">8</span>):  注意冒号</span><br><span class="line">**<span class="keyword">break</span>**跳出当前循环</span><br><span class="line">**<span class="keyword">continue</span>** 终止本轮循环，开启下一轮循环（如果循环条件为真）</span><br></pre></td></tr></table></figure>
+<p><strong>range()函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">range([start,]stop[,step=<span class="number">1</span>])</span><br><span class="line">list(range(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<p><strong>列表</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menber=[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>] 单一类型列表</span><br><span class="line">mix=[<span class="number">1</span>,<span class="string">"a"</span>,<span class="number">3.14</span>,[a,b,c]] 混合类型列表</span><br><span class="line">empty=[]    创建空列表</span><br><span class="line">empty.append(<span class="string">"小甲鱼"</span>)  向列表添加单一元素</span><br><span class="line">empty.extend([a,b])     向列表添加另外一个列表</span><br><span class="line">empty.insert(<span class="number">0</span>,<span class="string">"牡丹"</span>)</span><br><span class="line">empty.remove(<span class="string">"牡丹"</span>)</span><br><span class="line"><span class="keyword">del</span> empty 删除</span><br><span class="line">pop()从列表中删除最后一个元素并弹出</span><br><span class="line"></span><br><span class="line">列表比较大小 只比较第一个元素</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-Python特殊语法：filter、map、reduce、lambda"><a href="#3-Python特殊语法：filter、map、reduce、lambda" class="headerlink" title="3. Python特殊语法：filter、map、reduce、lambda"></a>3. Python特殊语法：filter、map、reduce、lambda</h1><p><strong>1.lambda</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">是Python支持一种有趣的语法，它允许你快速定义单行的最小函数，类似与C语言中的宏，这些叫做<span class="keyword">lambda</span>的函数，可以用在任何需要函数的地方： </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>g = <span class="keyword">lambda</span> x: x * <span class="number">2</span> </span><br><span class="line">&gt;&gt;&gt; g(3)     -&gt;6 </span><br><span class="line">&gt;&gt;&gt; (lambda x: x * 2)(3)    -&gt;6</span><br><span class="line">---</span><br><span class="line"><span class="keyword">lambda</span>表达式返回一个函数对象</span><br><span class="line">func = <span class="keyword">lambda</span> x,y:x+y</span><br><span class="line">func相当于下面这个函数</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"> </span><br><span class="line">注意def是语句而lambda是表达式,下面这种情况下就只能用lambda而不能用def</span><br><span class="line">[(<span class="keyword">lambda</span> x:x*x)(x) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line">返回值：[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>, <span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>2. filter(function, sequence)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">对sequence中的item依次执行function(item)，将执行结果为<span class="keyword">True</span>的item组成一个List/String/Tuple（取决于sequence的类型）返回,function的返回值只能是<span class="keyword">True</span>或<span class="keyword">False</span>.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span> <span class="keyword">return</span> x % <span class="number">2</span> != <span class="number">0</span> <span class="keyword">and</span> x % <span class="number">3</span> != <span class="number">0</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filter(f, range(<span class="number">2</span>, <span class="number">25</span>)) </span><br><span class="line">[<span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span> <span class="keyword">return</span> x != <span class="string">'a'</span> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>filter(f, <span class="string">"abcdef"</span>) </span><br><span class="line"><span class="string">'bcdef'</span></span><br><span class="line"> </span><br><span class="line">找出<span class="number">1</span>到<span class="number">10</span>之间的奇数</span><br><span class="line">filter(<span class="keyword">lambda</span> x:x%<span class="number">2</span>!=<span class="number">0</span>,range(<span class="number">1</span>,<span class="number">11</span>))</span><br><span class="line">返回值</span><br><span class="line">[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line"> </span><br><span class="line">如果sequence是一个string</span><br><span class="line">filter(<span class="keyword">lambda</span> x:len(x)!=<span class="number">0</span>,<span class="string">'hello'</span>)返回<span class="string">'hello'</span></span><br><span class="line">filter(<span class="keyword">lambda</span> x:len(x)==<span class="number">0</span>,<span class="string">'hello'</span>)返回<span class="string">''</span></span><br></pre></td></tr></table></figure>
+<p><strong>3.map(function, sequence)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">对sequence中的item依次执行function(item)，见执行结果组成一个List返回：</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">cube</span><span class="params">(x)</span>:</span> <span class="keyword">return</span> x*x*x </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(cube, range(<span class="number">1</span>, <span class="number">11</span>)) </span><br><span class="line">[<span class="number">1</span>, <span class="number">8</span>, <span class="number">27</span>, <span class="number">64</span>, <span class="number">125</span>, <span class="number">216</span>, <span class="number">343</span>, <span class="number">512</span>, <span class="number">729</span>, <span class="number">1000</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">cube</span><span class="params">(x)</span> :</span> <span class="keyword">return</span> x + x </span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(cube , <span class="string">"abcde"</span>) </span><br><span class="line">[<span class="string">'aa'</span>, <span class="string">'bb'</span>, <span class="string">'cc'</span>, <span class="string">'dd'</span>, <span class="string">'ee'</span>]</span><br><span class="line">另外map也支持多个sequence，这就要求function也支持相应数量的参数输入：</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span> <span class="keyword">return</span> x+y </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(add, range(<span class="number">8</span>), range(<span class="number">8</span>)) </span><br><span class="line">[<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>, <span class="number">14</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>4. reduce(function, sequence, starting_value)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function接收的参数个数只能为<span class="number">2</span>,先把sequence中第一个值和第二个值当参数传给function，再把function的返回值和第三个值当参数传给function (对sequence中的item顺序迭代调用function)，然后只返回一个结果，如果有starting_value，还可以作为初始值调用，</span><br><span class="line"></span><br><span class="line">例子：求<span class="number">1</span>到<span class="number">10</span>的累加</span><br><span class="line">reduce(<span class="keyword">lambda</span> x,y:x+y,range(<span class="number">1</span>,<span class="number">11</span>))</span><br><span class="line">返回值是<span class="number">55</span>。</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span> <span class="keyword">return</span> x + y </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(add, range(<span class="number">1</span>, <span class="number">11</span>)) </span><br><span class="line"><span class="number">55</span> （注：<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>+<span class="number">4</span>+<span class="number">5</span>+<span class="number">6</span>+<span class="number">7</span>+<span class="number">8</span>+<span class="number">9</span>+<span class="number">10</span>）</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>reduce(add, range(<span class="number">1</span>, <span class="number">11</span>), <span class="number">20</span>) </span><br><span class="line"><span class="number">75</span> （注：<span class="number">1</span>+<span class="number">2</span>+<span class="number">3</span>+<span class="number">4</span>+<span class="number">5</span>+<span class="number">6</span>+<span class="number">7</span>+<span class="number">8</span>+<span class="number">9</span>+<span class="number">10</span>+<span class="number">20</span>）</span><br></pre></td></tr></table></figure>
+<p><strong>5. 可以把filter map reduce 和lambda结合起来用，函数就可以简单的写成一行。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如</span><br><span class="line">kmpathes = filter(<span class="keyword">lambda</span> kmpath: kmpath, map(<span class="keyword">lambda</span> kmpath: string.strip(kmpath),</span><br><span class="line">string.split(L, <span class="string">':'</span>))) </span><br><span class="line"></span><br><span class="line"><span class="comment">#对L中的所有元素以':'做分割，得出一个列表。对这个列表的每一个元素做字符串strip，形成一个列表。对这个列表的每一个元素做直接返回操作(这个地方可以加上过滤条件限制)，最终获得一个字符串被':'分割的列表，列表中的每一个字符串都做了strip，并可以对特殊字符串过滤。</span></span><br></pre></td></tr></table></figure>
+<p><strong>6. zip([iterable, …])</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">zip()是Python的一个内建函数，它接受一系列可迭代的对象作为参数，将对象中对应的元素打包成一个个tuple（元组），然后返回由这些tuples组成的list（列表）。若传入参数的长度不等，则返回list的长度和参数中长度最短的对象相同。利用*号操作符，可以将list unzip（解压）.</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zipped = zip(a,b)</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zip(a,c)</span><br><span class="line">[(<span class="number">1</span>, <span class="number">4</span>), (<span class="number">2</span>, <span class="number">5</span>), (<span class="number">3</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>zip(*zipped)</span><br><span class="line">[(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)]</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2021-03-05_scRNA_Gitto/" data-toggle="tooltip" data-placement="left"
+                     title="空间转录组学Gitto学习">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2020-11-10_10xdata/" data-toggle="tooltip" data-placement="top"
+                     title="GEO下载SRR TO 10X Fastq">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+  <br>
+
+  
+
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-参考书"><span class="toc-number">1.</span> <span class="toc-text">python 参考书</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python-基本函数"><span class="toc-number">2.</span> <span class="toc-text">python 基本函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵装置"><span class="toc-number">2.0.1.</span> <span class="toc-text">矩阵装置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元素查找"><span class="toc-number">2.0.2.</span> <span class="toc-text">元素查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#range-函数：-返回的是一个range对象，需要用list-把对象转化为向量，但是在for循环中直接使用range"><span class="toc-number">2.0.3.</span> <span class="toc-text">range 函数： 返回的是一个range对象，需要用list 把对象转化为向量，但是在for循环中直接使用range</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量类型"><span class="toc-number">2.0.4.</span> <span class="toc-text">变量类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串替换"><span class="toc-number">2.0.5.</span> <span class="toc-text">字符串替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Numpy-数组"><span class="toc-number">2.1.</span> <span class="toc-text">2. Numpy 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Pandas-数据矩阵（行名是索引index，列名是名字）"><span class="toc-number">2.2.</span> <span class="toc-text">3. Pandas 数据矩阵（行名是索引index，列名是名字）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入数据"><span class="toc-number">2.2.1.</span> <span class="toc-text">导入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出数据"><span class="toc-number">2.2.2.</span> <span class="toc-text">导出数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建测试对象"><span class="toc-number">2.2.3.</span> <span class="toc-text">创建测试对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看、检查数据"><span class="toc-number">2.2.4.</span> <span class="toc-text">查看、检查数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据选取"><span class="toc-number">2.2.5.</span> <span class="toc-text">数据选取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据清理"><span class="toc-number">2.2.6.</span> <span class="toc-text">数据清理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据处理：Filter、Sort和GroupBy"><span class="toc-number">2.2.7.</span> <span class="toc-text">数据处理：Filter、Sort和GroupBy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据合并"><span class="toc-number">2.2.8.</span> <span class="toc-text">数据合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据统计"><span class="toc-number">2.2.9.</span> <span class="toc-text">数据统计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本语法"><span class="toc-number">3.</span> <span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-python-脚本"><span class="toc-number">3.1.</span> <span class="toc-text">1. python 脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-python语法"><span class="toc-number">3.2.</span> <span class="toc-text">2. python语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-变量定义"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.1 变量定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-python函数"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2 python函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Python-模块"><span class="toc-number">3.2.3.</span> <span class="toc-text">2.2 Python 模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-常用语句"><span class="toc-number">3.2.4.</span> <span class="toc-text">2.3 常用语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-常规语法"><span class="toc-number">3.2.5.</span> <span class="toc-text">2.4  常规语法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Python特殊语法：filter、map、reduce、lambda"><span class="toc-number">4.</span> <span class="toc-text">3. Python特殊语法：filter、map、reduce、lambda</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2024
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                184.8k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>

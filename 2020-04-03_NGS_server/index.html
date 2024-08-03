@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content="">
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020-04-03_NGS_server/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        NGS server集群｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>NGS server集群</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: Apr 3, 2020</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics"
+                                 title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">771 words in total, 4 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><a href="https://taoshengxu.github.io/DocumentGit/pdf/NGS_Server_LSF.pdf">PPT教程</a> </p>
+<h3 id="1-写任务脚本存为-lsf-文件"><a href="#1-写任务脚本存为-lsf-文件" class="headerlink" title="1.写任务脚本存为.lsf 文件"></a>1.写任务脚本存为.lsf 文件</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#</span><br><span class="line">#BSUB -J jobname            ### set the job name    </span><br><span class="line">#BSUB -n <span class="number">128</span>      ##number-<span class="keyword">of</span>-slots    ### ask for number <span class="keyword">of</span> cores</span><br><span class="line">#BSUB -o %J.stdout          ### Specify the output and error file. %J is the job-id</span><br><span class="line">#BSUB -e %J.stderr          </span><br><span class="line">#BSUB -q normal or smp      ### specify queue，normal for <span class="number">40</span>-core host and smp for <span class="number">128</span>-core host</span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> loaxxd mpi/intel/<span class="number">2018.4</span></span><br><span class="line"><span class="keyword">module</span> load app/version</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在命令行中提交任务</span></span><br><span class="line"><span class="keyword">bsub </span>&lt; <span class="keyword">job.lsf</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-查询指令"><a href="#2-查询指令" class="headerlink" title="2.查询指令"></a>2.查询指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">bhosts 查看系统占用情况</span><br><span class="line"></span><br><span class="line">bjobs  查看任务情况</span><br><span class="line">bjobs -l</span><br><span class="line">bjobs -l + 任务Id  <span class="comment">#查看当前任务情况</span></span><br><span class="line">bjobs -u all <span class="comment"># 查看所有人的任务</span></span><br><span class="line">bkill jobid <span class="comment">#结束进程</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#指定节点：   </span></span><br><span class="line"><span class="comment">#BSUB -m c024   指定节点交任务</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#调整stacksize</span></span><br><span class="line"><span class="built_in">ulimit</span> -a</span><br><span class="line"><span class="built_in">ulimit</span> -s 10240</span><br><span class="line"></span><br><span class="line"><span class="comment">#切换到某个节点</span></span><br><span class="line">ssh mn01</span><br><span class="line">ssh c005</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">module av  查看所有模块</span><br><span class="line">module load xx   加载模块</span><br><span class="line">module unload xx 卸载模块</span><br><span class="line"><span class="comment">## htop</span></span><br><span class="line">module load htop/2.2.0</span><br><span class="line">htop</span><br></pre></td></tr></table></figure>
+<h3 id="3-NGS"><a href="#3-NGS" class="headerlink" title="3. NGS"></a>3. NGS</h3><p>胖节点 ：128核心 6T 内存</p>
+<p>瘦节点： 40核心192G内存</p>
+<p>NGS server LSF 命令行提交R程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#BSUB -J R_xx          ### set the job name    </span></span><br><span class="line"><span class="comment">#BSUB -n 10    ### ask for number of cores</span></span><br><span class="line"><span class="comment">#BSUB -R "span[ptile=40]"</span></span><br><span class="line"><span class="comment">#BSUB -o %J.stdout          ### Specify the output and error file. %J is the job-id</span></span><br><span class="line"><span class="comment">#BSUB -e %J.stderr          </span></span><br><span class="line"><span class="comment">#BSUB -q smp      ### specify queue，normal for 40-core host and smp for 128-core host</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span></span><br><span class="line"><span class="comment"># !! Contents within this block are managed by 'conda init' !!</span></span><br><span class="line">__conda_setup=<span class="string">"<span class="variable">$('/share/apps/anaconda3/2019.10/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)</span>"</span></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">eval</span> <span class="string">"<span class="variable">$__conda_setup</span>"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">if</span> [ -f <span class="string">"/share/apps/anaconda3/2019.10/etc/profile.d/conda.sh"</span> ]; <span class="keyword">then</span></span><br><span class="line">        . <span class="string">"/share/apps/anaconda3/2019.10/etc/profile.d/conda.sh"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">export</span> PATH=<span class="string">"/share/apps/anaconda3/2019.10/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">unset</span> __conda_setup</span><br><span class="line"><span class="comment"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span></span><br><span class="line"></span><br><span class="line">conda activate R4.0</span><br><span class="line"><span class="comment">#export R_BATCH_OPTIONS="--no-save" ##不保存工作环境</span></span><br><span class="line"><span class="built_in">export</span> R_BATCH_OPTIONS=<span class="string">"--save"</span></span><br><span class="line"><span class="comment"># -- commands you want to execute -- # </span></span><br><span class="line">R CMD BATCH comp.R  <span class="comment">##comp.R 为R语言脚本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## comp.R</span></span><br><span class="line">library(igraph)</span><br><span class="line">setwd(<span class="string">"xx"</span>)</span><br><span class="line">xxxx</span><br><span class="line">quit()</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-HPC"><a href="#4-HPC" class="headerlink" title="4. HPC"></a>4. HPC</h1><p>一个机器32进程，8个2080TI GPU</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#BSUB -J train          ### set the job name    </span></span><br><span class="line"><span class="comment">#BSUB -n 32  		        ### ask for number of cores</span></span><br><span class="line"><span class="comment">#BSUB -R  "span[ptile=32]"</span></span><br><span class="line"><span class="comment">#BSUB -o %J.stdout          ### Specify the output and error file. %J is the job-id</span></span><br><span class="line"><span class="comment">#BSUB -e %J.stderr       </span></span><br><span class="line"><span class="comment">#BSUB -q q2080                       ### specify queue normal for 40-core host and smp for 128-core host</span></span><br><span class="line"><span class="comment">#BSUB -gpu num=8</span></span><br><span class="line"></span><br><span class="line">python train.py</span><br></pre></td></tr></table></figure>
+<h1 id="提交一个死循环占住某个节点，获得进入权限去操作。"><a href="#提交一个死循环占住某个节点，获得进入权限去操作。" class="headerlink" title="提交一个死循环占住某个节点，获得进入权限去操作。"></a>提交一个死循环占住某个节点，获得进入权限去操作。</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#BSUB -J maker          ### set the job name    </span></span><br><span class="line"><span class="comment">#BSUB -n 128   ### ask for number of cores</span></span><br><span class="line"><span class="comment">#BSUB -o %J.stdout          ### Specify the output and error file. %J is the job-id</span></span><br><span class="line"><span class="comment">#BSUB -e %J.stderr  </span></span><br><span class="line"><span class="comment">#BSUB -m s004        </span></span><br><span class="line"><span class="comment">#BSUB -q smp      ### specify queue normal for 40-core host and smp for 128-core host</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># here follow the commands you want to execute</span></span><br><span class="line"><span class="comment"># load the necessary modules</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> this is just an example, check with the available modules</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  sleep 100s</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-Docker"><a href="#5-Docker" class="headerlink" title="5.  Docker"></a>5.  Docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lshosts   <span class="comment"># 查看哪台机器上有docker</span></span><br><span class="line"></span><br><span class="line">要在每个节点上加入用户执行docker的权限，不仅仅是提交任务的节点，</span><br><span class="line">另外要把提交任务节点的镜像， docker image save -o xxx [aertslab/pyscenic:latest]， 然后进入执行节点，  docker load -i xxx</span><br></pre></td></tr></table></figure>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2020-03-28_RepeatMasker/" data-toggle="tooltip" data-placement="left"
+                     title="RepeatMasker">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2020-03-11_ESTs/" data-toggle="tooltip" data-placement="top"
+                     title="表达标签序列EST">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-写任务脚本存为-lsf-文件"><span class="toc-number">1.</span> <span class="toc-text">1.写任务脚本存为.lsf 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查询指令"><span class="toc-number">2.</span> <span class="toc-text">2.查询指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-NGS"><span class="toc-number">3.</span> <span class="toc-text">3. NGS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-HPC"><span class="toc-number"></span> <span class="toc-text">4. HPC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#提交一个死循环占住某个节点，获得进入权限去操作。"><span class="toc-number"></span> <span class="toc-text">提交一个死循环占住某个节点，获得进入权限去操作。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Docker"><span class="toc-number">1.</span> <span class="toc-text">5.  Docker</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2024
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                184.8k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>
