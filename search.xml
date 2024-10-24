@@ -9,6 +9,28 @@
       </categories>
   </entry>
   <entry>
+    <title><![CDATA[ubuntu NAS磁盘挂载 samba]]></title>
+    <url>%2Fhexo%2F2024-10-44_samba%2F</url>
+    <content type="text"><![CDATA[Setup a NAS on your home server! How to create a samba https://www.google.com/search?q=ubuntu+22.04+nas+smb&amp;sca_esv=85dd7771fb44bccf&amp;ei=--UZZ5DEFdSi1e8PlLmv4Qw&amp;ved=0ahUKEwjQrfrrrqaJAxVUUfUHHZTcK8wQ4dUDCBE&amp;uact=5&amp;oq=ubuntu+22.04+nas+smb&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiFHVidW50dSAyMi4wNCBuYXMgc21iMgUQIRigATIFECEYnwUyBRAhGJ8FMgUQIRifBTIFECEYnwUyBRAhGJ8FMgUQIRifBTIFECEYnwUyBRAhGJ8FMgUQIRifBUi3O1DvBFjkInABeACQAQCYAZ4FoAH8DaoBBzAuNy41LTG4AQPIAQD4AQGYAgmgApcOwgILEAAYgAQYsAMYogTCAggQABiABBiiBMICBhAAGAcYHsICBRAAGIAEwgIEEAAYHsICBhAAGAgYHsICCxAAGIAEGIYDGIoFwgIGEAAYFhgemAMAiAYBkAYCkgcHMS43LjUtMaAH2CQ&amp;sclient=gws-wiz-serp#fpstate=ive&amp;vld=cid:6bb29872,vid:n18TxfpXb8c,st:0 1. 更新软件123sudo apt-get upgrade sudo apt-get update sudo apt-get dist-upgrade 2. 安装samba1sudo apt-get install samba samba-common 3. 安装 cifs-utils1sudo apt install cifs-utils 4. 在NAS下创建英文共享文件夹1//192.168.88.102/RUN 5. 在服务器下创建挂载点1/datashare #所有者为下面uid用户 6.执行挂载1234567891011sudo mount -t cifs -o uid=xx,username=xx,password=xx,iocharset=utf8,vers=3.0 //192.168.88.102/RUN /datasharesduo service smbd restartsudo ufw allow sambauid：最关键，可以指定所有者，解决只能root权限的问题，ubuntu系统的用户名username：在nas上的用户名password：nas上用户名对应的密码，可以不写，回车后会有密码输入行iocharset：路径中如有中文则添加此项，支持中文路径nas地址：如"//192.168.0.1/share"本地地址：如"/mnt/nas" 7. 自动挂载12345sudo nano /etc/fstab#nas地址 本地挂载地址 cifs uid=***,username=***,password=***,iocharset=utf8 0 0//192.168.88.102/RUN /datashare cifs uid=xx,username=xx,password=xx,iocharset=utf8,vers=3.0,noperm 0 0//192.168.88.102/RUN /datashare cifs uid=xx,cred=/home/xx/.samba.smb,iocharset=utf8,vers=3.0,noperm 0 0 8. 问题12systemctl start remote-fs.targetsystemctl enable remote-fs.target]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ubuntu mysql数据配置]]></title>
+    <url>%2Fhexo%2F2024-09-06_ubuntu_mysql%2F</url>
+    <content type="text"><![CDATA[1. mysql安装123456789101112sudo nano /etc/nginx/sites-enabled/default [On Debian/Ubuntu] vi /etc/nginx/nginx.conf [On CentOS/RHEL]sudo apt update# 查看可使用的安装包sudo apt search mysql-server# 安装最新版本#如果不加-y 会在安装过程中，系统将提示你设置MySQL的root密码。确保密码足够强，且记住它，因为你将在以后需要用到它。sudo apt install -y mysql-server# 安装指定版本sudo apt install -y mysql-server-8.0 2. 启动MySQL服务1234567sudo systemctl start mysql#将MySQL设置为开机自启动sudo systemctl enable mysql#检查MySQL是否正在运行sudo systemctl status mysql#重启sudo systemctl restart mysql 3.修改密码、权限12345678910# 登录mysql，在默认安装时如果没有让我们设置密码，则直接回车就能登录成功。sudo mysql -uroot -p# 设置密码 mysql8.0ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码';# 设置密码 mysql5.7set password=password('新密码');# 配置IP 5.7grant all privileges on *.* to root@"%" identified by "密码";# 刷新缓存flush privileges; #运行普通用户登录mysql12345sudo mysql -u root -pCREATE USER 'mysql_public'@'localhost' IDENTIFIED BY 'password';GRANT ALL PRIVILEGES ON *.* TO 'mysql_public'@'localhost' WITH GRANT OPTION;FLUSH PRIVILEGES;quit; 4. 配置文件MySQL8.0版本把配置文件 my.cnf 拆分成mysql.cnf和mysqld.cnf，我们需要修改的是mysqld.cnf文件： 12345!includedir /etc/mysql/conf.d/!includedir /etc/mysql/mysql.conf.d/sudo nano /etc/mysql/conf.d/mysql.cnfsudo nano /etc/mysql/mysql.conf.d/mysqld.cnf 5. 数据库基本操作12345678910111213141516# 登录mysqlmysql -u root -p# 创建数据库create database helloworld 创建名为helloworld的数据库# 显示当前数据库show databases;这就是当前所拥有的数据库。#观察到一些细节。cd /var/lib/mysql# 使用数据库use helloworld; 6. 创建表123456789101112131415161718# 首先要先使用use [databasename];然后才可以创建表。create table students(id int,name varchar(32),age int,gender varchar(2));# 当我们进入cd /var/lib/mysql/helloworld# 可以看到有一个students.idb的文件# 插入students表数据insert into students (id, name, age, gender) values (1, '张三', 18, '男');insert into students (id, name, age, gender) values (2, '李四', 19, '男');# 打印students表数据select * from students;]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[slurm集群使用]]></title>
     <url>%2Fhexo%2F2024-06-14_slurm%2F</url>
     <content type="text"><![CDATA[1. 相关命令1234# 查看任务squeue -u wangcm (用户名)## 查看任务显存占用情况srun --jobid=163113 nvidia-smi]]></content>
