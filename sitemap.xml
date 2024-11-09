@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2024-10-44_samba/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2029-12-12-UbuntuCommand/</loc>
+    
+    <lastmod>2024-11-09T07:45:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/2024-10-24_samba/</loc>
     
     <lastmod>2024-10-24T07:26:33.000Z</lastmod>
     
@@ -12,13 +19,6 @@
     <loc>https://taoshengxu.github.io/hexo/2024-09-06_ubuntu_mysql/</loc>
     
     <lastmod>2024-09-11T11:59:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/2029-12-12-UbuntuCommand/</loc>
-    
-    <lastmod>2024-08-03T12:26:36.000Z</lastmod>
     
   </url>
   

@@ -180,7 +180,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">7,718 words in total, 33 minutes required.</span>
+          <span class="post-count">7,794 words in total, 34 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="DOS"><a href="#DOS" class="headerlink" title="DOS"></a>DOS</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /   [root]</span><br><span class="line"><span class="built_in">cd</span> ~  [home or root/user]</span><br><span class="line"><span class="built_in">cd</span> . [Current]</span><br><span class="line"><span class="built_in">cd</span> .. [Father]</span><br><span class="line"><span class="built_in">cd</span> - [previous]</span><br><span class="line"><span class="built_in">pwd</span> [current]</span><br><span class="line">d: +Enter [D:/]</span><br></pre></td></tr></table></figure>
@@ -212,6 +212,7 @@
 </li>
 </ul>
 <h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- sudo mount -t ext4 /dev/sdb /data 挂载到data</span><br><span class="line">- sudo umount /dev/sdb 卸载</span><br><span class="line">- df -lh 查看磁盘空间 </span><br><span class="line">- df -kh 查看磁盘挂载</span><br><span class="line">- df -m 以M为单位显示磁盘使用量和占用率</span><br><span class="line">- df -k 以KB为单位显示磁盘使用量和占用率</span><br><span class="line">- du-ck /dir 列出目录下所有文件或目录占用的大小，以KB作为计量单位</span><br><span class="line">- sudo fdisk -lu 显示硬盘及所属分区情况</span><br><span class="line">- sudo fdisk /dev/sdb 对sbd盘分区  </span><br><span class="line">  *m(<span class="built_in">help</span>)-n(增加一个新分区)-e(扩展分区)-1-4(分几个区)-...-p(显示分区表)-w(保存分区表)*</span><br><span class="line">- sudo blkid 查看所有分区的UUID </span><br><span class="line">- sudo blkid /dev/sda5 查看指定盘的UUID</span><br><span class="line">- (谨慎复制 sudo) mkfs -t ext4 /dev/sdb 对sdb盘格式化为ext4格式</span><br><span class="line">- 自动挂载 sudo gedit /etc/fstab  在这个文件夹下修改 </span><br><span class="line">  UUID=09d387b1-8438-41db-9b88-f3b145cc1674 /data2            ext4    defaults              0       0</span><br><span class="line">  </span><br><span class="line">  38ecba06-be54-476d-9e90-eb1daa675efb</span><br><span class="line">  34b344cc-e977-4cdd-8e4f-1a0d5c270f5e</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## ntfs 磁盘挂载</span></span><br><span class="line">sudo apt-update</span><br><span class="line">sudo apt-get install ntfs-3g</span><br><span class="line">sudo mkdir /mnt/myntfs</span><br><span class="line"></span><br><span class="line">sudo fdisk -lu 显示硬盘及所属分区情况</span><br><span class="line">sudo mount -t ntfs-3g /dev/sda1 /mnt/myntfs</span><br><span class="line">sudo df -h <span class="comment">#查看挂载情况</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##自动挂载 /etc/fstab</span></span><br><span class="line">/dev/sda1 /mnt/myntfs ntfs-3g defaults 0 0</span><br></pre></td></tr></table></figure>
 <ul>
 <li>ubuntu 加载新硬盘教程<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu环境下挂载新硬盘.pdf">pdf</a></li>
 <li>ubuntu<a href="https://taoshengxu.github.io/DocumentGit/pdf/Ubuntu命令手册.pdf">命令手册</a> </li>
@@ -248,7 +249,7 @@
               
               
               <li class="next">
-                  <a href="/hexo/2024-10-44_samba/" data-toggle="tooltip" data-placement="top"
+                  <a href="/hexo/2024-10-24_samba/" data-toggle="tooltip" data-placement="top"
                      title="ubuntu NAS磁盘挂载 samba">Next Post&rarr;</a>
               </li>
               
@@ -307,7 +308,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                186.0k <b>Words</b>
+                186.1k <b>Words</b>
         </div>
 
         <div class="search-container">
