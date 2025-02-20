@@ -1091,15 +1091,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
-    
-    <lastmod>2018-05-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/404/index.html</loc>
     
     <lastmod>2018-05-30</lastmod>
@@ -1109,7 +1100,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/archives/index.html</loc>
     
     <lastmod>2018-05-30</lastmod>
     
@@ -1127,7 +1118,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
+    <loc>https://taoshengxu.github.io/hexo/categories/index.html</loc>
     
     <lastmod>2018-05-30</lastmod>
     
@@ -1137,6 +1128,15 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/the-milestone-2018/index.html</loc>
+    
+    <lastmod>2018-05-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/tags/index.html</loc>
     
     <lastmod>2018-05-30</lastmod>
     
@@ -1362,14 +1362,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/gene/</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/EMT/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/EMT/</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/gene/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1383,14 +1383,14 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/%E5%9B%A0%E6%9E%9C/</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/%E6%84%9F%E6%80%80/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/tags/%E6%84%9F%E6%80%80/</loc>
+    <loc>https://taoshengxu.github.io/hexo/tags/%E5%9B%A0%E6%9E%9C/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1434,13 +1434,6 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/%E9%97%B2%E6%83%85/</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://taoshengxu.github.io/hexo/categories/Blog/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1448,7 +1441,7 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/categories/%E5%9B%A0%E6%9E%9C/</loc>
+    <loc>https://taoshengxu.github.io/hexo/categories/%E9%97%B2%E6%83%85/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1456,6 +1449,13 @@
   
   <url>
     <loc>https://taoshengxu.github.io/hexo/categories/%E8%A1%8C%E8%80%85%E6%97%A0%E7%96%86/</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/categories/%E5%9B%A0%E6%9E%9C/</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -202,7 +202,7 @@
 <li>32位兼容 安装最好 选yes</li>
 <li>x-org 最好别安，选no，有的电脑可能导致登录界面黑屏</li>
 </ul>
-<h4 id="2-10安装完成后验证"><a href="#2-10安装完成后验证" class="headerlink" title="2.10安装完成后验证"></a>2.10安装完成后验证</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi <span class="comment">#若列出GPU的信息列表，表示驱动安装成功</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-10安装完成后验证"><a href="#2-10安装完成后验证" class="headerlink" title="2.10安装完成后验证"></a>2.10安装完成后验证</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi <span class="meta">#若列出GPU的信息列表，表示驱动安装成功</span></span><br></pre></td></tr></table></figure>
 <p>若失败则跳回第一步卸载后重新开始。</p>
 <h4 id="2-11-重新进入桌面"><a href="#2-11-重新进入桌面" class="headerlink" title="2.11 重新进入桌面"></a>2.11 重新进入桌面</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>lightdm start #没自动跳的话 crtl+alt+f7</span><br><span class="line">nvidia-settings #若弹出设置对话框，亦表示驱动安装成功</span><br></pre></td></tr></table></figure>
 <h1 id="安装tensorflow"><a href="#安装tensorflow" class="headerlink" title="安装tensorflow"></a>安装tensorflow</h1><p><a href="https://www.tensorflow.org/install">https://www.tensorflow.org/install</a></p>
