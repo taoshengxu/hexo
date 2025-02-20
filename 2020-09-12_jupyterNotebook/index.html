@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content>
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2020-09-12_jupyterNotebook/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Jupyter Notebook｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Jupyter Notebook</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: Sep 12, 2020</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#Bioinformatics"
+                                 title="Bioinformatics">Bioinformatics</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">765 words in total, 3 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>Jupyter Notebooks提供了一个环境，你无需离开这个环境，就可以在其中编写你的代码、运行代码、查看输出、可视化数据并查看结果。因此，这是一款可执行端到端的数据科学工作流程的便捷工具，其中包括数据清理、统计建模、构建和训练机器学习模型、可视化数据等等.</p>
+</blockquote>
+<h1 id="1-jupyter-notebook-安装"><a href="#1-jupyter-notebook-安装" class="headerlink" title="1. jupyter notebook 安装"></a>1. jupyter notebook 安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 安装</span></span><br><span class="line">pip3 install jupyter</span><br><span class="line"><span class="comment">## 生成配置文件</span></span><br><span class="line">jupyter notebook --generate-config </span><br><span class="line">vim ~/.jupyter/jupyter_notebook_config.py  修改之后需要取消注释“<span class="comment">#” </span></span><br><span class="line"><span class="comment"># 卸载 </span></span><br><span class="line">sudo python -m pip uninstall jupyter</span><br><span class="line">sudo python -m pip uninstall jupyter_core</span><br><span class="line">sudo python -m pip uninstall jupyter-client</span><br><span class="line">sudo python -m pip uninstall jupyter-console</span><br><span class="line">sudo python -m pip uninstall notebook</span><br><span class="line">sudo python -m pip uninstall qtconsole</span><br><span class="line">sudo python -m pip uninstall nbconvert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关联Jupyter Notebook和conda的环境和包“nb_conda”</span></span><br><span class="line">conda install nb_conda</span><br><span class="line"><span class="comment">#功能扩展控件</span></span><br><span class="line">conda install -c conda-forge jupyter_contrib_nbextensions</span><br><span class="line"></span><br><span class="line"><span class="comment">##设置远程访问密码</span></span><br><span class="line">jupyter notebook password</span><br><span class="line">Enter password:  123456</span><br><span class="line">Verify password: 123456</span><br><span class="line"><span class="comment">#[NotebookPasswordApp] Wrote hashed password to /Users/you/.jupyter/jupyter_notebook_config.json</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 jupyter notebook</span></span><br><span class="line">jupyter notebook 默认端口</span><br><span class="line">jupyter notebook --ip=0.0.0.0 --port=8002</span><br></pre></td></tr></table></figure>
+<h1 id="jupyterlab-更好用，其他设置都兼容"><a href="#jupyterlab-更好用，其他设置都兼容" class="headerlink" title="jupyterlab 更好用，其他设置都兼容"></a>jupyterlab 更好用，其他设置都兼容</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pip install -U <span class="string">"jupyterlab&gt;=3.1.10"</span></span><br><span class="line">jupyter lab --ip=0.0.0.0 --port=8001</span><br><span class="line"></span><br><span class="line"><span class="comment">## 安装插件问题 需要重新编译</span></span><br><span class="line">Clean：jupyter lab clean</span><br><span class="line">Build：jupyter lab build</span><br><span class="line">jupyter lab build --dev-build=False --minimize=False</span><br><span class="line">从解释和报错中可以发现，如果不对dev-build（本地\非本地安装）和minimize（内存\资源）进行限制，在build时会因为npm的依赖（dependencies）产生影响，导致安装失败。</span><br></pre></td></tr></table></figure>
+<h1 id="2-jupyter中查看函数帮助"><a href="#2-jupyter中查看函数帮助" class="headerlink" title="2. jupyter中查看函数帮助"></a>2. jupyter中查看函数帮助</h1><p>光标直接放上面再按快捷键Shift+Tab就可以了,不用拖动选取</p>
+<h1 id="3-jupyter-中显示多行运行结果"><a href="#3-jupyter-中显示多行运行结果" class="headerlink" title="3. jupyter 中显示多行运行结果"></a>3. jupyter 中显示多行运行结果</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：</span></span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line">display(xx.head())</span><br><span class="line">display(xx.head())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">"all"</span></span><br></pre></td></tr></table></figure>
+<h1 id="4-conda环境关联到-jupyter-notebook"><a href="#4-conda环境关联到-jupyter-notebook" class="headerlink" title="4. conda环境关联到 jupyter notebook"></a>4. conda环境关联到 jupyter notebook</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n scanpy python=3.8</span><br><span class="line">pip3 install --user ipykernel <span class="comment">## 在新创建的scanpy环境下</span></span><br><span class="line">python -m ipykernel install --user --name=scanpy</span><br><span class="line"><span class="comment"># 关联地址如下 /home/ubuntu/.local/share/jupyter/kernels/scanpy</span></span><br></pre></td></tr></table></figure>
+<h1 id="5-conda-R-关联-jupyter-notebook"><a href="#5-conda-R-关联-jupyter-notebook" class="headerlink" title="5. conda R 关联 jupyter notebook"></a>5. conda R 关联 jupyter notebook</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">conda create -n R4.0 python=<span class="number">3</span></span><br><span class="line">conda install -c conda-forge r-base</span><br><span class="line">&gt;R</span><br><span class="line">install.packages(c(<span class="string">'repr'</span>, <span class="string">'IRdisplay'</span>, <span class="string">'evaluate'</span>, <span class="string">'crayon'</span>, <span class="string">'pbdZMQ'</span>, <span class="string">'devtools'</span>, <span class="string">'uuid'</span>, <span class="string">'digest'</span>))</span><br><span class="line">install.packages(<span class="string">'IRkernel'</span>)</span><br><span class="line"><span class="comment">#devtools::install_github('IRkernel/IRkernel')</span></span><br><span class="line"><span class="comment"># 只在当前用户下安装</span></span><br><span class="line">IRkernel::installspec(user = <span class="literal">TRUE</span>)</span><br><span class="line"><span class="comment"># 或者是在系统下安装</span></span><br><span class="line">IRkernel::installspec(user = <span class="literal">FALSE</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="6-docker-关联-jupyter-notebook-不成功"><a href="#6-docker-关联-jupyter-notebook-不成功" class="headerlink" title="6. docker 关联 jupyter notebook (不成功)"></a>6. docker 关联 jupyter notebook (不成功)</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pip install remote_ikernel</span><br><span class="line">remote_ikernel manage</span><br><span class="line">remote_ikernel manage --add \</span><br><span class="line">    --kernel_cmd=<span class="string">"docker run -it --rm -v /data:/data aertslab/pyscenic:0.9.18 ipython kernel -f &#123;connection_file&#125;"</span> \</span><br><span class="line">    --name=<span class="string">"pyscenic-0918-docker"</span> \</span><br><span class="line">    --interface=ssh \</span><br><span class="line">    --host=hostname \</span><br><span class="line">    --workdir=<span class="string">"/data/CUHKSZ"</span> \</span><br><span class="line">    --language=python3  </span><br><span class="line"> <span class="comment"># 关联地址 /home/ubuntu/.local/share/jupyter/kernels/..</span></span><br></pre></td></tr></table></figure>
+<h1 id="7-代码补全"><a href="#7-代码补全" class="headerlink" title="7. 代码补全"></a>7. 代码补全</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">关闭jupyter notebook</span><br><span class="line">pip install jupyter_contrib_nbextensions</span><br><span class="line">pip install jupyter_nbextensions_configurator</span><br><span class="line">jupyter contrib nbextension install --user</span><br><span class="line"><span class="comment">#jupyter contrib nbextension install --user --skip-running-check</span></span><br><span class="line">jupyter nbextensions_configurator <span class="built_in">enable</span> --user</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启</span></span><br><span class="line">jupyter notebook --ip=0.0.0.0 --port=8001</span><br><span class="line">点开 Nbextensions 的选项，并勾选 Hinterland</span><br><span class="line"></span><br><span class="line"><span class="comment">## 如果不能自动补全</span></span><br><span class="line">1. 直接在命令行中 查看ipython中是否能自动补全</span><br><span class="line">2. 卸载现有的ipython、jedi、parso</span><br><span class="line">pip uninstall ipython </span><br><span class="line">pip uninstall jedi</span><br><span class="line">pip uninstall parso</span><br><span class="line">重新安装指定版本的库</span><br><span class="line">pip install -U jedi==0.17.2 parso==0.7.1</span><br><span class="line">pip install ipython==7.10.0   <span class="comment"># ipython版本需自行尝试</span></span><br><span class="line">我的环境是python3.8, 一开始ipython7.19.0不行，换成ipython7.1.1后，在jupyter里import会不兼容报错，最后换成ipython7.10.0可以了，这个ipython版本可以自行尝试</span><br></pre></td></tr></table></figure>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2020-09-22_R_formula/" data-toggle="tooltip" data-placement="left"
+                     title="R语言 公式表达">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2020-08-05_SCENIC/" data-toggle="tooltip" data-placement="top"
+                     title="SCENIC">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-jupyter-notebook-安装"><span class="toc-number">1.</span> <span class="toc-text">1. jupyter notebook 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jupyterlab-更好用，其他设置都兼容"><span class="toc-number">2.</span> <span class="toc-text">jupyterlab 更好用，其他设置都兼容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-jupyter中查看函数帮助"><span class="toc-number">3.</span> <span class="toc-text">2. jupyter中查看函数帮助</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-jupyter-中显示多行运行结果"><span class="toc-number">4.</span> <span class="toc-text">3. jupyter 中显示多行运行结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-conda环境关联到-jupyter-notebook"><span class="toc-number">5.</span> <span class="toc-text">4. conda环境关联到 jupyter notebook</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-conda-R-关联-jupyter-notebook"><span class="toc-number">6.</span> <span class="toc-text">5. conda R 关联 jupyter notebook</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-docker-关联-jupyter-notebook-不成功"><span class="toc-number">7.</span> <span class="toc-text">6. docker 关联 jupyter notebook (不成功)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-代码补全"><span class="toc-number">8.</span> <span class="toc-text">7. 代码补全</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2025
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                179.3k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>
