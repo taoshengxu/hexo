@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2025-02-07_ollamaLLm_Dify/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2025-02-22_label_studio/</loc>
     
     <lastmod>2025-05-16</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://taoshengxu.github.io/hexo/2025-02-22_label_studio/</loc>
+    <loc>https://taoshengxu.github.io/hexo/2025-02-07_ollamaLLm_Dify/</loc>
     
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-05-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
