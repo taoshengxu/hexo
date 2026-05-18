@@ -1,5 +1,9 @@
-https://taoshengxu.github.io/hexo/2029-12-12-UbuntuCommand/
+https://taoshengxu.github.io/hexo/2026-05-18_deploy_qwen35_vllm/
 https://taoshengxu.github.io/hexo/2025-02-07_ollamaLLm_Dify/
+https://taoshengxu.github.io/hexo/2026-03-29_torch_max_notes/
+https://taoshengxu.github.io/hexo/2025-12-17_ubuntu_clash/
+https://taoshengxu.github.io/hexo/2017-09-07-GitCommand/
+https://taoshengxu.github.io/hexo/2029-12-12-UbuntuCommand/
 https://taoshengxu.github.io/hexo/2025-02-22_label_studio/
 https://taoshengxu.github.io/hexo/2021-10-17-docker/
 https://taoshengxu.github.io/hexo/2024-10-24_samba/
@@ -51,7 +55,6 @@ https://taoshengxu.github.io/hexo/2020-07-23_GAM/
 https://taoshengxu.github.io/hexo/2020-05-25_cancergene/
 https://taoshengxu.github.io/hexo/2017-09-05-StudyShiny/
 https://taoshengxu.github.io/hexo/2017-09-08-ExpressionSet_SummarizedExperiment/
-https://taoshengxu.github.io/hexo/2017-09-07-GitCommand/
 https://taoshengxu.github.io/hexo/2020-01-06_nextflow/
 https://taoshengxu.github.io/hexo/2020-03-28_RepeatMasker/
 https://taoshengxu.github.io/hexo/2019-12-05_trancript_type/
@@ -161,6 +164,9 @@ https://taoshengxu.github.io/hexo/tags/Bioinformatics/
 https://taoshengxu.github.io/hexo/tags/mysql/
 https://taoshengxu.github.io/hexo/tags/label-studio/
 https://taoshengxu.github.io/hexo/tags/LLM/
+https://taoshengxu.github.io/hexo/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0pytorch/
+https://taoshengxu.github.io/hexo/tags/vLLM/
+https://taoshengxu.github.io/hexo/tags/clash/
 https://taoshengxu.github.io/hexo/categories/Bioinformatics/
 https://taoshengxu.github.io/hexo/categories/Blog/
 https://taoshengxu.github.io/hexo/categories/%E9%97%B2%E6%83%85/
@@ -168,3 +174,4 @@ https://taoshengxu.github.io/hexo/categories/%E5%9B%A0%E6%9E%9C/
 https://taoshengxu.github.io/hexo/categories/%E8%A1%8C%E8%80%85%E6%97%A0%E7%96%86/
 https://taoshengxu.github.io/hexo/categories/Data-Mining/
 https://taoshengxu.github.io/hexo/categories/Ubuntu/
+https://taoshengxu.github.io/hexo/categories/bigmodel/

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content>
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2026-05-18_deploy_qwen35_vllm/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        vLLM部署本地大模型｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>vLLM部署本地大模型</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: May 18, 2026</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#bigmodel"
+                                 title="bigmodel">bigmodel</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#vLLM"
+                                 title="vLLM">vLLM</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">620 words in total, 3 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="本地部署-Qwen3-5-35B-A3B-FP8-模型服务（vLLM-ModelScope）"><a href="#本地部署-Qwen3-5-35B-A3B-FP8-模型服务（vLLM-ModelScope）" class="headerlink" title="本地部署 Qwen3.5-35B-A3B-FP8 模型服务（vLLM + ModelScope）"></a>本地部署 Qwen3.5-35B-A3B-FP8 模型服务（vLLM + ModelScope）</h1><h2 id="1️⃣-环境准备"><a href="#1️⃣-环境准备" class="headerlink" title="1️⃣ 环境准备"></a>1️⃣ 环境准备</h2><h3 id="1-1-硬件要求"><a href="#1-1-硬件要求" class="headerlink" title="1.1 硬件要求"></a>1.1 硬件要求</h3><ul>
+<li>GPU：<strong>NVIDIA RTX 6000 PRO 96 GB 显存</strong>  </li>
+<li>存储：<strong>至少 100 GB 可用空间</strong>  </li>
+<li>系统：Linux（Ubuntu 22.04 推荐）  </li>
+<li>Python：<strong>3.10+</strong>  </li>
+<li>CUDA：<strong>12.x+</strong>，NVIDIA 驱动已安装</li>
+</ul>
+<h3 id="1-2-系统依赖"><a href="#1-2-系统依赖" class="headerlink" title="1.2 系统依赖"></a>1.2 系统依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install -y git wget curl build-essential</span><br></pre></td></tr></table></figure>
+<h2 id="2️⃣-安装-Python-虚拟环境与-vLLM"><a href="#2️⃣-安装-Python-虚拟环境与-vLLM" class="headerlink" title="2️⃣ 安装 Python 虚拟环境与 vLLM"></a>2️⃣ 安装 Python 虚拟环境与 vLLM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境</span></span><br><span class="line"><span class="built_in">cd</span> /data_SSD/vLLM</span><br><span class="line">python3 -m venv vllm-qwen</span><br><span class="line"><span class="built_in">source</span> vllm-qwen/bin/activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级 pip</span></span><br><span class="line">pip install --upgrade pip setuptools wheel</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># vLLM 当前官方安装文档推荐用 uv 来安装, 装 nightly 版</span></span><br><span class="line">pip install -U uv</span><br><span class="line">uv pip install -U vllm \</span><br><span class="line">  --torch-backend=auto \</span><br><span class="line">  --pre \</span><br><span class="line">  --extra-index-url https://wheels.vllm.ai/nightly</span><br><span class="line"></span><br><span class="line"><span class="comment">#装完检查：</span></span><br><span class="line">python -c <span class="string">"import vllm; print(vllm.__version__)"</span></span><br><span class="line">python -c <span class="string">"import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"</span></span><br><span class="line"></span><br><span class="line">nvidia-smi</span><br><span class="line"></span><br><span class="line">python - &lt;&lt;<span class="string">'PY'</span></span><br><span class="line">import torch</span><br><span class="line">import vllm</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"torch:"</span>, torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"vllm:"</span>, vllm.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"cuda available:"</span>, torch.cuda.is_available())</span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"gpu:"</span>, torch.cuda.get_device_name(0))</span><br><span class="line">PY</span><br></pre></td></tr></table></figure>
+<h2 id="3️⃣-安装-ModelScope-并下载-Qwen3-5-35B-A3B-FP8"><a href="#3️⃣-安装-ModelScope-并下载-Qwen3-5-35B-A3B-FP8" class="headerlink" title="3️⃣ 安装 ModelScope 并下载 Qwen3.5-35B-A3B-FP8"></a>3️⃣ 安装 ModelScope 并下载 Qwen3.5-35B-A3B-FP8</h2><h3 id="3-1-安装-ModelScope"><a href="#3-1-安装-ModelScope" class="headerlink" title="3.1 安装 ModelScope"></a>3.1 安装 ModelScope</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade modelscope</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-创建本地存放目录"><a href="#3-2-创建本地存放目录" class="headerlink" title="3.2 创建本地存放目录"></a>3.2 创建本地存放目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data_SSD/models/Qwen3.5-35B-A3B-FP8</span><br><span class="line"><span class="built_in">cd</span> /data_SSD/models/Qwen3.5-35B-A3B-FP8</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-下载模型"><a href="#3-3-下载模型" class="headerlink" title="3.3 下载模型"></a>3.3 下载模型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modelscope download   --model Qwen/Qwen3.5-35B-A3B-FP8   --local_dir .</span><br></pre></td></tr></table></figure>
+<p>下载完成后，目录结构应类似：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/data_SSD/models/Qwen3.<span class="number">5</span>-<span class="number">35</span>B-A3B-FP8/</span><br><span class="line">├─ config.json</span><br><span class="line">├─ tokenizer.json</span><br><span class="line">├─ vocab.json</span><br><span class="line">├─ model.safetensors</span><br></pre></td></tr></table></figure></p>
+<h2 id="4️⃣-启动-vLLM-模型服务"><a href="#4️⃣-启动-vLLM-模型服务" class="headerlink" title="4️⃣ 启动 vLLM 模型服务"></a>4️⃣ 启动 vLLM 模型服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vllm serve ./Qwen3.5-35B-A3B-FP8   --host 0.0.0.0   --port 8000   --gpu-memory-utilization 0.9   --max-model-len 32768   --<span class="built_in">enable</span>-prefix-caching</span><br></pre></td></tr></table></figure>
+<h2 id="5️⃣-测试-OpenAI-兼容-API"><a href="#5️⃣-测试-OpenAI-兼容-API" class="headerlink" title="5️⃣ 测试 OpenAI 兼容 API"></a>5️⃣ 测试 OpenAI 兼容 API</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:8000/v1/chat/completions   -H <span class="string">"Content-Type: application/json"</span>   -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">    "model": "/data_SSD/models/Qwen3.5-35B-A3B-FP8",</span></span><br><span class="line"><span class="string">    "messages": [&#123;"role":"user","content":"你好，请介绍一下你自己"&#125;],</span></span><br><span class="line"><span class="string">    "temperature": 0.7,</span></span><br><span class="line"><span class="string">    "max_tokens": 512</span></span><br><span class="line"><span class="string">  &#125;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="6️⃣-常见优化与注意事项"><a href="#6️⃣-常见优化与注意事项" class="headerlink" title="6️⃣ 常见优化与注意事项"></a>6️⃣ 常见优化与注意事项</h2><ol>
+<li><strong>显存优化</strong>：使用 FP8 / GPTQ 量化版本可显著减少显存占用  </li>
+<li><strong>网络访问</strong>：国内推荐使用 ModelScope 或国内镜像下载模型  </li>
+<li><strong>服务稳定性</strong>：结合 <code>systemd</code> 或 Docker 容器部署  </li>
+<li><strong>多模型部署</strong>：若显存允许，可在同一 GPU 上加载多个中型模型</li>
+</ol>
+<h2 id="7️⃣-扩展参考"><a href="#7️⃣-扩展参考" class="headerlink" title="7️⃣ 扩展参考"></a>7️⃣ 扩展参考</h2><ul>
+<li><a href="https://docs.vllm.ai/en/stable/?utm_source=chatgpt.com">vLLM 官方文档</a>  </li>
+<li><a href="https://huggingface.co/Qwen/Qwen3.5-35B-A3B-FP8?utm_source=chatgpt.com">Qwen3.5 模型介绍</a>  </li>
+<li><a href="https://www.modelscope.cn/models">ModelScope 模型下载指南</a></li>
+</ul>
+<h2 id="给-OpenClaw-Hermes-用的-API-地址"><a href="#给-OpenClaw-Hermes-用的-API-地址" class="headerlink" title="给 OpenClaw / Hermes 用的 API 地址"></a>给 OpenClaw / Hermes 用的 API 地址</h2><p>vLLM 启动后，OpenAI 兼容地址是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://你的服务器IP:8000/v1</span><br></pre></td></tr></table></figure>
+<p>本机测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:8000/v1/chat/completions \</span><br><span class="line">  -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">  -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">    "model": "/data_SSD/models/Qwen3.5-35B-A3B-FP8",</span></span><br><span class="line"><span class="string">    "messages": [</span></span><br><span class="line"><span class="string">      &#123;"role": "user", "content": "你好，请介绍一下你自己"&#125;</span></span><br><span class="line"><span class="string">    ],</span></span><br><span class="line"><span class="string">    "max_tokens": 512,</span></span><br><span class="line"><span class="string">    "temperature": 0.7</span></span><br><span class="line"><span class="string">  &#125;'</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>我的建议：<strong>GGUF 留给 llama.cpp/Ollama 用；vLLM 用 FP8 或 GPTQ/AWQ/safetensors。</strong> 对你的 96GB 显卡，<code>Qwen3.5-35B-A3B-FP8</code> 是更合适的选择。</p>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2029-12-12-UbuntuCommand/" data-toggle="tooltip" data-placement="left"
+                     title="DOS-Ubuntu命令集合">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2026-03-29_torch_max_notes/" data-toggle="tooltip" data-placement="top"
+                     title="torch.max() 使用讲解">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本地部署-Qwen3-5-35B-A3B-FP8-模型服务（vLLM-ModelScope）"><span class="toc-number">1.</span> <span class="toc-text">本地部署 Qwen3.5-35B-A3B-FP8 模型服务（vLLM + ModelScope）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1️⃣-环境准备"><span class="toc-number">1.1.</span> <span class="toc-text">1️⃣ 环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-硬件要求"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 硬件要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-系统依赖"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 系统依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2️⃣-安装-Python-虚拟环境与-vLLM"><span class="toc-number">1.2.</span> <span class="toc-text">2️⃣ 安装 Python 虚拟环境与 vLLM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3️⃣-安装-ModelScope-并下载-Qwen3-5-35B-A3B-FP8"><span class="toc-number">1.3.</span> <span class="toc-text">3️⃣ 安装 ModelScope 并下载 Qwen3.5-35B-A3B-FP8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-安装-ModelScope"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 安装 ModelScope</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-创建本地存放目录"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 创建本地存放目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-下载模型"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 下载模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4️⃣-启动-vLLM-模型服务"><span class="toc-number">1.4.</span> <span class="toc-text">4️⃣ 启动 vLLM 模型服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5️⃣-测试-OpenAI-兼容-API"><span class="toc-number">1.5.</span> <span class="toc-text">5️⃣ 测试 OpenAI 兼容 API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6️⃣-常见优化与注意事项"><span class="toc-number">1.6.</span> <span class="toc-text">6️⃣ 常见优化与注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7️⃣-扩展参考"><span class="toc-number">1.7.</span> <span class="toc-text">7️⃣ 扩展参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给-OpenClaw-Hermes-用的-API-地址"><span class="toc-number">1.8.</span> <span class="toc-text">给 OpenClaw / Hermes 用的 API 地址</span></a></li></ol></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2026
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                183.4k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>
