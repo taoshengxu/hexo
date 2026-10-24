@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content>
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2026-05-22_yolo26/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        YOLO26（Ultralytics）环境配置与快速上手｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>YOLO26（Ultralytics）环境配置与快速上手</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: May 22, 2025</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#深度学习"
+                                 title="深度学习">深度学习</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">2.3k words in total, 10 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>整理依据：CSDN 文章《目标检测YOLO26教程：YOLO26(Ultralytics)环境配置，适合零基础纯小白，超详细快速上手》<br>原文链接：<a href="https://blog.csdn.net/qq_67105081/article/details/156986539">https://blog.csdn.net/qq_67105081/article/details/156986539</a><br>原文版权：CC BY-SA 4.0。本文为学习使用整理版，命令与流程做了结构化归纳，建议结合原文截图一起操作。</p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#1-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF">1. 适用场景</a></li>
+<li><a href="#2-%E5%AE%89%E8%A3%85%E5%89%8D%E6%A3%80%E6%9F%A5">2. 安装前检查</a></li>
+<li><a href="#3-%E5%BF%85%E8%A3%85%E8%BD%AF%E4%BB%B6">3. 必装软件</a></li>
+<li><a href="#4-conda-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">4. Conda 环境配置</a></li>
+<li><a href="#5-gpu-%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">5. GPU 版本安装流程</a></li>
+<li><a href="#6-cpu-%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B">6. CPU 版本安装流程</a></li>
+<li><a href="#7-%E4%B8%8B%E8%BD%BD-yolo26--ultralytics-%E6%BA%90%E7%A0%81%E4%B8%8E%E6%9D%83%E9%87%8D">7. 下载 YOLO26 / Ultralytics 源码与权重</a></li>
+<li><a href="#8-pycharm-%E5%AF%BC%E5%85%A5%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83">8. PyCharm 导入虚拟环境</a></li>
+<li><a href="#9-%E9%AA%8C%E8%AF%81%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F">9. 验证环境是否成功</a></li>
+<li><a href="#10-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86">10. 常见报错处理</a></li>
+<li><a href="#11-%E6%8E%A8%E8%8D%90%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F">11. 推荐执行顺序</a></li>
+</ul>
+<hr>
+<h2 id="1-适用场景"><a href="#1-适用场景" class="headerlink" title="1. 适用场景"></a>1. 适用场景</h2><p>本文适合 Windows 用户从零开始配置 YOLO26 / Ultralytics 环境，主要覆盖：</p>
+<ul>
+<li>Anaconda3 安装</li>
+<li>PyCharm 安装</li>
+<li>CUDA / cuDNN 配置</li>
+<li>Conda 虚拟环境创建</li>
+<li>PyTorch GPU / CPU 版本安装</li>
+<li>Ultralytics 安装</li>
+<li>YOLO26 权重推理验证</li>
+</ul>
+<p>如果你之前已经配置过 YOLO11 / Ultralytics 类似环境，通常不需要重新完整配置，可以直接尝试更新源码和权重文件。</p>
+<hr>
+<h2 id="2-安装前检查"><a href="#2-安装前检查" class="headerlink" title="2. 安装前检查"></a>2. 安装前检查</h2><h3 id="2-1-检查是否有-NVIDIA-独立显卡"><a href="#2-1-检查是否有-NVIDIA-独立显卡" class="headerlink" title="2.1 检查是否有 NVIDIA 独立显卡"></a>2.1 检查是否有 NVIDIA 独立显卡</h3><p>深度学习训练对显卡要求较高。建议先打开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">任务管理器 → 性能 → GPU</span><br></pre></td></tr></table></figure>
+
+<p>判断电脑是否有 NVIDIA 独立显卡。</p>
+<h3 id="2-2-判断安装-GPU-版还是-CPU-版"><a href="#2-2-判断安装-GPU-版还是-CPU-版" class="headerlink" title="2.2 判断安装 GPU 版还是 CPU 版"></a>2.2 判断安装 GPU 版还是 CPU 版</h3><table>
+<thead>
+<tr>
+<th>电脑情况</th>
+<th>推荐安装方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>有 NVIDIA 独立显卡</td>
+<td>GPU 版本 PyTorch</td>
+</tr>
+<tr>
+<td>无独显 / Intel 核显 / AMD 显卡</td>
+<td>CPU 版本 PyTorch</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：CPU 也可以运行和训练，但速度会慢很多。</p>
+</blockquote>
+<hr>
+<h2 id="3-必装软件"><a href="#3-必装软件" class="headerlink" title="3. 必装软件"></a>3. 必装软件</h2><p>建议安装：</p>
+<ol>
+<li><strong>Anaconda3</strong>：用于创建 Python 虚拟环境</li>
+<li><strong>PyCharm</strong>：用于打开和运行项目代码</li>
+</ol>
+<h3 id="3-1-Anaconda3-安装建议"><a href="#3-1-Anaconda3-安装建议" class="headerlink" title="3.1 Anaconda3 安装建议"></a>3.1 Anaconda3 安装建议</h3><p>下载方式：</p>
+<ul>
+<li>清华镜像：<code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/?C=M&amp;O=D</code></li>
+<li>选择文件名包含：<code>Anaconda3</code>、<code>Windows</code>、<code>.exe</code> 的安装包</li>
+</ul>
+<p>安装建议：</p>
+<ul>
+<li>不建议安装到 C 盘</li>
+<li>推荐路径示例：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Anaconda3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装路径尽量使用英文路径</li>
+<li>安装时勾选添加环境变量相关选项</li>
+</ul>
+<h3 id="3-2-PyCharm-安装建议"><a href="#3-2-PyCharm-安装建议" class="headerlink" title="3.2 PyCharm 安装建议"></a>3.2 PyCharm 安装建议</h3><p>官网下载：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.jetbrains.com/zh-cn/pycharm/download/?section=windows</span><br></pre></td></tr></table></figure>
+
+<p>安装建议：</p>
+<ul>
+<li>安装路径建议放到 D 盘或其他非 C 盘目录</li>
+<li>路径尽量使用英文</li>
+<li>安装选项建议全选，尤其是创建快捷方式、添加 PATH、关联 <code>.py</code> 文件等选项</li>
+</ul>
+<hr>
+<h2 id="4-Conda-环境配置"><a href="#4-Conda-环境配置" class="headerlink" title="4. Conda 环境配置"></a>4. Conda 环境配置</h2><h3 id="4-1-打开-Anaconda-Prompt"><a href="#4-1-打开-Anaconda-Prompt" class="headerlink" title="4.1 打开 Anaconda Prompt"></a>4.1 打开 Anaconda Prompt</h3><p>Windows 搜索：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Anaconda Prompt</span><br></pre></td></tr></table></figure>
+
+<p>打开后默认一般是 <code>base</code> 环境。不要直接在 <code>base</code> 里装项目依赖，建议新建环境。</p>
+<h3 id="4-2-更换-Conda-和-Pip-下载源"><a href="#4-2-更换-Conda-和-Pip-下载源" class="headerlink" title="4.2 更换 Conda 和 Pip 下载源"></a>4.2 更换 Conda 和 Pip 下载源</h3><p>在 Anaconda Prompt 中依次执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conda config --remove-key channels</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line">pip config <span class="built_in">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-创建-YOLO26-虚拟环境"><a href="#4-3-创建-YOLO26-虚拟环境" class="headerlink" title="4.3 创建 YOLO26 虚拟环境"></a>4.3 创建 YOLO26 虚拟环境</h3><p>本文按原教程使用 Python 3.10：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolo26 python=3.10</span><br></pre></td></tr></table></figure>
+
+<p>出现确认提示时输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y</span><br></pre></td></tr></table></figure>
+
+<p>创建完成后激活环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate yolo26</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-GPU-版本安装流程"><a href="#5-GPU-版本安装流程" class="headerlink" title="5. GPU 版本安装流程"></a>5. GPU 版本安装流程</h2><blockquote>
+<p>适合有 NVIDIA 独立显卡的电脑。</p>
+</blockquote>
+<h3 id="5-1-检查-CUDA-支持版本"><a href="#5-1-检查-CUDA-支持版本" class="headerlink" title="5.1 检查 CUDA 支持版本"></a>5.1 检查 CUDA 支持版本</h3><p>打开 CMD，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<p>查看显卡驱动支持的最高 CUDA 版本。原教程以 CUDA 11.8 为例。</p>
+<p>如果你的驱动支持版本低于 11.8，建议先更新 NVIDIA 显卡驱动。</p>
+<h3 id="5-2-安装-CUDA"><a href="#5-2-安装-CUDA" class="headerlink" title="5.2 安装 CUDA"></a>5.2 安装 CUDA</h3><p>CUDA Toolkit Archive：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://developer.nvidia.com/cuda-toolkit-archive</span><br></pre></td></tr></table></figure>
+
+<p>安装建议：</p>
+<ul>
+<li>原教程以 CUDA 11.8 为例</li>
+<li>建议使用默认路径</li>
+<li>C 盘最好预留 20GB 以上空间</li>
+<li>安装完成后重新打开 CMD，输入：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+
+<p>能看到 CUDA 版本信息，说明 CUDA 安装成功。</p>
+<h3 id="5-3-安装-cuDNN"><a href="#5-3-安装-cuDNN" class="headerlink" title="5.3 安装 cuDNN"></a>5.3 安装 cuDNN</h3><p>cuDNN Archive：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://developer.nvidia.com/rdp/cudnn-archive</span><br></pre></td></tr></table></figure>
+
+<p>安装思路：</p>
+<ol>
+<li>下载与 CUDA 版本匹配的 cuDNN</li>
+<li>解压 cuDNN 压缩包</li>
+<li>将解压后的 <code>bin</code>、<code>include</code>、<code>lib</code> 等文件夹复制到 CUDA 安装目录中覆盖</li>
+</ol>
+<p>CUDA 11.8 默认路径示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-安装-GPU-版-PyTorch"><a href="#5-4-安装-GPU-版-PyTorch" class="headerlink" title="5.4 安装 GPU 版 PyTorch"></a>5.4 安装 GPU 版 PyTorch</h3><p>激活环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate yolo26</span><br></pre></td></tr></table></figure>
+
+<p>安装 PyTorch GPU 版：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch==2.0.0+cu118 torchvision==0.15.1+cu118 --extra-index-url https://download.pytorch.org/whl/cu118</span><br></pre></td></tr></table></figure>
+
+<p>如果出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: No matching distribution found for torch==2.0.0+cu118</span><br></pre></td></tr></table></figure>
+
+<p>优先检查 Python 版本是否为 3.10。</p>
+<h3 id="5-5-安装-Ultralytics"><a href="#5-5-安装-Ultralytics" class="headerlink" title="5.5 安装 Ultralytics"></a>5.5 安装 Ultralytics</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ultralytics</span><br></pre></td></tr></table></figure>
+
+<p>如果下载失败，可换清华源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ultralytics -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<p>如需指定版本，可参考：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ultralytics==8.4.0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6-CPU-版本安装流程"><a href="#6-CPU-版本安装流程" class="headerlink" title="6. CPU 版本安装流程"></a>6. CPU 版本安装流程</h2><blockquote>
+<p>适合无 NVIDIA 独显、Intel 核显、AMD 显卡用户。</p>
+</blockquote>
+<p>激活环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate yolo26</span><br></pre></td></tr></table></figure>
+
+<p>安装 CPU 版 PyTorch：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cpu</span><br></pre></td></tr></table></figure>
+
+<p>然后安装 Ultralytics：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ultralytics</span><br></pre></td></tr></table></figure>
+
+<p>如果下载失败：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ultralytics -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-下载-YOLO26-Ultralytics-源码与权重"><a href="#7-下载-YOLO26-Ultralytics-源码与权重" class="headerlink" title="7. 下载 YOLO26 / Ultralytics 源码与权重"></a>7. 下载 YOLO26 / Ultralytics 源码与权重</h2><p>源码地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/ultralytics/ultralytics/</span><br></pre></td></tr></table></figure>
+
+<p>原教程使用 <code>ultralytics-8.4.0</code> 版本演示，并提到常用权重包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yolo26n.pt</span><br><span class="line">yolo26s.pt</span><br><span class="line">yolo26m.pt</span><br></pre></td></tr></table></figure>
+
+<p>新手建议先使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yolo26n.pt</span><br></pre></td></tr></table></figure>
+
+<p>因为 Nano 版本体积较小，推理速度更快，更适合先跑通环境。</p>
+<p>项目目录建议示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\ultralytics-8.4.0</span><br></pre></td></tr></table></figure>
+
+<p>将权重文件放到项目根目录，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\ultralytics-8.4.0\yolo26n.pt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="8-PyCharm-导入虚拟环境"><a href="#8-PyCharm-导入虚拟环境" class="headerlink" title="8. PyCharm 导入虚拟环境"></a>8. PyCharm 导入虚拟环境</h2><h3 id="8-1-打开项目"><a href="#8-1-打开项目" class="headerlink" title="8.1 打开项目"></a>8.1 打开项目</h3><p>解压源码后，右键项目文件夹，选择用 PyCharm 打开。</p>
+<h3 id="8-2-设置-Python-解释器"><a href="#8-2-设置-Python-解释器" class="headerlink" title="8.2 设置 Python 解释器"></a>8.2 设置 Python 解释器</h3><p>路径大致为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件 → 设置 → 项目 → Python 解释器 → 添加解释器 → 添加本地解释器</span><br></pre></td></tr></table></figure>
+
+<p>选择已有 Conda 环境中的 Python：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Anaconda3\envs\yolo26\python.exe</span><br></pre></td></tr></table></figure>
+
+<p>如果找不到环境路径，可以在 Anaconda Prompt 中执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>yolo26</code> 对应路径后，再选择其中的 <code>python.exe</code>。</p>
+<hr>
+<h2 id="9-验证环境是否成功"><a href="#9-验证环境是否成功" class="headerlink" title="9. 验证环境是否成功"></a>9. 验证环境是否成功</h2><h3 id="9-1-准备测试图片"><a href="#9-1-准备测试图片" class="headerlink" title="9.1 准备测试图片"></a>9.1 准备测试图片</h3><p>将测试图片放到项目根目录，并命名为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat.jpg</span><br></pre></td></tr></table></figure>
+
+<p>目录示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\ultralytics-8.4.0\cat.jpg</span><br><span class="line">D:\ultralytics-8.4.0\yolo26n.pt</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-2-命令行验证"><a href="#9-2-命令行验证" class="headerlink" title="9.2 命令行验证"></a>9.2 命令行验证</h3><p>先进入项目目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d D:\ultralytics-8.4.0</span><br></pre></td></tr></table></figure>
+
+<p>激活环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate yolo26</span><br></pre></td></tr></table></figure>
+
+<p>运行推理：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yolo predict model=yolo26n.pt <span class="built_in">source</span>=<span class="string">'cat.jpg'</span></span><br></pre></td></tr></table></figure>
+
+<p>如果运行结束后生成检测结果图片，说明环境基本正常。</p>
+<h3 id="9-3-PyCharm-代码验证"><a href="#9-3-PyCharm-代码验证" class="headerlink" title="9.3 PyCharm 代码验证"></a>9.3 PyCharm 代码验证</h3><p>新建文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yolo26_predict.py</span><br></pre></td></tr></table></figure>
+
+<p>写入以下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ultralytics <span class="keyword">import</span> YOLO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载 YOLO26n 预训练模型</span></span><br><span class="line">model = YOLO(<span class="string">'yolo26n.pt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试图片路径，可替换为自己的图片</span></span><br><span class="line">source = <span class="string">'cat.jpg'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行推理并保存结果</span></span><br><span class="line">model.predict(source, save=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行后如果能在输出目录中看到带检测框的图片，说明配置成功。</p>
+<hr>
+<h2 id="10-常见报错处理"><a href="#10-常见报错处理" class="headerlink" title="10. 常见报错处理"></a>10. 常见报错处理</h2><h3 id="10-1-Conda-源-404-报错"><a href="#10-1-Conda-源-404-报错" class="headerlink" title="10.1 Conda 源 404 报错"></a>10.1 Conda 源 404 报错</h3><p>可能报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnavailableInvalidChannel: HTTP 404 NOT FOUND for channel anaconda/pkgs/free</span><br></pre></td></tr></table></figure>
+
+<p>解决方式：编辑 <code>.condarc</code> 文件。</p>
+<p>路径通常为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\你的用户名\.condarc</span><br></pre></td></tr></table></figure>
+
+<p>可替换为以下内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">channel_alias:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br></pre></td></tr></table></figure>
+
+<p>保存后重新执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolo26 python=3.10</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-2-PyTorch-找不到对应版本"><a href="#10-2-PyTorch-找不到对应版本" class="headerlink" title="10.2 PyTorch 找不到对应版本"></a>10.2 PyTorch 找不到对应版本</h3><p>报错示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: No matching distribution found for torch==2.0.0+cu118</span><br></pre></td></tr></table></figure>
+
+<p>优先检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+
+<p>建议使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python 3.10</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-3-权重或图片路径不存在"><a href="#10-3-权重或图片路径不存在" class="headerlink" title="10.3 权重或图片路径不存在"></a>10.3 权重或图片路径不存在</h3><p>报错示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileNotFoundError: xxxx does not exist</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<ul>
+<li><code>yolo26n.pt</code> 是否放在当前项目目录</li>
+<li><code>cat.jpg</code> 是否放在当前项目目录</li>
+<li>命令行是否已经 <code>cd</code> 到项目根目录</li>
+<li>文件名是否写错，如大小写、后缀名、空格等</li>
+</ul>
+<h3 id="10-4-Pillow-报错"><a href="#10-4-Pillow-报错" class="headerlink" title="10.4 Pillow 报错"></a>10.4 Pillow 报错</h3><p>报错示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ImportError: DLL load failed while importing _imaging</span><br></pre></td></tr></table></figure>
+
+<p>可尝试降低 Pillow 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pillow==8.4.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-5-NumPy-版本报错"><a href="#10-5-NumPy-版本报错" class="headerlink" title="10.5 NumPy 版本报错"></a>10.5 NumPy 版本报错</h3><p>报错可能包含：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: Numpy is not available</span><br><span class="line">compiled using NumPy 1.x cannot be run in NumPy 2.x</span><br></pre></td></tr></table></figure>
+
+<p>可尝试降低 NumPy 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy==1.26.3</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="11-推荐执行顺序"><a href="#11-推荐执行顺序" class="headerlink" title="11. 推荐执行顺序"></a>11. 推荐执行顺序</h2><h3 id="NVIDIA-显卡用户"><a href="#NVIDIA-显卡用户" class="headerlink" title="NVIDIA 显卡用户"></a>NVIDIA 显卡用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Anaconda3</span><br><span class="line">2. 安装 PyCharm</span><br><span class="line">3. 检查 nvidia-smi</span><br><span class="line">4. 安装 CUDA 11.8</span><br><span class="line">5. 安装匹配的 cuDNN</span><br><span class="line">6. 创建 conda 环境 yolo26 / Python 3.10</span><br><span class="line">7. 安装 GPU 版 PyTorch</span><br><span class="line">8. 安装 ultralytics</span><br><span class="line">9. 下载 ultralytics 源码和 yolo26n.pt 权重</span><br><span class="line">10. PyCharm 导入 yolo26 环境</span><br><span class="line">11. 使用 cat.jpg 验证推理</span><br></pre></td></tr></table></figure>
+
+<h3 id="无-NVIDIA-显卡用户"><a href="#无-NVIDIA-显卡用户" class="headerlink" title="无 NVIDIA 显卡用户"></a>无 NVIDIA 显卡用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Anaconda3</span><br><span class="line">2. 安装 PyCharm</span><br><span class="line">3. 创建 conda 环境 yolo26 / Python 3.10</span><br><span class="line">4. 安装 CPU 版 PyTorch</span><br><span class="line">5. 安装 ultralytics</span><br><span class="line">6. 下载 ultralytics 源码和 yolo26n.pt 权重</span><br><span class="line">7. PyCharm 导入 yolo26 环境</span><br><span class="line">8. 使用 cat.jpg 验证推理</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="12-一键命令汇总"><a href="#12-一键命令汇总" class="headerlink" title="12. 一键命令汇总"></a>12. 一键命令汇总</h2><h3 id="GPU-版核心命令"><a href="#GPU-版核心命令" class="headerlink" title="GPU 版核心命令"></a>GPU 版核心命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolo26 python=3.10</span><br><span class="line">conda activate yolo26</span><br><span class="line">pip install torch==2.0.0+cu118 torchvision==0.15.1+cu118 --extra-index-url https://download.pytorch.org/whl/cu118</span><br><span class="line">pip install ultralytics -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h3 id="CPU-版核心命令"><a href="#CPU-版核心命令" class="headerlink" title="CPU 版核心命令"></a>CPU 版核心命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -n yolo26 python=3.10</span><br><span class="line">conda activate yolo26</span><br><span class="line">pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cpu</span><br><span class="line">pip install ultralytics -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h3 id="推理验证命令"><a href="#推理验证命令" class="headerlink" title="推理验证命令"></a>推理验证命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d D:\ultralytics-8.4.0</span><br><span class="line">conda activate yolo26</span><br><span class="line">yolo predict model=yolo26n.pt <span class="built_in">source</span>=<span class="string">'cat.jpg'</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="13-备注"><a href="#13-备注" class="headerlink" title="13. 备注"></a>13. 备注</h2><ul>
+<li>本文是基于原网页内容整理的 Markdown 使用文档。</li>
+<li>原网页包含大量截图，实际安装时建议结合原文截图查看按钮位置。</li>
+<li>环境安装类教程容易受软件版本变化影响，如果安装失败，优先检查：Python 版本、CUDA 版本、PyTorch 版本、项目路径、文件名是否一致。</li>
+</ul>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2025-12-17_ubuntu_clash/" data-toggle="tooltip" data-placement="left"
+                     title="ubuntu设置clash代理">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2025-02-22_label_studio/" data-toggle="tooltip" data-placement="top"
+                     title="label-studio 在线标注操作">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-适用场景"><span class="toc-number">2.</span> <span class="toc-text">1. 适用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装前检查"><span class="toc-number">3.</span> <span class="toc-text">2. 安装前检查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-检查是否有-NVIDIA-独立显卡"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 检查是否有 NVIDIA 独立显卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-判断安装-GPU-版还是-CPU-版"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 判断安装 GPU 版还是 CPU 版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-必装软件"><span class="toc-number">4.</span> <span class="toc-text">3. 必装软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Anaconda3-安装建议"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 Anaconda3 安装建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-PyCharm-安装建议"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 PyCharm 安装建议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Conda-环境配置"><span class="toc-number">5.</span> <span class="toc-text">4. Conda 环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-打开-Anaconda-Prompt"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 打开 Anaconda Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-更换-Conda-和-Pip-下载源"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 更换 Conda 和 Pip 下载源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-创建-YOLO26-虚拟环境"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 创建 YOLO26 虚拟环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-GPU-版本安装流程"><span class="toc-number">6.</span> <span class="toc-text">5. GPU 版本安装流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-检查-CUDA-支持版本"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 检查 CUDA 支持版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-安装-CUDA"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 安装 CUDA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-安装-cuDNN"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 安装 cuDNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-安装-GPU-版-PyTorch"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 安装 GPU 版 PyTorch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-安装-Ultralytics"><span class="toc-number">6.5.</span> <span class="toc-text">5.5 安装 Ultralytics</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CPU-版本安装流程"><span class="toc-number">7.</span> <span class="toc-text">6. CPU 版本安装流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-下载-YOLO26-Ultralytics-源码与权重"><span class="toc-number">8.</span> <span class="toc-text">7. 下载 YOLO26 / Ultralytics 源码与权重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-PyCharm-导入虚拟环境"><span class="toc-number">9.</span> <span class="toc-text">8. PyCharm 导入虚拟环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-打开项目"><span class="toc-number">9.1.</span> <span class="toc-text">8.1 打开项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-设置-Python-解释器"><span class="toc-number">9.2.</span> <span class="toc-text">8.2 设置 Python 解释器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-验证环境是否成功"><span class="toc-number">10.</span> <span class="toc-text">9. 验证环境是否成功</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-准备测试图片"><span class="toc-number">10.1.</span> <span class="toc-text">9.1 准备测试图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-命令行验证"><span class="toc-number">10.2.</span> <span class="toc-text">9.2 命令行验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-PyCharm-代码验证"><span class="toc-number">10.3.</span> <span class="toc-text">9.3 PyCharm 代码验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-常见报错处理"><span class="toc-number">11.</span> <span class="toc-text">10. 常见报错处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-Conda-源-404-报错"><span class="toc-number">11.1.</span> <span class="toc-text">10.1 Conda 源 404 报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-PyTorch-找不到对应版本"><span class="toc-number">11.2.</span> <span class="toc-text">10.2 PyTorch 找不到对应版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-权重或图片路径不存在"><span class="toc-number">11.3.</span> <span class="toc-text">10.3 权重或图片路径不存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-Pillow-报错"><span class="toc-number">11.4.</span> <span class="toc-text">10.4 Pillow 报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-NumPy-版本报错"><span class="toc-number">11.5.</span> <span class="toc-text">10.5 NumPy 版本报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-推荐执行顺序"><span class="toc-number">12.</span> <span class="toc-text">11. 推荐执行顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NVIDIA-显卡用户"><span class="toc-number">12.1.</span> <span class="toc-text">NVIDIA 显卡用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无-NVIDIA-显卡用户"><span class="toc-number">12.2.</span> <span class="toc-text">无 NVIDIA 显卡用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-一键命令汇总"><span class="toc-number">13.</span> <span class="toc-text">12. 一键命令汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU-版核心命令"><span class="toc-number">13.1.</span> <span class="toc-text">GPU 版核心命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-版核心命令"><span class="toc-number">13.2.</span> <span class="toc-text">CPU 版核心命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推理验证命令"><span class="toc-number">13.3.</span> <span class="toc-text">推理验证命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-备注"><span class="toc-number">14.</span> <span class="toc-text">13. 备注</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2026
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                192.9k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>

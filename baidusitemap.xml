@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2026-09-26_%E6%9C%AC%E5%9C%B0AI%E5%B7%A5%E4%BD%9C%E7%AB%99%E9%83%A8%E7%BD%B2%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2029-12-12-UbuntuCommand/</loc>
+    <lastmod>2026-06-05</lastmod>
+  </url>
+  <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2026-05-18_deploy_qwen35_vllm/</loc>
+    <lastmod>2026-06-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2026-05-22_yolo26/</loc>
+    <lastmod>2026-05-22</lastmod>
+  </url>
+  <url>
+    <loc>https://taoshengxu.github.io/hexo/hexo/2026-05-18_Hermes/</loc>
     <lastmod>2026-05-18</lastmod>
   </url>
   <url>
@@ -19,10 +35,6 @@
   <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2017-09-07-GitCommand/</loc>
     <lastmod>2025-12-17</lastmod>
-  </url>
-  <url>
-    <loc>https://taoshengxu.github.io/hexo/hexo/2029-12-12-UbuntuCommand/</loc>
-    <lastmod>2025-08-05</lastmod>
   </url>
   <url>
     <loc>https://taoshengxu.github.io/hexo/hexo/2025-02-22_label_studio/</loc>

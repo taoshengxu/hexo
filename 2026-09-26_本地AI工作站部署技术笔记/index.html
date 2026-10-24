@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content>
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2026-09-26_本地AI工作站部署技术笔记/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        本地 AI 工作站部署笔记：Tailscale、SGLang、Qwen3.8、ChatGPT Desktop、Open WebUI、Qwen-Image 2.1 与 Hugging Face｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>本地 AI 工作站部署笔记：Tailscale、SGLang、Qwen3.8、ChatGPT Desktop、Open WebUI、Qwen-Image 2.1 与 Hugging Face</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: Sep 26, 2026</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#深度学习"
+                                 title="深度学习">深度学习</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#本地大模型"
+                                 title="本地大模型">本地大模型</a>
+                              
+                              <a class="tag" href="/hexo/tags/#SGLang"
+                                 title="SGLang">SGLang</a>
+                              
+                              <a class="tag" href="/hexo/tags/#Qwen"
+                                 title="Qwen">Qwen</a>
+                              
+                              <a class="tag" href="/hexo/tags/#Open WebUI"
+                                 title="Open WebUI">Open WebUI</a>
+                              
+                              <a class="tag" href="/hexo/tags/#ComfyUI"
+                                 title="ComfyUI">ComfyUI</a>
+                              
+                              <a class="tag" href="/hexo/tags/#Tailscale"
+                                 title="Tailscale">Tailscale</a>
+                              
+                              <a class="tag" href="/hexo/tags/#Hugging Face"
+                                 title="Hugging Face">Hugging Face</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">5.4k words in total, 26 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<p>整理依据：近期 Ubuntu + RTX PRO 6000 本地 AI 工作站部署记录。<br>当前主要环境：Ubuntu、NVIDIA RTX PRO 6000 Blackwell Workstation Edition 96GB、Tailscale、SGLang、Qwen3.8-27B-NVFP4-NVIDIA、ChatGPT Desktop / Codex、Open WebUI、ComfyUI。<br>本机 Tailscale 地址示例：<code>100.121.188.86</code>。<br>安全原则：模型推理端口不直接暴露公网，优先绑定 Tailscale 地址，并用 UFW 再限制公网网卡。<br>软件版本和命令会持续变化，安装失败时优先核对：Python、CUDA/PyTorch、SGLang、ComfyUI、自定义节点及模型仓库说明。</p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#1-%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF">1. 整体架构与适用场景</a></li>
+<li><a href="#2-tailscale-%E5%AE%89%E8%A3%85%E9%87%8D%E5%90%AF%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8E%92%E6%9F%A5">2. Tailscale 安装、重启与网络排查</a></li>
+<li><a href="#3-hugging-face-%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD">3. Hugging Face 模型下载</a></li>
+<li><a href="#4-sglang-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE">4. SGLang 安装与基础配置</a></li>
+<li><a href="#5-qwen38-27b-nvfp4-nvidia-%E9%83%A8%E7%BD%B2">5. Qwen3.8-27B-NVFP4-NVIDIA 部署</a></li>
+<li><a href="#6-qwen38--chatgpt-desktop--codex">6. Qwen3.8 + ChatGPT Desktop / Codex</a></li>
+<li><a href="#7-open-webui-%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%9E%E6%8E%A5-sglang">7. Open WebUI 安装与连接 SGLang</a></li>
+<li><a href="#8-qwen-image-21--comfyui">8. Qwen-Image 2.1 + ComfyUI</a></li>
+<li><a href="#9-qwen31--qwen3-%E7%B3%BB%E5%88%97%E8%AF%B4%E6%98%8E">9. QWEN3.1 / Qwen3 系列说明</a></li>
+<li><a href="#10-%E5%B8%B8%E8%A7%81%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86">10. 常见报错处理</a></li>
+<li><a href="#11-%E6%8E%A8%E8%8D%90%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F">11. 推荐执行顺序</a></li>
+<li><a href="#12-%E4%B8%80%E9%94%AE%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB">12. 一键命令汇总</a></li>
+<li><a href="#13-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">13. 参考资料</a></li>
+<li><a href="#14-%E5%A4%87%E6%B3%A8">14. 备注</a></li>
+</ul>
+<hr>
+<h2 id="1-整体架构与适用场景"><a href="#1-整体架构与适用场景" class="headerlink" title="1. 整体架构与适用场景"></a>1. 整体架构与适用场景</h2><h3 id="1-1-当前推荐架构"><a href="#1-1-当前推荐架构" class="headerlink" title="1.1 当前推荐架构"></a>1.1 当前推荐架构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Windows 11</span><br><span class="line">│</span><br><span class="line">├── ChatGPT Desktop / Codex</span><br><span class="line">│       │</span><br><span class="line">│       │  Tailscale</span><br><span class="line">│       ▼</span><br><span class="line">│   100.121.188.86:8000</span><br><span class="line">│       │</span><br><span class="line">│     SGLang</span><br><span class="line">│       │</span><br><span class="line">│       ▼</span><br><span class="line">│ Qwen3.8-27B-NVFP4-NVIDIA</span><br><span class="line">│</span><br><span class="line">└── 浏览器</span><br><span class="line">        │</span><br><span class="line">        │  Tailscale</span><br><span class="line">        ▼</span><br><span class="line">   100.121.188.86:3000</span><br><span class="line">        │</span><br><span class="line">    Open WebUI</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">      SGLang</span><br><span class="line"></span><br><span class="line">Ubuntu GPU Server</span><br><span class="line">│</span><br><span class="line">├── SGLang                → 文本 / 多模态模型推理</span><br><span class="line">├── Open WebUI            → ChatGPT 风格网页前端、知识库、RAG</span><br><span class="line">├── ComfyUI               → Qwen-Image 2.1 图像生成</span><br><span class="line">├── Hugging Face CLI      → 模型下载</span><br><span class="line">└── Tailscale             → 私有网络访问</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-各组件职责"><a href="#1-2-各组件职责" class="headerlink" title="1.2 各组件职责"></a>1.2 各组件职责</h3><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tailscale</td>
+<td>Windows 与 Ubuntu 服务器之间建立私有网络</td>
+</tr>
+<tr>
+<td>SGLang</td>
+<td>提供 OpenAI-compatible 大模型 API</td>
+</tr>
+<tr>
+<td>Qwen3.8-27B</td>
+<td>聊天、代码、图片理解、Agent、长上下文</td>
+</tr>
+<tr>
+<td>ChatGPT Desktop / Codex</td>
+<td>通过自定义 provider 调用本地 Qwen</td>
+</tr>
+<tr>
+<td>Open WebUI</td>
+<td>网页聊天、Knowledge、RAG、Provider 管理</td>
+</tr>
+<tr>
+<td>ComfyUI</td>
+<td>图像生成节点工作流</td>
+</tr>
+<tr>
+<td>Qwen-Image 2.1</td>
+<td>文生图 / 图像编辑</td>
+</tr>
+<tr>
+<td>Hugging Face CLI</td>
+<td>大模型、编码器、VAE、GGUF 等文件下载</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-当前硬件环境"><a href="#1-3-当前硬件环境" class="headerlink" title="1.3 当前硬件环境"></a>1.3 当前硬件环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GPU:</span><br><span class="line">NVIDIA RTX PRO 6000 Blackwell Workstation Edition</span><br><span class="line"></span><br><span class="line">VRAM:</span><br><span class="line">约 96 GB</span><br><span class="line"></span><br><span class="line">Driver:</span><br><span class="line">595.58.03</span><br><span class="line"></span><br><span class="line">CUDA Driver API:</span><br><span class="line">13.2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-Tailscale-安装、重启与网络排查"><a href="#2-Tailscale-安装、重启与网络排查" class="headerlink" title="2. Tailscale 安装、重启与网络排查"></a>2. Tailscale 安装、重启与网络排查</h2><h3 id="2-1-Ubuntu-安装-Tailscale"><a href="#2-1-Ubuntu-安装-Tailscale" class="headerlink" title="2.1 Ubuntu 安装 Tailscale"></a>2.1 Ubuntu 安装 Tailscale</h3><p>官方 Linux 安装方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://tailscale.com/install.sh | sh</span><br></pre></td></tr></table></figure>
+
+<p>加入 Tailnet：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tailscale up</span><br></pre></td></tr></table></figure>
+
+<p>查看状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale status</span><br></pre></td></tr></table></figure>
+
+<p>查看本机 Tailscale IPv4：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale ip -4</span><br></pre></td></tr></table></figure>
+
+<p>当前服务器示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">100.121.188.86</span><br><span class="line"></span><br><span class="line">把大模型服务通过tailscale映射到 外网上</span><br><span class="line">tailscale serve --tcp=8001 tcp://127.0.0.1:8001</span><br><span class="line"></span><br><span class="line">tailscale serve --tcp=8001 off  停止这种映射</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-2-重启-Tailscale"><a href="#2-2-重启-Tailscale" class="headerlink" title="2.2 重启 Tailscale"></a>2.2 重启 Tailscale</h3><p>重启服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart tailscaled</span><br></pre></td></tr></table></figure>
+
+<p>检查状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status tailscaled --no-pager -l</span><br></pre></td></tr></table></figure>
+
+<p>检查节点连接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale status</span><br></pre></td></tr></table></figure>
+
+<p>必要时重新上线：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo tailscale down</span><br><span class="line">sudo tailscale up</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-3-Tailscale-自带-ping"><a href="#2-3-Tailscale-自带-ping" class="headerlink" title="2.3 Tailscale 自带 ping"></a>2.3 Tailscale 自带 ping</h3><p>普通连通性测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale ping &lt;对端Tailscale-IP&gt;</span><br></pre></td></tr></table></figure>
+
+<p>TSMP：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale ping --tsmp &lt;对端Tailscale-IP&gt;</span><br></pre></td></tr></table></figure>
+
+<p>ICMP：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale ping --icmp &lt;对端Tailscale-IP&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tailscale ping          成功</span><br><span class="line">tailscale ping --tsmp   成功</span><br><span class="line">tailscale ping --icmp   成功</span><br><span class="line">普通 Windows ping       失败</span><br></pre></td></tr></table></figure>
+
+<p>一般说明 Tailscale 本身已经工作正常。</p>
+<p>不要只靠普通 <code>ping</code> 判断模型服务是否可达。</p>
+<p>Windows 更实用的测试：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">100.121</span>.<span class="number">188.86</span> <span class="literal">-Port</span> <span class="number">22</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">100.121</span>.<span class="number">188.86</span> <span class="literal">-Port</span> <span class="number">8000</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">100.121</span>.<span class="number">188.86</span> <span class="literal">-Port</span> <span class="number">3000</span></span><br><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">100.121</span>.<span class="number">188.86</span> <span class="literal">-Port</span> <span class="number">8188</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-4-Ubuntu-检查-ICMP"><a href="#2-4-Ubuntu-检查-ICMP" class="headerlink" title="2.4 Ubuntu 检查 ICMP"></a>2.4 Ubuntu 检查 ICMP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.icmp_echo_ignore_all</span><br></pre></td></tr></table></figure>
+
+<p>正常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.icmp_echo_ignore_all = 0</span><br></pre></td></tr></table></figure>
+
+<p>抓包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -ni tailscale0 icmp</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-5-查看监听端口"><a href="#2-5-查看监听端口" class="headerlink" title="2.5 查看监听端口"></a>2.5 查看监听端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -lntp</span><br></pre></td></tr></table></figure>
+
+<p>只检查 AI 相关端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -lntp | grep -E <span class="string">':8000|:3000|:8188'</span></span><br></pre></td></tr></table></figure>
+
+<p>理想情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">100.121.188.86:8000</span><br><span class="line">100.121.188.86:3000</span><br><span class="line">100.121.188.86:8188</span><br></pre></td></tr></table></figure>
+
+<p>尽量避免：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0.0.0.0:8000</span><br><span class="line">0.0.0.0:8188</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-Hugging-Face-模型下载"><a href="#3-Hugging-Face-模型下载" class="headerlink" title="3. Hugging Face 模型下载"></a>3. Hugging Face 模型下载</h2><h3 id="3-1-推荐建立独立下载环境"><a href="#3-1-推荐建立独立下载环境" class="headerlink" title="3.1 推荐建立独立下载环境"></a>3.1 推荐建立独立下载环境</h3><p>为了避免：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Anaconda base</span><br><span class="line">~/.local</span><br><span class="line">SGLang</span><br><span class="line">ComfyUI</span><br></pre></td></tr></table></figure>
+
+<p>之间的包互相污染，建议单独创建下载环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n huggingfacedownload python=3.12 -y</span><br><span class="line">conda activate huggingfacedownload</span><br></pre></td></tr></table></figure>
+
+<p>升级 pip：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
+
+<p>安装 Hugging Face CLI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -U huggingface_hub</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> python</span><br><span class="line"><span class="built_in">which</span> hf</span><br><span class="line">hf --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-8-hfd-sh-aria2"><a href="#3-8-hfd-sh-aria2" class="headerlink" title="3.8 hfd.sh + aria2"></a>3.8 hfd.sh + aria2</h3><p>没有执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x hfd.sh</span><br></pre></td></tr></table></figure>
+
+<p>设置中国镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export HF_ENDPOINT=https://hf-mirror.com</span><br><span class="line">## 下载模型</span><br><span class="line">./hfd.sh xxx  --local-dir xxx</span><br></pre></td></tr></table></figure>
+
+<p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y aria2</span><br><span class="line">aria2c --version</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-SGLang-安装与基础配置"><a href="#4-SGLang-安装与基础配置" class="headerlink" title="4. SGLang 安装与基础配置"></a>4. SGLang 安装与基础配置</h2><h3 id="4-1-推荐独立-Conda-环境"><a href="#4-1-推荐独立-Conda-环境" class="headerlink" title="4.1 推荐独立 Conda 环境"></a>4.1 推荐独立 Conda 环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate sglang</span><br></pre></td></tr></table></figure>
+
+<p>SGLang 当前官方安装文档要求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python &gt;= 3.10</span><br></pre></td></tr></table></figure>
+
+<p>推荐使用 <code>uv</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install uv</span><br><span class="line">uv pip install --prerelease=allow sglang</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">"import sglang; print(sglang.__version__)"</span></span><br></pre></td></tr></table></figure>
+
+<p>当前本机实测版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.5.20</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-3-避免-local-串包"><a href="#4-3-避免-local-串包" class="headerlink" title="4.3 避免 ~/.local 串包"></a>4.3 避免 ~/.local 串包</h3><p>建议运行服务前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONNOUSERSITE=1</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python - &lt;&lt;<span class="string">'PY'</span></span><br><span class="line">import sys</span><br><span class="line">import sglang</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sys.executable)</span><br><span class="line"><span class="built_in">print</span>(sglang.__version__)</span><br><span class="line"><span class="built_in">print</span>(sglang.__file__)</span><br><span class="line">PY</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-4-最小启动示例"><a href="#4-4-最小启动示例" class="headerlink" title="4.4 最小启动示例"></a>4.4 最小启动示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sglang serve \</span><br><span class="line">  --model-path /path/to/model \</span><br><span class="line">  --served-model-name my-model \</span><br><span class="line">  --host 127.0.0.1 \</span><br><span class="line">  --port 8000</span><br></pre></td></tr></table></figure>
+
+<p>SGLang 支持 OpenAI-compatible API。</p>
+<p>常用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET  /v1/models</span><br><span class="line">POST /v1/chat/completions</span><br><span class="line">POST /v1/responses</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-5-API-Key"><a href="#4-5-API-Key" class="headerlink" title="4.5 API Key"></a>4.5 API Key</h3><p>生成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -hex 32</span><br></pre></td></tr></table></figure>
+
+<p>启动时：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--api-key <span class="string">"&lt;YOUR_API_KEY&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<p>当前 LLM server 还支持独立：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--admin-api-key <span class="string">"&lt;YOUR_ADMIN_API_KEY&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<p>建议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">普通 API Key</span><br><span class="line">≠</span><br><span class="line">Admin API Key</span><br></pre></td></tr></table></figure>
+
+<p>管理密钥不要给 ChatGPT Desktop、Open WebUI 等普通客户端使用。</p>
+<hr>
+<h3 id="4-6-只绑定-Tailscale"><a href="#4-6-只绑定-Tailscale" class="headerlink" title="4.6 只绑定 Tailscale"></a>4.6 只绑定 Tailscale</h3><p>不推荐：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--host 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<p>当前服务器推荐：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--host 100.121.188.86</span><br></pre></td></tr></table></figure>
+
+<p>这样 SGLang 直接只监听 Tailscale 地址。</p>
+<hr>
+<h3 id="4-7-UFW-再限制一层"><a href="#4-7-UFW-再限制一层" class="headerlink" title="4.7 UFW 再限制一层"></a>4.7 UFW 再限制一层</h3><p>先查看公网接口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route get 1.1.1.1</span><br></pre></td></tr></table></figure>
+
+<p>假设公网接口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enp5s0</span><br></pre></td></tr></table></figure>
+
+<p>禁止公网访问 SGLang：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw deny <span class="keyword">in</span> on enp5s0 to any port 8000 proto tcp</span><br></pre></td></tr></table></figure>
+
+<p>允许 Tailscale：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow <span class="keyword">in</span> on tailscale0 to any port 8000 proto tcp</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status numbered</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-Qwen3-8-27B-NVFP4-NVIDIA-部署"><a href="#5-Qwen3-8-27B-NVFP4-NVIDIA-部署" class="headerlink" title="5. Qwen3.8-27B-NVFP4-NVIDIA 部署"></a>5. Qwen3.8-27B-NVFP4-NVIDIA 部署</h2><h3 id="5-1-当前模型路径"><a href="#5-1-当前模型路径" class="headerlink" title="5.1 当前模型路径"></a>5.1 当前模型路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data_SSD/vLLM/models/Qwen/Qwen3.8-27B-NVFP4-NVIDIA</span><br></pre></td></tr></table></figure>
+
+<p>服务名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qwen3.8-27B-NVFP4-NVIDIA</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-2-当前推荐启动命令"><a href="#5-2-当前推荐启动命令" class="headerlink" title="5.2 当前推荐启动命令"></a>5.2 当前推荐启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">conda activate /data/condashare/sglang</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PYTHONNOUSERSITE=1</span><br><span class="line"></span><br><span class="line">sglang serve \</span><br><span class="line">  --trust-remote-code \</span><br><span class="line">  --model-path /data_SSD/vLLM/models/Qwen/Qwen3.8-27B-NVFP4-NVIDIA \</span><br><span class="line">  --served-model-name Qwen3.8-27B-NVFP4-NVIDIA \</span><br><span class="line">  --host 100.121.188.86 \</span><br><span class="line">  --port 8000 \</span><br><span class="line">  --context-length 262144 \</span><br><span class="line">  --mem-fraction-static 0.75 \</span><br><span class="line">  --kv-cache-dtype fp8_e4m3 \</span><br><span class="line">  --attention-backend flashinfer \</span><br><span class="line">  --chunked-prefill-size 2048 \</span><br><span class="line">  --cuda-graph-max-bs 4 \</span><br><span class="line">  --reasoning-parser qwen3 \</span><br><span class="line">  --tool-call-parser qwen3_coder \</span><br><span class="line">  --mamba-ssm-dtype float32 \</span><br><span class="line">  --mamba-radix-cache-strategy extra_buffer_lazy \</span><br><span class="line">  --mamba-full-memory-ratio 4.0 \</span><br><span class="line">  --api-key <span class="string">"&lt;YOUR_API_KEY&gt;"</span> \</span><br><span class="line">  --admin-api-key <span class="string">"&lt;YOUR_ADMIN_API_KEY&gt;"</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">目前在用版本</span><br><span class="line"><span class="built_in">export</span> PYTHONNOUSERSITE=1</span><br><span class="line"><span class="built_in">export</span> TORCHINDUCTOR_COMPILE_THREADS=1</span><br><span class="line">sglang serve \</span><br><span class="line">    --trust-remote-code \</span><br><span class="line">    --model-path /data_SSD/vLLM/models/Qwen/Qwen3.8-27B-NVFP4-NVIDIA \</span><br><span class="line">    --served-model-name Qwen3.8-27B-NVFP4-NVIDIA \</span><br><span class="line">    --host 127.0.0.1 \</span><br><span class="line">    --port 8000 \</span><br><span class="line">    --context-length 262144 \</span><br><span class="line">    --mem-fraction-static 0.7 \</span><br><span class="line">    --kv-cache-dtype fp8_e4m3 \</span><br><span class="line">    --attention-backend flashinfer \</span><br><span class="line">    --chunked-prefill-size 2048 \</span><br><span class="line">    --reasoning-parser qwen3 \</span><br><span class="line">    --tool-call-parser qwen3_coder \</span><br><span class="line">    --mamba-ssm-dtype float32 \</span><br><span class="line">    --mamba-radix-cache-strategy extra_buffer_lazy \</span><br><span class="line">    --mamba-full-memory-ratio 4.0 \</span><br><span class="line">    --speculative-algorithm EAGLE \</span><br><span class="line">    --speculative-num-steps 3 \</span><br><span class="line">    --speculative-eagle-topk 1 \</span><br><span class="line">    --speculative-num-draft-tokens 4 \</span><br><span class="line">    --allow-auto-truncate</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-3-关于-–allow-auto-truncate"><a href="#5-3-关于-–allow-auto-truncate" class="headerlink" title="5.3 关于 –allow-auto-truncate"></a>5.3 关于 –allow-auto-truncate</h3><p>SGLang 支持：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--allow-auto-truncate   输入长度超过允许范围时，自动截断，而不是直接报错。但它不是解决所有 context overflow 的万能开关。</span><br></pre></td></tr></table></figure>
+
+<p>如果客户端错误地把：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">max_output_tokens</span><br></pre></td></tr></table></figure>
+
+<p>算得非常大，仍应该优先在客户端控制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">context window</span><br><span class="line">auto compact</span><br><span class="line">最大输出预算</span><br></pre></td></tr></table></figure>
+
+<p>而不是只依赖自动截断。</p>
+<p>如确有需要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--allow-auto-truncate</span><br></pre></td></tr></table></figure>
+
+<p>建议同时保留足够输出 token 空间。</p>
+<hr>
+<h3 id="5-4-显存占用"><a href="#5-4-显存占用" class="headerlink" title="5.4 显存占用"></a>5.4 显存占用</h3><p>之前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--mem-fraction-static 0.88</span><br></pre></td></tr></table></figure>
+
+<p>RTX PRO 6000 96GB 启动后可能长期占用约：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">87 GB</span><br></pre></td></tr></table></figure>
+
+<p>这是 SGLang 静态显存池预留导致的，并不等于真正“正在计算使用”87GB。</p>
+<p>建议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0.82  → 较高并发 / 大 KV</span><br><span class="line">0.75  → 当前推荐</span><br><span class="line">0.70  → 单用户、给其它程序留显存</span><br><span class="line">0.65  → 需要和 ComfyUI / 图像模型共存</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--mem-fraction-static 0.70</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-5-CUDA-Graph"><a href="#5-5-CUDA-Graph" class="headerlink" title="5.5 CUDA Graph"></a>5.5 CUDA Graph</h3><p>减少静态显存：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--cuda-graph-max-bs 4</span><br></pre></td></tr></table></figure>
+
+<p>单用户场景一般不需要捕获很大的 batch。</p>
+<hr>
+<h3 id="5-6-KV-Cache"><a href="#5-6-KV-Cache" class="headerlink" title="5.6 KV Cache"></a>5.6 KV Cache</h3><p>当前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--kv-cache-dtype fp8_e4m3</span><br></pre></td></tr></table></figure>
+
+<p>作用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">降低 KV Cache 显存占用</span><br></pre></td></tr></table></figure>
+
+<p>对于长上下文模型非常重要。</p>
+<hr>
+<h3 id="5-7-多模态优先稳定"><a href="#5-7-多模态优先稳定" class="headerlink" title="5.7 多模态优先稳定"></a>5.7 多模态优先稳定</h3><p>需要稳定图片输入时，建议先不要叠加 speculative decoding / EAGLE。</p>
+<p>优先保证：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Text</span><br><span class="line">Image</span><br><span class="line">Responses API</span><br><span class="line">Tool Calling</span><br></pre></td></tr></table></figure>
+
+<p>全部正常。</p>
+<hr>
+<h3 id="5-8-API-测试"><a href="#5-8-API-测试" class="headerlink" title="5.8 API 测试"></a>5.8 API 测试</h3><p>模型列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl http://100.121.188.86:8000/v1/models \</span><br><span class="line">  -H <span class="string">"Authorization: Bearer &lt;YOUR_API_KEY&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<p>Chat Completions：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">curl http://100.121.188.86:8000/v1/chat/completions \</span><br><span class="line">  -H <span class="string">"Authorization: Bearer &lt;YOUR_API_KEY&gt;"</span> \</span><br><span class="line">  -H <span class="string">"Content-Type: application/json"</span> \</span><br><span class="line">  -d <span class="string">'&#123;</span></span><br><span class="line"><span class="string">    "model": "Qwen3.8-27B-NVFP4-NVIDIA",</span></span><br><span class="line"><span class="string">    "messages": [</span></span><br><span class="line"><span class="string">      &#123;</span></span><br><span class="line"><span class="string">        "role": "user",</span></span><br><span class="line"><span class="string">        "content": "你好，请介绍一下你自己。"</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    ],</span></span><br><span class="line"><span class="string">    "max_tokens": 256</span></span><br><span class="line"><span class="string">  &#125;'</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6-Qwen3-8-ChatGPT-Desktop-Codex"><a href="#6-Qwen3-8-ChatGPT-Desktop-Codex" class="headerlink" title="6. Qwen3.8 + ChatGPT Desktop / Codex"></a>6. Qwen3.8 + ChatGPT Desktop / Codex</h2><h3 id="6-1-调用架构"><a href="#6-1-调用架构" class="headerlink" title="6.1 调用架构"></a>6.1 调用架构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ChatGPT Desktop / Codex</span><br><span class="line">        │</span><br><span class="line">        │ Responses API</span><br><span class="line">        ▼</span><br><span class="line">http://100.121.188.86:8000/v1</span><br><span class="line">        │</span><br><span class="line">      SGLang</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">Qwen3.8-27B-NVFP4-NVIDIA</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-2-Codex-配置目录"><a href="#6-2-Codex-配置目录" class="headerlink" title="6.2 Codex 配置目录"></a>6.2 Codex 配置目录</h3><p>Windows 用户级配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\xtsvm\.codex\config.toml</span><br></pre></td></tr></table></figure>
+
+<p>官方 Codex 当前支持：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model</span><br><span class="line">model_provider</span><br><span class="line">model_context_window</span><br><span class="line">model_auto_compact_token_limit</span><br><span class="line">model_catalog_json</span><br><span class="line">model_providers.&lt;id&gt;.base_url</span><br><span class="line">model_providers.&lt;id&gt;.env_key</span><br><span class="line">model_providers.&lt;id&gt;.wire_api</span><br><span class="line">request_max_retries</span><br><span class="line">stream_max_retries</span><br><span class="line">stream_idle_timeout_ms</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-3-推荐-config-toml"><a href="#6-3-推荐-config-toml" class="headerlink" title="6.3 推荐 config.toml"></a>6.3 推荐 config.toml</h3><figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#:schema https://developers.openai.com/codex/config-schema.json</span></span><br><span class="line"></span><br><span class="line"><span class="attr">model</span> = <span class="string">"Qwen3.8-27B-NVFP4-NVIDIA"</span></span><br><span class="line"><span class="attr">model_provider</span> = <span class="string">"qwen38_sglang"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给服务端 262144 硬上限留一定余量</span></span><br><span class="line"><span class="attr">model_context_window</span> = <span class="number">240000</span></span><br><span class="line"><span class="attr">model_auto_compact_token_limit</span> = <span class="number">200000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 若当前 Codex build 使用自定义模型目录</span></span><br><span class="line"><span class="attr">model_catalog_json</span> = <span class="string">'C:\Users\xtsvm\.codex\qwen38-models.json'</span></span><br><span class="line"></span><br><span class="line"><span class="section">[model_providers.qwen38_sglang]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">"Qwen3.8-27B NVFP4 - SGLang"</span></span><br><span class="line"><span class="attr">base_url</span> = <span class="string">"http://100.121.188.86:8000/v1"</span></span><br><span class="line"><span class="attr">wire_api</span> = <span class="string">"responses"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">env_key</span> = <span class="string">"QWEN_CODEX_API_KEY"</span></span><br><span class="line"><span class="attr">env_key_instructions</span> = <span class="string">"Set QWEN_CODEX_API_KEY to the SGLang API key, then restart Codex / ChatGPT Desktop."</span></span><br><span class="line"></span><br><span class="line"><span class="attr">request_max_retries</span> = <span class="number">4</span></span><br><span class="line"><span class="attr">stream_max_retries</span> = <span class="number">5</span></span><br><span class="line"><span class="attr">stream_idle_timeout_ms</span> = <span class="number">600000</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-4-Windows-设置-API-Key"><a href="#6-4-Windows-设置-API-Key" class="headerlink" title="6.4 Windows 设置 API Key"></a>6.4 Windows 设置 API Key</h3><p>PowerShell：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx QWEN_CODEX_API_KEY <span class="string">"你的SGLang普通APIKey"</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不要使用 Admin API Key</span><br></pre></td></tr></table></figure>
+
+<p>设置后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">完全退出 ChatGPT Desktop / Codex</span><br><span class="line">再重新启动</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-Open-WebUI-安装与连接-SGLang"><a href="#7-Open-WebUI-安装与连接-SGLang" class="headerlink" title="7. Open WebUI 安装与连接 SGLang"></a>7. Open WebUI 安装与连接 SGLang</h2><h3 id="7-1-Open-WebUI-是什么"><a href="#7-1-Open-WebUI-是什么" class="headerlink" title="7.1 Open WebUI 是什么"></a>7.1 Open WebUI 是什么</h3><p>Open WebUI 是本地自托管 AI Web 前端，可连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OpenAI-compatible API</span><br><span class="line">Open Responses</span><br><span class="line">Ollama</span><br><span class="line">其它 Provider</span><br></pre></td></tr></table></figure>
+
+<p>主要用途：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">网页聊天</span><br><span class="line">模型选择</span><br><span class="line">知识库</span><br><span class="line">RAG</span><br><span class="line">文件问答</span><br><span class="line">Web Search</span><br><span class="line">Agent / Tool</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-2-推荐-Docker-安装"><a href="#7-2-推荐-Docker-安装" class="headerlink" title="7.2 推荐 Docker 安装"></a>7.2 推荐 Docker 安装</h3><p>官方目前推荐 Docker 作为最简单方式。</p>
+<p>检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu 未安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y docker.io</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> --now docker</span><br></pre></td></tr></table></figure>
+
+<p>将当前用户加入 docker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<p>重新登录后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-3-创建持久卷"><a href="#7-3-创建持久卷" class="headerlink" title="7.3 创建持久卷"></a>7.3 创建持久卷</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create open-webui</span><br></pre></td></tr></table></figure>
+
+<p>这个 volume 保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">账号</span><br><span class="line">聊天记录</span><br><span class="line">设置</span><br><span class="line">数据库</span><br><span class="line">Knowledge 配置</span><br></pre></td></tr></table></figure>
+
+<p>升级容器时不要删除。</p>
+<hr>
+<h3 id="7-4-生成固定-Secret"><a href="#7-4-生成固定-Secret" class="headerlink" title="7.4 生成固定 Secret"></a>7.4 生成固定 Secret</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -hex 32</span><br></pre></td></tr></table></figure>
+
+<p>建议固定保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WEBUI_SECRET_KEY</span><br></pre></td></tr></table></figure>
+
+<p>如果每次重建容器随机变化，可能导致：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户登录失效</span><br><span class="line">OAuth Token 无法解密</span><br><span class="line">MCP / Tool Secret 无法读取</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-5-只绑定-Tailscale"><a href="#7-5-只绑定-Tailscale" class="headerlink" title="7.5 只绑定 Tailscale"></a>7.5 只绑定 Tailscale</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name open-webui \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -p 100.121.188.86:3000:8080 \</span><br><span class="line">  --add-host=host.docker.internal:host-gateway \</span><br><span class="line">  -v open-webui:/app/backend/data \</span><br><span class="line">  -e WEBUI_SECRET_KEY=<span class="string">"&lt;YOUR_FIXED_SECRET&gt;"</span> \</span><br><span class="line">  ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+
+<p>浏览器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://100.121.188.86:3000</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-6-查看日志"><a href="#7-6-查看日志" class="headerlink" title="7.6 查看日志"></a>7.6 查看日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f open-webui</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-7-连接-SGLang"><a href="#7-7-连接-SGLang" class="headerlink" title="7.7 连接 SGLang"></a>7.7 连接 SGLang</h3><p>进入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Settings</span><br><span class="line">→ Admin</span><br><span class="line">→ Connections</span><br><span class="line">→ Manage OpenAI API Connections</span><br><span class="line">→ Add Connection</span><br></pre></td></tr></table></figure>
+
+<p>URL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://100.121.188.86:8000/v1</span><br></pre></td></tr></table></figure>
+
+<p>API Key：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SGLang 普通 API Key</span><br></pre></td></tr></table></figure>
+
+<p>模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qwen3.8-27B-NVFP4-NVIDIA</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-8-Docker-访问宿主机的注意事项"><a href="#7-8-Docker-访问宿主机的注意事项" class="headerlink" title="7.8 Docker 访问宿主机的注意事项"></a>7.8 Docker 访问宿主机的注意事项</h3><p>如果 Open WebUI 容器无法访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://100.121.188.86:8000/v1</span><br></pre></td></tr></table></figure>
+
+<p>可以根据部署方式尝试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://host.docker.internal:8000/v1</span><br></pre></td></tr></table></figure>
+
+<p>前提是 Docker 启动参数包含：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--add-host=host.docker.internal:host-gateway</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-9-Open-WebUI-适合做什么"><a href="#7-9-Open-WebUI-适合做什么" class="headerlink" title="7.9 Open WebUI 适合做什么"></a>7.9 Open WebUI 适合做什么</h3><p>适合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PDF</span><br><span class="line">Word</span><br><span class="line">技术文档</span><br><span class="line">实验资料</span><br><span class="line">项目申报书</span><br><span class="line">会议文件</span><br><span class="line">知识库</span><br><span class="line">RAG</span><br></pre></td></tr></table></figure>
+
+<p>如果服务器有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">几十万 / 几百万图片和文档</span><br></pre></td></tr></table></figure>
+
+<p>不建议全部通过网页手工上传。</p>
+<p>更适合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">原始文件</span><br><span class="line">   ↓</span><br><span class="line">批量解析</span><br><span class="line">   ↓</span><br><span class="line">SQLite / Qdrant</span><br><span class="line">   ↓</span><br><span class="line">LlamaIndex</span><br><span class="line">   ↓</span><br><span class="line">Open WebUI</span><br><span class="line">   ↓</span><br><span class="line">Qwen3.8</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-10-Open-WebUI-升级"><a href="#7-10-Open-WebUI-升级" class="headerlink" title="7.10 Open WebUI 升级"></a>7.10 Open WebUI 升级</h3><p>保持 volume 和 secret 不变：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f open-webui</span><br><span class="line"></span><br><span class="line">docker pull ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+
+<p>然后用原来的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-v open-webui:/app/backend/data</span><br><span class="line">-e WEBUI_SECRET_KEY=原来的固定值</span><br></pre></td></tr></table></figure>
+
+<p>重新创建。</p>
+<hr>
+<h2 id="8-Qwen-Image-2-1-ComfyUI"><a href="#8-Qwen-Image-2-1-ComfyUI" class="headerlink" title="8. Qwen-Image 2.1 + ComfyUI"></a>8. Qwen-Image 2.1 + ComfyUI</h2><h3 id="8-1-先明确-ComfyUI-与-ComfyUI-GGUF"><a href="#8-1-先明确-ComfyUI-与-ComfyUI-GGUF" class="headerlink" title="8.1 先明确 ComfyUI 与 ComfyUI-GGUF"></a>8.1 先明确 ComfyUI 与 ComfyUI-GGUF</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ComfyUI</span><br><span class="line">→ 主程序</span><br><span class="line">→ 有 main.py</span><br><span class="line"></span><br><span class="line">ComfyUI-GGUF</span><br><span class="line">→ Custom Node 插件</span><br><span class="line">→ 没有 main.py 是正常的</span><br></pre></td></tr></table></figure>
+
+<p>正确目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/data_SSD/ComfyUI/</span><br><span class="line">├── main.py</span><br><span class="line">├── requirements.txt</span><br><span class="line">├── models/</span><br><span class="line">├── user/</span><br><span class="line">└── custom_nodes/</span><br><span class="line">    └── ComfyUI-GGUF/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-2-创建环境"><a href="#8-2-创建环境" class="headerlink" title="8.2 创建环境"></a>8.2 创建环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n comfyui python=3.12 -y</span><br><span class="line">conda activate comfyui</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-3-安装-ComfyUI"><a href="#8-3-安装-ComfyUI" class="headerlink" title="8.3 安装 ComfyUI"></a>8.3 安装 ComfyUI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data_SSD</span><br></pre></td></tr></table></figure>
+
+<p>Git：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git -c http.version=HTTP/1.1 <span class="built_in">clone</span> \</span><br><span class="line">  --depth 1 \</span><br><span class="line">  https://github.com/Comfy-Org/ComfyUI.git</span><br></pre></td></tr></table></figure>
+
+<p>如果遇到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GnuTLS recv error (-110)</span><br><span class="line">The TLS connection was non-properly terminated</span><br></pre></td></tr></table></figure>
+
+<p>可以不用 Git，直接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /data_SSD/ComfyUI</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -L \</span><br><span class="line">  --retry 10 \</span><br><span class="line">  --retry-all-errors \</span><br><span class="line">  --connect-timeout 20 \</span><br><span class="line">  https://codeload.github.com/Comfy-Org/ComfyUI/tar.gz/refs/heads/master \</span><br><span class="line">  -o /tmp/ComfyUI.tar.gz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf /tmp/ComfyUI.tar.gz \</span><br><span class="line">  --strip-components=1 \</span><br><span class="line">  -C /data_SSD/ComfyUI</span><br></pre></td></tr></table></figure>
+
+<p>确认：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lh /data_SSD/ComfyUI/main.py</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-4-安装-ComfyUI-依赖"><a href="#8-4-安装-ComfyUI-依赖" class="headerlink" title="8.4 安装 ComfyUI 依赖"></a>8.4 安装 ComfyUI 依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate comfyui</span><br><span class="line"><span class="built_in">cd</span> /data_SSD/ComfyUI</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install \</span><br><span class="line">  -i https://pypi.org/simple \</span><br><span class="line">  -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>检查：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip check</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-5-workflow-templates-依赖报错"><a href="#8-5-workflow-templates-依赖报错" class="headerlink" title="8.5 workflow-templates 依赖报错"></a>8.5 workflow-templates 依赖报错</h3><p>曾遇到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Could not find a version that satisfies the requirement</span><br><span class="line">comfyui-workflow-templates-media-assets-02==...</span><br></pre></td></tr></table></figure>
+
+<p>如果默认 pip 镜像未同步最新包，直接使用官方 PyPI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install \</span><br><span class="line">  -i https://pypi.org/simple \</span><br><span class="line">  -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>检查包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip index versions \</span><br><span class="line">  comfyui-workflow-templates-media-assets-02 \</span><br><span class="line">  -i https://pypi.org/simple</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-6-安装-ComfyUI-GGUF"><a href="#8-6-安装-ComfyUI-GGUF" class="headerlink" title="8.6 安装 ComfyUI-GGUF"></a>8.6 安装 ComfyUI-GGUF</h3><p>当前建议插件目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data_SSD/ComfyUI/custom_nodes/ComfyUI-GGUF</span><br></pre></td></tr></table></figure>
+
+<p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data_SSD/ComfyUI/custom_nodes</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git -c http.version=HTTP/1.1 <span class="built_in">clone</span> \</span><br><span class="line">  --depth 1 \</span><br><span class="line">  https://github.com/city96/ComfyUI-GGUF.git</span><br></pre></td></tr></table></figure>
+
+<p>如果仓库包含 requirements：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data_SSD/ComfyUI/custom_nodes/ComfyUI-GGUF</span><br><span class="line">python -m pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-7-Qwen-Image-2-1-官方模型结构"><a href="#8-7-Qwen-Image-2-1-官方模型结构" class="headerlink" title="8.7 Qwen-Image 2.1 官方模型结构"></a>8.7 Qwen-Image 2.1 官方模型结构</h3><p>官方 ComfyUI workflow 使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">diffusion_models/</span><br><span class="line">├── qwen_image_2.1_bf16.safetensors</span><br><span class="line">└── qwen_image_2.1_int8_convrot.safetensors</span><br><span class="line"></span><br><span class="line">text_encoders/</span><br><span class="line">├── qwen3vl_8b_bf16.safetensors</span><br><span class="line">└── qwen3vl_8b_int8_convrot.safetensors</span><br><span class="line"></span><br><span class="line">vae/</span><br><span class="line">└── qwen_image_2.1_vae_bf16.safetensors</span><br></pre></td></tr></table></figure>
+
+<p>放置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/data_SSD/ComfyUI/models/diffusion_models/</span><br><span class="line">/data_SSD/ComfyUI/models/text_encoders/</span><br><span class="line">/data_SSD/ComfyUI/models/vae/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-8-GGUF-版本"><a href="#8-8-GGUF-版本" class="headerlink" title="8.8 GGUF 版本"></a>8.8 GGUF 版本</h3><p>当前使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abenzerps/Qwen-Image-2.1-Uncensored-GGUF</span><br></pre></td></tr></table></figure>
+
+<p>如果主 diffusion 权重是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.gguf</span><br></pre></td></tr></table></figure>
+
+<p>必须使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnetLoaderGGUF</span><br></pre></td></tr></table></figure>
+
+<p>而不是官方模板中的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UNETLoader</span><br></pre></td></tr></table></figure>
+
+<p>这是 GGUF 与官方 safetensors workflow 最关键的区别之一。</p>
+<hr>
+<h3 id="8-9-启动-ComfyUI"><a href="#8-9-启动-ComfyUI" class="headerlink" title="8.9 启动 ComfyUI"></a>8.9 启动 ComfyUI</h3><p>只绑定 Tailscale：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda activate comfyui</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /data_SSD/ComfyUI</span><br><span class="line"></span><br><span class="line">python main.py \</span><br><span class="line">  --listen 100.121.188.86 \</span><br><span class="line">  --port 8188</span><br></pre></td></tr></table></figure>
+
+<p>Windows 浏览器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://100.121.188.86:8188</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-10-导入官方-Qwen-Image-2-1-Text-to-Image-workflow"><a href="#8-10-导入官方-Qwen-Image-2-1-Text-to-Image-workflow" class="headerlink" title="8.10 导入官方 Qwen Image 2.1 Text-to-Image workflow"></a>8.10 导入官方 Qwen Image 2.1 Text-to-Image workflow</h3><p>ComfyUI：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Workflow</span><br><span class="line">→ Templates</span><br><span class="line">→ 搜索 Qwen Image 2.1</span><br><span class="line">→ Text to Image</span><br></pre></td></tr></table></figure>
+
+<p>官方 workflow 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image_qwen_image_2_1_t2i.json</span><br></pre></td></tr></table></figure>
+
+<p>当前官方模板默认参数大致为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CFG       1</span><br><span class="line">Steps     25</span><br><span class="line">Width     1024</span><br><span class="line">Height    1024</span><br><span class="line">Sampler   euler</span><br><span class="line">Scheduler simple</span><br></pre></td></tr></table></figure>
+
+<p>官方模板默认主模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qwen_image_2.1_int8_convrot.safetensors</span><br></pre></td></tr></table></figure>
+
+<p>Text Encoder：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qwen3vl_8b_int8_convrot.safetensors</span><br></pre></td></tr></table></figure>
+
+<p>VAE：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qwen_image_2.1_vae_bf16.safetensors</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-11-为什么官方模板看起来只有一个大节点"><a href="#8-11-为什么官方模板看起来只有一个大节点" class="headerlink" title="8.11 为什么官方模板看起来只有一个大节点"></a>8.11 为什么官方模板看起来只有一个大节点</h3><p>新版官方 workflow 使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Subgraph</span><br></pre></td></tr></table></figure>
+
+<p>所以界面可能只看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">prompt</span><br><span class="line">negative_prompt</span><br><span class="line">cfg</span><br><span class="line">steps</span><br><span class="line">width</span><br><span class="line">height</span><br><span class="line">sampler</span><br><span class="line">scheduler</span><br><span class="line">seed</span><br><span class="line">unet_name</span><br><span class="line">clip_name</span><br><span class="line">vae_name</span><br></pre></td></tr></table></figure>
+
+<p>内部实际仍包含：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UNETLoader</span><br><span class="line">CLIPLoader</span><br><span class="line">VAELoader</span><br><span class="line">TextEncodeQwenImage21</span><br><span class="line">EmptyLatentImage</span><br><span class="line">KSampler</span><br><span class="line">VAEDecode</span><br></pre></td></tr></table></figure>
+
+<p>因此不是“少了节点”，而是被封装了。</p>
+<hr>
+<h3 id="8-12-GGUF-如何改官方-workflow"><a href="#8-12-GGUF-如何改官方-workflow" class="headerlink" title="8.12 GGUF 如何改官方 workflow"></a>8.12 GGUF 如何改官方 workflow</h3><p>官方：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UNETLoader</span><br><span class="line">    ↓</span><br><span class="line">qwen_image_2.1_int8_convrot.safetensors</span><br></pre></td></tr></table></figure>
+
+<p>GGUF：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UnetLoaderGGUF</span><br><span class="line">    ↓</span><br><span class="line">Qwen-Image-2.1-*.gguf</span><br></pre></td></tr></table></figure>
+
+<p>其它部分继续沿用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CLIPLoader</span><br><span class="line">→ qwen3vl_8b_*.safetensors</span><br><span class="line">→ type = qwen_image</span><br></pre></td></tr></table></figure>
+
+<p>以及：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">VAELoader</span><br><span class="line">→ qwen_image_2.1_vae_bf16.safetensors</span><br></pre></td></tr></table></figure>
+
+<p>推荐做法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">导入官方 workflow</span><br><span class="line">       ↓</span><br><span class="line">展开 / 编辑 Subgraph</span><br><span class="line">       ↓</span><br><span class="line">只替换 diffusion model loader</span><br><span class="line">       ↓</span><br><span class="line">保留官方 Conditioning / Sampler / VAE 链路</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-13-第一张图推荐参数"><a href="#8-13-第一张图推荐参数" class="headerlink" title="8.13 第一张图推荐参数"></a>8.13 第一张图推荐参数</h3><p>先不要追求 2K。</p>
+<p>建议：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Resolution  1024 × 1024</span><br><span class="line">CFG         1.0</span><br><span class="line">Steps       25～40</span><br><span class="line">Sampler     euler</span><br><span class="line">Scheduler   simple</span><br><span class="line">Denoise     1.0</span><br><span class="line">Batch       1</span><br></pre></td></tr></table></figure>
+
+<p>测试 prompt：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A photorealistic orange cat sitting on a wooden table beside a window,</span><br><span class="line">soft morning sunlight, detailed fur, natural photography.</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-14-Qwen-Image-2-1-CFG"><a href="#8-14-Qwen-Image-2-1-CFG" class="headerlink" title="8.14 Qwen Image 2.1 CFG"></a>8.14 Qwen Image 2.1 CFG</h3><p>官方 workflow 说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cfg = 1</span><br></pre></td></tr></table></figure>
+
+<p>时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">negative_prompt 基本不使用</span><br></pre></td></tr></table></figure>
+
+<p>如果要明确使用 negative prompt，再提高 CFG。</p>
+<hr>
+<h3 id="8-15-2K-输出"><a href="#8-15-2K-输出" class="headerlink" title="8.15 2K 输出"></a>8.15 2K 输出</h3><p>Qwen Image 2.1 官方 workflow 支持原生 2K。</p>
+<p>首次跑通后可以尝试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2048 × 2048</span><br></pre></td></tr></table></figure>
+
+<p>建议尺寸使用 32 的倍数。</p>
+<hr>
+<h3 id="8-16-花屏-噪声图排查"><a href="#8-16-花屏-噪声图排查" class="headerlink" title="8.16 花屏 / 噪声图排查"></a>8.16 花屏 / 噪声图排查</h3><p>如果日志显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20/20</span><br><span class="line">Prompt executed</span><br></pre></td></tr></table></figure>
+
+<p>但图片是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">花屏</span><br><span class="line">噪声</span><br><span class="line">随机色块</span><br><span class="line">无法识别主体</span><br></pre></td></tr></table></figure>
+
+<p>这通常不是 prompt 本身的问题。</p>
+<p>优先排查：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. GGUF 是否错误使用 UNETLoader</span><br><span class="line">2. 是否使用 UnetLoaderGGUF</span><br><span class="line">3. Text Encoder 是否和 Qwen Image 2.1 匹配</span><br><span class="line">4. CLIP type 是否为 qwen_image</span><br><span class="line">5. VAE 是否是 qwen_image_2.1_vae_bf16</span><br><span class="line">6. 是否使用 Qwen Image 2.1 官方采样链</span><br><span class="line">7. sampler / scheduler 是否被随意改动</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-17-日志中-model-type-FLUX-是否等于加载错模型"><a href="#8-17-日志中-model-type-FLUX-是否等于加载错模型" class="headerlink" title="8.17 日志中 model_type FLUX 是否等于加载错模型"></a>8.17 日志中 model_type FLUX 是否等于加载错模型</h3><p>曾看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model_type FLUX</span><br><span class="line">Requested to load QwenImage21</span><br></pre></td></tr></table></figure>
+
+<p>关键是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Requested to load QwenImage21</span><br></pre></td></tr></table></figure>
+
+<p>说明 ComfyUI 已识别 Qwen Image 2.1。</p>
+<p><code>model_type FLUX</code> 可能来自底层兼容架构分类，不应仅凭这一行判断模型加载错误。</p>
+<hr>
+<h3 id="8-18-Workflow-保存目录"><a href="#8-18-Workflow-保存目录" class="headerlink" title="8.18 Workflow 保存目录"></a>8.18 Workflow 保存目录</h3><p>在新版 ComfyUI 中，Save / Save As 通常保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data_SSD/ComfyUI/user/default/workflows/</span><br></pre></td></tr></table></figure>
+
+<p>查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lht /data_SSD/ComfyUI/user/default/workflows/</span><br></pre></td></tr></table></figure>
+
+<p>找全部 JSON：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find /data_SSD/ComfyUI/user/default/workflows \</span><br><span class="line">  -<span class="built_in">type</span> f \</span><br><span class="line">  -name <span class="string">"*.json"</span> \</span><br><span class="line">  -<span class="built_in">printf</span> <span class="string">'%TY-%Tm-%Td %TH:%TM:%TS  %p\n'</span> \</span><br><span class="line">  | sort -r</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-19-Export-与-Save-的区别"><a href="#8-19-Export-与-Save-的区别" class="headerlink" title="8.19 Export 与 Save 的区别"></a>8.19 Export 与 Save 的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Save / Save As</span><br><span class="line">→ 通常保存到服务器 ComfyUI user/default/workflows/</span><br><span class="line"></span><br><span class="line">Export</span><br><span class="line">→ 通常由浏览器下载到 Windows Downloads</span><br></pre></td></tr></table></figure>
+
+<p>Windows：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\&lt;用户名&gt;\Downloads\</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9-QWEN3-1-Qwen3-系列说明"><a href="#9-QWEN3-1-Qwen3-系列说明" class="headerlink" title="9. QWEN3.1 / Qwen3 系列说明"></a>9. QWEN3.1 / Qwen3 系列说明</h2><h3 id="9-1-当前记录说明"><a href="#9-1-当前记录说明" class="headerlink" title="9.1 当前记录说明"></a>9.1 当前记录说明</h3><p>本次最近的对话与部署记录中，没有确认到一个准确名为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QWEN3.1</span><br></pre></td></tr></table></figure>
+
+<p>的通用文本 / 多模态开源模型仓库 ID。</p>
+<p>截至本笔记整理时，公开产品资料中可确认的主线包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Qwen3</span><br><span class="line">Qwen3.5</span><br><span class="line">Qwen3.7</span><br><span class="line">Qwen3.8</span><br></pre></td></tr></table></figure>
+
+<p>另外确实存在：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qwen-audio-3.1-...</span><br></pre></td></tr></table></figure>
+
+<p>这属于音频模型，不应与通用 Qwen 文本模型混为一谈。</p>
+<p>因此这里不虚构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qwen/Qwen3.1-xxx</span><br></pre></td></tr></table></figure>
+
+<p>这样的仓库名称。</p>
+<hr>
+<h3 id="9-2-如果“QWEN3-1”实际指某个具体-checkpoint"><a href="#9-2-如果“QWEN3-1”实际指某个具体-checkpoint" class="headerlink" title="9.2 如果“QWEN3.1”实际指某个具体 checkpoint"></a>9.2 如果“QWEN3.1”实际指某个具体 checkpoint</h3><p>先在 Hugging Face 页面确认准确：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Owner/Repo</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qwen/Qwen3-30B-A3B</span><br></pre></td></tr></table></figure>
+
+<p>下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hf download &lt;准确的REPO_ID&gt; \</span><br><span class="line">  --<span class="built_in">local</span>-dir /data_SSD/vLLM/models/Qwen/&lt;本地模型目录&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="9-3-Qwen3-通用-SGLang-部署形式"><a href="#9-3-Qwen3-通用-SGLang-部署形式" class="headerlink" title="9.3 Qwen3 通用 SGLang 部署形式"></a>9.3 Qwen3 通用 SGLang 部署形式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sglang serve \</span><br><span class="line">  --model-path /data_SSD/vLLM/models/Qwen/&lt;模型目录&gt; \</span><br><span class="line">  --served-model-name &lt;模型名称&gt; \</span><br><span class="line">  --host 100.121.188.86 \</span><br><span class="line">  --port 8000 \</span><br><span class="line">  --reasoning-parser qwen3 \</span><br><span class="line">  --api-key <span class="string">"&lt;YOUR_API_KEY&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<p>具体模型启动前确认：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">参数规模</span><br><span class="line">Dense / MoE</span><br><span class="line">是否多模态</span><br><span class="line">Context Length</span><br><span class="line">Thinking / Non-thinking</span><br><span class="line">Function Calling</span><br><span class="line">Tool Parser</span><br><span class="line">是否需要 trust_remote_code</span><br><span class="line">推荐量化</span><br><span class="line">显存需求</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="9-4-Qwen3-Thinking"><a href="#9-4-Qwen3-Thinking" class="headerlink" title="9.4 Qwen3 Thinking"></a>9.4 Qwen3 Thinking</h3><p>部分 Qwen3 系列支持：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/think</span><br><span class="line">/no_think</span><br></pre></td></tr></table></figure>
+
+<p>是否支持以及正确用法，以具体模型卡为准。</p>
+<hr>
+<h2 id="10-常见报错处理"><a href="#10-常见报错处理" class="headerlink" title="10. 常见报错处理"></a>10. 常见报错处理</h2><h3 id="10-1-GitHub-GnuTLS-recv-error-110"><a href="#10-1-GitHub-GnuTLS-recv-error-110" class="headerlink" title="10.1 GitHub GnuTLS recv error (-110)"></a>10.1 GitHub GnuTLS recv error (-110)</h3><p>报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GnuTLS recv error (-110):</span><br><span class="line">The TLS connection was non-properly terminated</span><br></pre></td></tr></table></figure>
+
+<p>先：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git -c http.version=HTTP/1.1 <span class="built_in">clone</span> \</span><br><span class="line">  --depth 1 \</span><br><span class="line">  https://github.com/&lt;owner&gt;/&lt;repo&gt;.git</span><br></pre></td></tr></table></figure>
+
+<p>仍失败：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -L \</span><br><span class="line">  --retry 10 \</span><br><span class="line">  --retry-all-errors \</span><br><span class="line">  https://codeload.github.com/&lt;owner&gt;/&lt;repo&gt;/tar.gz/refs/heads/main \</span><br><span class="line">  -o /tmp/repo.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>不要：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-2-ComfyUI-GGUF-没有-main-py"><a href="#10-2-ComfyUI-GGUF-没有-main-py" class="headerlink" title="10.2 ComfyUI-GGUF 没有 main.py"></a>10.2 ComfyUI-GGUF 没有 main.py</h3><p>正常。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ComfyUI-GGUF = 插件</span><br><span class="line">ComfyUI       = 主程序</span><br></pre></td></tr></table></figure>
+
+<p>正确：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data_SSD/ComfyUI</span><br><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-3-ComfyUI-requirements-找不到-workflow-templates-包"><a href="#10-3-ComfyUI-requirements-找不到-workflow-templates-包" class="headerlink" title="10.3 ComfyUI requirements 找不到 workflow templates 包"></a>10.3 ComfyUI requirements 找不到 workflow templates 包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install \</span><br><span class="line">  -i https://pypi.org/simple \</span><br><span class="line">  -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-4-SGLang-显存占用太高"><a href="#10-4-SGLang-显存占用太高" class="headerlink" title="10.4 SGLang 显存占用太高"></a>10.4 SGLang 显存占用太高</h3><p>把：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--mem-fraction-static 0.88</span><br></pre></td></tr></table></figure>
+
+<p>改成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--mem-fraction-static 0.75</span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--mem-fraction-static 0.70</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-5-ChatGPT-Desktop-不允许上传图片"><a href="#10-5-ChatGPT-Desktop-不允许上传图片" class="headerlink" title="10.5 ChatGPT Desktop 不允许上传图片"></a>10.5 ChatGPT Desktop 不允许上传图片</h3><p>检查：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. model_catalog_json</span><br><span class="line">2. input_modalities</span><br><span class="line">3. SGLang /v1/responses 图片输入</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-6-Context-Length-超限"><a href="#10-6-Context-Length-超限" class="headerlink" title="10.6 Context Length 超限"></a>10.6 Context Length 超限</h3><p>客户端：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">model_context_window</span> = <span class="number">240000</span></span><br><span class="line"><span class="attr">model_auto_compact_token_limit</span> = <span class="number">200000</span></span><br></pre></td></tr></table></figure>
+
+<p>服务端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--context-length 262144</span><br></pre></td></tr></table></figure>
+
+<p>必要时：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--allow-auto-truncate</span><br></pre></td></tr></table></figure>
+
+<p>但仍应控制单请求输出预算。</p>
+<hr>
+<h3 id="10-7-Hugging-Face-Xet-报错"><a href="#10-7-Hugging-Face-Xet-报错" class="headerlink" title="10.7 Hugging Face Xet 报错"></a>10.7 Hugging Face Xet 报错</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HF_HUB_DISABLE_XET=1 hf download ...</span><br></pre></td></tr></table></figure>
+
+<p>同时确保没有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda python</span><br><span class="line">+</span><br><span class="line">~/.local huggingface_hub</span><br></pre></td></tr></table></figure>
+
+<p>混用。</p>
+<hr>
+<h3 id="10-8-hfd-sh-Permission-denied"><a href="#10-8-hfd-sh-Permission-denied" class="headerlink" title="10.8 hfd.sh Permission denied"></a>10.8 hfd.sh Permission denied</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x hfd.sh</span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash hfd.sh ...</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-9-aria2c-not-installed"><a href="#10-9-aria2c-not-installed" class="headerlink" title="10.9 aria2c not installed"></a>10.9 aria2c not installed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y aria2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-10-Open-WebUI-重建后聊天记录不见"><a href="#10-10-Open-WebUI-重建后聊天记录不见" class="headerlink" title="10.10 Open WebUI 重建后聊天记录不见"></a>10.10 Open WebUI 重建后聊天记录不见</h3><p>优先检查是否保留：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v open-webui:/app/backend/data</span><br></pre></td></tr></table></figure>
+
+<p>不要随意删除：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open-webui Docker volume</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-11-Open-WebUI-重建后全部退出登录"><a href="#10-11-Open-WebUI-重建后全部退出登录" class="headerlink" title="10.11 Open WebUI 重建后全部退出登录"></a>10.11 Open WebUI 重建后全部退出登录</h3><p>检查：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WEBUI_SECRET_KEY</span><br></pre></td></tr></table></figure>
+
+<p>是否每次都变化。</p>
+<p>推荐固定：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-e WEBUI_SECRET_KEY=<span class="string">"&lt;固定随机值&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-12-Qwen-Image-2-1-能采样但输出花屏"><a href="#10-12-Qwen-Image-2-1-能采样但输出花屏" class="headerlink" title="10.12 Qwen Image 2.1 能采样但输出花屏"></a>10.12 Qwen Image 2.1 能采样但输出花屏</h3><p>优先：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GGUF loader</span><br><span class="line">Text Encoder</span><br><span class="line">VAE</span><br><span class="line">官方采样链</span><br></pre></td></tr></table></figure>
+
+<p>不要只改 prompt。</p>
+<hr>
+<h2 id="11-推荐执行顺序"><a href="#11-推荐执行顺序" class="headerlink" title="11. 推荐执行顺序"></a>11. 推荐执行顺序</h2><h3 id="11-1-Ubuntu-本地-LLM-服务"><a href="#11-1-Ubuntu-本地-LLM-服务" class="headerlink" title="11.1 Ubuntu 本地 LLM 服务"></a>11.1 Ubuntu 本地 LLM 服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 NVIDIA 驱动</span><br><span class="line">2. nvidia-smi 验证 GPU</span><br><span class="line">3. 安装 Tailscale</span><br><span class="line">4. 确认 Tailscale IP</span><br><span class="line">5. 创建 Hugging Face 下载环境</span><br><span class="line">6. 下载模型</span><br><span class="line">7. 创建 SGLang 环境</span><br><span class="line">8. 安装 SGLang</span><br><span class="line">9. 绑定 Tailscale IP 启动 SGLang</span><br><span class="line">10. 配置普通 API Key</span><br><span class="line">11. 配置独立 Admin API Key</span><br><span class="line">12. UFW 禁止公网访问 8000</span><br><span class="line">13. curl 测试 /v1/models</span><br><span class="line">14. curl 测试 chat / responses</span><br><span class="line">15. 配置 ChatGPT Desktop / Codex</span><br><span class="line">16. 测试文本</span><br><span class="line">17. 测试图片</span><br><span class="line">18. 再启用长上下文 / 高级优化</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="11-2-Open-WebUI"><a href="#11-2-Open-WebUI" class="headerlink" title="11.2 Open WebUI"></a>11.2 Open WebUI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Docker</span><br><span class="line">2. 创建 open-webui volume</span><br><span class="line">3. 生成固定 WEBUI_SECRET_KEY</span><br><span class="line">4. 绑定 100.121.188.86:3000</span><br><span class="line">5. 打开浏览器</span><br><span class="line">6. 创建管理员</span><br><span class="line">7. 添加 SGLang OpenAI-compatible Connection</span><br><span class="line">8. 选择 Qwen3.8</span><br><span class="line">9. 测试对话</span><br><span class="line">10. 再配置 Knowledge / RAG</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="11-3-Qwen-Image-2-1"><a href="#11-3-Qwen-Image-2-1" class="headerlink" title="11.3 Qwen-Image 2.1"></a>11.3 Qwen-Image 2.1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1. 创建 comfyui Python 3.12 环境</span><br><span class="line">2. 安装 ComfyUI 主程序</span><br><span class="line">3. 安装 requirements.txt</span><br><span class="line">4. 安装 ComfyUI-GGUF</span><br><span class="line">5. 下载 diffusion model</span><br><span class="line">6. 下载 text encoder</span><br><span class="line">7. 下载 VAE</span><br><span class="line">8. 绑定 100.121.188.86:8188 启动</span><br><span class="line">9. 导入官方 Qwen Image 2.1 workflow</span><br><span class="line">10. 如果是 GGUF，替换为 UnetLoaderGGUF</span><br><span class="line">11. CFG=1 / Euler / Simple / 25～40 steps 首测</span><br><span class="line">12. 先用 1024×1024</span><br><span class="line">13. 正常后再尝试 2K</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="12-一键命令汇总"><a href="#12-一键命令汇总" class="headerlink" title="12. 一键命令汇总"></a>12. 一键命令汇总</h2><h3 id="12-1-Tailscale"><a href="#12-1-Tailscale" class="headerlink" title="12.1 Tailscale"></a>12.1 Tailscale</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart tailscaled</span><br><span class="line">tailscale status</span><br><span class="line">tailscale ip -4</span><br><span class="line">tailscale ping &lt;IP&gt;</span><br><span class="line">tailscale ping --tsmp &lt;IP&gt;</span><br><span class="line">tailscale ping --icmp &lt;IP&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-2-Hugging-Face"><a href="#12-2-Hugging-Face" class="headerlink" title="12.2 Hugging Face"></a>12.2 Hugging Face</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conda activate huggingfacedownload</span><br><span class="line"></span><br><span class="line">hf auth login</span><br><span class="line"></span><br><span class="line">hf download &lt;REPO_ID&gt; \</span><br><span class="line">  --<span class="built_in">local</span>-dir /data_SSD/models/&lt;MODEL_NAME&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-3-SGLang-安装"><a href="#12-3-SGLang-安装" class="headerlink" title="12.3 SGLang 安装"></a>12.3 SGLang 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conda create -p /data/condashare/sglang python=3.12 -y</span><br><span class="line">conda activate /data/condashare/sglang</span><br><span class="line"></span><br><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install uv</span><br><span class="line">uv pip install --prerelease=allow sglang</span><br><span class="line"></span><br><span class="line">python -c <span class="string">"import sglang; print(sglang.__version__)"</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-4-Qwen3-8-启动"><a href="#12-4-Qwen3-8-启动" class="headerlink" title="12.4 Qwen3.8 启动"></a>12.4 Qwen3.8 启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">conda activate /data/condashare/sglang</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PYTHONNOUSERSITE=1</span><br><span class="line"></span><br><span class="line">sglang serve \</span><br><span class="line">  --trust-remote-code \</span><br><span class="line">  --model-path /data_SSD/vLLM/models/Qwen/Qwen3.8-27B-NVFP4-NVIDIA \</span><br><span class="line">  --served-model-name Qwen3.8-27B-NVFP4-NVIDIA \</span><br><span class="line">  --host 100.121.188.86 \</span><br><span class="line">  --port 8000 \</span><br><span class="line">  --context-length 262144 \</span><br><span class="line">  --mem-fraction-static 0.75 \</span><br><span class="line">  --kv-cache-dtype fp8_e4m3 \</span><br><span class="line">  --attention-backend flashinfer \</span><br><span class="line">  --chunked-prefill-size 2048 \</span><br><span class="line">  --cuda-graph-max-bs 4 \</span><br><span class="line">  --reasoning-parser qwen3 \</span><br><span class="line">  --tool-call-parser qwen3_coder \</span><br><span class="line">  --api-key <span class="string">"&lt;YOUR_API_KEY&gt;"</span> \</span><br><span class="line">  --admin-api-key <span class="string">"&lt;YOUR_ADMIN_API_KEY&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-5-Open-WebUI"><a href="#12-5-Open-WebUI" class="headerlink" title="12.5 Open WebUI"></a>12.5 Open WebUI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create open-webui</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -hex 32</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name open-webui \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -p 100.121.188.86:3000:8080 \</span><br><span class="line">  --add-host=host.docker.internal:host-gateway \</span><br><span class="line">  -v open-webui:/app/backend/data \</span><br><span class="line">  -e WEBUI_SECRET_KEY=<span class="string">"&lt;YOUR_FIXED_SECRET&gt;"</span> \</span><br><span class="line">  ghcr.io/open-webui/open-webui:main</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-6-ComfyUI"><a href="#12-6-ComfyUI" class="headerlink" title="12.6 ComfyUI"></a>12.6 ComfyUI</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda activate comfyui</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /data_SSD/ComfyUI</span><br><span class="line"></span><br><span class="line">python main.py \</span><br><span class="line">  --listen 100.121.188.86 \</span><br><span class="line">  --port 8188</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-7-查看-GPU"><a href="#12-7-查看-GPU" class="headerlink" title="12.7 查看 GPU"></a>12.7 查看 GPU</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<p>持续：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 1 nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-8-查看-AI-服务端口"><a href="#12-8-查看-AI-服务端口" class="headerlink" title="12.8 查看 AI 服务端口"></a>12.8 查看 AI 服务端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ss -lntp | grep -E <span class="string">':8000|:3000|:8188'</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="12-9-查看-ComfyUI-Workflow"><a href="#12-9-查看-ComfyUI-Workflow" class="headerlink" title="12.9 查看 ComfyUI Workflow"></a>12.9 查看 ComfyUI Workflow</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find /data_SSD/ComfyUI/user/default/workflows \</span><br><span class="line">  -<span class="built_in">type</span> f \</span><br><span class="line">  -name <span class="string">"*.json"</span> \</span><br><span class="line">  -<span class="built_in">printf</span> <span class="string">'%TY-%Tm-%Td %TH:%TM:%TS  %p\n'</span> \</span><br><span class="line">  | sort -r</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="13-参考资料"><a href="#13-参考资料" class="headerlink" title="13. 参考资料"></a>13. 参考资料</h2><h3 id="Tailscale"><a href="#Tailscale" class="headerlink" title="Tailscale"></a>Tailscale</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://tailscale.com/docs/install/linux</span><br><span class="line">https://tailscale.com/docs/how-to/quickstart</span><br><span class="line">https://tailscale.com/docs/integrations/firewalls</span><br></pre></td></tr></table></figure>
+
+<h3 id="SGLang"><a href="#SGLang" class="headerlink" title="SGLang"></a>SGLang</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/sgl-project/sglang</span><br><span class="line">https://github.com/sgl-project/sglang/blob/main/docs/docs/get-started/install.mdx</span><br><span class="line">https://github.com/sgl-project/sglang/blob/main/docs/docs/get-started/quickstart.mdx</span><br></pre></td></tr></table></figure>
+
+<h3 id="Codex-ChatGPT-Desktop-配置"><a href="#Codex-ChatGPT-Desktop-配置" class="headerlink" title="Codex / ChatGPT Desktop 配置"></a>Codex / ChatGPT Desktop 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://developers.openai.com/docs/config-file/config-basic</span><br><span class="line">https://developers.openai.com/docs/config-file/config-reference</span><br><span class="line">https://developers.openai.com/codex/config-schema.json</span><br></pre></td></tr></table></figure>
+
+<h3 id="Open-WebUI"><a href="#Open-WebUI" class="headerlink" title="Open WebUI"></a>Open WebUI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://docs.openwebui.com/getting-started/quick-start/</span><br><span class="line">https://docs.openwebui.com/getting-started/quick-start/connect-a-provider/starting-with-openai-compatible/</span><br><span class="line">https://docs.openwebui.com/reference/env-configuration/</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hugging-Face"><a href="#Hugging-Face" class="headerlink" title="Hugging Face"></a>Hugging Face</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://huggingface.co/docs/huggingface_hub/main/package_reference/cli</span><br><span class="line">https://huggingface.co/docs/hub/models-downloading</span><br></pre></td></tr></table></figure>
+
+<h3 id="ComfyUI"><a href="#ComfyUI" class="headerlink" title="ComfyUI"></a>ComfyUI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/Comfy-Org/ComfyUI</span><br><span class="line">https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_qwen_image_2_1_t2i.json</span><br></pre></td></tr></table></figure>
+
+<h3 id="Qwen"><a href="#Qwen" class="headerlink" title="Qwen"></a>Qwen</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/QwenLM</span><br><span class="line">https://qwenlm.github.io/</span><br><span class="line">https://www.alibabacloud.com/help/en/model-studio/models</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="14-备注"><a href="#14-备注" class="headerlink" title="14. 备注"></a>14. 备注</h2><ul>
+<li>本文按当前服务器实际部署环境整理，并非所有机器都应照搬相同显存、上下文和 CUDA 参数。</li>
+<li>当前服务器 Tailscale 地址示例为 <code>100.121.188.86</code>，如果地址发生变化，应同步更新 SGLang、Open WebUI、ComfyUI 和 Codex Provider 配置。</li>
+<li><code>SGLang 0.5.20</code> 是当前实际使用版本记录；以后升级时应重新检查命令行参数。</li>
+<li><code>Qwen3.8-27B-NVFP4-NVIDIA</code> 的当前本地路径为 <code>/data_SSD/vLLM/models/Qwen/Qwen3.8-27B-NVFP4-NVIDIA</code>。</li>
+<li><code>QWEN3.1</code> 在本次记录中没有找到明确通用模型仓库 ID，因此仅保留通用 Qwen3 部署说明，没有虚构模型名。</li>
+<li>ChatGPT Desktop / Codex 的 <code>model_catalog_json</code> schema 可能随版本更新，遇到错误时优先对照当前 Codex config schema。</li>
+<li>Open WebUI 必须保留 <code>/app/backend/data</code> 对应 volume；固定 <code>WEBUI_SECRET_KEY</code> 可避免重建容器后登录和加密数据失效。</li>
+<li>ComfyUI 的 <code>Save / Save As</code> 与浏览器 <code>Export</code> 不是同一种保存方式。</li>
+<li>Qwen-Image 2.1 使用 GGUF 主模型时，优先确认 <code>UnetLoaderGGUF</code>，否则即使采样完成也可能输出异常。</li>
+<li>模型服务默认不应该暴露公网。优先使用 <code>Tailscale + 服务绑定私网 IP + UFW</code> 三层限制。</li>
+</ul>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2029-12-12-UbuntuCommand/" data-toggle="tooltip" data-placement="left"
+                     title="DOS-Ubuntu命令集合">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2026-05-18_deploy_qwen35_vllm/" data-toggle="tooltip" data-placement="top"
+                     title="vLLM部署本地大模型">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-整体架构与适用场景"><span class="toc-number">2.</span> <span class="toc-text">1. 整体架构与适用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-当前推荐架构"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 当前推荐架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-各组件职责"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 各组件职责</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-当前硬件环境"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 当前硬件环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Tailscale-安装、重启与网络排查"><span class="toc-number">3.</span> <span class="toc-text">2. Tailscale 安装、重启与网络排查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Ubuntu-安装-Tailscale"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 Ubuntu 安装 Tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-重启-Tailscale"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 重启 Tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Tailscale-自带-ping"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 Tailscale 自带 ping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Ubuntu-检查-ICMP"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 Ubuntu 检查 ICMP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-查看监听端口"><span class="toc-number">3.5.</span> <span class="toc-text">2.5 查看监听端口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Hugging-Face-模型下载"><span class="toc-number">4.</span> <span class="toc-text">3. Hugging Face 模型下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-推荐建立独立下载环境"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 推荐建立独立下载环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-hfd-sh-aria2"><span class="toc-number">4.2.</span> <span class="toc-text">3.8 hfd.sh + aria2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SGLang-安装与基础配置"><span class="toc-number">5.</span> <span class="toc-text">4. SGLang 安装与基础配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-推荐独立-Conda-环境"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 推荐独立 Conda 环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-避免-local-串包"><span class="toc-number">5.2.</span> <span class="toc-text">4.3 避免 ~/.local 串包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-最小启动示例"><span class="toc-number">5.3.</span> <span class="toc-text">4.4 最小启动示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-API-Key"><span class="toc-number">5.4.</span> <span class="toc-text">4.5 API Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-只绑定-Tailscale"><span class="toc-number">5.5.</span> <span class="toc-text">4.6 只绑定 Tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-UFW-再限制一层"><span class="toc-number">5.6.</span> <span class="toc-text">4.7 UFW 再限制一层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Qwen3-8-27B-NVFP4-NVIDIA-部署"><span class="toc-number">6.</span> <span class="toc-text">5. Qwen3.8-27B-NVFP4-NVIDIA 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-当前模型路径"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 当前模型路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-当前推荐启动命令"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 当前推荐启动命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-关于-–allow-auto-truncate"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 关于 –allow-auto-truncate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-显存占用"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 显存占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-CUDA-Graph"><span class="toc-number">6.5.</span> <span class="toc-text">5.5 CUDA Graph</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-KV-Cache"><span class="toc-number">6.6.</span> <span class="toc-text">5.6 KV Cache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-多模态优先稳定"><span class="toc-number">6.7.</span> <span class="toc-text">5.7 多模态优先稳定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-API-测试"><span class="toc-number">6.8.</span> <span class="toc-text">5.8 API 测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Qwen3-8-ChatGPT-Desktop-Codex"><span class="toc-number">7.</span> <span class="toc-text">6. Qwen3.8 + ChatGPT Desktop / Codex</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-调用架构"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 调用架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-Codex-配置目录"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 Codex 配置目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-推荐-config-toml"><span class="toc-number">7.3.</span> <span class="toc-text">6.3 推荐 config.toml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-Windows-设置-API-Key"><span class="toc-number">7.4.</span> <span class="toc-text">6.4 Windows 设置 API Key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Open-WebUI-安装与连接-SGLang"><span class="toc-number">8.</span> <span class="toc-text">7. Open WebUI 安装与连接 SGLang</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-Open-WebUI-是什么"><span class="toc-number">8.1.</span> <span class="toc-text">7.1 Open WebUI 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-推荐-Docker-安装"><span class="toc-number">8.2.</span> <span class="toc-text">7.2 推荐 Docker 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-创建持久卷"><span class="toc-number">8.3.</span> <span class="toc-text">7.3 创建持久卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-生成固定-Secret"><span class="toc-number">8.4.</span> <span class="toc-text">7.4 生成固定 Secret</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-只绑定-Tailscale"><span class="toc-number">8.5.</span> <span class="toc-text">7.5 只绑定 Tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-查看日志"><span class="toc-number">8.6.</span> <span class="toc-text">7.6 查看日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-7-连接-SGLang"><span class="toc-number">8.7.</span> <span class="toc-text">7.7 连接 SGLang</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-8-Docker-访问宿主机的注意事项"><span class="toc-number">8.8.</span> <span class="toc-text">7.8 Docker 访问宿主机的注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-Open-WebUI-适合做什么"><span class="toc-number">8.9.</span> <span class="toc-text">7.9 Open WebUI 适合做什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-10-Open-WebUI-升级"><span class="toc-number">8.10.</span> <span class="toc-text">7.10 Open WebUI 升级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Qwen-Image-2-1-ComfyUI"><span class="toc-number">9.</span> <span class="toc-text">8. Qwen-Image 2.1 + ComfyUI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-先明确-ComfyUI-与-ComfyUI-GGUF"><span class="toc-number">9.1.</span> <span class="toc-text">8.1 先明确 ComfyUI 与 ComfyUI-GGUF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-创建环境"><span class="toc-number">9.2.</span> <span class="toc-text">8.2 创建环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-安装-ComfyUI"><span class="toc-number">9.3.</span> <span class="toc-text">8.3 安装 ComfyUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-安装-ComfyUI-依赖"><span class="toc-number">9.4.</span> <span class="toc-text">8.4 安装 ComfyUI 依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-workflow-templates-依赖报错"><span class="toc-number">9.5.</span> <span class="toc-text">8.5 workflow-templates 依赖报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-6-安装-ComfyUI-GGUF"><span class="toc-number">9.6.</span> <span class="toc-text">8.6 安装 ComfyUI-GGUF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-7-Qwen-Image-2-1-官方模型结构"><span class="toc-number">9.7.</span> <span class="toc-text">8.7 Qwen-Image 2.1 官方模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-8-GGUF-版本"><span class="toc-number">9.8.</span> <span class="toc-text">8.8 GGUF 版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-9-启动-ComfyUI"><span class="toc-number">9.9.</span> <span class="toc-text">8.9 启动 ComfyUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-10-导入官方-Qwen-Image-2-1-Text-to-Image-workflow"><span class="toc-number">9.10.</span> <span class="toc-text">8.10 导入官方 Qwen Image 2.1 Text-to-Image workflow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-11-为什么官方模板看起来只有一个大节点"><span class="toc-number">9.11.</span> <span class="toc-text">8.11 为什么官方模板看起来只有一个大节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-12-GGUF-如何改官方-workflow"><span class="toc-number">9.12.</span> <span class="toc-text">8.12 GGUF 如何改官方 workflow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-13-第一张图推荐参数"><span class="toc-number">9.13.</span> <span class="toc-text">8.13 第一张图推荐参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-14-Qwen-Image-2-1-CFG"><span class="toc-number">9.14.</span> <span class="toc-text">8.14 Qwen Image 2.1 CFG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-15-2K-输出"><span class="toc-number">9.15.</span> <span class="toc-text">8.15 2K 输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-16-花屏-噪声图排查"><span class="toc-number">9.16.</span> <span class="toc-text">8.16 花屏 / 噪声图排查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-17-日志中-model-type-FLUX-是否等于加载错模型"><span class="toc-number">9.17.</span> <span class="toc-text">8.17 日志中 model_type FLUX 是否等于加载错模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-18-Workflow-保存目录"><span class="toc-number">9.18.</span> <span class="toc-text">8.18 Workflow 保存目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-19-Export-与-Save-的区别"><span class="toc-number">9.19.</span> <span class="toc-text">8.19 Export 与 Save 的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-QWEN3-1-Qwen3-系列说明"><span class="toc-number">10.</span> <span class="toc-text">9. QWEN3.1 / Qwen3 系列说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-当前记录说明"><span class="toc-number">10.1.</span> <span class="toc-text">9.1 当前记录说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-如果“QWEN3-1”实际指某个具体-checkpoint"><span class="toc-number">10.2.</span> <span class="toc-text">9.2 如果“QWEN3.1”实际指某个具体 checkpoint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-Qwen3-通用-SGLang-部署形式"><span class="toc-number">10.3.</span> <span class="toc-text">9.3 Qwen3 通用 SGLang 部署形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-Qwen3-Thinking"><span class="toc-number">10.4.</span> <span class="toc-text">9.4 Qwen3 Thinking</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-常见报错处理"><span class="toc-number">11.</span> <span class="toc-text">10. 常见报错处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-GitHub-GnuTLS-recv-error-110"><span class="toc-number">11.1.</span> <span class="toc-text">10.1 GitHub GnuTLS recv error (-110)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-ComfyUI-GGUF-没有-main-py"><span class="toc-number">11.2.</span> <span class="toc-text">10.2 ComfyUI-GGUF 没有 main.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-ComfyUI-requirements-找不到-workflow-templates-包"><span class="toc-number">11.3.</span> <span class="toc-text">10.3 ComfyUI requirements 找不到 workflow templates 包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-SGLang-显存占用太高"><span class="toc-number">11.4.</span> <span class="toc-text">10.4 SGLang 显存占用太高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-ChatGPT-Desktop-不允许上传图片"><span class="toc-number">11.5.</span> <span class="toc-text">10.5 ChatGPT Desktop 不允许上传图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-Context-Length-超限"><span class="toc-number">11.6.</span> <span class="toc-text">10.6 Context Length 超限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-7-Hugging-Face-Xet-报错"><span class="toc-number">11.7.</span> <span class="toc-text">10.7 Hugging Face Xet 报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-8-hfd-sh-Permission-denied"><span class="toc-number">11.8.</span> <span class="toc-text">10.8 hfd.sh Permission denied</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-9-aria2c-not-installed"><span class="toc-number">11.9.</span> <span class="toc-text">10.9 aria2c not installed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-10-Open-WebUI-重建后聊天记录不见"><span class="toc-number">11.10.</span> <span class="toc-text">10.10 Open WebUI 重建后聊天记录不见</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-11-Open-WebUI-重建后全部退出登录"><span class="toc-number">11.11.</span> <span class="toc-text">10.11 Open WebUI 重建后全部退出登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-12-Qwen-Image-2-1-能采样但输出花屏"><span class="toc-number">11.12.</span> <span class="toc-text">10.12 Qwen Image 2.1 能采样但输出花屏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-推荐执行顺序"><span class="toc-number">12.</span> <span class="toc-text">11. 推荐执行顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-Ubuntu-本地-LLM-服务"><span class="toc-number">12.1.</span> <span class="toc-text">11.1 Ubuntu 本地 LLM 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-Open-WebUI"><span class="toc-number">12.2.</span> <span class="toc-text">11.2 Open WebUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-3-Qwen-Image-2-1"><span class="toc-number">12.3.</span> <span class="toc-text">11.3 Qwen-Image 2.1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-一键命令汇总"><span class="toc-number">13.</span> <span class="toc-text">12. 一键命令汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-Tailscale"><span class="toc-number">13.1.</span> <span class="toc-text">12.1 Tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-Hugging-Face"><span class="toc-number">13.2.</span> <span class="toc-text">12.2 Hugging Face</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3-SGLang-安装"><span class="toc-number">13.3.</span> <span class="toc-text">12.3 SGLang 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-4-Qwen3-8-启动"><span class="toc-number">13.4.</span> <span class="toc-text">12.4 Qwen3.8 启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-5-Open-WebUI"><span class="toc-number">13.5.</span> <span class="toc-text">12.5 Open WebUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-6-ComfyUI"><span class="toc-number">13.6.</span> <span class="toc-text">12.6 ComfyUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-7-查看-GPU"><span class="toc-number">13.7.</span> <span class="toc-text">12.7 查看 GPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-8-查看-AI-服务端口"><span class="toc-number">13.8.</span> <span class="toc-text">12.8 查看 AI 服务端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-9-查看-ComfyUI-Workflow"><span class="toc-number">13.9.</span> <span class="toc-text">12.9 查看 ComfyUI Workflow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-参考资料"><span class="toc-number">14.</span> <span class="toc-text">13. 参考资料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tailscale"><span class="toc-number">14.1.</span> <span class="toc-text">Tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SGLang"><span class="toc-number">14.2.</span> <span class="toc-text">SGLang</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Codex-ChatGPT-Desktop-配置"><span class="toc-number">14.3.</span> <span class="toc-text">Codex / ChatGPT Desktop 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Open-WebUI"><span class="toc-number">14.4.</span> <span class="toc-text">Open WebUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hugging-Face"><span class="toc-number">14.5.</span> <span class="toc-text">Hugging Face</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ComfyUI"><span class="toc-number">14.6.</span> <span class="toc-text">ComfyUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Qwen"><span class="toc-number">14.7.</span> <span class="toc-text">Qwen</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-备注"><span class="toc-number">15.</span> <span class="toc-text">14. 备注</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2026
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                192.9k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>

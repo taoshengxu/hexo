@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout.ejs-->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Adelaide">
+    <meta name="author" content="xt">
+    <meta name="keyword" content>
+    <link rel="canonical" href="https://taoshengxu.github.io/hexo/hexo/2026-05-18_Hermes/">
+    <link rel="shortcut icon" href="/hexo/img/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="IIM" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/hexo/js/search.js"></script>
+
+    <title>
+        
+        Hermes 安装及服务部署文档｜undefined
+        
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/hexo/css/main.css">
+
+    
+      <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="/hexo/css/highlight.css">
+    
+
+    
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    
+
+    
+
+    
+
+
+    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    
+
+
+
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" href="/hexo/css/prism-solarizedlight.css" type="text/css">
+<link rel="stylesheet" href="/hexo/css/prism-line-numbers.css" type="text/css"></head>
+
+<style>
+    header.intro-header {
+        background-image: url('/hexo/img/northernlights-sisimiut-lake.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<header>
+  <nav class="navbar navbar-default header-navbar" id="nav-top" data-ispost = "true" data-istags="false" data-ishome = "false" >
+    <div class="container-fluid">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false"  data-target="#website_navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand animated pulse">
+          <a class="brand-logo" href="/hexo/">
+                <img src="/hexo/img/banner.jpg?h=350&amp;auto=compress&amp;cs=tinysrgb" />
+          </a>
+        </span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="website_navbar">
+          <ul class="nav navbar-nav navbar-right">
+              
+                <li>
+                  <a href="/hexo/">home</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/archives/">archives</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/categories/">categories</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/tags/">tags</a>
+                </li>
+              
+                <li>
+                  <a href="/hexo/columns/">columns</a>
+                </li>
+              
+          </ul>
+      </div>
+  </nav>
+
+
+  
+    <style>
+       .intro-header {
+          background-image: url('/hexo/post_cover_images/moon.jpg');
+      }
+    </style>
+
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <div class="site-heading">
+                        <h1>Hermes 安装及服务部署文档</h1>
+                        
+                        
+
+                        
+                          <span class="meta">
+                               <span class="meta-item">Author: XT</span>
+                               <span class="meta-item">Date: May 18, 2026</span>
+                               
+                          </span>
+                          <div class="tags text-center">
+                              Categories: 
+                              <a class="tag" href="/hexo/categories/#bigmodel"
+                                 title="bigmodel">bigmodel</a>
+                              
+                          </div>
+                          <div class="tags text-center">
+                              Tags: 
+                              <a class="tag" href="/hexo/tags/#hermes"
+                                 title="hermes">hermes</a>
+                              
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</header>
+
+
+<!-- Main Content -->
+<!-- post.ejs -->
+<article>
+    <div class="container">
+      <div class="col-lg-8 col-lg-offset-1 col-sm-9">
+          
+          <span class="post-count">1.3k words in total, 5 minutes required.</span>
+          <hr>
+          
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://res1.hermesagent.org.cn/install.sh | bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装后操作"><a href="#安装后操作" class="headerlink" title="安装后操作"></a>安装后操作</h3><h4 id="类-Unix-WSL2"><a href="#类-Unix-WSL2" class="headerlink" title="类 Unix / WSL2"></a>类 Unix / WSL2</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc   <span class="comment"># 或：source ~/.zshrc</span></span><br><span class="line">hermes             <span class="comment"># 开始聊天</span></span><br></pre></td></tr></table></figure>
+
+<p>如需后续重新配置个别设置，请使用这些命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hermes model          <span class="comment"># 选择大语言模型提供商和模型</span></span><br><span class="line">hermes tools          <span class="comment"># 配置启用哪些工具</span></span><br><span class="line">hermes gateway setup  <span class="comment"># 设置消息平台</span></span><br><span class="line">hermes config <span class="built_in">set</span>     <span class="comment"># 单独设置某个配置项</span></span><br><span class="line">hermes setup          <span class="comment"># 或再次运行完整设置向导</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-Hermes"><a href="#配置-Hermes" class="headerlink" title="配置 Hermes"></a>配置 Hermes</h2><p>请根据项目实际情况修改配置文件。</p>
+<p>常见配置文件路径示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/.hermes/config.yaml</span><br><span class="line">~/./hermes/config/config.yaml</span><br><span class="line">~/./hermes/.env</span><br></pre></td></tr></table></figure>
+
+<p>示例 <code>.env</code> 配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">APP_HOST=0.0.0.0</span><br><span class="line">APP_PORT=8000</span><br><span class="line">LOG_LEVEL=info</span><br></pre></td></tr></table></figure>
+
+<p>示例 <code>config.yaml</code> 配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">host:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">log:</span></span><br><span class="line">  <span class="attr">level:</span> <span class="string">info</span></span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件后，确认权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hermes:hermes /opt/hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9-创建-systemd-服务"><a href="#9-创建-systemd-服务" class="headerlink" title="9. 创建 systemd 服务"></a>9. 创建 systemd 服务</h2><p>创建服务文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/systemd/system/hermes.service</span><br></pre></td></tr></table></figure>
+
+<p>写入以下内容：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Hermes Service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">User</span>=hermes</span><br><span class="line"><span class="attr">Group</span>=hermes</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/opt/hermes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请根据实际启动命令修改 ExecStart</span></span><br><span class="line"><span class="attr">ExecStart</span>=/opt/hermes/venv/bin/python /opt/hermes/main.py</span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：环境变量文件</span></span><br><span class="line"><span class="comment"># EnvironmentFile=/opt/hermes/.env</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志输出到 journald</span></span><br><span class="line"><span class="attr">StandardOutput</span>=journal</span><br><span class="line"><span class="attr">StandardError</span>=journal</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：<code>ExecStart</code> 必须改成你的 Hermes 实际启动命令。</p>
+</blockquote>
+<hr>
+<h2 id="10-常见-ExecStart-写法"><a href="#10-常见-ExecStart-写法" class="headerlink" title="10. 常见 ExecStart 写法"></a>10. 常见 ExecStart 写法</h2><h3 id="Python-项目"><a href="#Python-项目" class="headerlink" title="Python 项目"></a>Python 项目</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/opt/hermes/venv/bin/python /opt/hermes/main.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="Gunicorn-项目"><a href="#Gunicorn-项目" class="headerlink" title="Gunicorn 项目"></a>Gunicorn 项目</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/opt/hermes/venv/bin/gunicorn -w <span class="number">4</span> -b <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">8000</span> app:app</span><br></pre></td></tr></table></figure>
+
+<h3 id="Uvicorn-FastAPI-项目"><a href="#Uvicorn-FastAPI-项目" class="headerlink" title="Uvicorn / FastAPI 项目"></a>Uvicorn / FastAPI 项目</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/opt/hermes/venv/bin/uvicorn main:app --host <span class="number">0.0</span>.<span class="number">0.0</span> --port <span class="number">8000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Java-Jar-项目"><a href="#Java-Jar-项目" class="headerlink" title="Java Jar 项目"></a>Java Jar 项目</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/usr/bin/java -jar /opt/hermes/hermes.jar</span><br></pre></td></tr></table></figure>
+
+<h3 id="Node-js-项目"><a href="#Node-js-项目" class="headerlink" title="Node.js 项目"></a>Node.js 项目</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/usr/bin/node /opt/hermes/server.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="Go-二进制项目"><a href="#Go-二进制项目" class="headerlink" title="Go 二进制项目"></a>Go 二进制项目</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ExecStart</span>=/opt/hermes/hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="11-重新加载-systemd"><a href="#11-重新加载-systemd" class="headerlink" title="11. 重新加载 systemd"></a>11. 重新加载 systemd</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="12-启动-Hermes-服务"><a href="#12-启动-Hermes-服务" class="headerlink" title="12. 启动 Hermes 服务"></a>12. 启动 Hermes 服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="13-查看服务状态"><a href="#13-查看服务状态" class="headerlink" title="13. 查看服务状态"></a>13. 查看服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status hermes</span><br></pre></td></tr></table></figure>
+
+<p>如果状态显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">active (running)</span><br></pre></td></tr></table></figure>
+
+<p>说明服务已正常运行。</p>
+<hr>
+<h2 id="14-设置开机自启"><a href="#14-设置开机自启" class="headerlink" title="14. 设置开机自启"></a>14. 设置开机自启</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="15-常用服务管理命令"><a href="#15-常用服务管理命令" class="headerlink" title="15. 常用服务管理命令"></a>15. 常用服务管理命令</h2><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start hermes</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop hermes</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart hermes</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status hermes</span><br></pre></td></tr></table></figure>
+
+<h3 id="取消开机自启"><a href="#取消开机自启" class="headerlink" title="取消开机自启"></a>取消开机自启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="16-查看日志"><a href="#16-查看日志" class="headerlink" title="16. 查看日志"></a>16. 查看日志</h2><h3 id="实时查看日志"><a href="#实时查看日志" class="headerlink" title="实时查看日志"></a>实时查看日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl -u hermes -f</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看最近-100-行日志"><a href="#查看最近-100-行日志" class="headerlink" title="查看最近 100 行日志"></a>查看最近 100 行日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl -u hermes -n 100</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看今天日志"><a href="#查看今天日志" class="headerlink" title="查看今天日志"></a>查看今天日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl -u hermes --since today</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="17-防火墙放行端口"><a href="#17-防火墙放行端口" class="headerlink" title="17. 防火墙放行端口"></a>17. 防火墙放行端口</h2><p>如果服务器开启了防火墙，需要放行 Hermes 使用的端口。</p>
+<h3 id="Ubuntu-Debian-ufw"><a href="#Ubuntu-Debian-ufw" class="headerlink" title="Ubuntu / Debian ufw"></a>Ubuntu / Debian ufw</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8000/tcp</span><br><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="CentOS-firewalld"><a href="#CentOS-firewalld" class="headerlink" title="CentOS firewalld"></a>CentOS firewalld</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --zone=public --add-port=8000/tcp --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="18-验证服务访问"><a href="#18-验证服务访问" class="headerlink" title="18. 验证服务访问"></a>18. 验证服务访问</h2><p>本机测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+
+<p>远程访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://服务器IP:8000</span><br></pre></td></tr></table></figure>
+
+<p>如果访问失败，请检查：</p>
+<ol>
+<li>Hermes 服务是否启动。</li>
+<li>端口是否配置正确。</li>
+<li>防火墙是否放行端口。</li>
+<li>云服务器安全组是否放行端口。</li>
+<li><code>ExecStart</code> 启动命令是否正确。</li>
+<li>配置文件中的监听地址是否为 <code>0.0.0.0</code>。</li>
+</ol>
+<hr>
+<h2 id="19-更新-Hermes"><a href="#19-更新-Hermes" class="headerlink" title="19. 更新 Hermes"></a>19. 更新 Hermes</h2><p>进入安装目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/hermes</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 Git 部署：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u hermes git pull</span><br></pre></td></tr></table></figure>
+
+<p>重新安装依赖：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u hermes /opt/hermes/venv/bin/pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>重启服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart hermes</span><br></pre></td></tr></table></figure>
+
+<p>查看状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="20-卸载-Hermes-服务"><a href="#20-卸载-Hermes-服务" class="headerlink" title="20. 卸载 Hermes 服务"></a>20. 卸载 Hermes 服务</h2><p>停止服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop hermes</span><br></pre></td></tr></table></figure>
+
+<p>取消开机自启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> hermes</span><br></pre></td></tr></table></figure>
+
+<p>删除 systemd 文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -f /etc/systemd/system/hermes.service</span><br></pre></td></tr></table></figure>
+
+<p>重新加载 systemd：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p>删除程序目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /opt/hermes</span><br></pre></td></tr></table></figure>
+
+<p>如需删除运行用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo userdel hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="21-故障排查"><a href="#21-故障排查" class="headerlink" title="21. 故障排查"></a>21. 故障排查</h2><h3 id="21-1-服务启动失败"><a href="#21-1-服务启动失败" class="headerlink" title="21.1 服务启动失败"></a>21.1 服务启动失败</h3><p>查看状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status hermes</span><br></pre></td></tr></table></figure>
+
+<p>查看详细日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo journalctl -u hermes -n 100</span><br></pre></td></tr></table></figure>
+
+<p>重点检查：</p>
+<ul>
+<li><code>ExecStart</code> 路径是否正确。</li>
+<li>Python 虚拟环境是否存在。</li>
+<li>依赖是否安装完整。</li>
+<li>配置文件路径是否正确。</li>
+<li>端口是否被占用。</li>
+<li>文件权限是否正确。</li>
+</ul>
+<h3 id="21-2-端口被占用"><a href="#21-2-端口被占用" class="headerlink" title="21.2 端口被占用"></a>21.2 端口被占用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i:8000</span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp | grep 8000</span><br></pre></td></tr></table></figure>
+
+<h3 id="21-3-权限不足"><a href="#21-3-权限不足" class="headerlink" title="21.3 权限不足"></a>21.3 权限不足</h3><p>重新设置目录权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R hermes:hermes /opt/hermes</span><br></pre></td></tr></table></figure>
+
+<h3 id="21-4-修改服务文件后不生效"><a href="#21-4-修改服务文件后不生效" class="headerlink" title="21.4 修改服务文件后不生效"></a>21.4 修改服务文件后不生效</h3><p>每次修改 <code>/etc/systemd/system/hermes.service</code> 后，需要执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart hermes</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="22-推荐生产环境配置"><a href="#22-推荐生产环境配置" class="headerlink" title="22. 推荐生产环境配置"></a>22. 推荐生产环境配置</h2><p>生产环境建议：</p>
+<ol>
+<li>使用普通用户运行服务，不使用 root。</li>
+<li>使用 systemd 管理进程。</li>
+<li>使用 Nginx 做反向代理。</li>
+<li>配置 HTTPS。</li>
+<li>配置日志轮转或集中日志采集。</li>
+<li>配置服务监控和告警。</li>
+<li>定期备份配置文件和数据文件。</li>
+</ol>
+<hr>
+<h2 id="23-Nginx-反向代理示例"><a href="#23-Nginx-反向代理示例" class="headerlink" title="23. Nginx 反向代理示例"></a>23. Nginx 反向代理示例</h2><p>安装 Nginx：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y nginx</span><br></pre></td></tr></table></figure>
+
+<p>创建配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/nginx/conf.d/hermes.conf</span><br></pre></td></tr></table></figure>
+
+<p>写入：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> your-domain.com;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://127.0.0.1:8000;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>检查配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>重启 Nginx：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="24-完整服务文件模板"><a href="#24-完整服务文件模板" class="headerlink" title="24. 完整服务文件模板"></a>24. 完整服务文件模板</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Hermes Service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">User</span>=hermes</span><br><span class="line"><span class="attr">Group</span>=hermes</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/opt/hermes</span><br><span class="line"><span class="attr">ExecStart</span>=/opt/hermes/venv/bin/python /opt/hermes/main.py</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">RestartSec</span>=<span class="number">5</span></span><br><span class="line"><span class="attr">StandardOutput</span>=journal</span><br><span class="line"><span class="attr">StandardError</span>=journal</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="25-部署完成检查清单"><a href="#25-部署完成检查清单" class="headerlink" title="25. 部署完成检查清单"></a>25. 部署完成检查清单</h2><ul>
+<li><input disabled="" type="checkbox"> <code>/opt/hermes</code> 目录已创建</li>
+<li><input disabled="" type="checkbox"> Hermes 程序已上传或拉取</li>
+<li><input disabled="" type="checkbox"> 依赖已安装</li>
+<li><input disabled="" type="checkbox"> 配置文件已修改</li>
+<li><input disabled="" type="checkbox"> 手动启动测试通过</li>
+<li><input disabled="" type="checkbox"> <code>hermes.service</code> 已创建</li>
+<li><input disabled="" type="checkbox"> <code>systemctl daemon-reload</code> 已执行</li>
+<li><input disabled="" type="checkbox"> 服务已启动</li>
+<li><input disabled="" type="checkbox"> 服务已设置开机自启</li>
+<li><input disabled="" type="checkbox"> 防火墙和安全组已放行端口</li>
+<li><input disabled="" type="checkbox"> 日志查看正常</li>
+<li><input disabled="" type="checkbox"> 浏览器或 curl 访问正常</li>
+</ul>
+<hr>
+<h2 id="26-备注"><a href="#26-备注" class="headerlink" title="26. 备注"></a>26. 备注</h2><p>请根据实际 Hermes 项目的启动方式修改以下内容：</p>
+<ul>
+<li>安装目录：<code>/opt/hermes</code></li>
+<li>运行用户：<code>hermes</code></li>
+<li>启动命令：<code>ExecStart</code></li>
+<li>服务端口：<code>8000</code></li>
+<li>配置文件路径</li>
+<li>日志输出方式</li>
+<li>数据库连接信息</li>
+</ul>
+
+          
+          <hr>
+          <ul class="pager no-print">
+              
+              <li class="previous">
+                  <a href="/hexo/2026-05-18_deploy_qwen35_vllm/" data-toggle="tooltip" data-placement="left"
+                     title="vLLM部署本地大模型">&larr; Previous Post</a>
+              </li>
+              
+              
+              <li class="next">
+                  <a href="/hexo/2026-03-29_torch_max_notes/" data-toggle="tooltip" data-placement="top"
+                     title="torch.max() 使用讲解">Next Post&rarr;</a>
+              </li>
+              
+          </ul>
+          
+
+      </div>
+      
+  <div class="hidden-xs col-sm-3 toc-col">
+    <div class="toc-wrap">
+        Table of Contents
+        
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装后操作"><span class="toc-number">1.1.</span> <span class="toc-text">安装后操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类-Unix-WSL2"><span class="toc-number">1.1.1.</span> <span class="toc-text">类 Unix / WSL2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-Hermes"><span class="toc-number">2.</span> <span class="toc-text">配置 Hermes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-创建-systemd-服务"><span class="toc-number">3.</span> <span class="toc-text">9. 创建 systemd 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-常见-ExecStart-写法"><span class="toc-number">4.</span> <span class="toc-text">10. 常见 ExecStart 写法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-项目"><span class="toc-number">4.1.</span> <span class="toc-text">Python 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gunicorn-项目"><span class="toc-number">4.2.</span> <span class="toc-text">Gunicorn 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Uvicorn-FastAPI-项目"><span class="toc-number">4.3.</span> <span class="toc-text">Uvicorn / FastAPI 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-Jar-项目"><span class="toc-number">4.4.</span> <span class="toc-text">Java Jar 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js-项目"><span class="toc-number">4.5.</span> <span class="toc-text">Node.js 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go-二进制项目"><span class="toc-number">4.6.</span> <span class="toc-text">Go 二进制项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-重新加载-systemd"><span class="toc-number">5.</span> <span class="toc-text">11. 重新加载 systemd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-启动-Hermes-服务"><span class="toc-number">6.</span> <span class="toc-text">12. 启动 Hermes 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-查看服务状态"><span class="toc-number">7.</span> <span class="toc-text">13. 查看服务状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-设置开机自启"><span class="toc-number">8.</span> <span class="toc-text">14. 设置开机自启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-常用服务管理命令"><span class="toc-number">9.</span> <span class="toc-text">15. 常用服务管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务"><span class="toc-number">9.1.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止服务"><span class="toc-number">9.2.</span> <span class="toc-text">停止服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务"><span class="toc-number">9.3.</span> <span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看状态"><span class="toc-number">9.4.</span> <span class="toc-text">查看状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取消开机自启"><span class="toc-number">9.5.</span> <span class="toc-text">取消开机自启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-查看日志"><span class="toc-number">10.</span> <span class="toc-text">16. 查看日志</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实时查看日志"><span class="toc-number">10.1.</span> <span class="toc-text">实时查看日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看最近-100-行日志"><span class="toc-number">10.2.</span> <span class="toc-text">查看最近 100 行日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看今天日志"><span class="toc-number">10.3.</span> <span class="toc-text">查看今天日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-防火墙放行端口"><span class="toc-number">11.</span> <span class="toc-text">17. 防火墙放行端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-Debian-ufw"><span class="toc-number">11.1.</span> <span class="toc-text">Ubuntu / Debian ufw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-firewalld"><span class="toc-number">11.2.</span> <span class="toc-text">CentOS firewalld</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-验证服务访问"><span class="toc-number">12.</span> <span class="toc-text">18. 验证服务访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-更新-Hermes"><span class="toc-number">13.</span> <span class="toc-text">19. 更新 Hermes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-卸载-Hermes-服务"><span class="toc-number">14.</span> <span class="toc-text">20. 卸载 Hermes 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-故障排查"><span class="toc-number">15.</span> <span class="toc-text">21. 故障排查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-1-服务启动失败"><span class="toc-number">15.1.</span> <span class="toc-text">21.1 服务启动失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-2-端口被占用"><span class="toc-number">15.2.</span> <span class="toc-text">21.2 端口被占用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-3-权限不足"><span class="toc-number">15.3.</span> <span class="toc-text">21.3 权限不足</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-4-修改服务文件后不生效"><span class="toc-number">15.4.</span> <span class="toc-text">21.4 修改服务文件后不生效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-推荐生产环境配置"><span class="toc-number">16.</span> <span class="toc-text">22. 推荐生产环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-Nginx-反向代理示例"><span class="toc-number">17.</span> <span class="toc-text">23. Nginx 反向代理示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-完整服务文件模板"><span class="toc-number">18.</span> <span class="toc-text">24. 完整服务文件模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-部署完成检查清单"><span class="toc-number">19.</span> <span class="toc-text">25. 部署完成检查清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-备注"><span class="toc-number">20.</span> <span class="toc-text">26. 备注</span></a></li></ol>
+        
+    </div>
+  </div>
+
+
+    </div>
+</article>
+
+<!-- Footer -->
+<!-- footer.ejs -->
+<footer class="no-print">
+
+    <div class="text-center">
+
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        </ul>
+        <div class="text-muted copyright">
+            &copy;
+            
+            2017 - 2026
+            
+            -
+            xt
+            <br>
+            
+            
+            
+            | 
+            <p>
+                <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
+                <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
+                192.9k <b>Words</b>
+        </div>
+
+        <div class="search-container">
+            <form class="site-search-form">
+                <span class="glyphicon glyphicon-search"></span>
+                <input type="text" id="local-search-input" class="st-search-input" placeholder="Search..."/>
+            </form>
+            <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+        <script type="text/javascript" id="local.search.active">
+            var inputArea = document.querySelector("#local-search-input");
+            inputArea.onclick = function () {
+                var root = "/hexo/";
+                getSearchFile(root);
+                this.onclick = null
+            }
+            inputArea.onkeydown = function () {
+                if (event.keyCode == 13) return false
+            }
+        </script>
+
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script src="/hexo/js/main.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+        var $nav = document.querySelector("nav");
+        if ($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+
+</html>
