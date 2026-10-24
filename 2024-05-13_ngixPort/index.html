@@ -187,8 +187,11 @@
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-Open-NGINX-configuration-file"><a href="#1-Open-NGINX-configuration-file" class="headerlink" title="1. Open NGINX configuration file"></a>1. Open NGINX configuration file</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-enabled/default  [On Debian/Ubuntu]</span><br><span class="line"> vi /etc/nginx/nginx.conf             [On CentOS/RHEL]</span><br></pre></td></tr></table></figure>
+
 <h2 id="2-Change-NGINX-port-number"><a href="#2-Change-NGINX-port-number" class="headerlink" title="2. Change NGINX port number"></a>2. Change NGINX port number</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80 default_server;</span><br><span class="line">        listen [::]:80 default_server;</span><br><span class="line">        ...</span><br><span class="line">        </span><br><span class="line"><span class="comment"># Change port number 80 to 8080 in above lines, to look like</span></span><br><span class="line">server &#123;</span><br><span class="line">        listen 8080 default_server;</span><br><span class="line">        listen [::]:8080 default_server;</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
 <h2 id="3-Restart-NGINX"><a href="#3-Restart-NGINX" class="headerlink" title="3. Restart NGINX"></a>3. Restart NGINX</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Run the following command to check syntax of your updated config file.</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"></span><br><span class="line"><span class="comment">#If there are no errors, run the following command to restart NGINX server.</span></span><br><span class="line">sudo service nginx reload <span class="comment">#debian/ubuntu</span></span><br><span class="line"><span class="comment">#systemctl restart nginx #redhat/centos</span></span><br></pre></td></tr></table></figure>
+
 
           
           <hr>
@@ -260,7 +263,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

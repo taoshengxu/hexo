@@ -186,6 +186,7 @@
 <p>x2用于衡量实际值与理论值的差异程度（也就是卡方检验的核心思想），包含了以下两个信息：</p>
 <p>1.实际值与理论值偏差的绝对大小（由于平方的存在，差异是被放大的）  2. 差异程度与理论值的相对大小</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## python </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入IRIS数据集</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">iris.data<span class="comment">#查看数据</span></span><br><span class="line">model1 = SelectKBest(chi2, k=<span class="number">2</span>)<span class="comment">#选择k个最佳特征</span></span><br><span class="line">model1.fit_transform(iris.data, iris.target)<span class="comment">#iris.data是特征数据，iris.target是标签数据，该函数可以选择出k个特征 </span></span><br><span class="line">model1.scores_  <span class="comment">#得分</span></span><br><span class="line">model1.pvalues_  <span class="comment">#p-values</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="2-T-test"><a href="#2-T-test" class="headerlink" title="2. T-test"></a>2. T-test</h3>
           
           <hr>
@@ -261,7 +262,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

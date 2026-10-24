@@ -186,7 +186,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">835 words in total, 3 minutes required.</span>
+          <span class="post-count">836 words in total, 3 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>去年发现Hugo blog之时，喜甚。以Hugo+R  <a href="https://github.com/rstudio/blogdown"><strong>blogdown</strong></a>+Yihui <a href="https://github.com/yihui/hugo-ivy">hugo-ivy</a>主题搭建了Blog，所有内容采用markdown编辑。久用之，存稍许缺憾，一是公式显示问题，二是缺少搜索功能。</p>
@@ -215,22 +215,24 @@
 </li>
 </ol>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment">#cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span></span><br><span class="line">  <span class="attr">cdn:</span> <span class="string">//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="在hexo中使用mathjax的方法-不成功"><a href="#在hexo中使用mathjax的方法-不成功" class="headerlink" title="在hexo中使用mathjax的方法(不成功)"></a>在hexo中使用mathjax的方法(不成功)</h3><p><a href="https://blog.csdn.net/littlehaes/article/details/84370393">https://blog.csdn.net/littlehaes/article/details/84370393</a></p>
 <p>之前总是使用mathtype写公式然后再上传图片, 速度太慢了, 而且公式出错后不容易修改, 所以开始用mathjax, 但是原生hexo并不能直接渲染mathjax.</p>
 <p>可以先换成淘宝的下载源,增加npm下载速度: </p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">config</span> <span class="built_in">set</span> registry https:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="一-使用Kramed-代替-Marked"><a href="#一-使用Kramed-代替-Marked" class="headerlink" title="一. 使用Kramed 代替 Marked"></a>一. 使用Kramed 代替 Marked</h3><p>渲染引擎kramed支持mathjax</p>
 <blockquote>
-<p>npm uninstall hexo-renderer-marked —save<br>npm install hexo-renderer-kramed —save</p>
+<p>npm uninstall hexo-renderer-marked –save<br>npm install hexo-renderer-kramed –save</p>
 </blockquote>
 <p>打开/node_modules/hexo-renderer-kramed/lib/renderer.js</p>
 <blockquote>
-<p>// Change inline math rule<br>function formatText(text) {<br>  // Fit kramed’s rule: <script type="math/tex">+ \1 +</script><br>  return text.replace(/<code>\$(.*?)\$</code>/g, ‘$$$$$1$$$$’);<br>}</p>
+<p>// Change inline math rule<br>function formatText(text) {<br>  // Fit kramed’s rule: $$ + \1 + $$<br>  return text.replace(/<code>\$(.*?)\$</code>/g, ‘$$$$$1$$$$’);<br>}</p>
 <p>更改为：</p>
-<p>// Change inline math rule<br>function formatText(text) {<br>  // Fit kramed’s rule: <script type="math/tex">+ \1 +</script><br>​    return text;<br>}</p>
+<p>// Change inline math rule<br>function formatText(text) {<br>  // Fit kramed’s rule: $$ + \1 + $$<br>​    return text;<br>}</p>
 </blockquote>
 <h3 id="二-使用hexo-renderer-mathjax-代替-hexo-math"><a href="#二-使用hexo-renderer-mathjax-代替-hexo-math" class="headerlink" title="二:使用hexo-renderer-mathjax 代替 hexo-math"></a>二:使用hexo-renderer-mathjax 代替 hexo-math</h3><blockquote>
-<p>npm uninstall hexo-math —save<br>npm install hexo-renderer-mathjax —save</p>
+<p>npm uninstall hexo-math –save<br>npm install hexo-renderer-mathjax –save</p>
 </blockquote>
 <h3 id="三-更新-Mathjax-的-CDN-链接"><a href="#三-更新-Mathjax-的-CDN-链接" class="headerlink" title="三:更新 Mathjax 的 CDN 链接"></a>三:更新 Mathjax 的 CDN 链接</h3><p>打开node_modules/hexo-renderer-mathjax/mathjax.html<br>将最下面&lt;script src=后的url改为</p>
 <blockquote>
@@ -238,13 +240,19 @@
 </blockquote>
 <h3 id="四-更改默认转义规则"><a href="#四-更改默认转义规则" class="headerlink" title="四. 更改默认转义规则"></a>四. 更改默认转义规则</h3><p>打开:博客根目录/node_modules/kramed/lib/rules/inline.js</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^<span class="symbol">\\</span>([<span class="symbol">\\</span>`*&#123;&#125;<span class="symbol">\[</span><span class="symbol">\]</span>()#$+<span class="symbol">\-</span>.!_&gt;])/,      第11行，将其修改为</span><br><span class="line">escape: /^<span class="symbol">\\</span>([`*<span class="symbol">\[</span><span class="symbol">\]</span>()#$+<span class="symbol">\-</span>.!_&gt;])/,</span><br><span class="line">//em: /^<span class="symbol">\b</span>_((?:__|[<span class="symbol">\s</span><span class="symbol">\S</span>])+?)_<span class="symbol">\b</span>|^<span class="symbol">\*</span>((?:<span class="symbol">\*</span><span class="symbol">\*</span>|[<span class="symbol">\s</span><span class="symbol">\S</span>])+?)<span class="symbol">\*</span>(?!<span class="symbol">\*</span>)/,    第20行，将其修改为</span><br><span class="line">em: /^<span class="symbol">\*</span>((?:<span class="symbol">\*</span><span class="symbol">\*</span>|[<span class="symbol">\s</span><span class="symbol">\S</span>])+?)<span class="symbol">\*</span>(?!<span class="symbol">\*</span>)/,</span><br></pre></td></tr></table></figure>
+
 <h3 id="五-开启mathjax"><a href="#五-开启mathjax" class="headerlink" title="五:开启mathjax"></a>五:开启mathjax</h3><p>在主题的配置文件中,我用的是next主题,那么在其_config.yml中找到mathjax并设置为true</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MathJax Support</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">cdn:</span> <span class="string">//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML</span></span><br></pre></td></tr></table></figure>
-<p>写文章时,加上mathjax: true<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="string">/8/3</span> <span class="number">18</span><span class="string">:20:00</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo博客MathJax公式渲染</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+
+<p>写文章时,加上mathjax: true</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="string">/8/3</span> <span class="number">18</span><span class="string">:20:00</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo博客MathJax公式渲染</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
 <hr>
 <hr>
 <h3 id="hexo-命令"><a href="#hexo-命令" class="headerlink" title="hexo 命令"></a>hexo 命令</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装hexo</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-cli g</span><br><span class="line">npm <span class="keyword">install</span> hexo <span class="comment">--save</span></span><br><span class="line"><span class="comment">#安装hexo server</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-<span class="keyword">server</span> <span class="comment">--save</span></span><br><span class="line"><span class="comment"># 安装 hexo-deployer-git</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br><span class="line"><span class="comment"># 生成并部署</span></span><br><span class="line">hexo g -d</span><br><span class="line"><span class="comment">#清理</span></span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#实时浏览</span></span><br><span class="line">cd hexo_project/</span><br><span class="line">npm <span class="keyword">install</span> hexo-browsersync <span class="comment">--save</span></span><br><span class="line">hexo s</span><br><span class="line">[BS] <span class="keyword">Access</span> URLs:</span><br><span class="line"> <span class="comment">--------------------------------------</span></span><br><span class="line">          UI: <span class="keyword">http</span>://localhost:<span class="number">3001</span></span><br><span class="line"> <span class="comment">--------------------------------------</span></span><br><span class="line"> UI <span class="keyword">External</span>: <span class="keyword">http</span>://<span class="number">192.168</span><span class="number">.191</span><span class="number">.1</span>:<span class="number">3001</span></span><br><span class="line"> <span class="comment">--------------------------------------</span></span><br><span class="line">INFO  <span class="keyword">Start</span> processing</span><br><span class="line">INFO  Hexo <span class="keyword">is</span> running <span class="keyword">at</span> <span class="keyword">http</span>://localhost:<span class="number">4000</span>/. Press Ctrl+C <span class="keyword">to</span> stop.</span><br></pre></td></tr></table></figure>
+
 
           
           <hr>
@@ -316,7 +324,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

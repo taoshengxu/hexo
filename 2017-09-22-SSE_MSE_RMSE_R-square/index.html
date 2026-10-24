@@ -181,25 +181,26 @@
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">SSE</span><span class="params">(和方差、误差平方和)</span></span>：The sum of squares due to error</span><br><span class="line"><span class="function"><span class="title">MSE</span><span class="params">(均方误、方差)</span></span>：Mean squared error</span><br><span class="line"><span class="function"><span class="title">RMSE</span><span class="params">(均方根、标准差)</span></span>：Root mean squared error</span><br><span class="line"><span class="function"><span class="title">R-square</span><span class="params">(确定系数)</span></span>：Coefficient of determination</span><br><span class="line">Adjusted R-square：Degree-of-freedom adjusted coefficient of determination</span><br></pre></td></tr></table></figure>
+
 <h1 id="SSE-和方差、误差平方和"><a href="#SSE-和方差、误差平方和" class="headerlink" title="SSE(和方差、误差平方和)"></a>SSE(和方差、误差平方和)</h1><p>拟合数据和原始数据对应点的误差的平方和</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_SSE.gif" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_SSE.gif"></p>
 <p>SSE越接近于0，说明模型选择和拟合更好，数据预测也越成功。接下来的MSE和RMSE因为和SSE是同出一宗，所以效果一样。</p>
 <h1 id="MSE-均方误"><a href="#MSE-均方误" class="headerlink" title="MSE(均方误)"></a>MSE(均方误)</h1><p>预测数据和原始数据对应点误差的平方和的均值，也就是SSE/n，和SSE没有太大的区别，<strong>最常用</strong>！</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_MSE.gif" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_MSE.gif"></p>
 <h1 id="RMSE-均方根"><a href="#RMSE-均方根" class="headerlink" title="RMSE(均方根)"></a>RMSE(均方根)</h1><p>回归系统的拟合标准差，是MSE的平方根，就算公式如下</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_RMSE.gif" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_RMSE.gif"></p>
 <hr>
 <p><strong>在这之前，我们所有的误差参数都是基于预测值(y_hat)和原始值(y)之间的误差(即点对点)。从下面开始是所有的误差都是相对原始数据平均值(y_ba)而展开的(即点对全)</strong></p>
 <hr>
-<h1 id="R-square-确定系数"><a href="#R-square-确定系数" class="headerlink" title="R-square(确定系数)"></a>R-square(确定系数)</h1><h4 id="1-SSR：Sum-of-squares-of-the-regression，即预测数据与原始数据均值之差的平方和"><a href="#1-SSR：Sum-of-squares-of-the-regression，即预测数据与原始数据均值之差的平方和" class="headerlink" title="(1)SSR：Sum of squares of the regression，即预测数据与原始数据均值之差的平方和"></a>(1)SSR：Sum of squares of the regression，即预测数据与原始数据均值之差的平方和</h4><p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_SSR.gif" alt=""></p>
-<h4 id="2-SST：Total-sum-of-squares，即原始数据和均值之差的平方和"><a href="#2-SST：Total-sum-of-squares，即原始数据和均值之差的平方和" class="headerlink" title="(2)SST：Total sum of squares，即原始数据和均值之差的平方和"></a>(2)SST：Total sum of squares，即原始数据和均值之差的平方和</h4><p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_SST.gif" alt=""></p>
+<h1 id="R-square-确定系数"><a href="#R-square-确定系数" class="headerlink" title="R-square(确定系数)"></a>R-square(确定系数)</h1><h4 id="1-SSR：Sum-of-squares-of-the-regression，即预测数据与原始数据均值之差的平方和"><a href="#1-SSR：Sum-of-squares-of-the-regression，即预测数据与原始数据均值之差的平方和" class="headerlink" title="(1)SSR：Sum of squares of the regression，即预测数据与原始数据均值之差的平方和"></a>(1)SSR：Sum of squares of the regression，即预测数据与原始数据均值之差的平方和</h4><p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_SSR.gif"></p>
+<h4 id="2-SST：Total-sum-of-squares，即原始数据和均值之差的平方和"><a href="#2-SST：Total-sum-of-squares，即原始数据和均值之差的平方和" class="headerlink" title="(2)SST：Total sum of squares，即原始数据和均值之差的平方和"></a>(2)SST：Total sum of squares，即原始数据和均值之差的平方和</h4><p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_SST.gif"></p>
 <p>SST=SSE+SSR</p>
 <p>“确定系数”是定义为SSR和SST的比值</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_R2.gif" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/SSE_R2.gif"></p>
 <p><strong>R-square是通过数据的变化来表征一个拟合的好坏。由上面的表达式可以知道“确定系数”的正常取值范围为[0 1]，越接近1，表明方程的变量对y的解释能力越强，这个模型对数据拟合的也较好。</strong></p>
 <hr>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/MSE_RMSE.jpg" alt=""></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/MAE.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/MSE_RMSE.jpg"></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/MAE.jpg"></p>
 
           
           <hr>
@@ -275,7 +276,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

@@ -181,12 +181,12 @@
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="Fold-Change"><a href="#Fold-Change" class="headerlink" title="Fold Change"></a>Fold Change</h1><p>计算公式：样本平均值log2还原的比值</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/fold_change.jpg" alt=""></p>
-<h1 id="火山图（Volcano-Plot）"><a href="#火山图（Volcano-Plot）" class="headerlink" title="火山图（Volcano Plot）"></a>火山图（Volcano Plot）</h1><p>火山图只存在于两分组样本比较中，并且有生物学重复(经过相同方式处理的相同样品)<br><img src="https://taoshengxu.github.io/DocumentGit/img/volcanoplot.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/fold_change.jpg"></p>
+<h1 id="火山图（Volcano-Plot）"><a href="#火山图（Volcano-Plot）" class="headerlink" title="火山图（Volcano Plot）"></a>火山图（Volcano Plot）</h1><p>火山图只存在于两分组样本比较中，并且有生物学重复(经过相同方式处理的相同样品)<br><img src="https://taoshengxu.github.io/DocumentGit/img/volcanoplot.jpg"></p>
 <p>标准的火山图常用于展示显著差异表达的基因，这里有两个关键词：显著是指P&lt;&gt;差异表达一般我们按照Fold Change(倍数变化)&gt;=2.0作为标准。</p>
 <p>当我们拿到基因表达的P值和倍数后，为了用火山图展示结果，一般需要把倍数进行Log2的转化，比如某基因在实验组表达水平是对照组的4倍，log2（4）=2，同样的如果是1/4，也就是0.25，转换后的结果就是-2。</p>
 <p>同样的道理，对P值进行-log10的转化，-log10（0.05）约等于1.30103，由于P值越小表示越显著，所以我们进行-log10（P value）转化后，转化值越大表示差异约显著，比如-log10（0.001）=3  &gt;  -log10(0.01)=2 &gt;  -log10(0.05)=1.30。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/volcanoplot1.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/volcanoplot1.jpg"></p>
 <p>在上面这个图中，横轴是log2（FC），纵轴是-log10（P value），每个点代表一个基因，平行于Y轴的两条线分别是X=1和X=-1，在X=-1左侧的点是下调2倍以上的基因，在X=1右侧的点是上调2倍以上的基因。同时，平行于X轴有一条虚线Y=1.30，即-log10(0.05），在虚线以上的点表示显著性.</p>
 <p>这样，我们就把虚线Y=1.30以上，X=1右侧和X=-1左侧的基因标记为表达显著差异的基因，一般我们把大于2倍（X=1右侧）的点标记为红色，把小于-2（X=-1左侧）的点标记为绿色，一些我们特别关注的基因需要把基因名标记出来。</p>
 
@@ -264,7 +264,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

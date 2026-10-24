@@ -184,13 +184,18 @@
 <p><strong>一、检查 fctix 框架</strong></p>
 <p>​       首先，要安装中文输入法，必须要保证系统上有 fctix。fctix 是一个以 GPL 方式发布的输入法框架，安装 fctix 后可以为操作系统的桌面环境提供一个灵活的输入方案，解决在 GNU/Linux 环境下安装中文输入法的问题。<br>​       win + a 打开所有应用程序，找到 Language Support 并打开，在 kygboard input method system 中查看是否有 fcitx 。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; fcitx</span><br><span class="line">&gt; sudo apt-<span class="builtin-name">get</span> install fcitx-bin</span><br><span class="line">&gt; sudo apt-<span class="builtin-name">get</span> install fcitx-table</span><br><span class="line">&gt; sudo apt-<span class="builtin-name">get</span> install -f  #修复依赖关系</span><br></pre></td></tr></table></figure>
+
 <p>​        之后重启电脑，重新设置 kygboard input method system 为 fctix 。</p>
 <p><strong>二、安装输入法（二选一）</strong><br>注：搜狗输入法比 Google 输入法好用</p>
-<p><strong>(一)、搜狗输入法</strong><br>1、进入搜狗输入法的官网，找到linux环境下的 .deb 的安装包并下载（注意 32 位 和 64 位）。下载的时候有一个可选项，是下载安装或者是保存，建议大家保存，下载安装的那个选项安装完后好像没效果（可能是自身操作的问题）。搜狗输入法 Linux 版官方链接：<a href="https://pinyin.sogou.com/linux/?r=pinyin">https://pinyin.sogou.com/linux/?r=pinyin</a> 。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">dpkg</span> <span class="selector-tag">-i</span> <span class="selector-tag">sogoupinyin_2</span><span class="selector-class">.2</span><span class="selector-class">.0</span><span class="selector-class">.0108_amd64</span><span class="selector-class">.deb</span></span><br><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">apt-get</span> <span class="selector-tag">install</span> <span class="selector-tag">-f</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>(一)、搜狗输入法</strong><br>1、进入搜狗输入法的官网，找到linux环境下的 .deb 的安装包并下载（注意 32 位 和 64 位）。下载的时候有一个可选项，是下载安装或者是保存，建议大家保存，下载安装的那个选项安装完后好像没效果（可能是自身操作的问题）。搜狗输入法 Linux 版官方链接：<a href="https://pinyin.sogou.com/linux/?r=pinyin">https://pinyin.sogou.com/linux/?r=pinyin</a> 。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">dpkg</span> <span class="selector-tag">-i</span> <span class="selector-tag">sogoupinyin_2</span><span class="selector-class">.2</span><span class="selector-class">.0</span><span class="selector-class">.0108_amd64</span><span class="selector-class">.deb</span></span><br><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">apt-get</span> <span class="selector-tag">install</span> <span class="selector-tag">-f</span></span><br></pre></td></tr></table></figure>
+
 <p>4、重启系统。</p>
 <p><strong>(二)、Google 输入法</strong></p>
 <p>注：googlepinyin 有基于 fctix 框架的，也有基于 ibus 框架的。</p>
-<p>1、直接安装。(如果安装失败提示 E: Unable to locate package fcitx-googlepinyin 时，先执行： sudo apt install fctix  再执行如下命令)<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> fcitx-googlepinyin   </span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> -f</span><br></pre></td></tr></table></figure></p>
+<p>1、直接安装。(如果安装失败提示 E: Unable to locate package fcitx-googlepinyin 时，先执行： sudo apt install fctix  再执行如下命令)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> fcitx-googlepinyin   </span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> -f</span><br></pre></td></tr></table></figure>
+
 <p>3、重启系统。</p>
 <p><strong>三、设置输入法：</strong><br>1、win + a 打开所有应用，搜索 fcitx configuration 并打开。<br>2、取消勾选<br>3、点击 “+” 新增输入法，在搜索框直接搜索即可<br>4、OK 即可<br>5、将你喜欢使用的输入法置顶，因为输入法在启动的时候是按顺序启动的。<br>注：如果设置完后输入法还是无法启动，重启系统即可。</p>
 <p><strong>四、卸载</strong><br>1、卸载 googlepinyin<br>①、sudo apt-get purge fcitx-googlepinyin<br>②、百度的方法，没试过（基于ibus框架下的）。<br>sudo apt-get remove ibus<br>sudo apt-get remove ibus-goog</p>
@@ -201,8 +206,8 @@
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2017-09-04-UbuntuInstall_R/" data-toggle="tooltip" data-placement="left"
-                     title="Ubuntu 安装R, RStudio, Rstudio Server, JAVA">&larr; Previous Post</a>
+                  <a href="/hexo/2017-09-06-HTML_Basic/" data-toggle="tooltip" data-placement="left"
+                     title="HTML基本语法">&larr; Previous Post</a>
               </li>
               
               
@@ -270,7 +275,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

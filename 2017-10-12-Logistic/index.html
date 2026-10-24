@@ -177,7 +177,7 @@
     <div class="container">
       <div class="col-lg-8 col-lg-offset-1 col-sm-9">
           
-          <span class="post-count">592 words in total, 2 minutes required.</span>
+          <span class="post-count">576 words in total, 2 minutes required.</span>
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -185,17 +185,25 @@
 <p>原文 <a href="http://blog.csdn.net/ariessurfer/article/details/41310525">http://blog.csdn.net/ariessurfer/article/details/41310525</a></p>
 <p>Logistic回归为概率型非线性回归模型，是研究二分类观察结果 Y 与一些影响因素(x1,x2,..,xn)之间关系的一种多变量分析方法。通常的问题是，研究某些因素条件下某个结果是否发生，比如医学中根据病人的一些症状来判断它是否患有某种病。</p>
 <h1 id="LR分类器-Logistic-Regression-Classifier"><a href="#LR分类器-Logistic-Regression-Classifier" class="headerlink" title="LR分类器: Logistic Regression Classifier"></a>LR分类器: Logistic Regression Classifier</h1><p>在分类情形下，经过学习后的LR分类器是一组权值\(W=(w_0,w_1,…,w_n)\)，当测试样本的数据输入时，这组权值与测试数据按照线性加和得到:</p>
-<script type="math/tex; mode=display">x=w\_0+ w\_1x\_1+...+w\_nx\_n</script><p>之后按照<strong>Logistic(sigmoid函数)</strong>的形式求出</p>
-<script type="math/tex; mode=display">f(x)=\frac{1}{1+e^x}</script><p>由于Logistic函数的定义域为(-inf,inf)，值域为(0,1)，因此最基本的LR分类器适合对两类目标进行分类。所以Logistic回归最关键的问题就是研究如何求得权值\(W=(w_0,w_1,…,w_n)\)。用极大似然估计。</p>
+<p>$$x=w_0+ w_1x_1+…+w_nx_n$$</p>
+<p>之后按照**Logistic(sigmoid函数)**的形式求出</p>
+<p>$$f(x)=\frac{1}{1+e^x}$$</p>
+<p>由于Logistic函数的定义域为(-inf,inf)，值域为(0,1)，因此最基本的LR分类器适合对两类目标进行分类。所以Logistic回归最关键的问题就是研究如何求得权值\(W=(w_0,w_1,…,w_n)\)。用极大似然估计。</p>
 <h1 id="Logistic回归模型"><a href="#Logistic回归模型" class="headerlink" title="Logistic回归模型"></a>Logistic回归模型</h1><p>Logistic回归模型可以表示为</p>
 <p>考虑具有个独立变量的向量\(X=(x_0,x_1,…,x_n)\)，</p>
 <p>(1)在变量X条件下某事件发生的概率p为：</p>
-<script type="math/tex; mode=display">P(y=1|x)=\pi(x)=\frac{1}{1+e^{-g(x)}}</script><p>其中\(g(x)=w_0+ w_1x_1+…+w_nx_n\)</p>
+<p>$$P(y=1|x)=\pi(x)=\frac{1}{1+e^{-g(x)}}$$</p>
+<p>其中\(g(x)=w_0+ w_1x_1+…+w_nx_n\)</p>
 <p>(2)在变量X条件下不发生的概率1-p为:</p>
-<script type="math/tex; mode=display">P(y=0|x)=1-P(y=1|x)= 1-\frac{1}{1+e^{-g(x)}} =\frac{1}{1+e^{g(x)}}</script><p>(3)事件的发生比（the odds of experiencing an event）:事件发生与不发生的概率之比odds</p>
-<script type="math/tex; mode=display">\frac{P(y=1|x)}{P(y=0|x)}=\frac{p}{1-p} =e^{g(x)}</script><script type="math/tex; mode=display">ln(\frac{p}{1-p})=g(x)=w\_0+ w\_1x\_1+...+w\_nx\_n</script><h1 id="Logistic回归极大似然估计"><a href="#Logistic回归极大似然估计" class="headerlink" title="Logistic回归极大似然估计"></a>Logistic回归极大似然估计</h1><p>假设有m个观测样本\(X=(x_0,x_1,…,x_m)\)，观测值分别为\(Y=(y_0,y_1,…,y_m)\)，设给定条件下时间发生的概率\(p_i=P(y_i=1|x_i)\)，时间不发生的概率为\(P(y_i=0|x_i)=1-p_i\)。所以得到一个观测值的概率为</p>
-<script type="math/tex; mode=display">P(y_i)=p\_i^{y\_i}(1-p\_i)^{1-y\_i}</script><p>因为各个观测样本之间相互独立，整体事件发生的概率为各边缘分布的乘积，得到似然函数为</p>
-<script type="math/tex; mode=display">L(w)=\prod_{i=1}^{m}=\\{\pi(x\_i)\\}^{y\_i}\\{1-\pi(x\_i)\\}^{1-y\_i}</script><p>然后用极大似然估计求得权值\(W=(w_0,w_1,…,w_n)\)的估计。</p>
+<p>$$P(y=0|x)=1-P(y=1|x)= 1-\frac{1}{1+e^{-g(x)}} =\frac{1}{1+e^{g(x)}} $$</p>
+<p>(3)事件的发生比（the odds of experiencing an event）:事件发生与不发生的概率之比odds</p>
+<p>$$\frac{P(y=1|x)}{P(y=0|x)}=\frac{p}{1-p} =e^{g(x)}$$</p>
+<p>$$ln(\frac{p}{1-p})=g(x)=w_0+ w_1x_1+…+w_nx_n$$</p>
+<h1 id="Logistic回归极大似然估计"><a href="#Logistic回归极大似然估计" class="headerlink" title="Logistic回归极大似然估计"></a>Logistic回归极大似然估计</h1><p>假设有m个观测样本\(X=(x_0,x_1,…,x_m)\)，观测值分别为\(Y=(y_0,y_1,…,y_m)\)，设给定条件下时间发生的概率\(p_i=P(y_i=1|x_i)\)，时间不发生的概率为\(P(y_i=0|x_i)=1-p_i\)。所以得到一个观测值的概率为</p>
+<p>$$P(y_i)=p_i^{y_i}(1-p_i)^{1-y_i}$$</p>
+<p>因为各个观测样本之间相互独立，整体事件发生的概率为各边缘分布的乘积，得到似然函数为</p>
+<p>$$L(w)=\prod_{i=1}^{m}=\{\pi(x_i)\}^{y_i}\{1-\pi(x_i)\}^{1-y_i} $$</p>
+<p>然后用极大似然估计求得权值\(W=(w_0,w_1,…,w_n)\)的估计。</p>
 
           
           <hr>
@@ -271,7 +279,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

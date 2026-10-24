@@ -191,7 +191,7 @@
 </blockquote>
 <p>在分类问题中，通常需要使用 <code>max()</code> 函数对 softmax 函数的输出值进行操作，求出预测值索引，然后与标签进行比对，计算准确率。</p>
 <h2 id="1-torch-max-input-dim-函数"><a href="#1-torch-max-input-dim-函数" class="headerlink" title="1. torch.max(input, dim) 函数"></a>1. torch.max(input, dim) 函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output = torch.max(input, dim)</span><br></pre></td></tr></table></figure>
-<div class="table-container">
+
 <table>
 <thead>
 <tr>
@@ -199,8 +199,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>input</code></td>
 <td>softmax 函数输出的一个 tensor</td>
 </tr>
@@ -208,9 +207,7 @@
 <td><code>dim</code></td>
 <td>max 函数索引的维度，0 = 每列的最大值，1 = 每行的最大值</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>函数返回两个 tensor：</p>
 <ul>
 <li><strong>第一个 tensor</strong>：每行/列的最大值</li>
@@ -220,17 +217,23 @@
 <p>在多分类任务中，我们并不需要知道各类别的预测概率，所以返回值的第一个 tensor 对分类任务没有帮助。第二个 tensor 包含了预测最大概率的索引，所以在实际使用中我们仅获取第二个 tensor 即可。</p>
 </blockquote>
 <h2 id="2-使用示例"><a href="#2-使用示例" class="headerlink" title="2. 使用示例"></a>2. 使用示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">a = torch.tensor([[<span class="number">1</span>, <span class="number">5</span>, <span class="number">62</span>, <span class="number">54</span>], </span><br><span class="line">                  [<span class="number">2</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">6</span>], </span><br><span class="line">                  [<span class="number">2</span>, <span class="number">65</span>, <span class="number">2</span>, <span class="number">6</span>]])</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+
 <p><strong>输出：</strong></p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tensor([[ <span class="number">1</span>,  <span class="number">5</span>, <span class="number">62</span>, <span class="number">54</span>],</span><br><span class="line">        [ <span class="number">2</span>,  <span class="number">6</span>,  <span class="number">2</span>,  <span class="number">6</span>],</span><br><span class="line">        [ <span class="number">2</span>, <span class="number">65</span>,  <span class="number">2</span>,  <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
+
 <h3 id="索引每行的最大值"><a href="#索引每行的最大值" class="headerlink" title="索引每行的最大值"></a>索引每行的最大值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.max(a, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
 <p><strong>输出：</strong></p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.return_types.max(</span><br><span class="line">values=tensor([<span class="number">62</span>,  <span class="number">6</span>, <span class="number">65</span>]),</span><br><span class="line">indices=tensor([<span class="number">2</span>,  <span class="number">3</span>,  <span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
 <h3 id="仅获取索引（转换为-numpy-数组）"><a href="#仅获取索引（转换为-numpy-数组）" class="headerlink" title="仅获取索引（转换为 numpy 数组）"></a>仅获取索引（转换为 numpy 数组）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.max(a, <span class="number">1</span>)[<span class="number">1</span>].numpy()</span><br></pre></td></tr></table></figure>
+
 <p><strong>输出：</strong></p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>], dtype=int64)</span><br></pre></td></tr></table></figure>
+
 <p>这样就可以与标签值进行比对，计算模型预测准确率。</p>
 <h2 id="3-准确率的计算"><a href="#3-准确率的计算" class="headerlink" title="3. 准确率的计算"></a>3. 准确率的计算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pred_y = torch.max(predict, <span class="number">1</span>)[<span class="number">1</span>].numpy()</span><br><span class="line">label_y = torch.max(label, <span class="number">1</span>)[<span class="number">1</span>].numpy()</span><br><span class="line">accuracy = (pred_y == label_y).sum() / len(label_y)</span><br></pre></td></tr></table></figure>
-<div class="table-container">
+
 <table>
 <thead>
 <tr>
@@ -238,8 +241,7 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>predict</code></td>
 <td>softmax 函数输出</td>
 </tr>
@@ -247,23 +249,20 @@
 <td><code>label</code></td>
 <td>样本标签（假设为 one-hot 编码）</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h2 id="4-注意事项-⚠️"><a href="#4-注意事项-⚠️" class="headerlink" title="4. 注意事项 ⚠️"></a>4. 注意事项 ⚠️</h2><blockquote>
 <p>在早期 PyTorch 版本中，需要使用 <code>.data.numpy()</code> 的写法，因为当时 Variable 和 Tensor 是不同的数据格式。现在的版本已经将两者合并，直接使用 <code>[1].numpy()</code> 即可。</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 旧写法（早期版本）</span></span><br><span class="line">torch.max(a, <span class="number">1</span>).data.numpy()</span><br><span class="line"><span class="comment"># 新写法（当前版本）</span></span><br><span class="line">torch.max(a, <span class="number">1</span>)[<span class="number">1</span>].numpy()</span><br></pre></td></tr></table></figure>
-<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><div class="table-container">
-<table>
+
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><table>
 <thead>
 <tr>
 <th>场景</th>
 <th>代码</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>获取最大值</td>
 <td><code>torch.max(a, dim=1)[0]</code></td>
 </tr>
@@ -275,17 +274,15 @@
 <td>计算准确率</td>
 <td><code>(pred_y == label_y).sum() / len(label_y)</code></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 
           
           <hr>
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2026-05-18_Hermes/" data-toggle="tooltip" data-placement="left"
-                     title="Hermes 安装及服务部署文档">&larr; Previous Post</a>
+                  <a href="/hexo/2026-05-18_deploy_qwen35_vllm/" data-toggle="tooltip" data-placement="left"
+                     title="vLLM部署本地大模型">&larr; Previous Post</a>
               </li>
               
               
@@ -349,7 +346,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

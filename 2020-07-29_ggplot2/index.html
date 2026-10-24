@@ -186,6 +186,7 @@
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>ggplot2</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 仅仅演示，</span></span><br><span class="line">ggplot(deg_list_counts,   <span class="comment">## 数据</span></span><br><span class="line">       aes(x=Index, y=Count)) +    <span class="comment">## x,y的变量</span></span><br><span class="line">       geom_point(size=<span class="number">1.5</span>, color=<span class="string">"black"</span>) +  <span class="comment">## 画点</span></span><br><span class="line">       xlab(<span class="string">""</span>) + ylab(<span class="string">"Significant Counts"</span>) +  <span class="comment">##x ,y 轴的label</span></span><br><span class="line">       theme_classic() +</span><br><span class="line">       theme(legend.position=<span class="string">"right"</span>)+</span><br><span class="line">       theme(axis.text=element_text(size=<span class="number">12</span>, color=<span class="string">"black"</span>),</span><br><span class="line">             axis.title=element_text(size=<span class="number">12</span>, color=<span class="string">"black"</span>))+</span><br><span class="line">       geom_smooth(aes(color=Cluster)) +   <span class="comment">#画不同颜色的拟合曲线</span></span><br></pre></td></tr></table></figure>
 
+
           
           <hr>
           <ul class="pager no-print">
@@ -256,7 +257,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

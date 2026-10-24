@@ -189,7 +189,7 @@
 <h2 id="3-CNV数据"><a href="#3-CNV数据" class="headerlink" title="3.CNV数据"></a>3.CNV数据</h2><h5 id="1-Germline和Somatic-的区别"><a href="#1-Germline和Somatic-的区别" class="headerlink" title="1. Germline和Somatic 的区别"></a>1. Germline<code>和</code>Somatic 的区别</h5><p>对于DNA测序而言，主要识别SNP和CNV 两大类型的变异，每种变异类型又有<code>Germline</code>和<code>Somatic</code>的区别。</p>
 <ul>
 <li><code>Germline</code>指的是在胚胎发育早起出现的变异，这种变异会在所有细胞中广泛存在，是可以遗传给后代的变异；</li>
-<li><code>Somatic</code>指的是体细胞变异，身体特定区域或者组织中出现的变异，通常不会遗传给后代。（<a href="https://www.jianshu.com/p/825e7d618838）">https://www.jianshu.com/p/825e7d618838）</a></li>
+<li><code>Somatic</code>指的是体细胞变异，身体特定区域或者组织中出现的变异，通常不会遗传给后代。（<a href="https://www.jianshu.com/p/825e7d618838%EF%BC%89">https://www.jianshu.com/p/825e7d618838）</a></li>
 </ul>
 <h5 id="2-明白什么是CNV"><a href="#2-明白什么是CNV" class="headerlink" title="2. 明白什么是CNV"></a>2. 明白什么是CNV</h5><p>CNV（copy-number variant）是指拷贝数目变异，也称拷贝数目多态性（copy-number polymorphism，CNP），是一个大小介于1kb至3MB的DNA片段的变异，在人类及动植物基因组中广泛分布，其覆盖的核苷酸总数大大超过单核苷酸多态性（SNP）的总数，极大地丰富了基因组遗传变异的多样性。按照CNV是否致病可分为<strong>致病性CNV</strong>、<strong>非致病性CNV</strong>和<strong>不明临床意义CNV</strong>。</p>
 <p><strong>CNV是相对参考基因组而言的概念</strong>。对正常人来说，基因组应该是二倍体的，所以凡是测到非2倍体的地方都是CNV。但是CNV本身就是人群遗传物质多样性的体现，所以对癌症样本来说，是需要过滤掉正常人体内的germline的CNV，得到somatic的CNV。</p>
@@ -207,7 +207,9 @@
 <p><a href="https://gdac.broadinstitute.org/runs/analyses__latest/data/BRCA/20160128/">https://gdac.broadinstitute.org/runs/analyses__latest/data/BRCA/20160128/</a> </p>
 <p>打开url可以看到非常多的文件，这里我们感兴趣的是snp6芯片的拷贝数结果，而且一般是基于hg19版本的。</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c -r -np -nH -k -L --cut-dirs <span class="number">6</span> -p  -A <span class="string">"*snp_6*hg19*Level_3*"</span>  http:<span class="regexp">//g</span>dac.broadinstitute.org<span class="regexp">/runs/</span>stddata__2016_01_28<span class="regexp">/data/</span>BRCA<span class="regexp">/20160128/</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Merge_s<span class="symbol">np__genome_wide_snp_6</span>__broad_mit_edu__Level_<span class="number">3</span>__segme<span class="symbol">nted_scna_hg19</span>__seg </span><br><span class="line">Merge_s<span class="symbol">np__genome_wide_snp_6</span>__broad_mit_edu__Level_<span class="number">3</span>__segme<span class="symbol">nted_scna_minus_germline_cnv_hg19</span>__seg</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>其中minus了germline的CNV的就是我们想要的癌症相关的somatic CNV!</code></p>
 </blockquote>
@@ -215,8 +217,8 @@
 <h2 id="4-RNASeq数据"><a href="#4-RNASeq数据" class="headerlink" title="4.  RNASeq数据"></a>4.  RNASeq数据</h2><h3 id="TCGA-RNAseq数据中FPKM与TPM转换介绍"><a href="#TCGA-RNAseq数据中FPKM与TPM转换介绍" class="headerlink" title="TCGA RNAseq数据中FPKM与TPM转换介绍"></a>TCGA RNAseq数据中FPKM与TPM转换介绍</h3><p><a href="https://shengxin.ren/topic/2">TCGA</a>     <a href="https://shengxin.ren/topic/91">TCGA下载</a>  <a href="https://shengxin.ren/topic/243">TPM</a>  <a href="https://shengxin.ren/topic/217">FPKM</a></p>
 <p>在新版TCGA（GDC Portral）的RNAseq数据主要提供了三种数据下载，<strong>HTSeq-Counts，HTSeq-FPKM，HTSeq-FPKM-UQ</strong>.</p>
 <p><a href="https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/">TCGA官方文档</a></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/GDC_RNASeq.png" alt=""></p>
-<p>Counts是数据后台没有处理的原始表达量，而FPKM和FPKM-UQ是两种数据处理方法，也就是说，如果下载Counts数据，是表达量数据，如果下载FPKM数据，那么要注意这些数据是经过处理的。正常情况下，我们下载Counts数据就可以了，特殊情况选择FPKM数据也是可以的。<br><img src="https://taoshengxu.github.io/DocumentGit/img/FPKM.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GDC_RNASeq.png"></p>
+<p>Counts是数据后台没有处理的原始表达量，而FPKM和FPKM-UQ是两种数据处理方法，也就是说，如果下载Counts数据，是表达量数据，如果下载FPKM数据，那么要注意这些数据是经过处理的。正常情况下，我们下载Counts数据就可以了，特殊情况选择FPKM数据也是可以的。<br><img src="https://taoshengxu.github.io/DocumentGit/img/FPKM.png"></p>
 <p>下载数据后，在数据分析时，用的方法也是不同的，Counts数据一般使用edgeR包或DESeq包，对数据做分析；如果下载FPKM数据，就不能使用edgeR包，只能只用DESeq包进行处理。<br>在使用edgeR包做Counts数据处理时，是需要对数据进行normalize的，所以我们在下载数据时，下载counts是比较常用的。 </p>
 <p>如果要用edgR等筛选差异的话会下载使用Counts数据，但是笔者在过去的数据分析中发现TCGA数据使用edgR等软件筛选差…</p>
 <p>但是笔者在过去的数据分析中发现TCGA数据使用edgR等软件筛选差异基因并不理想，细思主要有两方面原因：</p>
@@ -227,9 +229,11 @@
 <p>基于此笔者几乎很少使用edgR等软件来筛选差异了，那么就很少下载Counts数据了，所以大多数情况下都是用RPKM，但是RPKM数据本身也是饱受诟病，像<a href="http://www.cbioportal.org/">cbioportal</a>使用的是RSEM软件做的定量即TPM，在老版TCGA中也可以直接下载到这些数据，那么新版如何得到这样的数据呢，简单的办法是从FPKM转TPM.</p>
 <p>FPKM: Fragments Per Kilobase of exon model per Million mapped fragments 即每千个碱基的转录每百万映射读取的fragments<br>TPM：TranscriptsPerKilobase of exonmodel per Million mapped reads 即每千个碱基的转录每百万映射读取的Transcripts<br>他们的计算公式如下：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">FPKM= <span class="keyword">total</span> exon reads/ (mapped reads (Millions) * exon <span class="built_in">length</span>(KB))</span><br><span class="line">                    <span class="keyword">total</span> exon reads：某个样本mapping到特定基因的外显子上的所有的reads</span><br><span class="line">                    mapped reads (Millions) :某个样本的所有reads总和</span><br><span class="line">                    exon <span class="built_in">length</span>(KB)：某个基因的长度（外显子的长度的总和，以KB为单位）</span><br><span class="line">TPMi=(Ni/<span class="keyword">Li</span>)*1000000/<span class="built_in">sum</span>(N0/L0+……..+ Nm/Lm)</span><br><span class="line">                     Ni：mapping到基因i上的<span class="keyword">read</span>数； <span class="keyword">Li</span>：基因i的外显子长度的总和;<span class="keyword">m</span>：为所有基因的总数</span><br></pre></td></tr></table></figure>
+
 <p>从以上公式我们可以进一步推导如下：</p>
 <p>从以上公式我们可以进一步推导如下：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、FPKMi*(mapped reads (Millions)= total exon reads/ (mapped reads (Millions) * exon length(KB))</span><br><span class="line">2、total exon reads/ (mapped reads (Millions) * exon length(KB))=(Ni/Li)</span><br><span class="line">3、FPKMi*(mapped reads (Millions)=(Ni/Li)</span><br><span class="line">4、<span class="attribute">TPMi</span>=FPKMi*(mapped reads (Millions)<span class="number">*1000000</span>/(N0/L0+……<span class="built_in">..</span>+ Nm/Lm)</span><br><span class="line">5、<span class="attribute">TPMi</span>=FPKMi*(mapped reads (Millions)<span class="number">*1000000</span>/(FPKM0*(mapped reads (Millions)+……<span class="built_in">..</span>+ FPKMm*(mapped reads (Millions))</span><br><span class="line">6、<span class="attribute">TPMi</span>=FPKMi*1000000/(FPKM0+……..+ FPKMm)</span><br></pre></td></tr></table></figure>
+
 <p>最终我们得到了TPM和FPKM的转换公公式，从公式里可以看到TPM就是等于该基因的FPKM占所有基因的FPKM的总和的比例乘以一百万，那么值得注意的是每个样本所有基因的TPM加和就等于一百万了，这很类似样本间标准化<br>最后你下载的TCGA FPKM数据转换TPM就不会懵逼了吧<br>参考文献：<a href="https://academic.oup.com/bioinformatics/article/26/4/493/243395/RNA-Seq-gene-expression-estimation-with-read">https://academic.oup.com/bioinformatics/article/26/4/493/243395/RNA-Seq-gene-expression-estimation-with-read</a></p>
 <h2 id="5-其他数据"><a href="#5-其他数据" class="headerlink" title="5. 其他数据"></a>5. 其他数据</h2><p>可以直接用TCGA assembler 2 下载。</p>
 
@@ -303,7 +307,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

@@ -188,7 +188,7 @@
 <h3 id="2-CPM：Counts-per-million"><a href="#2-CPM：Counts-per-million" class="headerlink" title="2.CPM：Counts per million"></a>2.CPM：Counts per million</h3><p>数值概念：计算公式：CPM= A/mapped reads*1000000  A为比对到某基因的reads数（read count）。</p>
 <p>用途：在某些情况下，只想了解每个基因被覆盖到的相对reads数，而不希望对其做长度校正，就会使用这个指标。</p>
 <p>CPM只对read count相对总reads数做了数量的均一化。当如果想进行表达量的基因间比较，则不得不考虑基因长度的不同。如果进一步做长度的均一化，就得到了下面的RPKM、FPKM。</p>
-<h3 id="3-RPKM：Reads-Per-Kilobaseof-exon-model-per-Million-mapped-reads-每千个碱基的转录每百万映射读取的reads"><a href="#3-RPKM：Reads-Per-Kilobaseof-exon-model-per-Million-mapped-reads-每千个碱基的转录每百万映射读取的reads" class="headerlink" title="3.RPKM：Reads Per Kilobaseof exon model per Million mapped reads (每千个碱基的转录每百万映射读取的reads)"></a>3.RPKM：Reads Per Kilobaseof exon model per Million mapped reads (每千个碱基的转录每百万映射读取的reads)</h3><p>数值概念：计算公式：RPKM=(1000000<em>A)/( mapped reads </em>gene length/1000)</p>
+<h3 id="3-RPKM：Reads-Per-Kilobaseof-exon-model-per-Million-mapped-reads-每千个碱基的转录每百万映射读取的reads"><a href="#3-RPKM：Reads-Per-Kilobaseof-exon-model-per-Million-mapped-reads-每千个碱基的转录每百万映射读取的reads" class="headerlink" title="3.RPKM：Reads Per Kilobaseof exon model per Million mapped reads (每千个碱基的转录每百万映射读取的reads)"></a>3.RPKM：Reads Per Kilobaseof exon model per Million mapped reads (每千个碱基的转录每百万映射读取的reads)</h3><p>数值概念：计算公式：RPKM=(1000000*A)/( mapped reads *gene length/1000)</p>
 <p>设A 为比对到某基因的 reads数（read count）。</p>
 <p>RPKM法能消除基因长度和测序量差异对计算基因表达的影响，计算得到的基因表达量可直接用于比较不同样品间的基因表达差异和不同基因间表达高低的比较。</p>
 <p><strong>用途</strong>：用于与基因表达量相关的后期分析。基因表达趋势分析、WGCNA共表达网络构建，热图绘制等都使用。</p>
@@ -214,10 +214,10 @@
 <p><strong>转录组（transcriptome）</strong><br> <strong>广义上</strong>指某一生理条件下，细胞内所有转录产物的集合， 包括<strong>信使</strong>mRNA、<strong>核糖体</strong>rRNA、<strong>转运</strong>tRNA及<strong>非编码</strong>non-coding RNA；<strong>狭义上</strong>指所有mRNA的集合。</p>
 <p>蛋白质是行使细胞功能的<strong>主要承担者</strong>，蛋白质组是细胞功能和状态的<strong>最直接描述</strong>，</p>
 <p>转录组成为研究基因表达的主要手段，转录组是连接基因组遗传信息与生物功能的蛋白质组的必然纽带，<br>转录水平的调控是目前研究最多的，也是生物体最重要的调控方式。</p>
-<p>基因的Transcript Variant 和 isoform的区别如下：<br> 1.transcript variant是从结果来看的，一个基因产生了不同的mRNA；<br> splice variant是从过程讲的，强调<a href="https://www.baidu.com/s?wd=内含子&amp;from=1012015a&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">内含子</a>剪切的方式不一样。<br> variant指的是转录本的亚型，<br> isform指的是蛋白水平的。<br> 有的时候虽然variant很多但是对应的蛋白可能是重复的。</p>
-<p>2.有很多过程可以影响isoform的形成，如<a href="https://www.baidu.com/s?wd=可变剪切&amp;from=1012015a&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">可变剪切</a>，<br> 即不一定所有的<a href="https://www.baidu.com/s?wd=外显子&amp;from=1012015a&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">外显子</a>都用来形成成熟的mRNA,而且有时候什么<a href="https://www.baidu.com/s?wd=内含子&amp;from=1012015a&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">内含子</a>,<a href="https://www.baidu.com/s?wd=外显子&amp;from=1012015a&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">外显子</a>也不是绝对的。</p>
+<p>基因的Transcript Variant 和 isoform的区别如下：<br> 1.transcript variant是从结果来看的，一个基因产生了不同的mRNA；<br> splice variant是从过程讲的，强调<a href="https://www.baidu.com/s?wd=%E5%86%85%E5%90%AB%E5%AD%90&from=1012015a&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">内含子</a>剪切的方式不一样。<br> variant指的是转录本的亚型，<br> isform指的是蛋白水平的。<br> 有的时候虽然variant很多但是对应的蛋白可能是重复的。</p>
+<p>2.有很多过程可以影响isoform的形成，如<a href="https://www.baidu.com/s?wd=%E5%8F%AF%E5%8F%98%E5%89%AA%E5%88%87&from=1012015a&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">可变剪切</a>，<br> 即不一定所有的<a href="https://www.baidu.com/s?wd=%E5%A4%96%E6%98%BE%E5%AD%90&from=1012015a&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">外显子</a>都用来形成成熟的mRNA,而且有时候什么<a href="https://www.baidu.com/s?wd=%E5%86%85%E5%90%AB%E5%AD%90&from=1012015a&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">内含子</a>,<a href="https://www.baidu.com/s?wd=%E5%A4%96%E6%98%BE%E5%AD%90&from=1012015a&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">外显子</a>也不是绝对的。</p>
 <p>另外有<strong>RNA editing</strong>这个过程，会使得形成mRNA时某个特定的位置的碱基发生变化，<br> 也就是变成不是原来基因想要编码的东西。</p>
-<p>有个例子就是一个叫XBP-1的<a href="https://www.baidu.com/s?wd=转录因子&amp;from=1012015a&amp;fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">转录因子</a>，它调控细胞的unfolded protein response，</p>
+<p>有个例子就是一个叫XBP-1的<a href="https://www.baidu.com/s?wd=%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90&from=1012015a&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1Y4mWPBmvfkrHbYn1T4Pj-B0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3EnW0krHb1rjT4njTYP1D4P1md">转录因子</a>，它调控细胞的unfolded protein response，</p>
 <p>激活方式就是上游蛋白剪切其mRNA然后生成有活性的mRNA，<br> 所以这种variant的生成竟然也是调控的一种方法。</p>
 <p>链接：<a href="https://www.jianshu.com/p/0f5a9616efe2">https://www.jianshu.com/p/0f5a9616efe2</a></p>
 
@@ -226,8 +226,8 @@
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2019-12-26_SRA_data/" data-toggle="tooltip" data-placement="left"
-                     title="SRA 序列数据库">&larr; Previous Post</a>
+                  <a href="/hexo/2019-12-26_NGS_Epigenetic/" data-toggle="tooltip" data-placement="left"
+                     title="NGS表观调控学习">&larr; Previous Post</a>
               </li>
               
               
@@ -291,7 +291,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

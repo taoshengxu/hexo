@@ -189,37 +189,44 @@
 <li><p>获得GSE号：GSE81916</p>
 </li>
 </ol>
-<h5 id="下载测序数据"><a href="#下载测序数据" class="headerlink" title="下载测序数据"></a>下载测序数据</h5><ol>
+<h5 id="下载测序数据"><a href="#下载测序数据" class="headerlink" title="下载测序数据"></a>下载测序数据</h5><ol start="3">
 <li><p><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81916">https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81916</a>获取数据信息，并点击网址下方的ftp，下载测序数据</p>
 </li>
 <li><p>从<a href="https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA323422">https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA323422</a>可知我们需要的mRNA测序编号为SRR3589956到SRR3589962</p>
 </li>
 <li><p>通过Apera下载SRR数据，这里以SRR3589956为例：</p>
 <pre><code> ascp -T -i /home/anlan/.aspera/connect/etc/asperaweb_id_dsa.openssh anonftp@ftp-private.ncbi.nlm.nih.gov:sra/sra-instant/reads/ByRun/sra/SRR/SRR358/SRR3589956/SRR3589956.sra ./
-</code></pre></li>
+</code></pre>
+</li>
 </ol>
-<h5 id="转化fastq测序数据"><a href="#转化fastq测序数据" class="headerlink" title="转化fastq测序数据"></a>转化fastq测序数据</h5><ol>
+<h5 id="转化fastq测序数据"><a href="#转化fastq测序数据" class="headerlink" title="转化fastq测序数据"></a>转化fastq测序数据</h5><ol start="6">
 <li><p>通过sratoolkit工具将SRR文件转化为fastq格式的测序数据（写了个shell循环）</p>
 <pre><code> for i in $(seq 56 62);do nohup fastq-dump --split-3  SRR35899${i} &amp;;done
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>通过fastqc对每个fastq文件进行质检，用multiqc查看整体质检报告（对当前目录下的fastq测序结果进行质检，生成每个fq文件的质检报告总multiqc整合后统计查看）</p>
 <pre><code> fastqc *.fastq
  multiqc ./
-</code></pre><p> 点击这个url可以查看我这个multiqc报告：<a href="http://www.bioinfo-scrounger.com/data/multiqc_report.html">http://www.bioinfo-scrounger.com/data/multiqc_report.html</a></p>
+ 
+</code></pre>
+<p> 点击这个url可以查看我这个multiqc报告：<a href="http://www.bioinfo-scrounger.com/data/multiqc_report.html">http://www.bioinfo-scrounger.com/data/multiqc_report.html</a></p>
 </li>
-<li>如果有接头或者质量值不达标的需要进行过滤，这次的数据质量都不错，因此直接进行比对即可</li>
+<li><p>如果有接头或者质量值不达标的需要进行过滤，这次的数据质量都不错，因此直接进行比对即可</p>
+</li>
 </ol>
-<h5 id="序列比对"><a href="#序列比对" class="headerlink" title="序列比对"></a>序列比对</h5><ol>
+<h5 id="序列比对"><a href="#序列比对" class="headerlink" title="序列比对"></a>序列比对</h5><ol start="9">
 <li><p>安装hisat2软件，下载人类的hiast2索引文件</p>
 <ul>
 <li><p>hisat2下载并安装：</p>
 <pre><code>  ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.1.0-Linux_x86_64.zip
   unzip hisat2-2.1.0-Linux_x86_64.zip
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>下载hisat2的human索引</p>
 <pre><code>  ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/data/hg19.tar.gz
   tar zxvf hg19.tar.gz
-</code></pre></li>
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>用hisat2进行比对，测序数据放在data目录下，索引文件放在reference/index/hisat2/hg19目录下，SRR3589956-SRR3589958为人的测序数据</p>
@@ -227,22 +234,26 @@
 -x ~/reference/index/hisat2/hg19/genome \
 -1 ./data/SRR35899${i}_1.fastq -2 ./data/SRR35899${i}_2.fastq \
 -S SRR35899$i.sam &gt;SRR35899${i}.log;done
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>用samtools将sam文件转化为bam文件，并使用默认排序</p>
 <pre><code>for i in $(seq 56 58);do samtools sort -@ 5 -o SRR35899${i}.bam SRR35899${i}.sam;done
-</code></pre></li>
+</code></pre>
+</li>
 </ol>
-<h5 id="reads计数"><a href="#reads计数" class="headerlink" title="reads计数"></a>reads计数</h5><ol>
+<h5 id="reads计数"><a href="#reads计数" class="headerlink" title="reads计数"></a>reads计数</h5><ol start="12">
 <li><p>用htseq对比对产生的bam进行count计数</p>
 <ul>
 <li><p>htseq安装，使用miniconda，省事！唯一的问题是htseq版本不是最新的，是0.7.2。想要最新版还是要正常安装，可参考<a href="http://www.biotrainee.com/thread-1847-1-2.html">http://www.biotrainee.com/thread-1847-1-2.html</a></p>
 <pre><code>  conda install -c bioconda htseq
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>用htseq将对比后的结果进行计数</p>
 <pre><code>  for i in $(seq 56 58);do htseq-count -f bam -r pos -s no \
   SRR35899${i}.bam ~/reference/genome/hg19/gencode.v26lift37.annotation.gtf \
   1&gt;SRR35899${i}.count 2&gt;SRR35899${i}_htseq.log;done
-</code></pre></li>
+</code></pre>
+</li>
 </ul>
 </li>
 <li><p>将3个count文件（SRR3589956.count，SRR3589957.count，SRR3589958.count）合并成一个count矩阵，这是就需要脚本来解决这个问题，不然其他方法会稍微麻烦点</p>
@@ -279,7 +290,8 @@ map{
     }
     print &quot;\n&quot;;
 }keys %hash;
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>按照接下来的剧本，应该讲count_matrix文件导入DESeq进行差异表达分析。但是从这篇文章的Bioinformatic analyses部分可以发现，作者的control组的2组数据是来自2个不同的批次（一个是SRR3589956，另外一个来源GSM1095127 in GSE44976），treat组倒是同一个批次（SRR3589957和SRR3589958）。但是对于Mouse cells来说，倒是满足2个control和2个treat都正常来自同个批次，因此打算重新用SRR3589959-SRR3589962重新做个一个count_matrix进行后续差异分析</p>
 </li>
 </ol>
@@ -358,7 +370,7 @@ map{
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

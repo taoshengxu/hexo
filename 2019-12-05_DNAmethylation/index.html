@@ -185,8 +185,8 @@
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="1-甲基化"><a href="#1-甲基化" class="headerlink" title="1. 甲基化"></a>1. 甲基化</h2><p>DNA甲基化是科学家们最早发现的DNA修饰途径之一，即在甲基转移酶的催化下，DNA的CG两个核苷酸的胞嘧啶被选择性地添加甲基，形成5－甲基胞嘧啶。</p>
 <p><code>DNA甲基化通常抑制基因表达,去甲基化则诱导了基因的重新活化和表达。</code></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/methylation.png" alt=""></p>
-<h2 id="2-CpG岛—-不易被甲基化"><a href="#2-CpG岛—-不易被甲基化" class="headerlink" title="2. CpG岛— 不易被甲基化"></a>2. CpG岛— 不易被甲基化</h2><p><strong>在哺乳动物中CpG以两种形式存在：一种是分散于DNA序列中；另一种呈现高度聚集状态，人们称之为CpG岛（CpG island）。</strong></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/methylation.png"></p>
+<h2 id="2-CpG岛–-不易被甲基化"><a href="#2-CpG岛–-不易被甲基化" class="headerlink" title="2. CpG岛– 不易被甲基化"></a>2. CpG岛– 不易被甲基化</h2><p><strong>在哺乳动物中CpG以两种形式存在：一种是分散于DNA序列中；另一种呈现高度聚集状态，人们称之为CpG岛（CpG island）。</strong></p>
 <p>CpG双核苷酸在人类基因组中的分布很不均一，而在基因组的某些区段，CpG保持或高于正常概率。CpG岛主要位于基因的启动子（promotor）和外显子区域，是富含CpG二核苷酸的一些区域，长度为300—3000bp。这里CpG是胞嘧啶（C）—磷酸（p）—鸟嘌呤（G）的缩写。CpG岛常位于基因转录调控区附近，与56%的人类基因组编码基因相关，因此<em>基因转录区CpG岛的甲基化状态的研究就显得十分重要</em>。人类基因组序列草图分析结果表明，人类基因组CpG岛约为28890个，大部分染色体每1Mb就有5-15个CpG岛，平均值为每Mb含10.5个CpG岛，CpG岛的数目与基因密度有良好的对应关系。</p>
 <p>CpG岛经常出现在<a href="https://baike.baidu.com/item/%E7%9C%9F%E6%A0%B8%E7%94%9F%E7%89%A9">真核生物</a>的编码基因的调控区，在其它地方出现时会由于CpG中的C易被甲基化而形成5’-甲基胞嘧啶，脱氨基后形成<a href="https://baike.baidu.com/item/%E8%83%B8%E8%85%BA%E5%98%A7%E5%95%B6">胸腺嘧啶</a> T，由于T本身就会存在于DNA中，因此不易被修复，所以被淘汰。故CpG在基因组中是以岛的形式分布的。CpG岛，其中G在DNA链中紧随C后。在许多基因的启动子（promotor）或“起始”区域周围，甲基化经常被抑制。这些区域包含浓度相对较高的CpG对，与此段区域对应的染色体区段一起被称作CpG岛，其长度通常在几百到几千核苷酸的长度内变化。</p>
 <p><strong>在正常组织里，70%～90%散在的CpG是被甲基修饰的，而与之相反，大小为100-1000bp左右且富含CpG二核苷酸的CpG岛，则往往非甲基化的。在肿瘤发生时,抑癌基因CpG岛以外的CpG序列非甲基化程度增加,CpG岛中的CpG则呈高度甲基化状态,导致抑癌基因表达的下降。</strong></p>
@@ -204,12 +204,12 @@
 <p>一张芯片包括12个array，也就是一张芯片可以做12个sample，一台机子一次可以跑8张芯片，也就是一共96个sample，每个样本可以测到超过450，000个CpG位点的甲基化信息（大概人所有甲基化位点的1%，但是覆盖了多数CpG岛和启动子区），芯片本身包含一些控制探针可以做质控。</p>
 <p><strong>原理</strong></p>
 <p>简而言之，基于亚硫酸盐处理后的DNA序列杂交的信号探测。亚硫酸盐是甲基化探测的“金标准”，不管是芯片或者甲基化测序，都要先对DNA样品进行亚硫酸盐处理，使非甲基化的C变成U，而甲基化的C保持不变，从而在后续的测序或者杂交后区分出来。450K采用了两种探针对甲基化进行测定，Infinium I采用了两种bead（甲基化M和非甲基化U，如图显示），而II只有一种bead（即甲基化和非甲基化在一起），这也导致了它们在后续荧光探测的不同，450K采用了两种荧光探测信号（红光和绿光）。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation1.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation1.jpg"></p>
 <p>DNA甲基化指的是包裹在DNA上CG碱基（又叫CpG）的外周的一些蛋白发生变化，进而导致基因或者一些调控因子的表达出现变化，进而导致那些基因或者调控因子控制的表型出现变化，进而导致疾病或者差异的发生。DNA甲基化被认为是表观遗传调控的一种方式，如Cytosine methylation (5-mC)是研究最多的，被认为是哺乳动物中常见的甲基化方式, 最近有一些研究也发现了其他形式的甲基化，如2016年Nature上发表了一篇关于鼠的胚胎干细胞的m6A（N6-methyladenine）形式的甲基化。DAN甲基化被认为对基因表达，染色质重塑，细胞分化，疾病等都有重要影响。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation2.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation2.jpg"></p>
 <p><strong>甲基化的检测方法</strong></p>
 <p>目前甲基化检测的方法可以概括为三种：芯片、测序、免疫沉淀。具体选择何种方法主要还是根据实验目的和实验室条件了。但目前来说，甲基化芯片技术从覆盖度，检测灵敏度和价格综合考虑，还是性价比相对高。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation3.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation3.jpg"></p>
 <p><strong>甲基化芯片常见的Glossary</strong></p>
 <ul>
 <li>CpG island: Defned as regions 500 bp, 55% GC and expected/observed CpG ratio of 0.65. 40% of gene promoters contain islands.</li>
@@ -236,7 +236,7 @@
 <li>GenomeStudio<br> GS是illumina开发的软件，基于图形界面的操作处理，适合于没有R及编程基础的人使用，但是使用GS需要权限，本人试过挺难破解的，如果有人可以破解，可以提供给论坛小伙伴使用。</li>
 <li>基于R和bioconductor的pipeline<br> bioconductor里开发了很多package供大家使用，如果你会R，那么处理这个甲基化芯片的数据将变得简单。<br> 可以处理450K芯片的package有lumi、minfi、wateRmelon、ChAMP等，没有哪一种就特别好，大家都在不断改进，所以只要你知道大概的流程和需要注意的问题，那么你也可以自己写代码处理，只是package可以帮你省很多事情。下边我会附上我的处理流程图和详解，还有我的代码，我的代码是基于minfi的，我再次强调，代码只是手段，你可以用其他的package（例如我的同事很多使用ChAMP），也许会更好。</li>
 </ol>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation4.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/DNA_methylation4.jpg"></p>
 <p>流程图详解：</p>
 <ul>
 <li>蓝色部分代表的是有关于数据的准备部分</li>
@@ -284,7 +284,7 @@
     <div class="toc-wrap">
         Table of Contents
         
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-甲基化"><span class="toc-number">1.</span> <span class="toc-text">1. 甲基化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CpG岛—-不易被甲基化"><span class="toc-number">2.</span> <span class="toc-text">2. CpG岛— 不易被甲基化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CpG岛总结"><span class="toc-number">2.1.</span> <span class="toc-text">CpG岛总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Illumina-HumanMethylation-BeadChip简介"><span class="toc-number"></span> <span class="toc-text">Illumina HumanMethylation BeadChip简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据分析"><span class="toc-number"></span> <span class="toc-text">数据分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2016-9-30"><span class="toc-number"></span> <span class="toc-text">2016.9.30</span></a>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-甲基化"><span class="toc-number">1.</span> <span class="toc-text">1. 甲基化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CpG岛–-不易被甲基化"><span class="toc-number">2.</span> <span class="toc-text">2. CpG岛– 不易被甲基化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CpG岛总结"><span class="toc-number">2.1.</span> <span class="toc-text">CpG岛总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Illumina-HumanMethylation-BeadChip简介"><span class="toc-number"></span> <span class="toc-text">Illumina HumanMethylation BeadChip简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据分析"><span class="toc-number"></span> <span class="toc-text">数据分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2016-9-30"><span class="toc-number"></span> <span class="toc-text">2016.9.30</span></a>
         
     </div>
   </div>
@@ -330,7 +330,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

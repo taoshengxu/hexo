@@ -187,23 +187,27 @@
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="1-module-environment安装"><a href="#1-module-environment安装" class="headerlink" title="1.module-environment安装"></a>1.module-environment安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install environment-modules</span><br></pre></td></tr></table></figure>
+
 <h1 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2.初始化"></a>2.初始化</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /usr/share/module/init/bash</span><br><span class="line">也可能在以下路径</span><br><span class="line"><span class="built_in">source</span> /usr/share/modules/init/bash</span><br><span class="line"></span><br><span class="line">修改上面文件，在最后一行加上全局的路径，所有用户都能看到 ,然后<span class="built_in">source</span></span><br><span class="line"><span class="built_in">export</span> MODULEPATH=/data/Modules/modulefiles:<span class="variable">$MODULEPATH</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="3-文件书写"><a href="#3-文件书写" class="headerlink" title="3. 文件书写"></a>3. 文件书写</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">在定义的MODULEPATH 路径下 加入每个module的配置文件，格式如下，文件名保存为 如maker3.01</span><br><span class="line"></span><br><span class="line"><span class="comment">#%Module1.0</span></span><br><span class="line">proc ModulesHelp &#123; &#125; &#123;</span><br><span class="line">global version prefix</span><br><span class="line"> </span><br><span class="line">puts stderr <span class="string">"\t Loads the environment for my installed home folder HOME/local"</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">module-whatis   <span class="string">"Loads the environment for my installed home folder HOME/local"</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">set</span>     HOME    /data/Modules/biosoft/maker3.01</span><br><span class="line"> </span><br><span class="line">prepend-path    PATH            <span class="variable">$HOME</span>/bin</span><br><span class="line"><span class="comment">#prepend-path    LIBRARY_PATH    $HOME/Libraries</span></span><br><span class="line"><span class="comment">#prepend-path    LD_LIBRARY_PATH $HOME/local/lib</span></span><br><span class="line"><span class="comment">#prepend-path    LD_INCLUDE_PATH $HOME/local/include</span></span><br><span class="line"><span class="comment">#prepend-path    MANPATH         $HOME/local/share/man</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="4-使用命令"><a href="#4-使用命令" class="headerlink" title="4.使用命令"></a>4.使用命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module av  <span class="comment"># 查看可用的module模块</span></span><br><span class="line">module list <span class="comment">#显示目前已经加装的模块</span></span><br><span class="line">module load <span class="comment"># 加载模块</span></span><br><span class="line">module unload <span class="comment"># 卸载模块</span></span><br></pre></td></tr></table></figure>
+
 
           
           <hr>
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2021-10-16_amozonS3/" data-toggle="tooltip" data-placement="left"
-                     title="亚马逊云S3 下载">&larr; Previous Post</a>
+                  <a href="/hexo/2021-03-20_PASA_braker2_gene/" data-toggle="tooltip" data-placement="left"
+                     title="PASA和braker2使用教程">&larr; Previous Post</a>
               </li>
               
               
               <li class="next">
-                  <a href="/hexo/2021-03-20_PASA_braker2_gene/" data-toggle="tooltip" data-placement="top"
-                     title="PASA和braker2使用教程">Next Post&rarr;</a>
+                  <a href="/hexo/2020-12-14_glaxy/" data-toggle="tooltip" data-placement="top"
+                     title="Galaxy Genome Annotation">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -261,7 +265,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

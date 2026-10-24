@@ -203,11 +203,11 @@
 <li>评估富集得分(ES)的显著性。通过基于表型而不改变基因之间关系的排列检验 (permutation test)计算观察到的富集得分(ES)出现的可能性。若样品量少，也可基于基因集做排列检验 (permutation test)，计算p-value。</li>
 <li>多重假设检验矫正。首先对每个基因子集s计算得到的ES根据基因集的大小进行标准化得到Normalized Enrichment Score (NES)。随后针对NES计算假阳性率。（计算NES也有另外一种方法，是计算出的ES除以排列检验得到的所有ES的平均值）</li>
 </ol>
-<ol>
+<ol start="4">
 <li>Leading-edge subset，对富集得分贡献最大的基因成员。</li>
 </ol>
 <h1 id="GSEA分析-软件界面操作"><a href="#GSEA分析-软件界面操作" class="headerlink" title="GSEA分析- 软件界面操作"></a>GSEA分析- 软件界面操作</h1><p><a href="https://blog.csdn.net/qazplm12_3/article/details/78561937">https://blog.csdn.net/qazplm12_3/article/details/78561937</a></p>
-<p><a href="https://taoshengxu.github.io/DocumentGit/pdf/GSEA富集分析_界面操作.pdf">pdf文档</a></p>
+<p><a href="https://taoshengxu.github.io/DocumentGit/pdf/GSEA%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90_%E7%95%8C%E9%9D%A2%E6%93%8D%E4%BD%9C.pdf">pdf文档</a></p>
 <h1 id="ES图"><a href="#ES图" class="headerlink" title="ES图"></a>ES图</h1><ol>
 <li><p>中间从红色到蓝色的过渡“带”表示基因从上调到下调排列（排序可以按照fold change,也可以是p-value)。</p>
 </li>
@@ -219,7 +219,7 @@
 </li>
 </ol>
 <p>   <strong>示例说明：</strong></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSEA.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSEA.png"></p>
 <p><strong>红蓝颜色条</strong></p>
 <p><em>设定一个衡量差异表达程度的统计量，简单起见用log Fold Change，来把基因排序。上面那个颜色条就表示一共有17425个基因表达，下方数字表示该处对应的基因所在的序号，红色到蓝色，表示从上调到下调。</em></p>
 <p><strong>黑色的杠杠</strong></p>
@@ -237,10 +237,10 @@
 <hr>
 <h2 id="另一个生信技能树的例子"><a href="#另一个生信技能树的例子" class="headerlink" title="另一个生信技能树的例子"></a>另一个生信技能树的例子</h2><p><a href="https://vip.biotrainee.com/d/345-gsea-r">https://vip.biotrainee.com/d/345-gsea-r</a></p>
 <p>假设芯片测到了2万个基因，这两万个基因在case和control组的差异度量(六种差异度量，默认是signal 2 noise，GSEA官网有提供公式，也可以选择大家熟悉的foldchange)肯定不一样,那么根据它们的差异度量，就可以对它们进行排序，并且Z-score标准化，在ES图的最底端展示的就是signal2noise, 红蓝色条就是signal2noise值的热图。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSEA_1.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSEA_1.png"></p>
 <p><strong>图中间部分黑色竖条码，就是我们每个gene set里面的基因在所有的2万个排序好基因的位置，如果gene set里面的基因集中在2万个基因的前面部分，就是在case组里面富集，如果集中在后面部分，就是在control组里面富集。</strong></p>
 <p><strong>最上面图的ES score</strong></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSEA_2.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/GSEA_2.png"></p>
 <p>每个基因在每个gene set里面的ES score取决于这个基因是否属于该gene set，还有就是它的差异度量，上图的差异度量就是FC（foldchange）,对每个gene set来说，所有的基因的ES score都要一个个加起来，叫做running ES score，在加的过程中，什么时候ES score达到了最大值，就是这个gene set最终的ES score！所谓的GSEA分析，就是一个个遍历探索已知的基因集合，在我们的表达矩阵里面是否出现了某种统计学显著的扰动，如上图所示，要深入理解，请看我在生信菜鸟团写的另外3个教程：</p>
 <ul>
 <li>java版本GSEA软件的ES score图片的修改 <a href="http://www.bio-info-trainee.com/2105.html">http://www.bio-info-trainee.com/2105.html</a></li>
@@ -266,7 +266,7 @@
 <p>我们按照上述计算ES的方法，先随机打乱表达谱中基因的表达顺序，然后再依次计算ES值，如此重复一千次，得到一千个ES值，我们根据这一千个ES值的分布，来计算A.ES在这个分布中所处的位置及出现在该位置时的概率即得到了p值</p>
 <p>依次我们分别计算每个通路的ES及p值，然后使用多重检验矫正得到每个通路的FDR</p>
 <p>以上即是整个ssGSEA算法的整体思路。</p>
-<p>[作者：ingene 链接：<a href="https://www.jianshu.com/p/3467077ff60f">https://www.jianshu.com/p/3467077ff60f</a>]</p>
+<p>[作者：ingene 链接：<a href="https://www.jianshu.com/p/3467077ff60f]">https://www.jianshu.com/p/3467077ff60f]</a></p>
 
           
           <hr>
@@ -342,7 +342,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

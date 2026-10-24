@@ -188,7 +188,7 @@
 <p>真核生物的核DNA并不是裸露的，而是与<strong>组蛋白</strong>结合形成染色体的基本结构单位<strong>核小体</strong>，核小体再经逐步的压缩折叠最终形成染色体高级结构（如人的DNA链完整展开约2m长，经过这样的折叠就变成了纳米级至微米级的染色质结构而可以储存在小小的细胞核）。而DNA的复制转录是需要将DNA的紧密结构打开，从而允许一些调控因子结合（转录因子或其他调控因子）。这部分打开的染色质，就叫开放染色质，</p>
 <p><strong>染色质的可及性（chromatin accessibility）</strong>：打开的染色质允许其他调控因子结合的特性称为染色质的可及性（chromatin accessibility）。因此，认为染色质的可及性与转录调控密切相关。</p>
 </blockquote>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/ATAC-Seq.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/ATAC-Seq.jpg"></p>
 <h3 id="DNA转座"><a href="#DNA转座" class="headerlink" title="DNA转座"></a>DNA转座</h3><p>一种把DNA序列从染色体的一个区域搬运到另外一个区域的现象，由DNA转座酶来实现。这种转座插入DNA，也是需要插入位点的染色质是开放的，否则就会被一大坨高级结构给卡住。那么，如上图a，我们只要人为地，将携带已知DNA序列标签的转座复合物（即带着红色蓝色测序标签的转座酶Tn5），加入到细胞核中，再利用已知序列的标签进行PCR后测序，就知道哪些区域是开放染色质了。而这也就是ATAC-seq的原理。ATAC-seq出来的结果，和传统方法出来的结果具有很强的一致性，同时也和基于组蛋白修饰marker的ChIP-seq有较高的吻合程度。也就是说，ATAC-seq中的peak，往往是启动子、增强子序列，以及一些反式调控因子结合的位点。</p>
 <blockquote>
 <p>相比起来，ATAC-seq的重复性，比MNase-seq和DNase-seq的更强，操作起来也更加简单，而且只需要很少的细胞/组织量，同时出来的信号更加漂亮。</p>
@@ -201,8 +201,10 @@
 </li>
 <li><p><strong>ChIP-Seq</strong>是揭示特定转录因子或蛋白复合物的结合区域，实际是研究DNA和蛋白质的相互作用，利用抗体将蛋白质和DNA一起富集，并对富集到的DNA进行测序。</p>
 </li>
-<li><strong>DNase-Seq、ATAC-Seq、FAIRE-Seq</strong>都是用来研究开放染色质区域。DNase-Seq是用的DNase I内切酶识别开放染色质区域，而ATAC-seq是用的Tn5转座酶，随后进行富集和扩增；FAIRE-Seq是先进行超声裂解，然后用酚-氯仿富集。</li>
-<li><strong>MNase-Seq</strong>是用来鉴定核小体区域。</li>
+<li><p><strong>DNase-Seq、ATAC-Seq、FAIRE-Seq</strong>都是用来研究开放染色质区域。DNase-Seq是用的DNase I内切酶识别开放染色质区域，而ATAC-seq是用的Tn5转座酶，随后进行富集和扩增；FAIRE-Seq是先进行超声裂解，然后用酚-氯仿富集。</p>
+</li>
+<li><p><strong>MNase-Seq</strong>是用来鉴定核小体区域。</p>
+</li>
 </ul>
 <p><img src="https://taoshengxu.github.io/DocumentGit/img/ATAC_ChIP-Seq.jpg" alt="An overview of ChIP–seq, DNase-seq, ATAC-seq, MNase-seq and FAIRE–seq experiments"><span class="image-caption-center">An overview of ChIP–seq, DNase-seq, ATAC-seq, MNase-seq and FAIRE–seq experiments</span></p>
 <h3 id="全基因组范围的转录因子（TFs）结合位点分析"><a href="#全基因组范围的转录因子（TFs）结合位点分析" class="headerlink" title="全基因组范围的转录因子（TFs）结合位点分析"></a><strong>全基因组范围的转录因子（TFs）结合位点分析</strong></h3><p>确定转录因子结合位点（TFBS）是理解转录调控机制，建立转录调控网络的关键，可以提供基因表达机制层面的重要信息。转录因子结合位点预测是<strong>ATAC-seq的“拿手好戏”</strong>，可以在一次实验中获得全基因组范围内全部的TFBS，再结合ChIP-seq的验证，可将所有转录因子的“行踪”尽收眼底</p>
@@ -217,8 +219,8 @@
           <ul class="pager no-print">
               
               <li class="previous">
-                  <a href="/hexo/2020-05-25_cancergene/" data-toggle="tooltip" data-placement="left"
-                     title="癌症基因">&larr; Previous Post</a>
+                  <a href="/hexo/2020-05-31_DEseq2/" data-toggle="tooltip" data-placement="left"
+                     title="离差，基因离差，DEseq2差异表达分析">&larr; Previous Post</a>
               </li>
               
               
@@ -282,7 +284,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

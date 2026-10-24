@@ -187,7 +187,9 @@
           <hr>
           
           <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="1-安装-AWS管理器"><a href="#1-安装-AWS管理器" class="headerlink" title="1.安装 AWS管理器"></a>1.安装 AWS管理器</h1><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> -c conda-forge awscli</span><br></pre></td></tr></table></figure>
+
 <h1 id="2-下载命令"><a href="#2-下载命令" class="headerlink" title="2. 下载命令"></a>2. 下载命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## --no-sign-request 表示不用用户登陆</span></span><br><span class="line"><span class="comment">## 查看文件目录</span></span><br><span class="line">aws s3 ls s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/ --no-sign-request</span><br><span class="line"></span><br><span class="line"><span class="comment">## 下载数据</span></span><br><span class="line">aws s3 sync s3://ngi-igenomes/igenomes/Homo_sapiens/GATK/GRCh38/ . --no-sign-request</span><br></pre></td></tr></table></figure>
+
 
           
           <hr>
@@ -200,8 +202,8 @@
               
               
               <li class="next">
-                  <a href="/hexo/2021-03-20_module_environment/" data-toggle="tooltip" data-placement="top"
-                     title="module-environment使用教程">Next Post&rarr;</a>
+                  <a href="/hexo/2021-03-20_PASA_braker2_gene/" data-toggle="tooltip" data-placement="top"
+                     title="PASA和braker2使用教程">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -259,7 +261,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

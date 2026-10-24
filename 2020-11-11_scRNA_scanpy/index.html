@@ -190,14 +190,17 @@
 <p>数据在.X（cell X gene）中，cell相关的信息记录在.obs中，属性gene的信息记录在.var中，其他的信息在.uns中</p>
 <p><img src="https://falexwolf.de/img/scanpy/anndata.svg" alt="https://falexwolf.de/img/scanpy/anndata.svg"><span class="image-caption-center">https://falexwolf.de/img/scanpy/anndata.svg</span></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">adata</span><br><span class="line"><span class="comment"># AnnData object with n_obs × n_vars = 11769 × 33538</span></span><br><span class="line"><span class="comment">#    obs: 'nGene', 'nUMI', 'n_genes'</span></span><br><span class="line">-------</span><br><span class="line"><span class="comment">## .X 表示取 Anndata 对象的表达矩阵，mito_genes表示列名，可以直接取到一个子表达矩阵</span></span><br><span class="line">adata[:, mito_genes].X</span><br><span class="line">-------</span><br><span class="line"><span class="comment">## 给obs 增加一个annotation ： percent_mito</span></span><br><span class="line">adata.obs[<span class="string">'percent_mito'</span>] = np.sum(adata[:, mito_genes].X, axis=<span class="number">1</span>).A1 / np.sum(adata.X, axis=<span class="number">1</span>).A1</span><br><span class="line">adata</span><br><span class="line"><span class="comment">#AnnData object with n_obs × n_vars = 11769 × 33538</span></span><br><span class="line"><span class="comment">#    obs: 'nGene', 'nUMI', 'n_genes', 'percent_mito', 'n_counts'</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="Scanpy-–-Single-Cell-Analysis-in-Python"><a href="#Scanpy-–-Single-Cell-Analysis-in-Python" class="headerlink" title="Scanpy – Single-Cell Analysis in Python"></a>Scanpy – Single-Cell Analysis in Python</h1><p>Wolf, F., Angerer, P. &amp; Theis, F. SCANPY: large-scale single-cell gene expression data analysis. Genome Biol 19, 15 (2018). <a href="https://doi.org/10.1186/s13059-017-1382-0">https://doi.org/10.1186/s13059-017-1382-0</a></p>
 <p>Scanpy is a scalable toolkit for analyzing single-cell gene expression data built jointly with <a href="https://anndata.readthedocs.io/">anndata</a>. It includes preprocessing, visualization, clustering, trajectory inference and differential expression testing. The Python-based implementation efficiently deals with datasets of more than one million cells.<br><a href="https://scanpy.readthedocs.io/en/stable/">https://scanpy.readthedocs.io/en/stable/</a><br><a href="https://scanpy.readthedocs.io/en/stable/index.html">https://scanpy.readthedocs.io/en/stable/index.html</a></p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install </span>seaborn <span class="keyword">scikit-learn </span>statsmodels numba pytables</span><br><span class="line">conda <span class="keyword">install </span>-c conda-forge python-igraph leidenalg</span><br><span class="line">pip3 <span class="keyword">install </span><span class="keyword">scanpy</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="1-PAGA轨迹推断"><a href="#1-PAGA轨迹推断" class="headerlink" title="1. PAGA轨迹推断"></a>1. PAGA轨迹推断</h3><p>PAGA(<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgenomebiology.biomedcentral.com%2Farticles%2F10.1186%2Fs13059-019-1663-x">graph abstraction reconciles clustering with trajectory inference through a topology preserving map of single cells</a>)</p>
+
+<h2 id="使用记录"><a href="#使用记录" class="headerlink" title="使用记录"></a>使用记录</h2><h3 id="1-PAGA轨迹推断"><a href="#1-PAGA轨迹推断" class="headerlink" title="1. PAGA轨迹推断"></a>1. PAGA轨迹推断</h3><p>PAGA(<a href="https://links.jianshu.com/go?to=https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1663-x">graph abstraction reconciles clustering with trajectory inference through a topology preserving map of single cells</a>)</p>
 <p><a href="https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html">https://scanpy-tutorials.readthedocs.io/en/latest/paga-paul15.html</a>  这个教程看的还不是很懂</p>
 <h1 id="velocyto-and-scVelo"><a href="#velocyto-and-scVelo" class="headerlink" title="velocyto and scVelo"></a>velocyto and scVelo</h1><p><a href="https://velocyto.org/velocyto.py/install/index.html">https://velocyto.org/velocyto.py/install/index.html</a></p>
 <p><a href="https://scvelo.readthedocs.io/">https://scvelo.readthedocs.io/</a></p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install </span>numpy <span class="keyword">scipy </span>cython numba matplotlib <span class="keyword">scikit-learn </span>h5py click</span><br><span class="line">pip <span class="keyword">install </span>velocyto</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#conda install -c conda-forge numba pytables louvain</span></span><br><span class="line">pip install -U scvelo</span><br><span class="line"></span><br><span class="line">#<span class="meta"># or # git clone git+https:<span class="comment">//github.com/theislab/scvelo</span></span></span><br><span class="line">#<span class="meta"># pip install -e scvelo</span></span><br></pre></td></tr></table></figure>
           
           <hr>
@@ -210,8 +213,8 @@
               
               
               <li class="next">
-                  <a href="/hexo/2020-11-25_R_CCA/" data-toggle="tooltip" data-placement="top"
-                     title="R语言——典型相关分析 CCA">Next Post&rarr;</a>
+                  <a href="/hexo/2020-11-12_illumina/" data-toggle="tooltip" data-placement="top"
+                     title="GEO下载SRR TO 10X Fastq">Next Post&rarr;</a>
               </li>
               
           </ul>
@@ -269,7 +272,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">

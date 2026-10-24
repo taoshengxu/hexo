@@ -198,12 +198,12 @@
 <p>  分离得到单细胞后，需要将细胞进行溶解来获取基因组 DNA(genome DNA，gDNA)。这一步骤非常关键，gDNA的质量直接影响后续基因组扩增的效果。</p>
 <p>物理法(如超声、冷冻、研磨、剪切、高压和热破坏法) 、化学法(如SDS、tritonX-100和极端pH)和酶降解法 (如蛋白酶K和溶菌酶)。细胞溶解方法的选定，需要综合考虑多方面因素，如细胞的类型、下游用途、gDNA纯化难易程度等。</p>
 </li>
-<li><p>3、全基因组扩增<strong>( WGA)</strong>；</p>
+<li><p>3、全基因组扩增**( WGA)**；</p>
 <p> 高通量测序至少需要200ng的DNA样品，而1个细胞中的总DNA一般仅有数匹克，即使使用第3代测序技术可能也无法满足样品量的需求，因此WGA对于单细胞测序是非常必要的。目前有多种方法可以用于 WGA，这些方法都是利用DNA聚合酶和不同形式的引物来进行扩增的，包括特异性的、简并的或杂合的引物。</p>
 <ul>
-<li><p><strong>PCR </strong>技术，根据引物的不同可以将其划分为三大类: 特异性引物PCR扩增、简并性引物PCR扩增及杂合性引物PCR扩增。利用PCR技术进行全基因组的扩增，扩增的覆盖度比较高，但是容易出现错误和覆盖度不均的现象，故该技术现在已经在逐步淘汰。</p>
+<li><p>**PCR **技术，根据引物的不同可以将其划分为三大类: 特异性引物PCR扩增、简并性引物PCR扩增及杂合性引物PCR扩增。利用PCR技术进行全基因组的扩增，扩增的覆盖度比较高，但是容易出现错误和覆盖度不均的现象，故该技术现在已经在逐步淘汰。</p>
 </li>
-<li><p>基于MDA技术的扩增方法为了避免PCR技术进行全基因组扩增的种种缺点，具有核酸外切酶抗性的随机引物结合枯草芽孢杆菌噬菌体(phi29DNA)聚合酶进行扩增的技术已经开始被使用，该技术也称<strong>多位点置换扩增(MDA)</strong>。</p>
+<li><p>基于MDA技术的扩增方法为了避免PCR技术进行全基因组扩增的种种缺点，具有核酸外切酶抗性的随机引物结合枯草芽孢杆菌噬菌体(phi29DNA)聚合酶进行扩增的技术已经开始被使用，该技术也称**多位点置换扩增(MDA)**。</p>
 </li>
 <li><p>MDA与PCR相结合的方法。多次退火环状循环扩增技术(multiple annealing and looping-based amplification cycles，MALBAC)是一种新的将 MDA与PCR结合的扩增技术，可以降低扩增偏倚性，提高测序覆盖度，也可明显提高单核苷酸多态性(SNPs)等位基因的检出率。</p>
 </li>
@@ -213,12 +213,12 @@
 <p>​     数据分析前要把不需要的标签序列(barcodes)、连接序列(linker)、接头序列(adapter)、低质量碱基和污染DNA移除。 传统的序列拼接方法是基于“嵌合序列比例很小且读取深度随基因组呈泊松分布”的假设，而<strong>单细胞数据中嵌合序列比例高且基因组覆盖度不均匀</strong>，不能满足这一假设，必须对基因组进行预处理。目前可以用的预处理策略主要有:  核酸文库标准化、单细胞测序数据混合分析以及生物信息学分析。</p>
 </li>
 </ul>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_1.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_1.png"></p>
 <h4 id="3-scRNA测序平台"><a href="#3-scRNA测序平台" class="headerlink" title="3. scRNA测序平台"></a>3. scRNA测序平台</h4><p><strong>1. SMART-seq</strong></p>
 <p>SMART-seq可能是最为人知的单细胞测序技术，2014年“升级换代”成SMART-seq2后，成为几乎每个单细胞测序公司都使用过的方法，直到现在还有许多厂商在制造SMART-seq2的试剂盒。大家熟悉的宝日医生物公司（TAKARA）就是其中之一。</p>
 <ul>
-<li>有长期细胞实验经验的科研人员；</li>
-<li>微量细胞样本（如胚胎细胞样本、CTC等），适用于深入研究。</li>
+<li> 有长期细胞实验经验的科研人员；</li>
+<li> 微量细胞样本（如胚胎细胞样本、CTC等），适用于深入研究。</li>
 </ul>
 <p><strong>2. Fluidigm C1</strong> </p>
 <p><strong>真正第一个实现商业化的平台</strong>。富鲁达（Fluidigm®）公司使用的integrated fluidic circuits（IFCs），也就是微流控芯片技术能够一次上样的细胞数为96个左右。C1平台成功的商业化使得更多人能够涉足单细胞测序领域。C1能够在几小时内捕获96个左右的细胞，允许捕获的细胞直径在5-25μm的范围内，最终能够得到细胞的全转录组信息。现在很多非RNA类Single Cell测序，仍然在采用这样的技术，如Single Cell DNA-Seq，Single Cell ATAC-Seq等，都是采用此技术进行单细胞分选后再分别用不同试剂盒建库。</p>
@@ -243,18 +243,18 @@
 <p>10x Genomics RNA-seq 原理详解 <a href="https://www.jianshu.com/p/70dcddd2084e">https://www.jianshu.com/p/70dcddd2084e</a> </p>
 <p>陈巍学基因10x 原理： <a href="https://www.bilibili.com/video/BV1PJ411k7mz">https://www.bilibili.com/video/BV1PJ411k7mz</a></p>
 </blockquote>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_4.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_4.png"></p>
 <p>​        10X是到目前为止商业化最成功的平台。在主流高IF期刊上有可信的数据发表，并且都与Smart-Seq数据的结果存在比较，因此10X是可用可信的大规模Single Cell RNA-Seq技术。10X Genomics起源自Drop-Seq技术，含有 Barcode 信息的 Gel beads 在微流体“双十字”交叉系统的第一个进样口与样品和酶的混合物混合；在微流体“双十字”交叉系统的第二个进样口与油表面活性剂结合形成 GEMs，通过这样的过程实现单个细胞的捕获。</p>
 <ul>
 <li><p>直径40μm以下细胞（受仪器管道直径限制）</p>
 </li>
 <li><p>大规模细胞样本，适用于分群、谱系等研究。</p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2_1.jpg" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2_1.jpg"></p>
 <p>![](<a href="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png">https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png</a></p>
 </li>
 </ul>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png" alt=""></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/10xGenomics.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_2.png"></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/10xGenomics.png"></p>
 <p><strong>4. BD Rhapsody</strong></p>
 <p>​       比10X晚一年发布的BD Rhapsody平台源于Cytoseq蜂窝板技术，采用20W+的微孔（远超过细胞数量，目的就是为了一孔一个细胞），因此可以叫做“微孔捕获”，效率会相对更高一些。捕获后也是裂解细胞，再进行mRNA抓取。</p>
 <p>​        BD最显眼的就是它充满科技感的大屏幕。通过这个屏幕，实验人员可以实时监控细胞的捕获情况。避免了传统仪器上机之后只能一条路走到黑的窘境。</p>
@@ -263,8 +263,8 @@
 <li>直径&lt;20μm的细胞（受磁珠结合效率限制）。</li>
 <li>大规模细胞样本，适用于分群、谱系等研究。</li>
 </ul>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_3.png" alt=""></p>
-<p><img src="https://taoshengxu.github.io/DocumentGit/img/BD_Rhapsody.png" alt=""></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/scRNA_3.png"></p>
+<p><img src="https://taoshengxu.github.io/DocumentGit/img/BD_Rhapsody.png"></p>
 <p><strong>5. ICB-scSeq</strong></p>
 <p>2017年开始出现的新想法：组合标签技术。</p>
 <p>上海其明信息技术有限公司的ICB-scSeq经过了大量的实验、测试和优化，是现在唯一一个能够运用组合标签法进行稳定建库的产品。</p>
@@ -339,7 +339,7 @@
             <p>
                 <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> <b>PV</b></span> -
                 <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> <b>UV</b></span> -
-                192.9k <b>Words</b>
+                193k <b>Words</b>
         </div>
 
         <div class="search-container">
